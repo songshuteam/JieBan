@@ -18,7 +18,8 @@
 
 #import <UMengAnalytics/MobClick.h>
 
-#import <PBFlatUI/PBFlatSettings.h>
+//#import <PBFlatUI/PBFlatSettings.h>
+#import "PBFlatSettings.h"
 
 #import <IQKeyboardManager/IQKeyboardManager.h>
 #import <IQKeyboardManager/IQSegmentedNextPrevious.h>

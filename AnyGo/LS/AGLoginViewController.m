@@ -11,13 +11,15 @@
 #import "PBFlatButton.h"
 #import "PBFlatTextfield.h"
 #import "AGRegisterViewController.h"
+#import <CoreText/CoreText.h>
 
 @interface AGLoginViewController () <UITextFieldDelegate>
-@property (nonatomic, strong) PBFlatTextfield *usernameTextField;
-@property (nonatomic, strong) PBFlatTextfield *passwordTextField;
 
-@property (nonatomic, strong) PBFlatButton *loginButton;
-@property (nonatomic, strong) PBFlatButton *registerButton;
+@property (nonatomic, strong) IBOutlet PBFlatTextfield *usernameTextField;
+@property (nonatomic, strong) IBOutlet PBFlatTextfield *passwordTextField;
+
+@property (nonatomic, strong) IBOutlet PBFlatButton *loginButton;
+@property (nonatomic, strong) IBOutlet PBFlatButton *registerButton;
 
 @end
 
@@ -40,8 +42,13 @@
     
     UIBarButtonItem *backItem = [PBFlatBarButtonItems backBarButtonItemWithTarget:self selector:@selector(beBack:)];
     [self.navigationItem setLeftBarButtonItem:backItem];
+    ;
+    NSMutableAttributedString *placeName = [[NSMutableAttributedString alloc] initWithString:@"请输入手机号"];
+    [placeName addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSRangeFromString(@"请输入手机号")];
+    self.usernameTextField.attributedPlaceholder = placeName;
     
-    [self buildViews];
+    
+  [self buildViews];
     
 }
 

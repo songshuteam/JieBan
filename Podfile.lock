@@ -1,0 +1,40 @@
+PODS:
+  - ASIHTTPRequest (1.8.2):
+    - ASIHTTPRequest/ASIWebPageRequest
+    - ASIHTTPRequest/CloudFiles
+    - ASIHTTPRequest/Core
+    - ASIHTTPRequest/S3
+  - ASIHTTPRequest/ASIWebPageRequest (1.8.2):
+    - ASIHTTPRequest/Core
+  - ASIHTTPRequest/CloudFiles (1.8.2):
+    - ASIHTTPRequest/Core
+  - ASIHTTPRequest/Core (1.8.2):
+    - Reachability
+  - ASIHTTPRequest/S3 (1.8.2):
+    - ASIHTTPRequest/Core
+  - FMDB (2.3):
+    - FMDB/standard
+  - FMDB/common (2.3)
+  - FMDB/standard (2.3):
+    - FMDB/common
+  - IQKeyboardManager (3.0.5)
+  - MBProgressHUD (0.8)
+  - Reachability (3.1.1)
+  - UMengAnalytics (3.1.2)
+
+DEPENDENCIES:
+  - ASIHTTPRequest (~> 1.8.1)
+  - FMDB
+  - IQKeyboardManager
+  - MBProgressHUD (~> 0.8)
+  - UMengAnalytics (~> 3.1.2)
+
+SPEC CHECKSUMS:
+  ASIHTTPRequest: 2c8335b49410c0e2ad42829c438e74d454b77590
+  FMDB: 31ec26773c7f7b7890a6038235a1f2bbd933a7cb
+  IQKeyboardManager: 89009bd8df979ad116a9c9326875ecf4c000fef0
+  MBProgressHUD: c356980b0cd097f19acec959b49dca5eb8ec31be
+  Reachability: 8e9635e3cb4f98e7f825e51147f677ecc694d0e7
+  UMengAnalytics: db0b67f5334f356f8ac53dcc0abcc4bd9d0ffb45
+
+COCOAPODS: 0.33.1
