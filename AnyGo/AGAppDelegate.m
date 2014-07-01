@@ -107,6 +107,7 @@
     self.window.rootViewController = tabBarContrller;
     
     [PBFlatSettings sharedInstance].mainColor = [UIColor colorWithRed:132.f/255 green:208.f/255 blue:24.f/255 alpha:1.f];
+    [PBFlatSettings sharedInstance].textFieldPlaceHolderColor = [UIColor clearColor];
     [[PBFlatSettings sharedInstance] navigationBarApperance];
     
     

@@ -8,7 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		5A534D70E296444B9BC0E93D /* libPods-AnyGo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00BD39C2CE934595ADE896A5 /* libPods-AnyGo.a */; };
+		6495D0CE1962445300177106 /* AGBorderHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 6495D0CD1962445300177106 /* AGBorderHelper.m */; };
 		6497093C195D435B00AB52F3 /* AGLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6497093B195D435B00AB52F3 /* AGLoginViewController.xib */; };
+		649923391960F4D800915E84 /* AGVerifiedCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 649923371960F4D800915E84 /* AGVerifiedCodeViewController.m */; };
+		6499233A1960F4D800915E84 /* AGVerifiedCodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649923381960F4D800915E84 /* AGVerifiedCodeViewController.xib */; };
+		6499233C1960F94900915E84 /* AGSettingPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6499233B1960F94900915E84 /* AGSettingPasswordViewController.xib */; };
+		649923401960FF3600915E84 /* AGBaseInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6499233E1960FF3600915E84 /* AGBaseInfoViewController.m */; };
+		649923411960FF3600915E84 /* AGBaseInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6499233F1960FF3600915E84 /* AGBaseInfoViewController.xib */; };
+		649923451961334B00915E84 /* VPImageCropperViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 649923441961334B00915E84 /* VPImageCropperViewController.m */; };
+		649923481961579500915E84 /* countryPhones.json in Resources */ = {isa = PBXBuildFile; fileRef = 649923471961579500915E84 /* countryPhones.json */; };
+		64D821F31962911200524721 /* FTCoreTextStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 64D821F01962911200524721 /* FTCoreTextStyle.m */; };
+		64D821F41962911200524721 /* FTCoreTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 64D821F21962911200524721 /* FTCoreTextView.m */; };
 		9858A89B18AE195C0003982E /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9858A89A18AE195C0003982E /* libz.dylib */; };
 		987ADBEF18AA476B00124964 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 987ADBEE18AA476B00124964 /* Foundation.framework */; };
 		987ADBF118AA476B00124964 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 987ADBF018AA476B00124964 /* CoreGraphics.framework */; };
@@ -324,7 +334,23 @@
 /* Begin PBXFileReference section */
 		00BD39C2CE934595ADE896A5 /* libPods-AnyGo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AnyGo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		56A5242B863345658BB5135A /* Pods-AnyGo.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnyGo.xcconfig"; path = "Pods/Pods-AnyGo.xcconfig"; sourceTree = "<group>"; };
+		6495D0CC1962445300177106 /* AGBorderHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGBorderHelper.h; sourceTree = "<group>"; };
+		6495D0CD1962445300177106 /* AGBorderHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGBorderHelper.m; sourceTree = "<group>"; };
 		6497093B195D435B00AB52F3 /* AGLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AGLoginViewController.xib; sourceTree = "<group>"; };
+		649923361960F4D800915E84 /* AGVerifiedCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGVerifiedCodeViewController.h; sourceTree = "<group>"; };
+		649923371960F4D800915E84 /* AGVerifiedCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGVerifiedCodeViewController.m; sourceTree = "<group>"; };
+		649923381960F4D800915E84 /* AGVerifiedCodeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AGVerifiedCodeViewController.xib; sourceTree = "<group>"; };
+		6499233B1960F94900915E84 /* AGSettingPasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AGSettingPasswordViewController.xib; sourceTree = "<group>"; };
+		6499233D1960FF3600915E84 /* AGBaseInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGBaseInfoViewController.h; sourceTree = "<group>"; };
+		6499233E1960FF3600915E84 /* AGBaseInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGBaseInfoViewController.m; sourceTree = "<group>"; };
+		6499233F1960FF3600915E84 /* AGBaseInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AGBaseInfoViewController.xib; sourceTree = "<group>"; };
+		649923431961334B00915E84 /* VPImageCropperViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VPImageCropperViewController.h; sourceTree = "<group>"; };
+		649923441961334B00915E84 /* VPImageCropperViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VPImageCropperViewController.m; sourceTree = "<group>"; };
+		649923471961579500915E84 /* countryPhones.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = countryPhones.json; sourceTree = "<group>"; };
+		64D821EF1962911200524721 /* FTCoreTextStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTCoreTextStyle.h; sourceTree = "<group>"; };
+		64D821F01962911200524721 /* FTCoreTextStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTCoreTextStyle.m; sourceTree = "<group>"; };
+		64D821F11962911200524721 /* FTCoreTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTCoreTextView.h; sourceTree = "<group>"; };
+		64D821F21962911200524721 /* FTCoreTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTCoreTextView.m; sourceTree = "<group>"; };
 		9858A89A18AE195C0003982E /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		987ADBEB18AA476B00124964 /* AnyGo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnyGo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		987ADBEE18AA476B00124964 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -842,6 +868,43 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6495D0CB196243EA00177106 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				6495D0CC1962445300177106 /* AGBorderHelper.h */,
+				6495D0CD1962445300177106 /* AGBorderHelper.m */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		649923421961334B00915E84 /* VPImageCropper */ = {
+			isa = PBXGroup;
+			children = (
+				649923431961334B00915E84 /* VPImageCropperViewController.h */,
+				649923441961334B00915E84 /* VPImageCropperViewController.m */,
+			);
+			path = VPImageCropper;
+			sourceTree = "<group>";
+		};
+		649923461961577E00915E84 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				649923471961579500915E84 /* countryPhones.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		64D821EE1962911200524721 /* FTCoreText */ = {
+			isa = PBXGroup;
+			children = (
+				64D821EF1962911200524721 /* FTCoreTextStyle.h */,
+				64D821F01962911200524721 /* FTCoreTextStyle.m */,
+				64D821F11962911200524721 /* FTCoreTextView.h */,
+				64D821F21962911200524721 /* FTCoreTextView.m */,
+			);
+			path = FTCoreText;
+			sourceTree = "<group>";
+		};
 		987ADBE218AA476B00124964 = {
 			isa = PBXGroup;
 			children = (
@@ -886,12 +949,13 @@
 				989B105818AB5EBE008DD357 /* Home */,
 				989B104118AB39EF008DD357 /* Public */,
 				987ADC1E18AA4D7200124964 /* ThirdPart */,
+				6495D0CB196243EA00177106 /* Utility */,
 				987ADC1D18AA4D6300124964 /* Base */,
 				987ADBFD18AA476B00124964 /* AGAppDelegate.h */,
 				987ADBFE18AA476B00124964 /* AGAppDelegate.m */,
 				987ADC0018AA476B00124964 /* Images.xcassets */,
 				987ADBF518AA476B00124964 /* Supporting Files */,
-				987ADC1F18AA4D7800124964 /* Resources */,
+				649923461961577E00915E84 /* Resources */,
 			);
 			path = AnyGo;
 			sourceTree = "<group>";
@@ -941,6 +1005,8 @@
 		987ADC1E18AA4D7200124964 /* ThirdPart */ = {
 			isa = PBXGroup;
 			children = (
+				64D821EE1962911200524721 /* FTCoreText */,
+				649923421961334B00915E84 /* VPImageCropper */,
 				A06D26D219519A78005FB142 /* FlatUI */,
 				A0583C77195026750043B5DC /* MessageDisplayKit */,
 				A0CF7321194D4671005A4436 /* TSLocateView */,
@@ -948,13 +1014,6 @@
 				98ABA92F18AC7EFF005C81F6 /* SGFocusImageFrame */,
 			);
 			path = ThirdPart;
-			sourceTree = "<group>";
-		};
-		987ADC1F18AA4D7800124964 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Resources;
 			sourceTree = "<group>";
 		};
 		989B104118AB39EF008DD357 /* Public */ = {
@@ -1010,14 +1069,21 @@
 				98EFE58318B1E4450087B8C2 /* AGLoginViewController.h */,
 				98EFE58418B1E4450087B8C2 /* AGLoginViewController.m */,
 				6497093B195D435B00AB52F3 /* AGLoginViewController.xib */,
-				98EFE58618B214DA0087B8C2 /* AGRegisterViewController.h */,
-				98EFE58718B214DA0087B8C2 /* AGRegisterViewController.m */,
-				98EFE58918B22A140087B8C2 /* AGSettingPasswordViewController.h */,
-				98EFE58A18B22A140087B8C2 /* AGSettingPasswordViewController.m */,
 				A0583C6D194F27CB0043B5DC /* AGShoujiViewController.h */,
 				A0583C6E194F27CB0043B5DC /* AGShoujiViewController.m */,
 				A0583C6F194F27CB0043B5DC /* AGShoujiViewController.xib */,
+				649923361960F4D800915E84 /* AGVerifiedCodeViewController.h */,
+				649923371960F4D800915E84 /* AGVerifiedCodeViewController.m */,
+				649923381960F4D800915E84 /* AGVerifiedCodeViewController.xib */,
+				98EFE58918B22A140087B8C2 /* AGSettingPasswordViewController.h */,
+				98EFE58A18B22A140087B8C2 /* AGSettingPasswordViewController.m */,
+				6499233B1960F94900915E84 /* AGSettingPasswordViewController.xib */,
+				6499233D1960FF3600915E84 /* AGBaseInfoViewController.h */,
+				6499233E1960FF3600915E84 /* AGBaseInfoViewController.m */,
+				6499233F1960FF3600915E84 /* AGBaseInfoViewController.xib */,
 				A0583C72194F2CBC0043B5DC /* AGYZMViewController.h */,
+				98EFE58618B214DA0087B8C2 /* AGRegisterViewController.h */,
+				98EFE58718B214DA0087B8C2 /* AGRegisterViewController.m */,
 				A0583C73194F2CBC0043B5DC /* AGYZMViewController.m */,
 				A0583C74194F2CBC0043B5DC /* AGYZMViewController.xib */,
 				A06D26F71953D480005FB142 /* AGDLViewController.h */,
@@ -2200,13 +2266,16 @@
 				A0CF7339194D4671005A4436 /* TSLocateView.xib in Resources */,
 				A0583F1A195026750043B5DC /* weChatBubble_Receiving_Solid@2x.png in Resources */,
 				A0583EEF195026750043B5DC /* RecordingSignal003@2x.png in Resources */,
+				649923411960FF3600915E84 /* AGBaseInfoViewController.xib in Resources */,
 				A0583EF6195026750043B5DC /* section0_emotion0@2x.png in Resources */,
 				A0583EDC195026750043B5DC /* input-field-cover@2x.png in Resources */,
 				A0583ED4195026750043B5DC /* face@2x.png in Resources */,
 				A0583F17195026750043B5DC /* VoiceBtn_Black@2x.png in Resources */,
+				649923481961579500915E84 /* countryPhones.json in Resources */,
 				A0583F08195026750043B5DC /* SenderVoiceNodePlaying002@2x.png in Resources */,
 				A0583C62194EA61F0043B5DC /* AGJieBanViewController.xib in Resources */,
 				A0583ED5195026750043B5DC /* face_HL@2x.png in Resources */,
+				6499233A1960F4D800915E84 /* AGVerifiedCodeViewController.xib in Resources */,
 				A0583EE4195026750043B5DC /* MultiSelectedPanelConfirmBtnbKG@2x.png in Resources */,
 				A0583EF5195026750043B5DC /* SearchIcon@2x.png in Resources */,
 				A0583ED9195026750043B5DC /* input-bar-flat.png in Resources */,
@@ -2219,6 +2288,7 @@
 				A0583EDE195026750043B5DC /* keyborad_HL@2x.png in Resources */,
 				A04127E1194ACA6B0084A998 /* AGAddressViewController.xib in Resources */,
 				A0583EC7195026750043B5DC /* AddGroupMemberBtnHL@2x.png in Resources */,
+				6499233C1960F94900915E84 /* AGSettingPasswordViewController.xib in Resources */,
 				A0583EF9195026750043B5DC /* section0_emotion12@2x.png in Resources */,
 				A0583F07195026750043B5DC /* SenderVoiceNodePlaying001@2x.png in Resources */,
 				A0583E85195026750043B5DC /* MultiSelectTableViewCell.xib in Resources */,
@@ -2308,6 +2378,7 @@
 				A0583E4A195026750043B5DC /* XHVoiceRecordHelper.m in Sources */,
 				A0583EA0195026750043B5DC /* XHAlbumRichTextView.m in Sources */,
 				A0583E4C195026750043B5DC /* XHBaseSearchTableViewController.m in Sources */,
+				649923391960F4D800915E84 /* AGVerifiedCodeViewController.m in Sources */,
 				A0583E46195026750043B5DC /* XHLocationHelper.m in Sources */,
 				A0583E98195026750043B5DC /* XHImageViewer.m in Sources */,
 				A0583EB0195026750043B5DC /* XHMessageTableView.m in Sources */,
@@ -2315,6 +2386,7 @@
 				A0583E5E195026750043B5DC /* XHMessageTableViewController.m in Sources */,
 				A0583E7E195026750043B5DC /* MLLetterIndexNavigationView.m in Sources */,
 				A0583E64195026750043B5DC /* XHMoreMyBankCardTableViewController.m in Sources */,
+				649923401960FF3600915E84 /* AGBaseInfoViewController.m in Sources */,
 				A0583EBE195026750043B5DC /* XHPopMenu.m in Sources */,
 				A0583EB8195026750043B5DC /* XHEmotionSectionBar.m in Sources */,
 				A0583E56195026750043B5DC /* XHLocationServiceTableViewController.m in Sources */,
@@ -2383,6 +2455,7 @@
 				A0583EBB195026750043B5DC /* XHNewsContainerView.m in Sources */,
 				A0583E3A195026750043B5DC /* UIImage+Alpha.m in Sources */,
 				A0583E74195026750043B5DC /* XHContact.m in Sources */,
+				649923451961334B00915E84 /* VPImageCropperViewController.m in Sources */,
 				A0583E61195026750043B5DC /* XHExpressionDetailTableViewController.m in Sources */,
 				A0583E3C195026750043B5DC /* UIImage+RoundedCorner.m in Sources */,
 				A0583E4B195026750043B5DC /* XHBaseNavigationController.m in Sources */,
@@ -2399,6 +2472,7 @@
 				A0583EC4195026750043B5DC /* XHRefreshView.m in Sources */,
 				A0583E6E195026750043B5DC /* XHMessageBubbleFactory.m in Sources */,
 				A0583E71195026750043B5DC /* XHVideoOutputSampleBufferFactory.m in Sources */,
+				6495D0CE1962445300177106 /* AGBorderHelper.m in Sources */,
 				A0583EB5195026750043B5DC /* XHEmotionCollectionViewCell.m in Sources */,
 				987ADBFB18AA476B00124964 /* main.m in Sources */,
 				A0583E53195026750043B5DC /* XHAlbumTableViewController.m in Sources */,
@@ -2407,6 +2481,7 @@
 				A0583E88195026750043B5DC /* NSMutableAttributedString+Helper.m in Sources */,
 				A0583E3F195026750043B5DC /* UIImage+XHRounded.m in Sources */,
 				A0583EC2195026750043B5DC /* XHRefreshCircleView.m in Sources */,
+				64D821F41962911200524721 /* FTCoreTextView.m in Sources */,
 				A0583E60195026750043B5DC /* XHNewsTableViewController.m in Sources */,
 				A0583EAC195026750043B5DC /* XHLocationServiceTableViewCell.m in Sources */,
 				A0583E40195026750043B5DC /* UIScrollView+XHkeyboardControl.m in Sources */,
@@ -2430,6 +2505,7 @@
 				A0583E47195026750043B5DC /* XHMessageBubbleHelper.m in Sources */,
 				A0583E8A195026750043B5DC /* SEConstants.m in Sources */,
 				A06D26EB19519A78005FB142 /* PBBarButtonIconButton.m in Sources */,
+				64D821F31962911200524721 /* FTCoreTextStyle.m in Sources */,
 				A0583E8F195026750043B5DC /* SETextEditingCaret.m in Sources */,
 				A0583EA6195026750043B5DC /* XHContactPhotosView.m in Sources */,
 				A0583EB7195026750043B5DC /* XHEmotionManagerView.m in Sources */,

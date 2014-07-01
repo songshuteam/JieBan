@@ -10,6 +10,8 @@
 #import "AGPlaViewController.h"
 #import "AGNavigationController.h"
 
+#import "AGLoginViewController.h"
+
 @interface AGDistributeViewController ()
 
 @property (nonatomic, strong) UISegmentedControl *segmentedControl;
@@ -73,6 +75,8 @@
 
 #pragma mark - Uitility methods
 - (void)distributePlan:(id)sender {
+    AGLoginViewController *viewController = [[AGLoginViewController alloc] init];
+    [self.navigationController pushViewController:viewController animated:YES];
     
 }
 

@@ -8,7 +8,11 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AGShoujiViewController">
             <connections>
                 <outlet property="areaLabel" destination="avb-pO-ntZ" id="f8U-64-Xn7"/>
+                <outlet property="areaSelectView" destination="khM-6p-a8Z" id="gTe-TF-L4Q"/>
                 <outlet property="codeLabel" destination="5Pa-vS-PZo" id="TtB-Uf-Nva"/>
+                <outlet property="dealInfoView" destination="EOC-HM-3im" id="MXP-Q3-qEa"/>
+                <outlet property="nextStepBgImageView" destination="5LP-m0-Fm1" id="RIx-zS-ij2"/>
+                <outlet property="phoneNumView" destination="QNi-EF-uLs" id="IxM-u5-J5t"/>
                 <outlet property="phoneTextField" destination="EUz-ZZ-xr8" id="2Zu-qI-uQH"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -49,7 +53,7 @@
                             <color key="textColor" red="0.23921568627450979" green="0.23921568627450979" blue="0.23921568627450979" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请填写手机号码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EUz-ZZ-xr8">
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请填写手机号码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EUz-ZZ-xr8" customClass="PBFlatTextfield">
                             <rect key="frame" x="89" y="8" width="211" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -69,18 +73,18 @@
                         <color key="titleColor" red="0.53333333333333333" green="0.80392156862745101" blue="0.1764705882352941" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <state key="highlighted" title="下一步">
+                        <color key="titleColor" red="0.53333333329999999" green="0.80392156859999997" blue="0.1764705882" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
                     <connections>
                         <action selector="registerButtonClicked:" destination="-1" eventType="touchUpInside" id="Pkm-XT-Aev"/>
                     </connections>
                 </button>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="轻触上面的“下一步”按钮，即表示你同意《结伴行用户协议》" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="ENw-cO-o94">
-                    <rect key="frame" x="20" y="214" width="280" height="44"/>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EOC-HM-3im" customClass="FTCoreTextView">
+                    <rect key="frame" x="10" y="214" width="300" height="44"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                    <nil key="highlightedColor"/>
-                    <size key="shadowOffset" width="0.0" height="0.0"/>
-                </label>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </view>
             </subviews>
             <color key="backgroundColor" red="0.86328125" green="0.86328125" blue="0.86328125" alpha="1" colorSpace="calibratedRGB"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>

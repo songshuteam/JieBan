@@ -7,12 +7,8 @@
 //
 
 #import "AGViewController.h"
+#import "PBFlatTextfield.h"
 
 @interface AGShoujiViewController : AGViewController
-@property (weak, nonatomic) IBOutlet UILabel *areaLabel;
-@property (weak, nonatomic) IBOutlet UILabel *codeLabel;
-@property (weak, nonatomic) IBOutlet UITextField *phoneTextField;
-- (IBAction)areaButtonClicked:(id)sender;
-- (IBAction)registerButtonClicked:(id)sender;
 
 @end
