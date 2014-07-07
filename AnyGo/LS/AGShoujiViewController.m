@@ -9,6 +9,7 @@
 #import "AGShoujiViewController.h"
 
 #import "AGVerifiedCodeViewController.h"
+#import "AGPhoneCodeSelectViewController.h"
 
 #import "AGBorderHelper.h"
 #import "FTCoreTextView.h"
@@ -21,7 +22,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *areaLabel;
 @property (weak, nonatomic) IBOutlet UILabel *codeLabel;
-@property (weak, nonatomic) IBOutlet PBFlatTextfield *phoneTextField;
+@property (weak, nonatomic) IBOutlet UITextField *phoneTextField;
 @property (weak, nonatomic) IBOutlet FTCoreTextView *dealInfoView;
 
 - (IBAction)areaButtonClicked:(id)sender;
@@ -48,6 +49,10 @@
     [self borderWithBgView];
     [self initDealInfo];
     
+    UITapGestureRecognizer *singleTapGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(handleSingleTap:)];
+    singleTapGesture.numberOfTapsRequired = 1;
+    singleTapGesture.numberOfTouchesRequired  = 1;
+    [self.areaSelectView addGestureRecognizer:singleTapGesture];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -77,12 +82,13 @@
     FTCoreTextStyle *defaultStyle = [[FTCoreTextStyle alloc] init];
     defaultStyle.name = FTCoreTextTagDefault;
     defaultStyle.textAlignment = FTCoreTextAlignementJustified;
-    defaultStyle.font = [UIFont systemFontOfSize:14];
+    defaultStyle.color = [UIColor lightGrayColor];
+    defaultStyle.font = [UIFont systemFontOfSize:12];
     
     FTCoreTextStyle *styleA = [FTCoreTextStyle styleWithName:FTCoreTextTagLink];
     styleA.name = @"a";
     styleA.color = [UIColor colorWithRed:14/255.0 green:163.0/255.0 blue:255.0/255.0 alpha:1];
-    styleA.font = [UIFont systemFontOfSize:14];
+    styleA.font = [UIFont systemFontOfSize:12];
     
     [self.dealInfoView changeDefaultTag:FTCoreTextTagLink toTag:@"a"];
     
@@ -98,6 +104,11 @@
     AGVerifiedCodeViewController *viewController = [[AGVerifiedCodeViewController alloc] init];
     [self.navigationController pushViewController:viewController animated:YES];
     
+}
+
+-(void)handleSingleTap:(UIGestureRecognizer *)sender{
+    AGPhoneCodeSelectViewController *viewController = [[AGPhoneCodeSelectViewController alloc] init];
+    [self.navigationController pushViewController:viewController animated:YES];
 }
 
 #pragma mark - FTCoreTextViewDelegate

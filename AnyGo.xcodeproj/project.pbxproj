@@ -17,6 +17,8 @@
 		649923411960FF3600915E84 /* AGBaseInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6499233F1960FF3600915E84 /* AGBaseInfoViewController.xib */; };
 		649923451961334B00915E84 /* VPImageCropperViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 649923441961334B00915E84 /* VPImageCropperViewController.m */; };
 		649923481961579500915E84 /* countryPhones.json in Resources */ = {isa = PBXBuildFile; fileRef = 649923471961579500915E84 /* countryPhones.json */; };
+		649939F2196A25EA0037872B /* AGPhoneCodeSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 649939F1196A25EA0037872B /* AGPhoneCodeSelectViewController.m */; };
+		649939F6196A28910037872B /* AGLSModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 649939F5196A28910037872B /* AGLSModel.m */; };
 		64D821F31962911200524721 /* FTCoreTextStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 64D821F01962911200524721 /* FTCoreTextStyle.m */; };
 		64D821F41962911200524721 /* FTCoreTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 64D821F21962911200524721 /* FTCoreTextView.m */; };
 		9858A89B18AE195C0003982E /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9858A89A18AE195C0003982E /* libz.dylib */; };
@@ -347,6 +349,10 @@
 		649923431961334B00915E84 /* VPImageCropperViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VPImageCropperViewController.h; sourceTree = "<group>"; };
 		649923441961334B00915E84 /* VPImageCropperViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VPImageCropperViewController.m; sourceTree = "<group>"; };
 		649923471961579500915E84 /* countryPhones.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = countryPhones.json; sourceTree = "<group>"; };
+		649939F0196A25EA0037872B /* AGPhoneCodeSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGPhoneCodeSelectViewController.h; sourceTree = "<group>"; };
+		649939F1196A25EA0037872B /* AGPhoneCodeSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGPhoneCodeSelectViewController.m; sourceTree = "<group>"; };
+		649939F4196A28910037872B /* AGLSModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGLSModel.h; sourceTree = "<group>"; };
+		649939F5196A28910037872B /* AGLSModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGLSModel.m; sourceTree = "<group>"; };
 		64D821EF1962911200524721 /* FTCoreTextStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTCoreTextStyle.h; sourceTree = "<group>"; };
 		64D821F01962911200524721 /* FTCoreTextStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTCoreTextStyle.m; sourceTree = "<group>"; };
 		64D821F11962911200524721 /* FTCoreTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTCoreTextView.h; sourceTree = "<group>"; };
@@ -894,6 +900,15 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		649939F3196A26550037872B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				649939F4196A28910037872B /* AGLSModel.h */,
+				649939F5196A28910037872B /* AGLSModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		64D821EE1962911200524721 /* FTCoreText */ = {
 			isa = PBXGroup;
 			children = (
@@ -943,6 +958,7 @@
 		987ADBF418AA476B00124964 /* AnyGo */ = {
 			isa = PBXGroup;
 			children = (
+				649939F3196A26550037872B /* Model */,
 				A0583C5D194EA3E50043B5DC /* Jieban */,
 				A0706F8719458A1200BBBC32 /* Distribute */,
 				98EFE58218B1E42A0087B8C2 /* LS */,
@@ -1066,6 +1082,8 @@
 		98EFE58218B1E42A0087B8C2 /* LS */ = {
 			isa = PBXGroup;
 			children = (
+				649939F0196A25EA0037872B /* AGPhoneCodeSelectViewController.h */,
+				649939F1196A25EA0037872B /* AGPhoneCodeSelectViewController.m */,
 				98EFE58318B1E4450087B8C2 /* AGLoginViewController.h */,
 				98EFE58418B1E4450087B8C2 /* AGLoginViewController.m */,
 				6497093B195D435B00AB52F3 /* AGLoginViewController.xib */,
@@ -2533,6 +2551,7 @@
 				A0583E87195026750043B5DC /* UIView+Convenience.m in Sources */,
 				A0583E65195026750043B5DC /* XHMoreMyFavoritesTableViewController.m in Sources */,
 				A0583E4E195026750043B5DC /* XHBaseTableViewController.m in Sources */,
+				649939F2196A25EA0037872B /* AGPhoneCodeSelectViewController.m in Sources */,
 				A0583E38195026750043B5DC /* NSString+XHMD5.m in Sources */,
 				A0583EA5195026750043B5DC /* XHContactPhotosTableViewCell.m in Sources */,
 				A0583E41195026750043B5DC /* UIView+XHBadgeView.m in Sources */,
@@ -2552,6 +2571,7 @@
 				A0583E78195026750043B5DC /* XHShareMenuItem.m in Sources */,
 				A0583E5F195026750043B5DC /* XHMultipleSectionTableViewController.m in Sources */,
 				A0583E94195026750043B5DC /* SETextMagnifierRanged.m in Sources */,
+				649939F6196A28910037872B /* AGLSModel.m in Sources */,
 				A0583EA7195026750043B5DC /* XHContactTableViewCell.m in Sources */,
 				A0583E45195026750043B5DC /* XHFoundationCommon.m in Sources */,
 				98EFE58518B1E4450087B8C2 /* AGLoginViewController.m in Sources */,
