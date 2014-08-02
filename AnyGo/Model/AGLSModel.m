@@ -17,7 +17,6 @@
         self.country = @"china";
         self.countryCode = @"CN";
         self.phoneCode = @"+86";
-        
     }
     return self;
 }

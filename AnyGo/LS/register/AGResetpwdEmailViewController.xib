@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment defaultVersion="1552" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AGResetpwdEmailViewController">
+            <connections>
+                <outlet property="emailInfo" destination="xQn-Y2-EF8" id="nb6-Hk-vzi"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outletCollection property="findPwdBtn" destination="Gzl-H5-FuE" id="VQf-5p-12x"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="border_code" translatesAutoresizingMaskIntoConstraints="NO" id="sib-vR-jYa">
+                    <rect key="frame" x="63" y="31" width="194" height="53"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="53" id="SCF-F5-QAv"/>
+                        <constraint firstAttribute="width" constant="194" id="caA-bQ-ftj"/>
+                    </constraints>
+                </imageView>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入你填写的个人邮箱" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xQn-Y2-EF8">
+                    <rect key="frame" x="71" y="47" width="177" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="177" id="Tmv-s8-CwL"/>
+                        <constraint firstAttribute="height" constant="21" id="gRb-7m-Nw8"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="y5U-v2-cCz"/>
+                    </connections>
+                </textField>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="密码重置链接将发送到您填写的个人邮箱" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X1b-fW-LVw">
+                    <rect key="frame" x="33" y="109" width="255" height="15"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="255" id="dJz-dh-Nqz"/>
+                        <constraint firstAttribute="height" constant="15" id="nxN-uj-Gqf"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="0.32156862749999998" green="0.32156862749999998" blue="0.32156862749999998" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请注意查收" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Euj-po-dYE">
+                    <rect key="frame" x="123" y="135" width="74" height="15"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="74" id="1No-yz-zsU"/>
+                        <constraint firstAttribute="height" constant="15" id="piV-tc-tF5"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="0.32156862749999998" green="0.32156862749999998" blue="0.32156862749999998" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gzl-H5-FuE">
+                    <rect key="frame" x="10" y="161" width="300" height="44"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="28n-1t-5xd"/>
+                        <constraint firstAttribute="width" constant="300" id="9lQ-Ca-Nat"/>
+                    </constraints>
+                    <state key="normal" title="找回密码" backgroundImage="btn_bg_lightBlue">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="findPwdBtnClick:" destination="-1" eventType="touchUpInside" id="cbJ-MW-4xo"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="xQn-Y2-EF8" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="47" id="1Gr-hf-elA"/>
+                <constraint firstItem="sib-vR-jYa" firstAttribute="centerX" secondItem="Euj-po-dYE" secondAttribute="centerX" id="BxX-dC-vr4"/>
+                <constraint firstItem="sib-vR-jYa" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="31" id="K69-2o-01V"/>
+                <constraint firstItem="X1b-fW-LVw" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="33" id="Mxe-2m-vVc"/>
+                <constraint firstItem="Gzl-H5-FuE" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="Z3p-qb-rer"/>
+                <constraint firstItem="xQn-Y2-EF8" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="71" id="bM4-3A-TPM"/>
+                <constraint firstItem="Gzl-H5-FuE" firstAttribute="top" secondItem="Euj-po-dYE" secondAttribute="bottom" constant="11" id="eaQ-Aw-2Up"/>
+                <constraint firstItem="X1b-fW-LVw" firstAttribute="top" secondItem="sib-vR-jYa" secondAttribute="bottom" constant="25" id="fhS-85-OA4"/>
+                <constraint firstItem="Euj-po-dYE" firstAttribute="top" secondItem="X1b-fW-LVw" secondAttribute="bottom" constant="11" id="qQ1-av-Fgl"/>
+                <constraint firstItem="sib-vR-jYa" firstAttribute="centerX" secondItem="X1b-fW-LVw" secondAttribute="centerX" id="xvz-i3-9lf"/>
+            </constraints>
+            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="border_code" width="156" height="53"/>
+        <image name="btn_bg_lightBlue" width="306" height="44"/>
+    </resources>
+</document>

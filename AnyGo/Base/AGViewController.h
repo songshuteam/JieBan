@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+
 #import "MobClick.h"
+#import "NSObject+NSJSONSerialization.h"
 
 @interface AGViewController : UIViewController
 

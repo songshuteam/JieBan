@@ -53,4 +53,18 @@ typedef NS_OPTIONS(NSUInteger, AGDrawnBorderSides) {
  */
 + (void)cornerWithView:(UIView *)view cornerRadius:(CGFloat)radius borderWidth:(CGFloat)width borderColor:(UIColor *)color;
 
+/**
+ *  the mobile is validate or not
+ *
+ *  @param mobile  mobile num info
+ */
++ (BOOL) isValidateMobile:(NSString *)mobile;
+
+/**
+ *  the email is validate or not
+ *
+ *  @param mobile  email info
+ */
++ (BOOL)isValidateEmail:(NSString *)email;
+
 @end

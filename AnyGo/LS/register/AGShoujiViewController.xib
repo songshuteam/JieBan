@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment defaultVersion="1552" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AGShoujiViewController">
+            <connections>
+                <outlet property="dealInfoView" destination="EOC-HM-3im" id="MXP-Q3-qEa"/>
+                <outlet property="phoneCodeBtn" destination="IYY-9z-4Fn" id="Glz-sq-3qO"/>
+                <outlet property="phoneTextField" destination="EUz-ZZ-xr8" id="2Zu-qI-uQH"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EOC-HM-3im" customClass="FTCoreTextView">
+                    <rect key="frame" x="10" y="96" width="300" height="44"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="A9b-kF-dPF"/>
+                        <constraint firstAttribute="width" constant="300" id="l0q-Yo-EOk"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请确认你的国家或地区并输入手机号" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t0B-Ib-ewp">
+                    <rect key="frame" x="38" y="15" width="244" height="15"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="15" id="ojP-0b-XHy"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" red="0.15294117647058825" green="0.15294117647058825" blue="0.15294117647058825" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="border_bg_phone" translatesAutoresizingMaskIntoConstraints="NO" id="NCq-rp-GHA">
+                    <rect key="frame" x="100" y="45" width="208" height="43"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="43" id="MQf-Jg-F9E"/>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="208" id="Wgx-OK-shR"/>
+                        <constraint firstAttribute="height" constant="43" id="cLK-cN-HRc"/>
+                        <constraint firstAttribute="width" constant="208" id="oeh-IU-wIv"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IYY-9z-4Fn">
+                    <rect key="frame" x="12" y="45" width="80" height="43"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="80" id="aFJ-AP-BVf"/>
+                        <constraint firstAttribute="height" constant="43" id="hQe-m7-UTi"/>
+                    </constraints>
+                    <state key="normal" title="+86" backgroundImage="border_bg_area">
+                        <color key="titleColor" red="0.1529411765" green="0.1529411765" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="areaButtonClicked:" destination="-1" eventType="touchUpInside" id="mYU-Jt-BFM"/>
+                    </connections>
+                </button>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请填写手机号码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EUz-ZZ-xr8">
+                    <rect key="frame" x="111" y="45" width="201" height="43"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="43" id="RSi-0L-kdH"/>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="201" id="Ykt-4z-Dsy"/>
+                        <constraint firstAttribute="height" constant="43" id="bKX-A3-quK"/>
+                        <constraint firstAttribute="height" relation="lessThanOrEqual" constant="43" id="gy0-ZK-5bC"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="RN3-Kh-kwo"/>
+                    </connections>
+                </textField>
+            </subviews>
+            <color key="backgroundColor" red="0.86328125" green="0.86328125" blue="0.86328125" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="EUz-ZZ-xr8" firstAttribute="trailing" secondItem="NCq-rp-GHA" secondAttribute="trailing" id="6mZ-VL-pTx"/>
+                <constraint firstItem="t0B-Ib-ewp" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="75W-Vy-aj3"/>
+                <constraint firstItem="t0B-Ib-ewp" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="15" id="JvJ-PT-M0O"/>
+                <constraint firstItem="NCq-rp-GHA" firstAttribute="top" secondItem="t0B-Ib-ewp" secondAttribute="bottom" constant="15" id="TI4-IJ-BU2"/>
+                <constraint firstItem="EUz-ZZ-xr8" firstAttribute="top" secondItem="t0B-Ib-ewp" secondAttribute="bottom" constant="15" id="U0f-vb-gc1"/>
+                <constraint firstItem="t0B-Ib-ewp" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="38" id="Ueu-RO-KPP"/>
+                <constraint firstItem="EOC-HM-3im" firstAttribute="top" secondItem="EUz-ZZ-xr8" secondAttribute="bottom" constant="8" id="YXn-aR-3K8"/>
+                <constraint firstItem="EOC-HM-3im" firstAttribute="top" secondItem="IYY-9z-4Fn" secondAttribute="bottom" constant="8" symbolic="YES" id="YpD-AM-3KT"/>
+                <constraint firstItem="IYY-9z-4Fn" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="12" id="ZF3-tV-LjO"/>
+                <constraint firstItem="t0B-Ib-ewp" firstAttribute="centerX" secondItem="EOC-HM-3im" secondAttribute="centerX" id="dNv-B0-Ocb"/>
+                <constraint firstItem="NCq-rp-GHA" firstAttribute="leading" secondItem="IYY-9z-4Fn" secondAttribute="trailing" constant="8" symbolic="YES" id="k3f-vf-ptb"/>
+                <constraint firstItem="EUz-ZZ-xr8" firstAttribute="baseline" secondItem="IYY-9z-4Fn" secondAttribute="baseline" id="nre-eQ-nYX"/>
+                <constraint firstItem="IYY-9z-4Fn" firstAttribute="top" secondItem="t0B-Ib-ewp" secondAttribute="bottom" constant="15" id="tCG-Se-68D"/>
+                <constraint firstItem="IYY-9z-4Fn" firstAttribute="top" secondItem="NCq-rp-GHA" secondAttribute="top" id="vyd-pP-Qfm"/>
+                <constraint firstItem="EUz-ZZ-xr8" firstAttribute="top" secondItem="t0B-Ib-ewp" secondAttribute="bottom" constant="15" id="x0Q-pf-YER"/>
+            </constraints>
+            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="border_bg_area" width="80" height="43"/>
+        <image name="border_bg_phone" width="208" height="43"/>
+    </resources>
+</document>

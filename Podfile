@@ -8,6 +8,8 @@ pod 'MBProgressHUD', '~> 0.8'
 pod 'UMengAnalytics', '~> 3.1.2'
 pod 'IQKeyboardManager'
 pod 'FMDB'
+pod 'SDWebImage', '~>3.6'
+pod 'QBImagePickerController’
 
 end
 
