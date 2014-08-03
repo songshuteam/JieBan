@@ -31,6 +31,7 @@
 //        self.edgesForExtendedLayout = UIRectEdgeNone;
 //    }
     
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
 }
 
 - (void)didReceiveMemoryWarning

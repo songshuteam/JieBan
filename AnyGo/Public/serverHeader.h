@@ -9,7 +9,7 @@
 #ifndef AnyGo_serverHeader_h
 #define AnyGo_serverHeader_h
 
-#define  serverUrl  @"www.baidu.com"
+#define  serverUrl  @"http://192.168.1.104:8080"
 
 #define  appId      @"00200201"
 

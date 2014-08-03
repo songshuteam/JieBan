@@ -22,4 +22,13 @@
     // Configure the view for the selected state
 }
 
+- (void)contentInfoWithModel:(AGCompanyNeedModel *)model{
+    
+}
+
++ (CGFloat)heightForCell:(AGCompanyNeedModel *)model{
+
+    return 0;
+}
+
 @end

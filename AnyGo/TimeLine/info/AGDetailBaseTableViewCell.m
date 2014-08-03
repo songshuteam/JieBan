@@ -8,6 +8,8 @@
 
 #import "AGDetailBaseTableViewCell.h"
 
+const int nikeNameMaxWidth = 160;
+
 @implementation AGDetailBaseTableViewCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
@@ -15,8 +17,8 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         // Initialization code
-        self.faceImgView = [[UIImageView alloc] initWithFrame:CGRectMake(20, 13, 65, 65)];
-        self.nikeName = [[UILabel alloc] initWithFrame:CGRectMake(85, 30, 30, 21)];
+        self.faceImgView = [[UIImageView alloc] initWithFrame:CGRectMake(11, 11, 62, 62)];
+        self.nikeName = [[UILabel alloc] initWithFrame:CGRectMake(80, 30, 30, 24)];
         self.sexImg = [[UIImageView alloc] initWithFrame:CGRectMake(120, 20, 13, 13)];
         
         [self addSubview:self.faceImgView];
@@ -40,22 +42,26 @@
 
 
 
-- (void)contentViewByUserInfo:(NSString *)userInfo{
+- (void)contentViewByUserInfo:(AGJieyouModel *)userInfo{
     [self setBackgroundColor:[UIColor clearColor]];
     
-    [self.faceImgView sd_setImageWithURL:nil placeholderImage:[UIImage imageNamed:@"messageText"]];
+    [self.faceImgView sd_setImageWithURL:nil placeholderImage:[UIImage imageNamed:@"view_bg_loginIndex"]];
     NSString *content = @"djahdakhdkajdkak阿卡打卡机打卡机SD卡就是打算开大口";
-    self.nikeName.adjustsFontSizeToFitWidth = YES;
-    if (CGRectGetWidth(self.nikeName.frame) > 160) {
-        CGRect rect = self.nikeName.frame;
-        rect.size.width = 160;
-        self.nikeName.frame = rect;
+    
+    CGSize size = [content sizeWithFont:self.nikeName.font constrainedToSize:CGSizeMake(400, 21) lineBreakMode:NSLineBreakByTruncatingTail];
+    CGRect rect = self.nikeName.frame;
+    if (size.width > nikeNameMaxWidth) {
+        rect.size.width = nikeNameMaxWidth;
+    }else{
+        rect.size.width = size.width;
     }
+    self.nikeName.frame = rect;
+    
     self.nikeName.text = content;
     
-    CGFloat originX = CGRectGetMaxX(self.nikeName.frame) + CGRectGetWidth(self.nikeName.frame) + 5;
-    self.sexImg.frame = CGRectMake(originX, 30, 13, 13);
-    [self.sexImg setImage:[UIImage imageNamed:YES ? @"commentImage" : @"commentPraise"]];
+    CGFloat originX = CGRectGetMinX(self.nikeName.frame) + CGRectGetWidth(self.nikeName.frame) + 5;
+    self.sexImg.frame = CGRectMake(originX, 35, 13, 13);
+    [self.sexImg setImage:[UIImage imageNamed:YES ? @"female_select" : @"male_select"]];
 }
 
 + (CGFloat)heightForCell{

@@ -18,8 +18,9 @@
 
 @protocol AGShareTableViewCellDelegate <NSObject>
 
+//- (void)shareTableViewCell:(AGShareTableViewCell *)tableViewCell faceImgSelectByUserId:(long long)userId;
 - (void)shareTableViewCell:(AGShareTableViewCell *)tableViewCell commentInfo:(AGShareCommentItem *)commentItem;
-- (void)shareTableViewCell:(AGShareTableViewCell *)tableViewCell userId:(long long)userId;
+- (void)shareTableViewCell:(AGShareTableViewCell *)tableViewCell timelineByUserId:(long long)userId;
 - (void)shareTableViewCell:(AGShareTableViewCell *)tableViewCell commentShareInfoId:(long long)uid;
 
 @end
@@ -31,7 +32,7 @@
 @property (strong, nonatomic) AGShareItem *shareItem;
 @property (assign, nonatomic) id<AGShareTableViewCellDelegate> delegate;
 
-@property (strong, nonatomic) IBOutlet UIImageView *faceImagView;
+@property (strong, nonatomic) IBOutlet UIButton *faceImgBtn;
 @property (strong, nonatomic) IBOutlet UIButton *userName;
 @property (strong, nonatomic) IBOutlet UILabel *contentInfo;
 @property (strong, nonatomic) IBOutlet AGShowImageControl *imageContent;

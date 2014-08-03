@@ -58,7 +58,7 @@
                         <constraint firstAttribute="height" constant="44" id="gNS-53-BXQ"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                    <textInputTraits key="textInputTraits"/>
+                    <textInputTraits key="textInputTraits" keyboardType="namePhonePad"/>
                     <connections>
                         <outlet property="delegate" destination="-1" id="RRb-iu-Qn3"/>
                     </connections>

@@ -11,6 +11,13 @@
 #import "MobClick.h"
 #import "NSObject+NSJSONSerialization.h"
 
+#import <ASIFormDataRequest.h>
+
+#import "Toast+UIView.h"
+#import "AGUrlManager.h"
+
 @interface AGViewController : UIViewController
+
+- (void)backBarButtonWithTitle:(NSString *)title;
 
 @end

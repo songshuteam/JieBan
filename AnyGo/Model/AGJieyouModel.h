@@ -29,7 +29,7 @@ typedef NS_ENUM(NSInteger, Gender) {
 
 @property (assign, nonatomic) long long jieyouId;
 @property (strong, nonatomic) NSString *account;
-@property (strong, nonatomic) NSString *nikeName;
+@property (strong, nonatomic) NSString *nickname;
 @property (strong, nonatomic) AGLSAreaCodeModel *areaCode;
 @property (strong, nonatomic) NSString *headUrl;
 @property (strong, nonatomic) NSString *birthday;
@@ -41,5 +41,9 @@ typedef NS_ENUM(NSInteger, Gender) {
 
 @property (strong, nonatomic) NSString *password;
 @property (strong, nonatomic) NSString *code;
+@property (strong, nonatomic) NSString *codeMd5;
+@property (strong, nonatomic) UIImage *faceImg;
+
+- (NSString *)getAccountInfo;
 
 @end

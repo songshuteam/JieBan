@@ -43,7 +43,7 @@
                         <constraint firstAttribute="width" constant="192" id="n9Z-lh-eou"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
+                    <textInputTraits key="textInputTraits" keyboardType="phonePad" returnKeyType="next"/>
                     <connections>
                         <outlet property="delegate" destination="-1" id="1Cv-qS-uI4"/>
                     </connections>
@@ -57,7 +57,7 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <rect key="contentStretch" x="1" y="0.0" width="1" height="1"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits" returnKeyType="go"/>
+                    <textInputTraits key="textInputTraits" keyboardType="alphabet" returnKeyType="go"/>
                     <connections>
                         <outlet property="delegate" destination="-1" id="D6a-OS-o0C"/>
                     </connections>

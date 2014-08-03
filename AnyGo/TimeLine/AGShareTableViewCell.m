@@ -11,6 +11,7 @@
 #import "FTCoreTextView.h"
 #import "AGShowImageControl.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import <SDWebImage/UIButton+WebCache.h>
 
 
 #define TAGFORFULLTEXT  2014070901
@@ -30,7 +31,9 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         // Initialization code
-        self.faceImagView = [[UIImageView alloc] initWithFrame:CGRectMake(PageMargin, PageMargin, 40, 40)];
+        self.faceImgBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        self.faceImgBtn.frame = CGRectMake(PageMargin, PageMargin, 40, 40);
+        
         self.userName = [[UIButton alloc] initWithFrame:CGRectMake(PageMarginContent, 10, 120, 21)];
         self.contentInfo = [[UILabel alloc] init];
         self.contentInfo.numberOfLines = 0;
@@ -43,7 +46,7 @@
         self.commentBgView = [[UIImageView alloc] init];
         self.commentTableView = [[UITableView alloc] init];
         
-        [self addSubview:self.faceImagView];
+        [self addSubview:self.faceImgBtn];
         [self addSubview:self.userName];
         [self addSubview:self.contentInfo];
         [self addSubview:self.imageContent];
@@ -71,9 +74,10 @@
     CGFloat height = 10;
     
 //    face image data set
-    self.faceImagView.clipsToBounds = YES;
-    self.faceImagView.layer.cornerRadius = 3;
-    [self.faceImagView sd_setImageWithURL:[NSURL URLWithString:item.profileImgUrl] placeholderImage:[UIImage imageNamed:@"placeImg"]];
+    self.faceImgBtn.clipsToBounds = YES;
+    self.faceImgBtn.layer.cornerRadius = 3;
+    [self.faceImgBtn sd_setImageWithURL:[NSURL URLWithString:item.profileImgUrl] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"placeImg"]];
+    [self.faceImgBtn addTarget:self action:@selector(faceImgClick:) forControlEvents:UIControlEventTouchUpInside];
     
 //    user Name set
     [self.userName setTitle:item.userName forState:UIControlStateNormal];
@@ -175,6 +179,10 @@
     }
 }
 
+- (IBAction)faceImgClick:(id)sender{
+    [self getUserTimeLine:self.shareItem.userId];
+}
+
 - (IBAction)userNameClick:(id)sender{
     [self getUserTimeLine:self.shareItem.userId];
 }
@@ -186,8 +194,8 @@
 }
 
 - (void)getUserTimeLine:(long long)userId{
-    if (self.delegate && [self.delegate respondsToSelector:@selector(shareTableViewCell:userId:)]) {
-        [self.delegate shareTableViewCell:self userId:userId];
+    if (self.delegate && [self.delegate respondsToSelector:@selector(shareTableViewCell:timelineByUserId:)]) {
+        [self.delegate shareTableViewCell:self timelineByUserId:userId];
     }
 }
 

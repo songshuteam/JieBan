@@ -41,4 +41,9 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)backBarButtonWithTitle:(NSString *)title{
+    UIBarButtonItem *backBtn = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:nil];
+    
+    self.navigationItem.backBarButtonItem = backBtn;
+}
 @end

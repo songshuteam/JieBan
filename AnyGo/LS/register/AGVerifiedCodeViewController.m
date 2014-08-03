@@ -11,8 +11,7 @@
 #import "AGSettingPasswordViewController.h"
 
 #import "AGBorderHelper.h"
-#import "AGUrlManager.h"
-#import <ASIHTTPRequest.h>
+#import "NSString+Encryption.h"
 
 #define PHONE_VERIFY_COOLDOWN_SECOND 60
 
@@ -56,6 +55,8 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
     [self startTimer];
     
     NSString *phoneNum = [NSString stringWithFormat:@"%@  %@",self.registerModel.areaCode.phoneCode,self.registerModel.account];
@@ -130,7 +131,7 @@
     if ([[valueDic objectForKey:@"status"] intValue] == 200) {
         NSString *code = [valueDic objectForKey:@"code"];
         //           send verificode to phone number
-        self.registerModel.code = code;
+        self.registerModel.codeMd5 = code;
     }else{
         
     }
@@ -141,15 +142,19 @@
 }
 
 - (IBAction)nextStepBtnClick:(id)sender {
-//    if ([self.verifiedCodeText.text isEqualToString:self.registerModel.code]) {
+    [self.view endEditing:YES];
+    
+    NSString *verifiedCode = self.verifiedCodeText.text;
+    if ([[verifiedCode md5Encrypt] isEqualToString:self.registerModel.codeMd5]) {
         AGSettingPasswordViewController *viewController = [[AGSettingPasswordViewController alloc] init];
+        self.registerModel.code = verifiedCode;
         viewController.registerModel = self.registerModel;
         [self.navigationController pushViewController:viewController animated:YES];
-//    }else{
-//        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提醒" message:@"验证码错误，请重新输入！" delegate:nil cancelButtonTitle:@"确认" otherButtonTitles:nil, nil];
-//        [alertView show];
-//        self.verifiedCodeText.text = nil;
-//    }
+    }else{
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提醒" message:@"验证码错误，请重新输入！" delegate:nil cancelButtonTitle:@"确认" otherButtonTitles:nil, nil];
+        [alertView show];
+        self.verifiedCodeText.text = nil;
+    }
 }
 
 @end

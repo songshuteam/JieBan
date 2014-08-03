@@ -50,6 +50,7 @@
 	// Do any additional setup after loading the view.
     self.tabBarController.tabBar.hidden = YES;
     
+    [self backBarButtonWithTitle:@"返回"];
     UIBarButtonItem *backItem = [PBFlatBarButtonItems backBarButtonItemWithTarget:self selector:@selector(beBack:)];
     [self.navigationItem setLeftBarButtonItem:backItem];
     self.areaCode = [[AGLSAreaCodeModel alloc] init];
@@ -102,7 +103,8 @@
         }
     }
     
-    NSString *accountInfo = [NSString stringWithFormat:@"%@-%@",self.areaCode.countryCode,phoneNum];
+    NSString *accountInfo = [[NSString stringWithFormat:@"%@-%@",self.areaCode.countryCode,phoneNum] stringByReplacingOccurrencesOfString:@"+" withString:@""];
+    
     ASIHTTPRequest *request = [AGRequestManager requestlogintWithAccount:accountInfo password:passwordInfo];
     request.delegate = self;
     
@@ -164,12 +166,23 @@
 }
 
 - (void)requestFailed:(ASIHTTPRequest *)request{
+    NSLog(@"%@",request.responseString);
+}
+
+#pragma mark - UITextField delegate
+- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+    if (textField == self.usernameTextField) {
+        [self.passwordTextField becomeFirstResponder];
+    }else if(textField == self.passwordTextField){
+        [self loginButtonClicked:nil];
+    }
     
+    return YES;
 }
 
 #pragma mark - AGPhoneCodeSelectDelegate
 - (void)selectWithAreaCode:(AGLSAreaCodeModel *)model{
     self.areaCode = model;
-    [self.phoneCodeBtn setTitle:self.areaCode.countryCode forState:UIControlStateNormal];
+    [self.phoneCodeBtn setTitle:self.areaCode.phoneCode forState:UIControlStateNormal];
 }
 @end

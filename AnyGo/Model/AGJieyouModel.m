@@ -16,6 +16,11 @@
 
 @implementation AGRegisterModel
 
-
+- (NSString *)getAccountInfo{
+    NSString *account = [NSString stringWithFormat:@"%@-%@",self.areaCode.phoneCode,self.account];
+    NSString *info = [account stringByReplacingOccurrencesOfString:@"+" withString:@""];
+    
+    return info;
+}
 
 @end

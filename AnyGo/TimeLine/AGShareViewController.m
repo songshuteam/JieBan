@@ -16,7 +16,9 @@
 #import "DEYChatInputTextView.h"
 #import "AGShowCommentView.h"
 
-@interface AGShareViewController ()<UITableViewDelegate, UITableViewDataSource,HPGrowingTextViewDelegate>{
+#import "AGDetailInfoViewController.h"
+
+@interface AGShareViewController ()<UITableViewDelegate, UITableViewDataSource,HPGrowingTextViewDelegate,AGShareTableViewCellDelegate>{
     BOOL isMainComment;
     int replayIndex;
 }
@@ -29,7 +31,7 @@
 @property (strong, nonatomic) AGShowCommentView *commentView;
 @property (strong, nonatomic) DEYChatInputTextView *commentInputTextView;
 
-- (void)addCommentTextView;
+//- (void)addCommentTextView;
 - (void)removeCommentTextView;
 @end
 
@@ -89,6 +91,7 @@
     
     if (cell == nil) {
         cell = [[AGShareTableViewCell alloc] init];
+        cell.delegate = self;
     }
     
     cell.shareItem = item;
@@ -104,6 +107,22 @@
     return [AGShareTableViewCell getHeightByShareItem:data];
 }
 
+#pragma mark - AGShareTableViewCellDelegate
+- (void)shareTableViewCell:(AGShareTableViewCell *)tableViewCell commentInfo:(AGShareCommentItem *)commentItem{
+
+}
+
+- (void)shareTableViewCell:(AGShareTableViewCell *)tableViewCell commentShareInfoId:(long long)uid{
+
+}
+
+- (void)shareTableViewCell:(AGShareTableViewCell *)tableViewCell timelineByUserId:(long long)userId{
+    AGDetailInfoViewController *viewController = [[AGDetailInfoViewController alloc] init];
+    viewController.userId = userId;
+    [self.navigationController pushViewController:viewController animated:YES];
+}
+
+#pragma mark - shareline comment
 - (IBAction)viewForCommentSelect:(id)sender{
 //    m_isRemoveCommentView = NO;
     UIButton *replyBtn = (UIButton *)sender;

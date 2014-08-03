@@ -7,8 +7,12 @@
 //
 
 #import "AGDetailInfoViewController.h"
+
+#import "AGJieyouModel.h"
+
 #import "AGDetailBaseTableViewCell.h"
 #import "AGPhotoAblumTableViewCell.h"
+#import "AGSinglePhotoViewController.h"
 
 /**
  *  街友详细信息的页面item
@@ -41,6 +45,7 @@ typedef NS_ENUM(NSInteger, DetailInfoType) {
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSMutableArray *dataArr;
 
+@property (strong, nonatomic) AGJieyouModel *userInfo;
 @end
 
 @implementation AGDetailInfoViewController
@@ -58,7 +63,13 @@ typedef NS_ENUM(NSInteger, DetailInfoType) {
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    self.tabBarController.tabBar.hidden = YES;
     self.navigationItem.title = @"详细资料";
+    [self detailInfoInit];
+    
+//    self.tableView.allowsSelection = NO;
+    self.tableView.backgroundColor = [UIColor clearColor];
+    [self.tableView setTableFooterView:[[UIView alloc] initWithFrame:CGRectZero]];
 }
 
 - (void)didReceiveMemoryWarning
@@ -83,16 +94,16 @@ typedef NS_ENUM(NSInteger, DetailInfoType) {
     
     switch (type.integerValue) {
         case DetailInfoTypeBase:
-            height = 85;
-            break;
-        case DetailInfoTypeDeclaration:
-            height = 44;
+            height = [AGDetailBaseTableViewCell heightForCell];
             break;
         case DetailInfoTypePhotoAlbum:
-            height = 90;
+            height = [AGPhotoAblumTableViewCell heightForCell];
             break;
-        case DetailInfoTypeAge:
         case DetailInfoTypeSendMessage:
+            height = 44 + 19*2;
+            break;
+        case DetailInfoTypeDeclaration:
+        case DetailInfoTypeAge:
         default:
             height = 44;
             break;
@@ -111,9 +122,12 @@ typedef NS_ENUM(NSInteger, DetailInfoType) {
                 AGDetailBaseTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identify];
                 if (cell == nil) {
                     cell = [[AGDetailBaseTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identify];
+                    cell.selectionStyle = UITableViewCellSelectionStyleNone;
                 }
                 
-                [cell contentViewByUserInfo:@"userInfo"];
+                cell.separatorInset = UIEdgeInsetsZero;
+                [cell contentViewByUserInfo:self.userInfo];
+                cell.selectionStyle = UITableViewCellSelectionStyleNone;
                 
                 return cell;
             }
@@ -123,10 +137,15 @@ typedef NS_ENUM(NSInteger, DetailInfoType) {
                 static NSString *identify = @"ageIdentify";
                 UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identify];
                 if (cell == nil) {
-                    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identify];
+                    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:identify];
+                    
+                    cell.selectionStyle = UITableViewCellSelectionStyleNone;
                 }
                 cell.textLabel.text = @"年龄";
+                cell.textLabel.textColor = [UIColor colorWithRed:174.0/255.0 green:174.0/255.0 blue:174.0/255.0 alpha:1];
                 cell.detailTextLabel.text = @"99岁";
+                cell.detailTextLabel.textAlignment = NSTextAlignmentLeft;
+                cell.detailTextLabel.textColor = [UIColor colorWithRed:63.0/255.0 green:66.0/255.0 blue:72.0/255.0 alpha:1];
                 
                 return cell;
             }
@@ -136,10 +155,13 @@ typedef NS_ENUM(NSInteger, DetailInfoType) {
                 static NSString *identify = @"declarationIdentify";
                 UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identify];
                 if (cell == nil) {
-                    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identify];
+                    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:identify];
+                    cell.selectionStyle = UITableViewCellSelectionStyleNone;
                 }
                 cell.textLabel.text = @"个性签名";
-                cell.detailTextLabel.text = @"个性签名个性签名个性签名个性签名个性签名个性签名个性签名个性签名个性签名";
+                cell.textLabel.textColor = [UIColor colorWithRed:174.0/255.0 green:174.0/255.0 blue:174.0/255.0 alpha:1];
+                cell.detailTextLabel.text = @"个性签名个性签名";
+                cell.detailTextLabel.textColor = [UIColor colorWithRed:63.0/255.0 green:66.0/255.0 blue:72.0/255.0 alpha:1];
                 cell.detailTextLabel.numberOfLines = 2;
                 
                 return cell;
@@ -152,6 +174,7 @@ typedef NS_ENUM(NSInteger, DetailInfoType) {
                 if (cell == nil) {
                     cell = [[AGPhotoAblumTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identify];
                 }
+                cell.separatorInset = UIEdgeInsetsZero;
                 
                 [cell contentViewInit:@""];
                 
@@ -166,6 +189,8 @@ typedef NS_ENUM(NSInteger, DetailInfoType) {
                 
                 if (cell == nil) {
                     cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identify];
+                    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+                    
                     UIButton *sendBtn = [UIButton buttonWithType:UIButtonTypeCustom];
                     sendBtn.tag = 2014072001;
                     
@@ -173,11 +198,17 @@ typedef NS_ENUM(NSInteger, DetailInfoType) {
                     [cell addSubview:sendBtn];
                 }
                 
+                UIEdgeInsets inset = cell.separatorInset;
+                inset.left = 320;
+                cell.separatorInset = inset;
+                
                 UIButton *sendBtn = (UIButton *)[cell viewWithTag:2014072001];
-                sendBtn.frame = CGRectMake(10, 20, 300, 44);
-                [sendBtn setImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
+                sendBtn.frame = CGRectMake(10, 19, 300, 44);
+                [sendBtn setBackgroundImage:[UIImage imageNamed:@"btn_bg_lightBlue"] forState:UIControlStateNormal];
                 [sendBtn setTitle:@"发消息" forState:UIControlStateNormal];
                 [sendBtn addTarget:self action:@selector(sendMessageBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+                
+                cell.backgroundColor = [UIColor clearColor];
                 
                 return cell;
             }
@@ -186,12 +217,23 @@ typedef NS_ENUM(NSInteger, DetailInfoType) {
     return nil;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    
+    NSNumber *type = [self.dataArr objectAtIndex:indexPath.row];
+    if (type.intValue == DetailInfoTypePhotoAlbum) {
+        AGSinglePhotoViewController *viewController = [[AGSinglePhotoViewController alloc] init];
+        [self.navigationController pushViewController:viewController animated:YES];
+    }
+
+}
+
 - (IBAction)sendMessageBtnClick:(id)sender{
     
 }
 
 #pragma mark - data init
 - (void)detailInfoInit{
-    self.dataArr = [NSMutableArray arrayWithArray:@[[NSNumber numberWithInteger:DetailInfoTypeBase],[NSNumber numberWithInteger:DetailInfoTypeAge],[NSNumber numberWithInteger:DetailInfoTypeDeclaration],[NSNumber numberWithInteger:DetailInfoTypePhotoAlbum]]];
+    self.dataArr = [NSMutableArray arrayWithArray:@[[NSNumber numberWithInteger:DetailInfoTypeBase],[NSNumber numberWithInteger:DetailInfoTypeAge],[NSNumber numberWithInteger:DetailInfoTypeDeclaration],[NSNumber numberWithInteger:DetailInfoTypePhotoAlbum],[NSNumber numberWithInteger:DetailInfoTypeSendMessage]]];
 }
 @end

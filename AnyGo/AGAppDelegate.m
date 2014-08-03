@@ -16,6 +16,8 @@
 #import "AGDistributeViewController.h"
 #import "AGJieBanViewController.h"
 
+#import "AGShareViewController.h"
+
 #import <UMengAnalytics/MobClick.h>
 
 //#import <PBFlatUI/PBFlatSettings.h>
@@ -92,8 +94,8 @@
     viewController1.view.backgroundColor = [UIColor greenColor];
     AGNavigationController *navigationController1 = [[AGNavigationController alloc] initWithRootViewController:viewController1];
     
-    AGViewController *viewController2 = [[AGViewController alloc] init];
-    viewController2.view.backgroundColor = [UIColor yellowColor];
+    AGShareViewController *viewController2 = [[AGShareViewController alloc] init];
+//    viewController2.view.backgroundColor = [UIColor yellowColor];
     AGNavigationController *navigationController2 = [[AGNavigationController alloc] initWithRootViewController:viewController2];
     
     AGDistributeViewController *viewController3 = [[AGDistributeViewController alloc] init];

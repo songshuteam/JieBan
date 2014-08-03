@@ -21,7 +21,7 @@
 @property (strong, nonatomic) NSArray *shareComments;
 @property (strong, nonatomic) NSArray *shareLikes;
 
-@property (strong, nonatomic) NSData *timeStamp;
+@property (strong, nonatomic) NSDate *timeStamp;
 
 @end
 

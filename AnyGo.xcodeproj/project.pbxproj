@@ -334,6 +334,14 @@
 		FE9B3F7419848FEB00444733 /* AGResetPwdPhoneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE9B3F7219848FEB00444733 /* AGResetPwdPhoneViewController.xib */; };
 		FE9B3F781984984D00444733 /* AGResetpwdEmailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE9B3F761984984D00444733 /* AGResetpwdEmailViewController.m */; };
 		FE9B3F791984984D00444733 /* AGResetpwdEmailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE9B3F771984984D00444733 /* AGResetpwdEmailViewController.xib */; };
+		FEA69EAE198DCD6600B4318C /* AGPhotoLineTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FEA69EAD198DCD6600B4318C /* AGPhotoLineTableViewCell.m */; };
+		FEA69EB2198E0D1200B4318C /* AGResetPwdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEA69EB0198E0D1200B4318C /* AGResetPwdViewController.m */; };
+		FEA69EB3198E0D1200B4318C /* AGResetPwdViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEA69EB1198E0D1200B4318C /* AGResetPwdViewController.xib */; };
+		FEA69EB6198E176200B4318C /* NSString+Encryption.m in Sources */ = {isa = PBXBuildFile; fileRef = FEA69EB5198E176200B4318C /* NSString+Encryption.m */; };
+		FEA69EB8198E464900B4318C /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEA69EB7198E464900B4318C /* CFNetwork.framework */; };
+		FEA69EBA198E465900B4318C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEA69EB9198E465900B4318C /* SystemConfiguration.framework */; };
+		FEA69EBC198E466300B4318C /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEA69EBB198E466300B4318C /* MobileCoreServices.framework */; };
+		FEA69EBE198E468400B4318C /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FEA69EBD198E468400B4318C /* libz.1.2.5.dylib */; };
 		FEC43AEC197EA82C007BC3CB /* MJPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC43AE0197EA82C007BC3CB /* MJPhoto.m */; };
 		FEC43AED197EA82C007BC3CB /* MJPhotoBrowser.bundle in Resources */ = {isa = PBXBuildFile; fileRef = FEC43AE1197EA82C007BC3CB /* MJPhotoBrowser.bundle */; };
 		FEC43AEE197EA82C007BC3CB /* MJPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC43AE3197EA82C007BC3CB /* MJPhotoBrowser.m */; };
@@ -358,8 +366,6 @@
 		FEC43B2D197EA8A6007BC3CB /* AGSinglePhotoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEC43B15197EA8A6007BC3CB /* AGSinglePhotoViewController.xib */; };
 		FEC43B2E197EA8A6007BC3CB /* AGCompanyDemandCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC43B18197EA8A6007BC3CB /* AGCompanyDemandCell.m */; };
 		FEC43B2F197EA8A6007BC3CB /* AGCompanyDemandCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEC43B19197EA8A6007BC3CB /* AGCompanyDemandCell.xib */; };
-		FEC43B30197EA8A6007BC3CB /* AGPhotoLineTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC43B1B197EA8A6007BC3CB /* AGPhotoLineTableViewCell.m */; };
-		FEC43B31197EA8A6007BC3CB /* AGPhotoLineTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEC43B1C197EA8A6007BC3CB /* AGPhotoLineTableViewCell.xib */; };
 		FEC43B34197EAE08007BC3CB /* AGJieyouModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC43B33197EAE08007BC3CB /* AGJieyouModel.m */; };
 		FEC43B3A197EB4AC007BC3CB /* HPGrowingTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC43B37197EB4AC007BC3CB /* HPGrowingTextView.m */; };
 		FEC43B3B197EB4AC007BC3CB /* HPTextViewInternal.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC43B39197EB4AC007BC3CB /* HPTextViewInternal.m */; };
@@ -911,6 +917,17 @@
 		FE9B3F751984984D00444733 /* AGResetpwdEmailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGResetpwdEmailViewController.h; sourceTree = "<group>"; };
 		FE9B3F761984984D00444733 /* AGResetpwdEmailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGResetpwdEmailViewController.m; sourceTree = "<group>"; };
 		FE9B3F771984984D00444733 /* AGResetpwdEmailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AGResetpwdEmailViewController.xib; sourceTree = "<group>"; };
+		FEA69EAC198DCD6600B4318C /* AGPhotoLineTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGPhotoLineTableViewCell.h; sourceTree = "<group>"; };
+		FEA69EAD198DCD6600B4318C /* AGPhotoLineTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGPhotoLineTableViewCell.m; sourceTree = "<group>"; };
+		FEA69EAF198E0D1200B4318C /* AGResetPwdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGResetPwdViewController.h; sourceTree = "<group>"; };
+		FEA69EB0198E0D1200B4318C /* AGResetPwdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGResetPwdViewController.m; sourceTree = "<group>"; };
+		FEA69EB1198E0D1200B4318C /* AGResetPwdViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AGResetPwdViewController.xib; sourceTree = "<group>"; };
+		FEA69EB4198E176200B4318C /* NSString+Encryption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Encryption.h"; sourceTree = "<group>"; };
+		FEA69EB5198E176200B4318C /* NSString+Encryption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Encryption.m"; sourceTree = "<group>"; };
+		FEA69EB7198E464900B4318C /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		FEA69EB9198E465900B4318C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		FEA69EBB198E466300B4318C /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		FEA69EBD198E468400B4318C /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
 		FEC43ADF197EA82C007BC3CB /* MJPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJPhoto.h; sourceTree = "<group>"; };
 		FEC43AE0197EA82C007BC3CB /* MJPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJPhoto.m; sourceTree = "<group>"; };
 		FEC43AE1197EA82C007BC3CB /* MJPhotoBrowser.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MJPhotoBrowser.bundle; sourceTree = "<group>"; };
@@ -953,9 +970,6 @@
 		FEC43B17197EA8A6007BC3CB /* AGCompanyDemandCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGCompanyDemandCell.h; sourceTree = "<group>"; };
 		FEC43B18197EA8A6007BC3CB /* AGCompanyDemandCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGCompanyDemandCell.m; sourceTree = "<group>"; };
 		FEC43B19197EA8A6007BC3CB /* AGCompanyDemandCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AGCompanyDemandCell.xib; sourceTree = "<group>"; };
-		FEC43B1A197EA8A6007BC3CB /* AGPhotoLineTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGPhotoLineTableViewCell.h; sourceTree = "<group>"; };
-		FEC43B1B197EA8A6007BC3CB /* AGPhotoLineTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGPhotoLineTableViewCell.m; sourceTree = "<group>"; };
-		FEC43B1C197EA8A6007BC3CB /* AGPhotoLineTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AGPhotoLineTableViewCell.xib; sourceTree = "<group>"; };
 		FEC43B32197EAE08007BC3CB /* AGJieyouModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGJieyouModel.h; sourceTree = "<group>"; };
 		FEC43B33197EAE08007BC3CB /* AGJieyouModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGJieyouModel.m; sourceTree = "<group>"; };
 		FEC43B36197EB4AC007BC3CB /* HPGrowingTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HPGrowingTextView.h; sourceTree = "<group>"; };
@@ -971,10 +985,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FEA69EBE198E468400B4318C /* libz.1.2.5.dylib in Frameworks */,
+				987ADBF118AA476B00124964 /* CoreGraphics.framework in Frameworks */,
+				FEA69EBC198E466300B4318C /* MobileCoreServices.framework in Frameworks */,
+				FEA69EBA198E465900B4318C /* SystemConfiguration.framework in Frameworks */,
+				FEA69EB8198E464900B4318C /* CFNetwork.framework in Frameworks */,
 				A0CF733E194D57F3005A4436 /* MapKit.framework in Frameworks */,
 				A0CF733C194D57ED005A4436 /* CoreLocation.framework in Frameworks */,
 				9858A89B18AE195C0003982E /* libz.dylib in Frameworks */,
-				987ADBF118AA476B00124964 /* CoreGraphics.framework in Frameworks */,
 				987ADBF318AA476B00124964 /* UIKit.framework in Frameworks */,
 				987ADBEF18AA476B00124964 /* Foundation.framework in Frameworks */,
 				5A534D70E296444B9BC0E93D /* libPods-AnyGo.a in Frameworks */,
@@ -1005,6 +1023,8 @@
 				FE9237211987C3EA001EF4DD /* AGUrlManager.m */,
 				FE9237231987C7A4001EF4DD /* AGRequestManager.h */,
 				FE9237241987C7A4001EF4DD /* AGRequestManager.m */,
+				FEA69EB4198E176200B4318C /* NSString+Encryption.h */,
+				FEA69EB5198E176200B4318C /* NSString+Encryption.m */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -1077,6 +1097,10 @@
 		987ADBED18AA476B00124964 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FEA69EBD198E468400B4318C /* libz.1.2.5.dylib */,
+				FEA69EBB198E466300B4318C /* MobileCoreServices.framework */,
+				FEA69EB9198E465900B4318C /* SystemConfiguration.framework */,
+				FEA69EB7198E464900B4318C /* CFNetwork.framework */,
 				A0CF733D194D57F3005A4436 /* MapKit.framework */,
 				A0CF733B194D57ED005A4436 /* CoreLocation.framework */,
 				9858A89A18AE195C0003982E /* libz.dylib */,
@@ -2315,6 +2339,9 @@
 				FE9B3F7019848FEB00444733 /* AGResetPwdPhoneViewController.h */,
 				FE9B3F7119848FEB00444733 /* AGResetPwdPhoneViewController.m */,
 				FE9B3F7219848FEB00444733 /* AGResetPwdPhoneViewController.xib */,
+				FEA69EAF198E0D1200B4318C /* AGResetPwdViewController.h */,
+				FEA69EB0198E0D1200B4318C /* AGResetPwdViewController.m */,
+				FEA69EB1198E0D1200B4318C /* AGResetPwdViewController.xib */,
 				FE9B3F751984984D00444733 /* AGResetpwdEmailViewController.h */,
 				FE9B3F761984984D00444733 /* AGResetpwdEmailViewController.m */,
 				FE9B3F771984984D00444733 /* AGResetpwdEmailViewController.xib */,
@@ -2416,9 +2443,8 @@
 				FEC43B17197EA8A6007BC3CB /* AGCompanyDemandCell.h */,
 				FEC43B18197EA8A6007BC3CB /* AGCompanyDemandCell.m */,
 				FEC43B19197EA8A6007BC3CB /* AGCompanyDemandCell.xib */,
-				FEC43B1A197EA8A6007BC3CB /* AGPhotoLineTableViewCell.h */,
-				FEC43B1B197EA8A6007BC3CB /* AGPhotoLineTableViewCell.m */,
-				FEC43B1C197EA8A6007BC3CB /* AGPhotoLineTableViewCell.xib */,
+				FEA69EAC198DCD6600B4318C /* AGPhotoLineTableViewCell.h */,
+				FEA69EAD198DCD6600B4318C /* AGPhotoLineTableViewCell.m */,
 			);
 			path = cell;
 			sourceTree = "<group>";
@@ -2595,6 +2621,7 @@
 				A0583F06195026750043B5DC /* SenderVoiceNodePlaying000@2x.png in Resources */,
 				A0583F09195026750043B5DC /* SenderVoiceNodePlaying003@2x.png in Resources */,
 				A0583EE1195026750043B5DC /* multiMedia@2x.png in Resources */,
+				FEA69EB3198E0D1200B4318C /* AGResetPwdViewController.xib in Resources */,
 				A0583EDE195026750043B5DC /* keyborad_HL@2x.png in Resources */,
 				A04127E1194ACA6B0084A998 /* AGAddressViewController.xib in Resources */,
 				A0583EC7195026750043B5DC /* AddGroupMemberBtnHL@2x.png in Resources */,
@@ -2635,7 +2662,6 @@
 				A0583ED6195026750043B5DC /* Fav_Cell_Loc@2x.png in Resources */,
 				A0583EC8195026750043B5DC /* avator@2x.png in Resources */,
 				A0583EE6195026750043B5DC /* ReceiverVoiceNodePlaying000@2x.png in Resources */,
-				FEC43B31197EA8A6007BC3CB /* AGPhotoLineTableViewCell.xib in Resources */,
 				A0583ECC195026750043B5DC /* CellRedSelected@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2688,7 +2714,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FEC43B30197EA8A6007BC3CB /* AGPhotoLineTableViewCell.m in Sources */,
 				A0583E4A195026750043B5DC /* XHVoiceRecordHelper.m in Sources */,
 				A0583EA0195026750043B5DC /* XHAlbumRichTextView.m in Sources */,
 				A0583E4C195026750043B5DC /* XHBaseSearchTableViewController.m in Sources */,
@@ -2795,10 +2820,12 @@
 				A0583EC0195026750043B5DC /* XHPopMenuItemView.m in Sources */,
 				FEC43B34197EAE08007BC3CB /* AGJieyouModel.m in Sources */,
 				A0CF733A194D4671005A4436 /* TSLocation.m in Sources */,
+				FEA69EB2198E0D1200B4318C /* AGResetPwdViewController.m in Sources */,
 				A0583E52195026750043B5DC /* XHContactTableViewController.m in Sources */,
 				A0583E73195026750043B5DC /* XHAnnotation.m in Sources */,
 				A06D26F319519A78005FB142 /* PBFlatSettings.m in Sources */,
 				A0583EB1195026750043B5DC /* XHMessageTableViewCell.m in Sources */,
+				FEA69EB6198E176200B4318C /* NSString+Encryption.m in Sources */,
 				A0583E8B195026750043B5DC /* SELineLayout.m in Sources */,
 				A0583EC4195026750043B5DC /* XHRefreshView.m in Sources */,
 				A0583E6E195026750043B5DC /* XHMessageBubbleFactory.m in Sources */,
@@ -2904,6 +2931,7 @@
 				A0583E45195026750043B5DC /* XHFoundationCommon.m in Sources */,
 				FE94BA2A197FFB0900A54085 /* AGShareCommentItem.m in Sources */,
 				A0583E77195026750043B5DC /* XHMessage.m in Sources */,
+				FEA69EAE198DCD6600B4318C /* AGPhotoLineTableViewCell.m in Sources */,
 				987ADC2818AA4FB300124964 /* AGViewController.m in Sources */,
 				A0B391CC194867E10000C1DA /* AGPlanDestinationTableViewCell.m in Sources */,
 				A0583E5B195026750043B5DC /* XHDisplayLocationViewController.m in Sources */,

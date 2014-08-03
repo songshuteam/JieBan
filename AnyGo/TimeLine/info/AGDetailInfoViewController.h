@@ -10,4 +10,6 @@
 
 @interface AGDetailInfoViewController : UIViewController
 
+@property (assign, nonatomic) long long userId;
+
 @end

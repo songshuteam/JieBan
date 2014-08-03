@@ -26,11 +26,19 @@
     
     ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:url];
     
-    [request setPostValue:registerInfo.account forKey:@"account"];
+    [request setPostValue:[registerInfo getAccountInfo] forKey:@"account"];
     [request setPostValue:registerInfo.password forKey:@"password"];
+    [request setPostValue:registerInfo.nickname forKey:@"nickname"];
     [request setPostValue:[NSNumber numberWithInteger:registerInfo.gender] forKey:@"gender"];
     [request setPostValue:registerInfo.code forKey:@"code"];
     
+    // 获取Caches目录路径
+    NSString *cachesPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    NSString *imagName = [NSString stringWithFormat:@"%f.png",[[NSDate new] timeIntervalSince1970]];
+    NSString *path = [cachesPath stringByAppendingPathComponent:imagName];
+    [UIImagePNGRepresentation(registerInfo.faceImg) writeToFile:path atomically:YES];
+    
+    [request setFile:path forKey:@"image"];
     
     return request;
 }

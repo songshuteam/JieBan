@@ -11,25 +11,26 @@
 @implementation AGUrlManager
 
 + (NSURL *)urlLoginWithAccount:(NSString *)account password:(NSString *)pwd;{
-    NSString *url = [NSString stringWithFormat:@"%@:travel/login.do?appId=%@&account=%@&password=%@",serverUrl,appId,account,pwd];
+    NSString *url = [NSString stringWithFormat:@"%@/trainon/login.do?appId=%@&account=%@&password=%@",serverUrl,appId,account,pwd];
     
     return [NSURL URLWithString:url];
 }
 
 + (NSURL *)urlRegister{
-    NSString *url = [NSString stringWithFormat:@"%@:travel/user.do?appId=%@",serverUrl,appId];
+    NSString *url = [NSString stringWithFormat:@"%@/trainon/user.do?appId=%@",serverUrl,appId];
     
     return [NSURL URLWithString:url];
 }
 
 + (NSURL *)urlResetPwd;{
-    NSString *url = [NSString stringWithFormat:@"%@:travel/password.do?_method=PUT&appId=%@",serverUrl,appId];
+    NSString *url = [NSString stringWithFormat:@"%@/trainon/password.do?_method=PUT&appId=%@",serverUrl,appId];
     
     return [NSURL URLWithString:url];
 }
 
 + (NSURL *)urlSMSWithMobileNum:(NSString *)mobile withType:(NSInteger)type{
-    NSString *url = [NSString stringWithFormat:@"%@/sms.do?appId=%@&mobile=%@@&type=%d",serverUrl,appId,mobile,type];
+    NSString *account = [mobile stringByReplacingOccurrencesOfString:@"+" withString:@""];
+    NSString *url = [NSString stringWithFormat:@"%@/trainon/sms.do?appId=%@&mobile=%@&type=%d",serverUrl,appId,account,type];
     
     return [NSURL URLWithString:url];
 }

@@ -13,10 +13,6 @@
 #import "AGSettingPasswordViewController.h"
 #import "AGLSModel.h"
 
-#import <ASIHTTPRequest.h>
-#import "AGUrlManager.h"
-#import "NSObject+NSJSONSerialization.h"
-
 #import "AGBorderHelper.h"
 #import "FTCoreTextView.h"
 
@@ -49,6 +45,8 @@
     self.navigationController.navigationBarHidden = NO;
     self.title = @"注册";
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"下一步" style:UIBarButtonItemStylePlain target:self action:@selector(nextStepAction:)];
+    
+    [self.phoneCodeBtn setTitle:self.areaCodeModel.phoneCode forState:UIControlStateNormal];
     
     [self initDealInfo];
 }
@@ -105,20 +103,19 @@
 
 //__attribute__((deprecated("register in other Class")))  设方法为废弃
 - (IBAction)nextStepAction:(id)sender {
+    [self.view endEditing:YES];
+    
     if ([self.areaCodeModel.phoneCode isEqualToString:@"+86"]) {
         if ([AGBorderHelper isValidateMobile:self.phoneTextField.text] ) {
-            AGVerifiedCodeViewController *viewController = [[AGVerifiedCodeViewController alloc] init];
-            AGRegisterModel *model = [[AGRegisterModel alloc] init];
-            model.account = self.phoneTextField.text;
-            model.areaCode = self.areaCodeModel;
-            viewController.registerModel = model;
-            [self.navigationController pushViewController:viewController animated:YES];
+            NSString *accountInfo = [[NSString stringWithFormat:@"%@-%@",self.areaCodeModel.phoneCode,self.phoneTextField.text] stringByReplacingOccurrencesOfString:@"+" withString:@""];
             
-            
-//            NSURL *smsUrl = [AGUrlManager urlSMSWithMobileNum:[NSString stringWithFormat:@"%@-%@",@"+86",self.phoneTextField.text] withType:1];
-//            ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:smsUrl];
-//            request.delegate = self;
-//            [request startAsynchronous];
+            NSURL *smsUrl = [AGUrlManager urlSMSWithMobileNum:accountInfo withType:1];
+            ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:smsUrl];
+//            request set
+            request.defaultResponseEncoding = NSUTF8StringEncoding;
+            request.timeOutSeconds = 60;
+            request.delegate = self;
+            [request startSynchronous];
         }else{
             [self showAlertMessageForPhone];
         }
@@ -155,7 +152,7 @@
         AGRegisterModel *model = [[AGRegisterModel alloc] init];
         model.account = self.phoneTextField.text;
         model.areaCode = self.areaCodeModel;
-        model.code = code;
+        model.codeMd5 = code;
         viewController.registerModel = model;
         [self.navigationController pushViewController:viewController animated:YES];
     }else{
@@ -164,14 +161,14 @@
 }
 
 - (void)requestFailed:(ASIHTTPRequest *)request{
-    
+    NSLog(@"%@",request.responseString);
 }
 
 #pragma mark - AGPhoneCodeSelectDelegate
 - (void)selectWithAreaCode:(AGLSAreaCodeModel *)model{
     if (model != nil) {
         self.areaCodeModel = model;
-        [self.phoneCodeBtn setTitle:model.countryCode forState:UIControlStateNormal];
+        [self.phoneCodeBtn setTitle:model.phoneCode forState:UIControlStateNormal];
     }
 }
 

@@ -67,4 +67,9 @@ typedef NS_OPTIONS(NSUInteger, AGDrawnBorderSides) {
  */
 + (BOOL)isValidateEmail:(NSString *)email;
 
+/**
+ * the password validate,the rule is 6~12位字母或数字
+ */
++ (BOOL)isValidatePassword:(NSString *)pwd;
+
 @end

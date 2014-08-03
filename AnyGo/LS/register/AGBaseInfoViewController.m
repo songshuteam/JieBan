@@ -11,9 +11,7 @@
 #import "PBFlatButton.h"
 #import "VPImageCropperViewController.h"
 
-#import <ASIFormDataRequest.h>
 #import "AGRequestManager.h"
-#import "NSObject+NSJSONSerialization.h"
 
 #import <AssetsLibrary/AssetsLibrary.h>
 #import <MobileCoreServices/MobileCoreServices.h>
@@ -60,6 +58,7 @@
     [self viewChangeBySex:true];
     
     [self addGestureToBgView];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"完成" style:UIBarButtonItemStylePlain target:self action:@selector(finishRegisterAccount:)];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -152,6 +151,8 @@
 #pragma mark -- VPImageCropperDelegate
 - (void)imageCropper:(VPImageCropperViewController *)cropperViewController didFinished:(UIImage *)editedImage {
     self.faceImageView.image = editedImage;
+    self.registerModel.faceImg = editedImage;
+    
     [cropperViewController dismissViewControllerAnimated:YES completion:^{
         // TO DO
     }];

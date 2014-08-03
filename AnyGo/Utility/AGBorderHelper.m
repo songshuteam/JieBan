@@ -52,4 +52,10 @@
     return [emailTest evaluateWithObject:email];
 }
 
++ (BOOL)isValidatePassword:(NSString *)pwd{
+    NSString *pwdRegex = @"^[A-Za-z0-9]{6，12}$";
+    NSPredicate *pwdTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",pwdRegex];
+    
+    return [pwdTest evaluateWithObject:pwd];
+}
 @end

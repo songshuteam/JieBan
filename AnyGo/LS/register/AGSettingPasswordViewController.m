@@ -96,27 +96,27 @@
 - (IBAction)nextStepClick:(id)sender {
     [self.view endEditing:YES];
     
-//    UIBarButtonItem *buttonItem = (UIBarButtonItem *)sender;
-//    MBProgressHUD *hud = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
-//    hud.labelText = @"完成中...";
-//    [self.view addSubview:hud];
-//    [hud showAnimated:YES whileExecutingBlock:^(void) {
-//        buttonItem.enabled = NO;
-//        sleep(2);
-//    } completionBlock:^(void) {
-//        buttonItem.enabled = YES;
-//        [self.navigationController popToRootViewControllerAnimated:YES];
-//    }];
-    
-    
     if ([self passwordIsEqual]) {
-        AGBaseInfoViewController *viewController = [[AGBaseInfoViewController alloc] init];
-        self.registerModel.nikeName = self.nameTextField.text;
-        self.registerModel.password = self.passwordField.text;
-        viewController.registerModel = self.registerModel;
-        [self.navigationController pushViewController:viewController animated:YES];
+        if ([AGBorderHelper isValidatePassword:self.passwordField.text]) {
+            AGBaseInfoViewController *viewController = [[AGBaseInfoViewController alloc] init];
+            self.registerModel.nickname = self.nameTextField.text;
+            self.registerModel.password = self.passwordField.text;
+            viewController.registerModel = self.registerModel;
+            [self.navigationController pushViewController:viewController animated:YES];
+        }else{
+            [self.view makeToast:@"密码输入不合规则，密码有字母或数字组成"];
+            [self passwordInfoToEmpty];
+        }
+    }else{
+        [self.view makeToast:@"两次密码输入不一致，请重新输入！"];
+        [self passwordInfoToEmpty];
     }
+}
 
+- (void)passwordInfoToEmpty{
+    self.passwordField.text = nil;
+    self.passwordAgainField.text = nil;
+    [self.passwordField becomeFirstResponder];
 }
 
 - (IBAction)agreementBtnClick:(id)sender {
@@ -133,6 +133,18 @@
 -(BOOL)textFieldShouldEndEditing:(UITextField *)textField{
     if (textField == self.passwordAgainField) {
         [self passwordIsEqual];
+    }
+    
+    return YES;
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+    if (textField == self.nameTextField) {
+        [self.passwordField becomeFirstResponder];
+    }else if (textField == self.passwordField){
+        [self.passwordAgainField becomeFirstResponder];
+    }else if(textField == self.passwordAgainField){
+        [self nextStepClick:nil];
     }
     
     return YES;
