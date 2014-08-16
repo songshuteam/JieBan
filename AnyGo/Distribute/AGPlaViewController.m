@@ -14,11 +14,17 @@
 #import <MBProgressHUD/MBProgressHUD.h>
 #import "AGDistributeViewController.h"
 
-@interface AGPlaViewController () <UITableViewDataSource, UITableViewDelegate, UIActionSheetDelegate, UIAlertViewDelegate>
+const NSInteger startAddressSelectTag = 2014080801;
+const NSInteger endAddressSelectTag = 2014080802;
+
+@interface AGPlaViewController () <UITableViewDataSource, UITableViewDelegate, UIActionSheetDelegate, UIAlertViewDelegate>{
+    TSLocateView *locateView;
+    UIActionSheet *actionSheet;
+    NSDate *startDate;
+}
 
 @property (strong, nonatomic) UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray *dataSource;
-
 
 @end
 
@@ -37,41 +43,26 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.view.backgroundColor = [UIColor lightGrayColor];
-    CGRect bounds = [UIScreen mainScreen].bounds;
-    CGRect topViewFrame = self.topView.frame;
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, topViewFrame.size.height, bounds.size.width, bounds.size.height - self.topView.frame.size.height - 20.f -44.f) style:UITableViewStylePlain];
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
-    [self.view addSubview:self.tableView];
     
-    UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithTitle:@"返回"
-                                                                  style:UIBarButtonItemStylePlain
-                                                                 target:self
-                                                                 action:@selector(beBack:)];
-    self.navigationItem.leftBarButtonItem = leftItem;
+    locateView = [[TSLocateView alloc] initWithTitle:@"选择城市" andLocationType:self.locateType delegate:self];
     
-    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithTitle:@"+加目的地"
-                                                                  style:UIBarButtonItemStylePlain
-                                                                 target:self
-                                                                 action:@selector(addAddress:)];
+    UITapGestureRecognizer *singleTapGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(handleSingleTap:)];
+    singleTapGesture.numberOfTapsRequired = 1;
+    singleTapGesture.numberOfTouchesRequired  = 1;
+    [self.view addGestureRecognizer:singleTapGesture];
     
-    self.navigationItem.rightBarButtonItem = rightItem;
-
-    self.dataSource = [NSMutableArray new];
+    [self navgationItemInit];
     
-    
-    
+    [self tableViewInfoInit];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    if ([self.dataSource count] == 0) {
-        self.showLineView.hidden = YES;
-    }else {
-        self.showLineView.hidden = NO;
-    }
+    
+    [self moreDestination];
+    
+    self.startTextView.placeholder = @"点击添加更多描述";
+    self.endTextView.placeholder = @"点击添加跟多描述";
 }
 
 - (void)didReceiveMemoryWarning
@@ -80,9 +71,116 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)dateButtonClicked:(id)sender {
+#pragma mark- view init 
+- (void)navgationItemInit{
+//    UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithTitle:@"返回"
+//                                                                 style:UIBarButtonItemStylePlain
+//                                                                target:self
+//                                                                action:@selector(beBack:)];
+//    self.navigationItem.leftBarButtonItem = leftItem;
+    
+    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithTitle:@"确定"
+                                                                  style:UIBarButtonItemStylePlain
+                                                                 target:self
+                                                                 action:@selector(planIsOk:)];
+    self.navigationItem.rightBarButtonItem = rightItem;
 }
 
+- (void)tableViewInfoInit{
+    CGRect bounds = [UIScreen mainScreen].bounds;
+    CGRect topViewFrame = self.topView.frame;
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, topViewFrame.size.height, bounds.size.width, bounds.size.height - self.topView.frame.size.height - 20.f -44.f) style:UITableViewStylePlain];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    [self.view addSubview:self.tableView];
+    
+    self.dataSource = [NSMutableArray new];
+}
+
+- (void)moreDestination{
+    if ([self.dataSource count] == 0) {
+        self.showLineView.hidden = YES;
+        self.tableView.hidden = YES;
+    }else {
+        self.showLineView.hidden = NO;
+        self.tableView.hidden = NO;
+    }
+}
+
+-(void)handleSingleTap:(UIGestureRecognizer *)sender{
+    [self.view endEditing:YES];
+    
+    [UIView animateWithDuration:0.3f animations:^{
+        CGRect rect = locateView.frame;
+        rect.origin.y = CGRectGetWidth(self.view.frame);
+        [locateView setAlpha:0.0f];
+    } completion:^(BOOL finished) {
+        [locateView removeFromSuperview];
+    }];
+}
+
+#pragma mark - the start Time select
+- (IBAction)dateButtonClicked:(id)sender {
+    //点击显示时间
+   actionSheet = [[UIActionSheet alloc] initWithTitle:nil
+                                                   delegate:self
+                                          cancelButtonTitle:nil
+                                     destructiveButtonTitle:nil
+                                          otherButtonTitles:nil];
+    
+    UISegmentedControl *cancelButton = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObject:@"取消"]];
+    UISegmentedControl *confirmButton =[[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObject:@"确定"]];
+    [actionSheet setActionSheetStyle:UIActionSheetStyleBlackTranslucent];
+    // Add the picker
+    UIDatePicker *datePicker = [[UIDatePicker alloc] init];
+    datePicker.datePickerMode = UIDatePickerModeDate;
+    [datePicker addTarget:self
+                action:@selector(dateChanged:)
+              forControlEvents:UIControlEventValueChanged];
+    [actionSheet addSubview:datePicker];
+    
+    CGRect pickerRect;
+    pickerRect = datePicker.bounds;
+    pickerRect.origin.y = -44;
+    datePicker.bounds = pickerRect;
+    cancelButton.momentary = YES;
+    cancelButton.frame = CGRectMake(10.0f, 7.0f, 65.0f, 32.0f);
+    cancelButton.segmentedControlStyle = UISegmentedControlStyleBar;
+    [cancelButton addTarget:self action:@selector(datePickerDoneClick:) forControlEvents:UIControlEventValueChanged];
+    [actionSheet addSubview:cancelButton];
+    
+    cancelButton.tag = 1;
+    confirmButton.momentary = YES;
+    confirmButton.frame = CGRectMake(245.0f, 7.0f, 65.0f, 32.0f);
+    confirmButton.segmentedControlStyle = UISegmentedControlStyleBar;
+    [confirmButton addTarget:self action:@selector(datePickerCancelClick:) forControlEvents:UIControlEventValueChanged];
+    [actionSheet addSubview:confirmButton];
+    
+    confirmButton.tag = 2;
+    [actionSheet showInView:self.view];
+    [actionSheet setBounds:CGRectMake(0,0, 320, 500)];
+}
+
+- (IBAction)datePickerDoneClick:(id)sender{
+    [actionSheet dismissWithClickedButtonIndex:0 animated:YES];
+}
+
+- (IBAction)datePickerCancelClick:(id)sender{
+    [actionSheet dismissWithClickedButtonIndex:0 animated:YES];
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+    
+    self.dateLabel.text = [dateFormatter stringFromDate:startDate];
+}
+
+-(IBAction) dateChanged:(id)sender{
+    startDate = ((UIDatePicker *)sender).date;
+}
+
+#pragma mark - Get Address from GPS
 - (IBAction)getAddressButtonClicked:(id)sender {
     MBProgressHUD *hud = [[MBProgressHUD alloc] initWithView:self.view];
     hud.labelText = @"获取中...";
@@ -96,14 +194,22 @@
     }];
 }
 
+- (IBAction)startAddressBtnClick:(id)sender {
+    [self.view endEditing:YES];
+    
+    locateView.tag = startAddressSelectTag;
+    [locateView showInView:self.view];
+}
+
 - (IBAction)endAddressButtonClicked:(id)sender {
-    TSLocateView *locateView = [[TSLocateView alloc] initWithTitle:@"选择城市" andLocationType:self.locateType delegate:self];
+    [self.view endEditing:YES];
+  
+    locateView.tag = endAddressSelectTag;
     [locateView showInView:self.view];
 }
 
 #pragma mark - Utility Methods
-
-- (void)addAddress:(id)sender {
+- (IBAction)addAddress:(id)sender {
     if (self.endAddress.text == nil || [self.endAddress.text isEqualToString:@""]) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示"
                                                         message:@"请先填写第一个目的地"
@@ -113,13 +219,13 @@
         [alert show];
         return;
     }
+    
     AGAddressViewController *addVc = [[AGAddressViewController alloc] initWithNibName:@"AGAddressViewController" bundle:nil];
     addVc.planViewController = self;
     [self presentViewController:addVc animated:YES completion:nil];
-    
 }
 
-- (void)beBack:(id)sender {
+- (void)planIsOk:(id)sender {
     BOOL canExite = YES;
     NSString *msg = nil;
     if (self.dateLabel.text == nil || [self.dateLabel.text isEqualToString:@""]) {
@@ -148,30 +254,31 @@
         return;
     }
     
-    AGAllPlanModel *allPlan = [[AGAllPlanModel alloc] init];
-    allPlan.days = self.daysTextField.text;
-    allPlan.beginDate = self.dateLabel.text;
+    AGJiebanPlanModel *jiebanPlan = [[AGJiebanPlanModel alloc] init];
+    jiebanPlan.days = self.daysTextField.text;
+    jiebanPlan.startTime = self.dateLabel.text;
     
     NSMutableArray *tmpArray = [NSMutableArray new];
     
     AGPlanModel *startModel = [[AGPlanModel alloc] init];
     startModel.type = 0;
-    startModel.address = self.startAddress.text;
-    startModel.planDescription = self.startTextView.text;
+    startModel.location = self.startAddress.text;
+    startModel.desc = self.startTextView.text;
     [tmpArray addObject:startModel];
     
     AGPlanModel *endModel = [[AGPlanModel alloc] init];
     endModel.type = 1;
-    endModel.address = self.endAddress.text;
-    endModel.planDescription = self.endTextView.text;
+    endModel.location = self.endAddress.text;
+    endModel.desc = self.endTextView.text;
     [tmpArray addObject:endModel];
     
     if ([self.dataSource count] > 0) {
         [tmpArray addObjectsFromArray:self.dataSource];
     }
-    allPlan.plans = tmpArray;
-    self.distributeViewController.allPlan = allPlan;
+    jiebanPlan.plansArr = tmpArray;
+    self.distributeViewController.jiebanModel = jiebanPlan;
     
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)addAddressToPlan:(AGPlanModel *)plan {
@@ -201,34 +308,49 @@
     }
     NSInteger row = [indexPath row];
     AGPlanModel *plan = self.dataSource[row];
-    cell.addressLable.text = plan.address;
-    cell.planTextView.text = plan.planDescription;
+    cell.addressLable.text = plan.location;
+    cell.planTextView.text = plan.description;
     if (row == [self.dataSource count] - 1) {
         cell.breakLine.hidden = YES;
     }else {
         cell.breakLine.hidden = NO;
     }
+    cell.deletePlanDestBtn.tag = row;
+    [cell.deletePlanDestBtn addTarget:self action:@selector(deletePlanDestribute:) forControlEvents:UIControlEventTouchUpInside];
     
     return cell;
 }
 
+- (IBAction)deletePlanDestribute:(id)sender{
+    UIButton *btn = (UIButton *)sender;
+    UITableViewCell *cell = (UITableViewCell *)btn.superview.superview.superview;
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+    
+    [self.dataSource removeObjectAtIndex:indexPath.row];
+    [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    
+    [self moreDestination];
+}
+
 #pragma mark - UIActionSheetDelegate
-- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
-    TSLocateView *locateView = (TSLocateView *)actionSheet;
-    TSLocation *location = locateView.locate;
+- (void)actionSheet:(UIActionSheet *)actionSheet_ clickedButtonAtIndex:(NSInteger)buttonIndex {
+    TSLocateView *locateView_ = (TSLocateView *)actionSheet_;
+    TSLocation *location = locateView_.locate;
     LOG(@"city:%@ lat:%f lon:%f", location.city, location.latitude, location.longitude);
     //You can uses location to your application.
     if(buttonIndex == 0) {
         LOG(@"Cancel");
     }else {
         LOG(@"Select");
-        self.endAddress.text = location.city;
+        if (locateView.tag == startAddressSelectTag) {
+            self.startAddress.text = location.city;
+        }else if (locateView.tag == endAddressSelectTag){
+            self.endAddress.text = location.city;
+        }
     }
 }
 
-
 #pragma mark - UIAlertViewDelegate
-
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     switch (buttonIndex) {
         case 0:
@@ -240,7 +362,6 @@
             break;
     }
 }
-
 
 @end
 

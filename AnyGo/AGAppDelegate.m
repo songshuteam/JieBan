@@ -87,24 +87,30 @@
 
 - (void)buildViews {
     AGJieBanViewController *viewController0 = [[AGJieBanViewController alloc] init];
-    viewController0.view.backgroundColor = [UIColor redColor];
     AGNavigationController *navigationController0 = [[AGNavigationController alloc] initWithRootViewController:viewController0];
+    navigationController0.title = @"结伴";
     
     AGViewController *viewController1 = [[AGViewController alloc] init];
     viewController1.view.backgroundColor = [UIColor greenColor];
     AGNavigationController *navigationController1 = [[AGNavigationController alloc] initWithRootViewController:viewController1];
+    navigationController1.title = @"消息";
     
-    AGShareViewController *viewController2 = [[AGShareViewController alloc] init];
-//    viewController2.view.backgroundColor = [UIColor yellowColor];
+    AGLoginViewController *viewController2 = [[AGLoginViewController alloc] init];
     AGNavigationController *navigationController2 = [[AGNavigationController alloc] initWithRootViewController:viewController2];
+    navigationController2.title = @"我的";
     
-    AGDistributeViewController *viewController3 = [[AGDistributeViewController alloc] init];
-    viewController3.view.backgroundColor = [UIColor lightGrayColor];
+    AGShareViewController *viewController3 = [[AGShareViewController alloc] init];
     AGNavigationController *navigationController3 = [[AGNavigationController alloc] initWithRootViewController:viewController3];
+    navigationController3.title = @"组队";
+    
+    AGDistributeViewController *viewController4 = [[AGDistributeViewController alloc] init];
+    viewController3.view.backgroundColor = [UIColor lightGrayColor];
+    AGNavigationController *navigationController4 = [[AGNavigationController alloc] initWithRootViewController:viewController4];
+    navigationController4.title = @"发布";
     
     AGTabBarController *tabBarContrller = [[AGTabBarController alloc] init];
     tabBarContrller.delegate = self;
-    tabBarContrller.viewControllers = @[navigationController0, navigationController1, navigationController2, navigationController3];
+    tabBarContrller.viewControllers = @[navigationController0, navigationController1, navigationController2, navigationController3,navigationController4];
     
     self.window.rootViewController = tabBarContrller;
     

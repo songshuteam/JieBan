@@ -51,8 +51,8 @@
 
     AGPlanModel *plan = [[AGPlanModel alloc] init];
     plan.type = 1;
-    plan.address = self.addressLabel.text;
-    plan.planDescription = self.planTextView.text;
+    plan.location = self.addressLabel.text;
+    plan.desc = self.planTextView.text;
     [self.planViewController addAddressToPlan:plan];
     [self dismissViewControllerAnimated:YES completion:nil];
     

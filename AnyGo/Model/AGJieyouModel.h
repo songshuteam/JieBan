@@ -8,22 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "AGLSModel.h"
-
-/**
- *  性别
- */
-typedef NS_ENUM(NSInteger, Gender) {
-    /**
-     *  女性
-     */
-    GenderFemale = 0,
-    /**
-     *  男性
-     */
-    GenderMale,
-    
-    GenderOther
-};
+#import "EnumHeader.h"
 
 @interface AGJieyouModel : NSObject
 
@@ -33,6 +18,7 @@ typedef NS_ENUM(NSInteger, Gender) {
 @property (strong, nonatomic) AGLSAreaCodeModel *areaCode;
 @property (strong, nonatomic) NSString *headUrl;
 @property (strong, nonatomic) NSString *birthday;
+@property (strong, nonatomic) NSString *signature;
 @property (assign, nonatomic) Gender gender;
 @end
 

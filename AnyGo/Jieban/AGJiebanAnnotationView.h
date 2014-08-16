@@ -11,4 +11,6 @@
 
 @interface AGJiebanAnnotationView : MKAnnotationView
 
+@property (nonatomic, strong) AGPointAnnotation *pointAnnotation;
+
 @end

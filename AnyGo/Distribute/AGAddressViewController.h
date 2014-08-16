@@ -18,8 +18,6 @@
 @property (weak, nonatomic) IBOutlet UITextView *planTextView;
 
 
-
-
 - (IBAction)addressButtonClicked:(id)sender;
 - (IBAction)okButtonClicked:(id)sender;
 - (IBAction)cancelButtonClicked:(id)sender;

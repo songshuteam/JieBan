@@ -7,13 +7,26 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "AGCompanyNeedModel.h"
+#import "AGPlanModel.h"
 
 @interface AGCompanyDemandCell : UITableViewCell
 
-@property (strong, nonatomic) AGCompanyNeedModel *companyNeedModel;
+@property (weak, nonatomic) IBOutlet UIView *startView;
+@property (weak, nonatomic) IBOutlet UILabel *startTime;
+@property (weak, nonatomic) IBOutlet UILabel *startAddress;
 
-- (void)contentInfoWithModel:(AGCompanyNeedModel *)model;
+@property (nonatomic, weak) IBOutlet UILabel *endAddressTitle;
 
-+ (CGFloat)heightForCell:(AGCompanyNeedModel *)model;
+@property (weak, nonatomic) IBOutlet UIView *footerView;
+@property (nonatomic, weak) IBOutlet UILabel *daysLabel;
+@property (weak, nonatomic) IBOutlet UILabel *isDriveLabel;
+@property (weak, nonatomic) IBOutlet UILabel *isDiscussLabel;
+@property (weak, nonatomic) IBOutlet UILabel *currentNumLabel;
+@property (weak, nonatomic) IBOutlet UILabel *isReturnLabel;
+
+@property (strong, nonatomic) AGJiebanPlanModel *jiebanPlanModel;
+
+- (void)contentInfoWithModel:(AGJiebanPlanModel *)model;
+
++ (CGFloat)heightForCell:(AGJiebanPlanModel *)model;
 @end

@@ -310,8 +310,13 @@
 		FE9237221987C3EA001EF4DD /* AGUrlManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FE9237211987C3EA001EF4DD /* AGUrlManager.m */; };
 		FE9237251987C7A4001EF4DD /* AGRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FE9237241987C7A4001EF4DD /* AGRequestManager.m */; };
 		FE92372D1987D9DD001EF4DD /* Toast+UIView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE92372C1987D9DD001EF4DD /* Toast+UIView.m */; };
+		FE92638A1998F78500E80017 /* AGCallOutView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE9263891998F78500E80017 /* AGCallOutView.m */; };
+		FE92638E1999032D00E80017 /* AGFilterJiebanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE92638C1999032D00E80017 /* AGFilterJiebanViewController.m */; };
+		FE92638F1999032D00E80017 /* AGFilterJiebanViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE92638D1999032D00E80017 /* AGFilterJiebanViewController.xib */; };
+		FE92B6091999940600E8F1D4 /* AGFilterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FE92B6081999940600E8F1D4 /* AGFilterModel.m */; };
 		FE94BA2A197FFB0900A54085 /* AGShareCommentItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FE94BA27197FFB0900A54085 /* AGShareCommentItem.m */; };
 		FE94BA2B197FFB0900A54085 /* AGShareItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FE94BA29197FFB0900A54085 /* AGShareItem.m */; };
+		FE9786D71997B4070090C986 /* AGAnnotationLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = FE9786D61997B4070090C986 /* AGAnnotationLabel.m */; };
 		FE98215319838D54008DB1CE /* SDWebImageManager+MJ.m in Sources */ = {isa = PBXBuildFile; fileRef = FE98215219838D54008DB1CE /* SDWebImageManager+MJ.m */; };
 		FE98215619838E16008DB1CE /* MBProgressHUD+Add.m in Sources */ = {isa = PBXBuildFile; fileRef = FE98215519838E16008DB1CE /* MBProgressHUD+Add.m */; };
 		FE98215C19838F99008DB1CE /* AGLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE98215A19838F99008DB1CE /* AGLoginViewController.m */; };
@@ -330,6 +335,7 @@
 		FE98217C19839004008DB1CE /* AGYZMViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE98217919839004008DB1CE /* AGYZMViewController.xib */; };
 		FE98218019839885008DB1CE /* AGLoginIndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE98217E19839885008DB1CE /* AGLoginIndexViewController.m */; };
 		FE98218119839885008DB1CE /* AGLoginIndexViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE98217F19839885008DB1CE /* AGLoginIndexViewController.xib */; };
+		FE99EB6C1996259C00954616 /* AGJiebanMapView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE99EB6B1996259C00954616 /* AGJiebanMapView.xib */; };
 		FE9B3F7319848FEB00444733 /* AGResetPwdPhoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE9B3F7119848FEB00444733 /* AGResetPwdPhoneViewController.m */; };
 		FE9B3F7419848FEB00444733 /* AGResetPwdPhoneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE9B3F7219848FEB00444733 /* AGResetPwdPhoneViewController.xib */; };
 		FE9B3F781984984D00444733 /* AGResetpwdEmailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE9B3F761984984D00444733 /* AGResetpwdEmailViewController.m */; };
@@ -369,7 +375,7 @@
 		FEC43B34197EAE08007BC3CB /* AGJieyouModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC43B33197EAE08007BC3CB /* AGJieyouModel.m */; };
 		FEC43B3A197EB4AC007BC3CB /* HPGrowingTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC43B37197EB4AC007BC3CB /* HPGrowingTextView.m */; };
 		FEC43B3B197EB4AC007BC3CB /* HPTextViewInternal.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC43B39197EB4AC007BC3CB /* HPTextViewInternal.m */; };
-		FEC43B3E197EB58E007BC3CB /* AGCompanyNeedModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC43B3D197EB58E007BC3CB /* AGCompanyNeedModel.m */; };
+		FEFD63BB198FB8AE00CE3141 /* AGJieyouBaseInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = FEFD63BA198FB8AE00CE3141 /* AGJieyouBaseInfoView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -878,10 +884,20 @@
 		FE9237241987C7A4001EF4DD /* AGRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGRequestManager.m; sourceTree = "<group>"; };
 		FE92372B1987D9DD001EF4DD /* Toast+UIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Toast+UIView.h"; sourceTree = "<group>"; };
 		FE92372C1987D9DD001EF4DD /* Toast+UIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Toast+UIView.m"; sourceTree = "<group>"; };
+		FE9263881998F78500E80017 /* AGCallOutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGCallOutView.h; sourceTree = "<group>"; };
+		FE9263891998F78500E80017 /* AGCallOutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGCallOutView.m; sourceTree = "<group>"; };
+		FE92638B1999032D00E80017 /* AGFilterJiebanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGFilterJiebanViewController.h; sourceTree = "<group>"; };
+		FE92638C1999032D00E80017 /* AGFilterJiebanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGFilterJiebanViewController.m; sourceTree = "<group>"; };
+		FE92638D1999032D00E80017 /* AGFilterJiebanViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AGFilterJiebanViewController.xib; sourceTree = "<group>"; };
+		FE92B6071999940600E8F1D4 /* AGFilterModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGFilterModel.h; sourceTree = "<group>"; };
+		FE92B6081999940600E8F1D4 /* AGFilterModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGFilterModel.m; sourceTree = "<group>"; };
+		FE92B60A1999944C00E8F1D4 /* EnumHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnumHeader.h; sourceTree = "<group>"; };
 		FE94BA26197FFB0900A54085 /* AGShareCommentItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGShareCommentItem.h; sourceTree = "<group>"; };
 		FE94BA27197FFB0900A54085 /* AGShareCommentItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGShareCommentItem.m; sourceTree = "<group>"; };
 		FE94BA28197FFB0900A54085 /* AGShareItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGShareItem.h; sourceTree = "<group>"; };
 		FE94BA29197FFB0900A54085 /* AGShareItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGShareItem.m; sourceTree = "<group>"; };
+		FE9786D51997B4070090C986 /* AGAnnotationLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGAnnotationLabel.h; sourceTree = "<group>"; };
+		FE9786D61997B4070090C986 /* AGAnnotationLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGAnnotationLabel.m; sourceTree = "<group>"; };
 		FE98215119838D54008DB1CE /* SDWebImageManager+MJ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SDWebImageManager+MJ.h"; sourceTree = "<group>"; };
 		FE98215219838D54008DB1CE /* SDWebImageManager+MJ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SDWebImageManager+MJ.m"; sourceTree = "<group>"; };
 		FE98215419838E16008DB1CE /* MBProgressHUD+Add.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+Add.h"; sourceTree = "<group>"; };
@@ -911,6 +927,7 @@
 		FE98217D19839885008DB1CE /* AGLoginIndexViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGLoginIndexViewController.h; sourceTree = "<group>"; };
 		FE98217E19839885008DB1CE /* AGLoginIndexViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGLoginIndexViewController.m; sourceTree = "<group>"; };
 		FE98217F19839885008DB1CE /* AGLoginIndexViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AGLoginIndexViewController.xib; sourceTree = "<group>"; };
+		FE99EB6B1996259C00954616 /* AGJiebanMapView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AGJiebanMapView.xib; sourceTree = "<group>"; };
 		FE9B3F7019848FEB00444733 /* AGResetPwdPhoneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGResetPwdPhoneViewController.h; sourceTree = "<group>"; };
 		FE9B3F7119848FEB00444733 /* AGResetPwdPhoneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGResetPwdPhoneViewController.m; sourceTree = "<group>"; };
 		FE9B3F7219848FEB00444733 /* AGResetPwdPhoneViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AGResetPwdPhoneViewController.xib; sourceTree = "<group>"; };
@@ -976,8 +993,8 @@
 		FEC43B37197EB4AC007BC3CB /* HPGrowingTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HPGrowingTextView.m; sourceTree = "<group>"; };
 		FEC43B38197EB4AC007BC3CB /* HPTextViewInternal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HPTextViewInternal.h; sourceTree = "<group>"; };
 		FEC43B39197EB4AC007BC3CB /* HPTextViewInternal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HPTextViewInternal.m; sourceTree = "<group>"; };
-		FEC43B3C197EB58E007BC3CB /* AGCompanyNeedModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGCompanyNeedModel.h; sourceTree = "<group>"; };
-		FEC43B3D197EB58E007BC3CB /* AGCompanyNeedModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGCompanyNeedModel.m; sourceTree = "<group>"; };
+		FEFD63B9198FB8AE00CE3141 /* AGJieyouBaseInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGJieyouBaseInfoView.h; sourceTree = "<group>"; };
+		FEFD63BA198FB8AE00CE3141 /* AGJieyouBaseInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGJieyouBaseInfoView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -985,12 +1002,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0CF733E194D57F3005A4436 /* MapKit.framework in Frameworks */,
 				FEA69EBE198E468400B4318C /* libz.1.2.5.dylib in Frameworks */,
 				987ADBF118AA476B00124964 /* CoreGraphics.framework in Frameworks */,
 				FEA69EBC198E466300B4318C /* MobileCoreServices.framework in Frameworks */,
 				FEA69EBA198E465900B4318C /* SystemConfiguration.framework in Frameworks */,
 				FEA69EB8198E464900B4318C /* CFNetwork.framework in Frameworks */,
-				A0CF733E194D57F3005A4436 /* MapKit.framework in Frameworks */,
 				A0CF733C194D57ED005A4436 /* CoreLocation.framework in Frameworks */,
 				9858A89B18AE195C0003982E /* libz.dylib in Frameworks */,
 				987ADBF318AA476B00124964 /* UIKit.framework in Frameworks */,
@@ -1015,6 +1032,8 @@
 		6495D0CB196243EA00177106 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				FE9786D51997B4070090C986 /* AGAnnotationLabel.h */,
+				FE9786D61997B4070090C986 /* AGAnnotationLabel.m */,
 				6495D0CC1962445300177106 /* AGBorderHelper.h */,
 				6495D0CD1962445300177106 /* AGBorderHelper.m */,
 				FE98215419838E16008DB1CE /* MBProgressHUD+Add.h */,
@@ -1049,6 +1068,7 @@
 		649939F3196A26550037872B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				FE92B60A1999944C00E8F1D4 /* EnumHeader.h */,
 				FE94BA26197FFB0900A54085 /* AGShareCommentItem.h */,
 				FE94BA27197FFB0900A54085 /* AGShareCommentItem.m */,
 				FE94BA28197FFB0900A54085 /* AGShareItem.h */,
@@ -1057,8 +1077,8 @@
 				649939F5196A28910037872B /* AGLSModel.m */,
 				FEC43B32197EAE08007BC3CB /* AGJieyouModel.h */,
 				FEC43B33197EAE08007BC3CB /* AGJieyouModel.m */,
-				FEC43B3C197EB58E007BC3CB /* AGCompanyNeedModel.h */,
-				FEC43B3D197EB58E007BC3CB /* AGCompanyNeedModel.m */,
+				FE92B6071999940600E8F1D4 /* AGFilterModel.h */,
+				FE92B6081999940600E8F1D4 /* AGFilterModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1264,6 +1284,9 @@
 				A0583C5E194EA61F0043B5DC /* AGJieBanViewController.h */,
 				A0583C5F194EA61F0043B5DC /* AGJieBanViewController.m */,
 				A0583C60194EA61F0043B5DC /* AGJieBanViewController.xib */,
+				FE92638B1999032D00E80017 /* AGFilterJiebanViewController.h */,
+				FE92638C1999032D00E80017 /* AGFilterJiebanViewController.m */,
+				FE92638D1999032D00E80017 /* AGFilterJiebanViewController.xib */,
 			);
 			path = Jieban;
 			sourceTree = "<group>";
@@ -1275,6 +1298,9 @@
 				A0583C68194EC4EC0043B5DC /* AGPointAnnotation.m */,
 				A0583C6A194EEE830043B5DC /* AGJiebanAnnotationView.h */,
 				A0583C6B194EEE830043B5DC /* AGJiebanAnnotationView.m */,
+				FE99EB6B1996259C00954616 /* AGJiebanMapView.xib */,
+				FE9263881998F78500E80017 /* AGCallOutView.h */,
+				FE9263891998F78500E80017 /* AGCallOutView.m */,
 			);
 			name = Map;
 			sourceTree = "<group>";
@@ -2429,6 +2455,8 @@
 		FEC43B12197EA8A6007BC3CB /* singleLine */ = {
 			isa = PBXGroup;
 			children = (
+				FEFD63B9198FB8AE00CE3141 /* AGJieyouBaseInfoView.h */,
+				FEFD63BA198FB8AE00CE3141 /* AGJieyouBaseInfoView.m */,
 				FEC43B13197EA8A6007BC3CB /* AGSinglePhotoViewController.h */,
 				FEC43B14197EA8A6007BC3CB /* AGSinglePhotoViewController.m */,
 				FEC43B15197EA8A6007BC3CB /* AGSinglePhotoViewController.xib */,
@@ -2626,6 +2654,7 @@
 				A04127E1194ACA6B0084A998 /* AGAddressViewController.xib in Resources */,
 				A0583EC7195026750043B5DC /* AddGroupMemberBtnHL@2x.png in Resources */,
 				FEC43B2A197EA8A6007BC3CB /* AGDetailInfoViewController.xib in Resources */,
+				FE99EB6C1996259C00954616 /* AGJiebanMapView.xib in Resources */,
 				A0583EF9195026750043B5DC /* section0_emotion12@2x.png in Resources */,
 				A0583F07195026750043B5DC /* SenderVoiceNodePlaying001@2x.png in Resources */,
 				A0583E85195026750043B5DC /* MultiSelectTableViewCell.xib in Resources */,
@@ -2636,6 +2665,7 @@
 				A0583F18195026750043B5DC /* VoiceBtn_BlackHL@2x.png in Resources */,
 				A0CF7333194D4671005A4436 /* btn_020@2x.png in Resources */,
 				A0583EFA195026750043B5DC /* section0_emotion13@2x.png in Resources */,
+				FE92638F1999032D00E80017 /* AGFilterJiebanViewController.xib in Resources */,
 				A0583EEC195026750043B5DC /* RecordingBkg@2x.png in Resources */,
 				A0583F02195026750043B5DC /* section0_emotion6@2x.png in Resources */,
 				A0583F11195026750043B5DC /* sharemore_videovoip@2x.png in Resources */,
@@ -2762,6 +2792,7 @@
 				FE98215319838D54008DB1CE /* SDWebImageManager+MJ.m in Sources */,
 				A0583E55195026750043B5DC /* XHDiscoverTableViewController.m in Sources */,
 				A0583EAA195026750043B5DC /* XHHorizontalGridItemView.m in Sources */,
+				FEFD63BB198FB8AE00CE3141 /* AGJieyouBaseInfoView.m in Sources */,
 				987ADC2218AA4E9E00124964 /* AGTabBarController.m in Sources */,
 				A0583E68195026750043B5DC /* XHProfileTableViewController.m in Sources */,
 				A06D26F519519A78005FB142 /* PBIconDrawning.m in Sources */,
@@ -2881,6 +2912,7 @@
 				A0583E9F195026750043B5DC /* XHAlbumPhotoCollectionViewCell.m in Sources */,
 				A0583E48195026750043B5DC /* XHPhotographyHelper.m in Sources */,
 				FE9B3F7319848FEB00444733 /* AGResetPwdPhoneViewController.m in Sources */,
+				FE92638A1998F78500E80017 /* AGCallOutView.m in Sources */,
 				989B104B18AB41C0008DD357 /* AGADView.m in Sources */,
 				FE9B3F781984984D00444733 /* AGResetpwdEmailViewController.m in Sources */,
 				FE98217B19839004008DB1CE /* AGYZMViewController.m in Sources */,
@@ -2900,6 +2932,7 @@
 				A0583E86195026750043B5DC /* MultiSelectViewController.m in Sources */,
 				A0583E9D195026750043B5DC /* XHWaterDropRefresh.m in Sources */,
 				A06D26F019519A78005FB142 /* PBFlatGroupedTableViewController.m in Sources */,
+				FE9786D71997B4070090C986 /* AGAnnotationLabel.m in Sources */,
 				A0583E87195026750043B5DC /* UIView+Convenience.m in Sources */,
 				A0583E65195026750043B5DC /* XHMoreMyFavoritesTableViewController.m in Sources */,
 				A0583E4E195026750043B5DC /* XHBaseTableViewController.m in Sources */,
@@ -2919,7 +2952,7 @@
 				A0583E6A195026750043B5DC /* XHFileAttribute.m in Sources */,
 				A0583EBF195026750043B5DC /* XHPopMenuItem.m in Sources */,
 				A0583E6B195026750043B5DC /* XHHTTPClient.m in Sources */,
-				FEC43B3E197EB58E007BC3CB /* AGCompanyNeedModel.m in Sources */,
+				FE92638E1999032D00E80017 /* AGFilterJiebanViewController.m in Sources */,
 				A0583E78195026750043B5DC /* XHShareMenuItem.m in Sources */,
 				FE9237251987C7A4001EF4DD /* AGRequestManager.m in Sources */,
 				A0583E5F195026750043B5DC /* XHMultipleSectionTableViewController.m in Sources */,
@@ -2935,6 +2968,7 @@
 				987ADC2818AA4FB300124964 /* AGViewController.m in Sources */,
 				A0B391CC194867E10000C1DA /* AGPlanDestinationTableViewCell.m in Sources */,
 				A0583E5B195026750043B5DC /* XHDisplayLocationViewController.m in Sources */,
+				FE92B6091999940600E8F1D4 /* AGFilterModel.m in Sources */,
 				A0583EA4195026750043B5DC /* XHContactCommunicationView.m in Sources */,
 				A0583E43195026750043B5DC /* XHAudioPlayerHelper.m in Sources */,
 			);
@@ -3065,7 +3099,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Qin Fang (FZHQ5464RV)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AnyGo/AnyGo-Prefix.pch";
 				INFOPLIST_FILE = "AnyGo/AnyGo-Info.plist";
@@ -3087,6 +3121,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AnyGo/AnyGo-Prefix.pch";
 				INFOPLIST_FILE = "AnyGo/AnyGo-Info.plist";

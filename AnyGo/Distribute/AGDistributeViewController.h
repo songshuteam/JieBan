@@ -14,9 +14,12 @@
 @property (weak, nonatomic) IBOutlet UITextField *maleNumTextField;
 @property (weak, nonatomic) IBOutlet UISwitch *driveSwitch;
 @property (weak, nonatomic) IBOutlet UISwitch *discussEnableSwitch;
+@property (weak, nonatomic) IBOutlet UILabel *destinationsLabel;
 @property (weak, nonatomic) IBOutlet UISwitch *gohomeSwitch;
 
 @property (strong, nonatomic) AGAllPlanModel *allPlan;
+
+@property (nonatomic, strong) AGJiebanPlanModel *jiebanModel;
 
 - (IBAction)planButtonClicked:(id)sender;
 

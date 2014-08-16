@@ -11,8 +11,9 @@
 #import "AGVerifiedCodeViewController.h"
 #import "AGPhoneCodeSelectViewController.h"
 #import "AGSettingPasswordViewController.h"
-#import "AGLSModel.h"
+#import "AGUrlManager.h"
 
+#import "AGLSModel.h"
 #import "AGBorderHelper.h"
 #import "FTCoreTextView.h"
 
@@ -105,33 +106,22 @@
 - (IBAction)nextStepAction:(id)sender {
     [self.view endEditing:YES];
     
-    if ([self.areaCodeModel.phoneCode isEqualToString:@"+86"]) {
-        if ([AGBorderHelper isValidateMobile:self.phoneTextField.text] ) {
-            NSString *accountInfo = [[NSString stringWithFormat:@"%@-%@",self.areaCodeModel.phoneCode,self.phoneTextField.text] stringByReplacingOccurrencesOfString:@"+" withString:@""];
-            
-            NSURL *smsUrl = [AGUrlManager urlSMSWithMobileNum:accountInfo withType:1];
-            ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:smsUrl];
-//            request set
-            request.defaultResponseEncoding = NSUTF8StringEncoding;
-            request.timeOutSeconds = 60;
-            request.delegate = self;
-            [request startSynchronous];
-        }else{
-            [self showAlertMessageForPhone];
-        }
-    }else{
-        if (self.phoneTextField.text != nil && self.phoneTextField.text.length > 0) {
-            AGSettingPasswordViewController *viewController = [[AGSettingPasswordViewController alloc] init];
-            AGRegisterModel *model = [[AGRegisterModel alloc] init];
-            model.account = self.phoneTextField.text;
-            model.areaCode = self.areaCodeModel;
-
-            viewController.registerModel = model;
-            [self.navigationController pushViewController:viewController animated:YES];
-        }else{
-            [self showAlertMessageForPhone];
-        }
+    if (self.phoneTextField.text == nil && self.phoneTextField.text.length <= 0) {
+        [self showAlertMessageForPhone];
+        return;
     }
+    
+    if ([self.areaCodeModel.phoneCode isEqualToString:@"+86"] && [AGBorderHelper isValidateMobile:self.phoneTextField.text] ) {
+        [self showAlertMessageForPhone];
+        return;
+    }
+    
+    NSString *accountInfo = [[NSString stringWithFormat:@"%@-%@",self.areaCodeModel.phoneCode,self.phoneTextField.text] stringByReplacingOccurrencesOfString:@"+" withString:@""];
+    
+    ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[AGUrlManager urlIsRegisterAccount:accountInfo]];
+    request.delegate = self;
+    request.didFinishSelector = @selector(requestIsRegisterFinish:);
+    [request startAsynchronous];
 }
 
 - (void)showAlertMessageForPhone{
@@ -141,6 +131,47 @@
 }
 
 #pragma mark - 
+- (void)requestIsRegisterFinish:(ASIHTTPRequest *)request{
+    NSDictionary *value = [request.responseString JSONValue];
+    
+    int status = [[value objectForKey:@"status"] intValue];
+    
+    if (status == 200) {
+        if ([self.areaCodeModel.phoneCode isEqualToString:@"+86"]) {
+            if ([AGBorderHelper isValidateMobile:self.phoneTextField.text] ) {
+                NSString *accountInfo = [[NSString stringWithFormat:@"%@-%@",self.areaCodeModel.phoneCode,self.phoneTextField.text] stringByReplacingOccurrencesOfString:@"+" withString:@""];
+                
+                NSURL *smsUrl = [AGUrlManager urlSMSWithMobileNum:accountInfo withType:1];
+                ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:smsUrl];
+                //            request set
+                request.defaultResponseEncoding = NSUTF8StringEncoding;
+                request.timeOutSeconds = 60;
+                request.delegate = self;
+                [request startSynchronous];
+            }else{
+                [self showAlertMessageForPhone];
+            }
+        }else{
+            if (self.phoneTextField.text != nil && self.phoneTextField.text.length > 0) {
+                AGSettingPasswordViewController *viewController = [[AGSettingPasswordViewController alloc] init];
+                AGRegisterModel *model = [[AGRegisterModel alloc] init];
+                model.account = self.phoneTextField.text;
+                model.areaCode = self.areaCodeModel;
+                
+                viewController.registerModel = model;
+                [self.navigationController pushViewController:viewController animated:YES];
+            }else{
+                [self showAlertMessageForPhone];
+            }
+        }
+    }else if (status == 451){
+        UIAlertView *alerView = [[UIAlertView alloc] initWithTitle:@"提醒" message:@"该账号已经被注册，请重新输入" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alerView show];
+        
+        self.phoneTextField.text = nil;
+    }
+}
+
 
 - (void)requestFinished:(ASIHTTPRequest *)request{
     NSDictionary *valueDic = [request.responseString JSONValue];

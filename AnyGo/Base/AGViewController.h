@@ -18,6 +18,8 @@
 
 @interface AGViewController : UIViewController
 
+@property (nonatomic, strong) UIColor *bgViewColor;
+
 - (void)backBarButtonWithTitle:(NSString *)title;
 
 @end

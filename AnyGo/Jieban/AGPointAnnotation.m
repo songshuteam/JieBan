@@ -10,12 +10,11 @@
 
 @implementation AGPointAnnotation
 
-- (id)initWithStartAddress:(NSString *)sAddress endAddress:(NSString *)eAddress {
-    self = [super init];
-    if (self) {
-        _startAddress = sAddress;
-        _endAddress = eAddress;
+- (id)initWithLatitude:(CLLocationDegrees)latitude andLongitude:(CLLocationDegrees)longitude{
+    if (self = [super init]) {
+        self.coordinate = CLLocationCoordinate2DMake(latitude, longitude);
     }
+    
     return self;
 }
 

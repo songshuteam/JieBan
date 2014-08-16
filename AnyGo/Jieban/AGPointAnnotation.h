@@ -7,12 +7,18 @@
 //
 
 #import <MapKit/MapKit.h>
+#import "EnumHeader.h"
 
 @interface AGPointAnnotation : MKPointAnnotation
 
-@property (nonatomic, copy) NSString *startAddress;
+@property (nonatomic, assign) long long planId;
+@property (nonatomic, assign) long long userId;
+@property (nonatomic, assign) long long fId;
+@property (nonatomic, assign) Gender gender;
+@property (nonatomic, strong) NSString *desc;
+
 @property (nonatomic, copy) NSString *endAddress;
 
-- (id)initWithStartAddress:(NSString *)sAddress endAddress:(NSString *)eAddress;
+- (id)initWithLatitude:(CLLocationDegrees)latitude andLongitude:(CLLocationDegrees)longitude;
 
 @end

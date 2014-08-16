@@ -13,6 +13,7 @@
 - (void)awakeFromNib
 {
     // Initialization code
+    self.planTextView.placeholder = @"点击添加更多描述";
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated

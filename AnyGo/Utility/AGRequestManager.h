@@ -11,6 +11,7 @@
 #import <ASIFormDataRequest.h>
 
 #import "AGJieyouModel.h"
+#import "AGPlanModel.h"
 
 @interface AGRequestManager : NSObject
 /**
@@ -42,4 +43,15 @@
  *  @return reset password ASIHTTPRequest
  */
 + (ASIFormDataRequest *)requestResetWithAccount:(NSString *)account code:(NSString *)code password:(NSString *)pwd;
+@end
+
+@interface AGRequestManager(Disteribute)
+
++ (ASIFormDataRequest *)requestCreatePlanWithUserId:(NSString *)userId planModel:(AGJiebanPlanModel *)planModel;
+
++ (ASIHTTPRequest *)requestGetPlanWithUserId:(NSString *)userId planId:(NSString *)planId;
+
++ (ASIFormDataRequest *)requestEditPlanWithUserId:(NSString *)userId PlanModel:(AGJiebanPlanModel *)planModel;
+
++ (ASIHTTPRequest *)requestDeletePlanWithUserId:(NSString *)userId planId:(NSString *)planId;
 @end

@@ -8,9 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+#import "AGPlaViewController.h"
+
 @interface AGPlanDestinationTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *addressLable;
-@property (weak, nonatomic) IBOutlet UITextView *planTextView;
+@property (weak, nonatomic) IBOutlet UIPlaceHolderTextView *planTextView;
 @property (weak, nonatomic) IBOutlet UIView *breakLine;
 
+@property (weak, nonatomic) IBOutlet UIButton *deletePlanDestBtn;
 @end

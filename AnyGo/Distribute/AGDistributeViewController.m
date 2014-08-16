@@ -10,13 +10,20 @@
 #import "AGPlaViewController.h"
 #import "AGNavigationController.h"
 
-#import "AGLoginViewController.h"
+#import "AGLoginViewController.h" 
+#import "AGBorderHelper.h"
+#import "AGRequestManager.h"
 
-@interface AGDistributeViewController ()
+@interface AGDistributeViewController ()<ASIHTTPRequestDelegate,UITextFieldDelegate>
 
 @property (nonatomic, strong) UISegmentedControl *segmentedControl;
 @property (nonatomic, assign) TSLocateType locateType;
 
+@property (weak, nonatomic) IBOutlet UIView *genderNumView;
+@property (weak, nonatomic) IBOutlet UIView *driverSelfView;
+@property (weak, nonatomic) IBOutlet UIView *discussView;
+@property (weak, nonatomic) IBOutlet UIView *gohomeView;
+@property (weak, nonatomic) IBOutlet UIView *planView;
 @end
 
 @implementation AGDistributeViewController
@@ -26,6 +33,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        self.locateType = TSLocateCN;
     }
     return self;
 }
@@ -35,15 +43,41 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.navigationItem.title = @"发布";
+//    [self backBarButtonWithTitle:@"返回"];
     
+    self.jiebanModel = [[AGJiebanPlanModel alloc] init];
+    
+    [self menuForNavigationItemInit];
+    [self borderForViews];
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
+    NSString *plansAddress = [self.jiebanModel plansLocationInfo];
+    if (plansAddress == nil || [plansAddress isEqualToString:@""]) {
+        self.destinationsLabel.text = @"无";
+    }else{
+        self.destinationsLabel.text = plansAddress;
+    }
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - view init
+- (void)menuForNavigationItemInit{
     self.segmentedControl = [[UISegmentedControl alloc] initWithItems:@[@"国内", @"国际"]];
     self.segmentedControl.tintColor = [UIColor whiteColor];
-    self.segmentedControl.frame = CGRectMake(0, 0, 130.f, 29.f);
+    self.segmentedControl.frame = CGRectMake(0, 0, 170.f, 23.f);
     self.segmentedControl.selectedSegmentIndex = 0;
     self.locateType = 0;
     [self.segmentedControl addTarget:self
-                         action:@selector(actionChanged:)
-               forControlEvents:UIControlEventValueChanged];
+                              action:@selector(actionChanged:)
+                    forControlEvents:UIControlEventValueChanged];
     self.navigationItem.titleView = self.segmentedControl;
     
     
@@ -51,18 +85,16 @@
                                                                   style:UIBarButtonItemStylePlain
                                                                  target:self
                                                                  action:@selector(distributePlan:)];
-    
     self.navigationItem.rightBarButtonItem = rightItem;
-
-    
-    
-    
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)borderForViews{
+    UIColor *borderColor = self.bgViewColor;
+    [AGBorderHelper borderWithView:self.genderNumView borderWidth:.5f borderColor:borderColor];
+    [AGBorderHelper borderWithView:self.driverSelfView borderWidth:.5f borderColor:borderColor];
+    [AGBorderHelper borderWithView:self.discussView borderWidth:.5f borderColor:borderColor];
+    [AGBorderHelper borderWithView:self.gohomeView borderWidth:.5f borderColor:borderColor];
+    [AGBorderHelper borderWithView:self.planView borderWidth:.5f borderColor:borderColor];
 }
 
 - (IBAction)planButtonClicked:(id)sender {
@@ -75,13 +107,57 @@
 
 #pragma mark - Uitility methods
 - (void)distributePlan:(id)sender {
-    AGLoginViewController *viewController = [[AGLoginViewController alloc] init];
-    [self.navigationController pushViewController:viewController animated:YES];
+    AGJiebanPlanModel *model = [[AGJiebanPlanModel alloc] init];
     
+    ASIFormDataRequest *request = [AGRequestManager requestCreatePlanWithUserId:@"1234566" planModel:model];
+    request.delegate = self;
+    request.tag = 1;
+    [request startAsynchronous];
 }
 
 - (void)actionChanged:(id)sender {
     self.locateType = self.segmentedControl.selectedSegmentIndex;
+}
+
+- (IBAction)switchValueChange:(id)sender {
+    UISwitch *switchTem = (UISwitch *)sender;
+    BOOL flag = switchTem.isOn;
+    if (switchTem == self.driveSwitch) {
+        self.jiebanModel.isDriver = flag;
+//        ASIHTTPRequest *request = [AGRequestManager requestGetPlanWithUserId:@"123456" planId:@"dadafsfsfsd"];
+//        request.delegate = self;
+//        request.tag = 2;
+//        [request startAsynchronous];
+    }else if (switchTem == self.discussEnableSwitch){
+        self.jiebanModel.isCanDiscuss = flag;
+//        AGJiebanPlanModel *model = [[AGJiebanPlanModel alloc] init];
+//        ASIFormDataRequest *request = [AGRequestManager requestEditPlanWithUserId:@"1234567" PlanModel:model];
+//        request.delegate = self;
+//        request.tag = 3;
+//        [request startAsynchronous];
+    
+    }else if (switchTem == self.gohomeSwitch){
+        self.jiebanModel.isGoHome = flag;
+//        ASIHTTPRequest *request = [AGRequestManager requestDeletePlanWithUserId:@"1223234" planId:@"2131414131"];
+//        request.delegate = self;
+//        request.tag = 4;
+//        [request startAsynchronous];
+    }
+}
+
+#pragma mark - ASIHTTPRequestDelegate
+- (void)requestFinished:(ASIHTTPRequest *)request{
+    NSLog(@"%d is %@",request.tag,request.responseString);
+    NSDictionary *valueDic = [request.responseString JSONValue];
+    if ([[valueDic objectForKey:@"status"] intValue] == 200) {
+        [self.view makeToast:@"发布成功"];
+        long long planId = [[valueDic objectForKey:@"message"] longLongValue];
+    }
+    
+}
+
+- (void)requestFailed:(ASIHTTPRequest *)request{
+    NSLog(@"%d is %@",request.tag,request.responseString);
 }
 
 #pragma mark - textfileld delegate 
@@ -90,6 +166,8 @@
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
+    
+    
     [textField resignFirstResponder];
 }
 
