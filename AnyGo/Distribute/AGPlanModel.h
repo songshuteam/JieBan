@@ -41,12 +41,12 @@
 
 @property (nonatomic, assign) long long jiebanId;
 @property (nonatomic, assign) long long userId;
+@property (nonatomic, strong) NSString *title;
 @property (nonatomic, assign) NSInteger femaleNum;
 @property (nonatomic, assign) NSInteger maleNum;
 @property (nonatomic, assign) BOOL isDriver;
 @property (nonatomic, assign) BOOL isCanDiscuss;
 @property (nonatomic, assign) BOOL isGoHome;
-@property (nonatomic, assign) NSInteger tools;
 @property (nonatomic, strong) NSString *startTime;
 @property (nonatomic, strong) NSString *endTime;
 @property (nonatomic, strong) NSString *days;
@@ -56,7 +56,7 @@
 
 - (NSString *)plansLocationInfo;
 
-- (NSString *)getJiebanModelJson;
+//- (NSString *)getJiebanModelJson;
 
 - (NSString *)jiebanInfoJson;
 

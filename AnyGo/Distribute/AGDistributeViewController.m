@@ -107,9 +107,7 @@
 
 #pragma mark - Uitility methods
 - (void)distributePlan:(id)sender {
-    AGJiebanPlanModel *model = [[AGJiebanPlanModel alloc] init];
-    
-    ASIFormDataRequest *request = [AGRequestManager requestCreatePlanWithUserId:@"1234566" planModel:model];
+    ASIFormDataRequest *request = [AGRequestManager requestCreatePlanWithUserId:@"1234566" planModel:self.jiebanModel];
     request.delegate = self;
     request.tag = 1;
     [request startAsynchronous];

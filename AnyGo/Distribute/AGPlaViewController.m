@@ -171,7 +171,7 @@ const NSInteger endAddressSelectTag = 2014080802;
     [actionSheet dismissWithClickedButtonIndex:0 animated:YES];
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+    [dateFormatter setDateFormat:@"yyyyMMdd"];
     
     self.dateLabel.text = [dateFormatter stringFromDate:startDate];
 }

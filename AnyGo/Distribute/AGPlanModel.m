@@ -20,7 +20,7 @@
         [dic setObject:[NSNumber numberWithInteger:self.days] forKey:@"days"];
     }
     
-    if (!self.startTime && ![self.startTime isEqualToString:@""]) {
+    if (self.startTime && ![self.startTime isEqualToString:@""]) {
         [dic setObject:self.startTime forKey:@"startTime"];
     }
     
@@ -31,7 +31,7 @@
         [dic setObject:self.location forKey:@"location"];
     }
     if (self.description && ![self.description isEqualToString:@""]) {
-        [dic setObject:self.description forKey:@"desc"];
+        [dic setObject:self.desc forKey:@"desc"];
     }
 //    [dic setObject:[NSNumber numberWithInt:self.type] forKey:@""];
 //    [dic setObject:self.strDate forKey:@""];
@@ -114,13 +114,14 @@
     
     [dic setObject:[NSNumber numberWithInteger:self.femaleNum] forKey:@"joinedFemale"];
     [dic setObject:[NSNumber numberWithInteger:self.maleNum] forKey:@"joinedMale"];
-    [dic setObject:[NSNumber numberWithBool:self.isCanDiscuss] forKey:@"canDis"];
-    [dic setObject:[NSNumber numberWithBool:self.isDriver] forKey:@""];
-    [dic setObject:[NSNumber numberWithBool:self.isGoHome] forKey:@""];
-    [dic setObject:[NSNumber numberWithInteger:self.tools] forKey:@"tool"];
-    [dic setObject:self.startTime forKey:@"startTime"];
-    [dic setObject:self.endTime forKey:@"endTime"];
-    [dic setObject:self.desc forKey:@"desc"];
+    [dic setObject:[NSNumber numberWithInteger:self.isCanDiscuss] forKey:@"canDis"];
+    [dic setObject:[NSNumber numberWithInteger:self.isGoHome ? 100 : 0] forKey:@"category"];
+    [dic setObject:[NSNumber numberWithInteger:self.isDriver ? 100 : 0] forKey:@"tool"];
+    [dic setObject:(self.startTime ? self.startTime : @"") forKey:@"startTime"];
+    [dic setObject:(self.endTime ? self.endTime : @"") forKey:@"endTime"];
+    [dic setObject:self.plansLocationInfo ? self.plansLocationInfo : @"" forKey:@"pointList"];
+    [dic setObject:(self.title == nil ? self.plansLocationInfo : self.title) forKey:@"title"];
+    [dic setObject:(self.desc ? self.desc : @"") forKey:@"desc"];
     
     NSMutableArray *palnsArr = [[NSMutableArray alloc] initWithArray:0];
     for (int i = 0, sum = [self.plansArr count]; i < sum; i++) {

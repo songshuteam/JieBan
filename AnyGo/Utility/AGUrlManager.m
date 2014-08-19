@@ -18,7 +18,7 @@
 
 + (NSURL *)urlIsRegisterAccount:(NSString *)account{
     NSString *accountStr = [account stringByReplacingOccurrencesOfString:@"+" withString:@""];
-    NSString *url = [NSString stringWithFormat:@"%@/trainon/userstatus.doappId=%@&account=%@",serverUrl,appId,accountStr];
+    NSString *url = [NSString stringWithFormat:@"%@/trainon/userstatus.do?appId=%@&account=%@",serverUrl,appId,accountStr];
     
     return [NSURL URLWithString:[url stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
 }

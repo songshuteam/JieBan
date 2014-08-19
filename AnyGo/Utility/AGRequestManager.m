@@ -34,7 +34,7 @@
     [request setPostValue:registerInfo.code forKey:@"code"];
     
     // 获取Caches目录路径
-    NSString *cachesPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    NSString *cachesPath = NSTemporaryDirectory(); //[NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) objectAtIndex:0];
     NSString *imagName = [NSString stringWithFormat:@"%f.png",[[NSDate new] timeIntervalSince1970]];
     NSString *path = [cachesPath stringByAppendingPathComponent:imagName];
     [UIImagePNGRepresentation(registerInfo.faceImg) writeToFile:path atomically:YES];
@@ -64,7 +64,7 @@
     NSURL *url = [AGUrlManager urlCreatePlanWithUserId:userId];
     
     ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
-    [request setPostValue:planModel.getJiebanModelJson forKey:@"plan"];
+    [request setPostValue:planModel.jiebanInfoJson forKey:@"plan"];
     
     return request;
 }

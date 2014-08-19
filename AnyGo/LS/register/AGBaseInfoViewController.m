@@ -132,15 +132,17 @@
         NSString *tempToken = [valueDic objectForKey:@"tempToken"];
         self.registerModel.jieyouId = userId;
         
+        
         [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithLongLong:userId] forKey:USERID];
         [[NSUserDefaults standardUserDefaults] setObject:token forKey:TOKENINFO];
         [[NSUserDefaults  standardUserDefaults] setObject:tempToken forKey:TEMPTOKEN];
         [[NSUserDefaults standardUserDefaults] synchronize];
         
+        [self.view makeToast:@"注册成功" duration:1.0f position:@"center"];
 //        跳转到首页
         [self.navigationController popToRootViewControllerAnimated:YES];
     }else{
-        
+        [self.view makeToast:[valueDic objectForKey:@"message"]];
     }
 }
 

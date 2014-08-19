@@ -138,7 +138,7 @@
     
     int status = [[value objectForKey:@"status"] intValue];
     
-    if (status == 200 || true) {
+    if (status == 200) {
         if ([self.areaCodeModel.phoneCode isEqualToString:@"+86"]) {
             if ([AGBorderHelper isValidateMobile:self.phoneTextField.text] ) {
                 NSString *accountInfo = [[NSString stringWithFormat:@"%@-%@",self.areaCodeModel.phoneCode,self.phoneTextField.text] stringByReplacingOccurrencesOfString:@"+" withString:@""];

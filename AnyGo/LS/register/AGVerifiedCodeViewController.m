@@ -145,7 +145,7 @@
     [self.view endEditing:YES];
     
     NSString *verifiedCode = self.verifiedCodeText.text;
-    if ([[verifiedCode md5Encrypt] isEqualToString:self.registerModel.codeMd5] || true) {
+    if ([[verifiedCode md5Encrypt] isEqualToString:self.registerModel.codeMd5]) {
         AGSettingPasswordViewController *viewController = [[AGSettingPasswordViewController alloc] init];
         self.registerModel.code = verifiedCode;
         viewController.registerModel = self.registerModel;
