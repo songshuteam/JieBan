@@ -40,7 +40,7 @@
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)loginBtnClick:(id)sender {
-    AGLoginIndexViewController *viewController = [[AGLoginIndexViewController alloc] init];
+    AGLoginViewController *viewController = [[AGLoginViewController alloc] init];
     [self.navigationController pushViewController:viewController animated:YES];
 }
 

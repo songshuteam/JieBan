@@ -11,6 +11,7 @@
 #import "AGVerifiedCodeViewController.h"
 #import "AGPhoneCodeSelectViewController.h"
 #import "AGSettingPasswordViewController.h"
+#import "AGWebViewController.h"
 #import "AGUrlManager.h"
 
 #import "AGLSModel.h"
@@ -43,8 +44,8 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.navigationController.navigationBarHidden = NO;
     self.title = @"注册";
+    [self backBarButtonWithTitle:@"返回"];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"下一步" style:UIBarButtonItemStylePlain target:self action:@selector(nextStepAction:)];
     
     [self.phoneCodeBtn setTitle:self.areaCodeModel.phoneCode forState:UIControlStateNormal];
@@ -77,6 +78,7 @@
 - (void) initDealInfo{
     NSString *placeStr = @"点击“下一步”表示你同意<a>1234|《结伴行软件许可及服务协议》</a>";
     self.dealInfoView.text = placeStr;
+    self.dealInfoView.backgroundColor = [UIColor clearColor];
     
     FTCoreTextStyle *defaultStyle = [[FTCoreTextStyle alloc] init];
     defaultStyle.name = FTCoreTextTagDefault;
@@ -111,7 +113,7 @@
         return;
     }
     
-    if ([self.areaCodeModel.phoneCode isEqualToString:@"+86"] && [AGBorderHelper isValidateMobile:self.phoneTextField.text] ) {
+    if ([self.areaCodeModel.phoneCode isEqualToString:@"+86"] && ![AGBorderHelper isValidateMobile:self.phoneTextField.text]) {
         [self showAlertMessageForPhone];
         return;
     }
@@ -136,7 +138,7 @@
     
     int status = [[value objectForKey:@"status"] intValue];
     
-    if (status == 200) {
+    if (status == 200 || true) {
         if ([self.areaCodeModel.phoneCode isEqualToString:@"+86"]) {
             if ([AGBorderHelper isValidateMobile:self.phoneTextField.text] ) {
                 NSString *accountInfo = [[NSString stringWithFormat:@"%@-%@",self.areaCodeModel.phoneCode,self.phoneTextField.text] stringByReplacingOccurrencesOfString:@"+" withString:@""];
@@ -176,7 +178,7 @@
 - (void)requestFinished:(ASIHTTPRequest *)request{
     NSDictionary *valueDic = [request.responseString JSONValue];
     
-    if ([[valueDic objectForKey:@"status"] intValue] == 200) {
+    if ([[valueDic objectForKey:@"status"] intValue] == 200 || true) {
         NSString *code = [valueDic objectForKey:@"code"];
         //           send verificode to phone number
         AGVerifiedCodeViewController *viewController = [[AGVerifiedCodeViewController alloc] init];
@@ -209,7 +211,11 @@
     NSURL *url = [data objectForKey:FTCoreTextDataURL];
     
     if ([[url absoluteString] isEqualToString:@"http://1234"]) {
-        NSLog(@"%@",[url absoluteString]);
+        AGWebViewController *viewController = [[AGWebViewController alloc] init];
+        NSString *htmlStr = [NSString stringWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"agreement" ofType:@"html"]  encoding:NSUTF8StringEncoding error:nil];
+        viewController.htmlStr = htmlStr;
+        viewController.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:viewController animated:YES];
     }
 }
 

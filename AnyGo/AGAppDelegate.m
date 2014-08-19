@@ -15,6 +15,7 @@
 #import "AGLoginViewController.h"
 #import "AGDistributeViewController.h"
 #import "AGJieBanViewController.h"
+#import "AGLoginIndexViewController.h"
 
 #import "AGShareViewController.h"
 
@@ -95,7 +96,7 @@
     AGNavigationController *navigationController1 = [[AGNavigationController alloc] initWithRootViewController:viewController1];
     navigationController1.title = @"消息";
     
-    AGLoginViewController *viewController2 = [[AGLoginViewController alloc] init];
+    AGLoginIndexViewController *viewController2 = [[AGLoginIndexViewController alloc] init];
     AGNavigationController *navigationController2 = [[AGNavigationController alloc] initWithRootViewController:viewController2];
     navigationController2.title = @"我的";
     

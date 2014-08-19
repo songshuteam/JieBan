@@ -330,9 +330,6 @@
 		FE98217219838FC3008DB1CE /* AGShoujiViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE98216819838FC3008DB1CE /* AGShoujiViewController.xib */; };
 		FE98217319838FC3008DB1CE /* AGVerifiedCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE98216A19838FC3008DB1CE /* AGVerifiedCodeViewController.m */; };
 		FE98217419838FC3008DB1CE /* AGVerifiedCodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE98216B19838FC3008DB1CE /* AGVerifiedCodeViewController.xib */; };
-		FE98217A19839004008DB1CE /* AGRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE98217619839004008DB1CE /* AGRegisterViewController.m */; };
-		FE98217B19839004008DB1CE /* AGYZMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE98217819839004008DB1CE /* AGYZMViewController.m */; };
-		FE98217C19839004008DB1CE /* AGYZMViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE98217919839004008DB1CE /* AGYZMViewController.xib */; };
 		FE98218019839885008DB1CE /* AGLoginIndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE98217E19839885008DB1CE /* AGLoginIndexViewController.m */; };
 		FE98218119839885008DB1CE /* AGLoginIndexViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE98217F19839885008DB1CE /* AGLoginIndexViewController.xib */; };
 		FE99EB6C1996259C00954616 /* AGJiebanMapView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE99EB6B1996259C00954616 /* AGJiebanMapView.xib */; };
@@ -375,6 +372,9 @@
 		FEC43B34197EAE08007BC3CB /* AGJieyouModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC43B33197EAE08007BC3CB /* AGJieyouModel.m */; };
 		FEC43B3A197EB4AC007BC3CB /* HPGrowingTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC43B37197EB4AC007BC3CB /* HPGrowingTextView.m */; };
 		FEC43B3B197EB4AC007BC3CB /* HPTextViewInternal.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC43B39197EB4AC007BC3CB /* HPTextViewInternal.m */; };
+		FEF5AA3A19A2421E001AA031 /* agreement.html in Resources */ = {isa = PBXBuildFile; fileRef = FEF5AA3919A2421E001AA031 /* agreement.html */; };
+		FEF5AA3D19A242B2001AA031 /* AGWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEF5AA3C19A242B2001AA031 /* AGWebViewController.m */; };
+		FEF5AA4119A247F7001AA031 /* AGWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEF5AA4019A247F7001AA031 /* AGWebViewController.xib */; };
 		FEFD63BB198FB8AE00CE3141 /* AGJieyouBaseInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = FEFD63BA198FB8AE00CE3141 /* AGJieyouBaseInfoView.m */; };
 /* End PBXBuildFile section */
 
@@ -919,11 +919,6 @@
 		FE98216919838FC3008DB1CE /* AGVerifiedCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGVerifiedCodeViewController.h; sourceTree = "<group>"; };
 		FE98216A19838FC3008DB1CE /* AGVerifiedCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGVerifiedCodeViewController.m; sourceTree = "<group>"; };
 		FE98216B19838FC3008DB1CE /* AGVerifiedCodeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AGVerifiedCodeViewController.xib; sourceTree = "<group>"; };
-		FE98217519839004008DB1CE /* AGRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGRegisterViewController.h; sourceTree = "<group>"; };
-		FE98217619839004008DB1CE /* AGRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGRegisterViewController.m; sourceTree = "<group>"; };
-		FE98217719839004008DB1CE /* AGYZMViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGYZMViewController.h; sourceTree = "<group>"; };
-		FE98217819839004008DB1CE /* AGYZMViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGYZMViewController.m; sourceTree = "<group>"; };
-		FE98217919839004008DB1CE /* AGYZMViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AGYZMViewController.xib; sourceTree = "<group>"; };
 		FE98217D19839885008DB1CE /* AGLoginIndexViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGLoginIndexViewController.h; sourceTree = "<group>"; };
 		FE98217E19839885008DB1CE /* AGLoginIndexViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGLoginIndexViewController.m; sourceTree = "<group>"; };
 		FE98217F19839885008DB1CE /* AGLoginIndexViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AGLoginIndexViewController.xib; sourceTree = "<group>"; };
@@ -993,6 +988,10 @@
 		FEC43B37197EB4AC007BC3CB /* HPGrowingTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HPGrowingTextView.m; sourceTree = "<group>"; };
 		FEC43B38197EB4AC007BC3CB /* HPTextViewInternal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HPTextViewInternal.h; sourceTree = "<group>"; };
 		FEC43B39197EB4AC007BC3CB /* HPTextViewInternal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HPTextViewInternal.m; sourceTree = "<group>"; };
+		FEF5AA3919A2421E001AA031 /* agreement.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = agreement.html; sourceTree = "<group>"; };
+		FEF5AA3B19A242B2001AA031 /* AGWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGWebViewController.h; sourceTree = "<group>"; };
+		FEF5AA3C19A242B2001AA031 /* AGWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGWebViewController.m; sourceTree = "<group>"; };
+		FEF5AA4019A247F7001AA031 /* AGWebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AGWebViewController.xib; sourceTree = "<group>"; };
 		FEFD63B9198FB8AE00CE3141 /* AGJieyouBaseInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGJieyouBaseInfoView.h; sourceTree = "<group>"; };
 		FEFD63BA198FB8AE00CE3141 /* AGJieyouBaseInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGJieyouBaseInfoView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1060,6 +1059,7 @@
 		649923461961577E00915E84 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				FEF5AA3919A2421E001AA031 /* agreement.html */,
 				649923471961579500915E84 /* countryPhones.json */,
 			);
 			path = Resources;
@@ -1273,6 +1273,9 @@
 				FE98217D19839885008DB1CE /* AGLoginIndexViewController.h */,
 				FE98217E19839885008DB1CE /* AGLoginIndexViewController.m */,
 				FE98217F19839885008DB1CE /* AGLoginIndexViewController.xib */,
+				FEF5AA3B19A242B2001AA031 /* AGWebViewController.h */,
+				FEF5AA3C19A242B2001AA031 /* AGWebViewController.m */,
+				FEF5AA4019A247F7001AA031 /* AGWebViewController.xib */,
 			);
 			path = LS;
 			sourceTree = "<group>";
@@ -2343,11 +2346,6 @@
 		FE98215819838F64008DB1CE /* register */ = {
 			isa = PBXGroup;
 			children = (
-				FE98217519839004008DB1CE /* AGRegisterViewController.h */,
-				FE98217619839004008DB1CE /* AGRegisterViewController.m */,
-				FE98217719839004008DB1CE /* AGYZMViewController.h */,
-				FE98217819839004008DB1CE /* AGYZMViewController.m */,
-				FE98217919839004008DB1CE /* AGYZMViewController.xib */,
 				FE98215E19838FC3008DB1CE /* AGBaseInfoViewController.h */,
 				FE98215F19838FC3008DB1CE /* AGBaseInfoViewController.m */,
 				FE98216019838FC3008DB1CE /* AGBaseInfoViewController.xib */,
@@ -2589,6 +2587,7 @@
 				FEC43B1E197EA8A6007BC3CB /* AGAddTimeShareViewController.xib in Resources */,
 				A0583F04195026750043B5DC /* section0_emotion8@2x.png in Resources */,
 				A0CF7331194D4671005A4436 /* btn_020.disable@2x.png in Resources */,
+				FEF5AA4119A247F7001AA031 /* AGWebViewController.xib in Resources */,
 				A0CF7332194D4671005A4436 /* btn_020.press@2x.png in Resources */,
 				A0583F15195026750043B5DC /* voice@2x.png in Resources */,
 				A0583F0A195026750043B5DC /* SenderVoiceNodePlaying@2x.png in Resources */,
@@ -2666,6 +2665,7 @@
 				A0CF7333194D4671005A4436 /* btn_020@2x.png in Resources */,
 				A0583EFA195026750043B5DC /* section0_emotion13@2x.png in Resources */,
 				FE92638F1999032D00E80017 /* AGFilterJiebanViewController.xib in Resources */,
+				FEF5AA3A19A2421E001AA031 /* agreement.html in Resources */,
 				A0583EEC195026750043B5DC /* RecordingBkg@2x.png in Resources */,
 				A0583F02195026750043B5DC /* section0_emotion6@2x.png in Resources */,
 				A0583F11195026750043B5DC /* sharemore_videovoip@2x.png in Resources */,
@@ -2688,7 +2688,6 @@
 				A0583EE2195026750043B5DC /* multiMedia_HL@2x.png in Resources */,
 				A0583F0E195026750043B5DC /* sharemore_openapi@2x.png in Resources */,
 				A0CF7330194D4671005A4436 /* bg_023@2x.png in Resources */,
-				FE98217C19839004008DB1CE /* AGYZMViewController.xib in Resources */,
 				A0583ED6195026750043B5DC /* Fav_Cell_Loc@2x.png in Resources */,
 				A0583EC8195026750043B5DC /* avator@2x.png in Resources */,
 				A0583EE6195026750043B5DC /* ReceiverVoiceNodePlaying000@2x.png in Resources */,
@@ -2880,7 +2879,6 @@
 				A0583E91195026750043B5DC /* SETextInput.m in Sources */,
 				A0583E82195026750043B5DC /* MultiSelectSearchResultTableViewCell.m in Sources */,
 				A0583E5C195026750043B5DC /* XHDisplayMediaViewController.m in Sources */,
-				FE98217A19839004008DB1CE /* AGRegisterViewController.m in Sources */,
 				A0583E6F195026750043B5DC /* XHMessageVideoConverPhotoFactory.m in Sources */,
 				A06D26F219519A78005FB142 /* PBFlatSegmentedControl.m in Sources */,
 				A0583E75195026750043B5DC /* XHEmotion.m in Sources */,
@@ -2888,6 +2886,7 @@
 				A06D26FA1953D480005FB142 /* AGDLViewController.m in Sources */,
 				FE98217119838FC3008DB1CE /* AGShoujiViewController.m in Sources */,
 				A0CF7338194D4671005A4436 /* TSLocateView.m in Sources */,
+				FEF5AA3D19A242B2001AA031 /* AGWebViewController.m in Sources */,
 				987ADC2518AA4F9500124964 /* AGNavigationController.m in Sources */,
 				A0583E97195026750043B5DC /* SETextView.m in Sources */,
 				FE9237221987C3EA001EF4DD /* AGUrlManager.m in Sources */,
@@ -2915,7 +2914,6 @@
 				FE92638A1998F78500E80017 /* AGCallOutView.m in Sources */,
 				989B104B18AB41C0008DD357 /* AGADView.m in Sources */,
 				FE9B3F781984984D00444733 /* AGResetpwdEmailViewController.m in Sources */,
-				FE98217B19839004008DB1CE /* AGYZMViewController.m in Sources */,
 				A0583E90195026750043B5DC /* SETextGeometry.m in Sources */,
 				A0583EB2195026750043B5DC /* XHMessageInputView.m in Sources */,
 				A0583E5D195026750043B5DC /* XHDisplayTextViewController.m in Sources */,

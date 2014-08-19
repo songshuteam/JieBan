@@ -12,6 +12,7 @@
 #import "MBProgressHUD.h"
 
 #import "AGBaseInfoViewController.h"
+#import "AGWebViewController.h"
 #import "FTCoreTextView.h"
 #import "AGBorderHelper.h"
 
@@ -68,6 +69,7 @@
 }
 
 - (void) agreementInfoInit{
+    self.agreementInfo.backgroundColor = [UIColor clearColor];
     NSString *placeStr = @"我已经阅读并接受<a>1234|《结伴行用户协议》</a>";
     self.agreementInfo.text = placeStr;
     
@@ -171,7 +173,11 @@
     NSURL *url = [data objectForKey:FTCoreTextDataURL];
     
     if ([[url absoluteString] isEqualToString:@"http://1234"]) {
-        NSLog(@"%@",[url absoluteString]);
+        AGWebViewController *viewController = [[AGWebViewController alloc] init];
+        NSString *htmlStr = [NSString stringWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"agreement" ofType:@"html"]  encoding:NSUTF8StringEncoding error:nil];
+        viewController.htmlStr = htmlStr;
+        viewController.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:viewController animated:YES];
     }
 }
 

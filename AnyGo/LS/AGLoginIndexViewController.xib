@@ -21,9 +21,15 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hel-Se-4X1">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hel-Se-4X1">
                     <rect key="frame" x="15" y="437" width="140" height="41"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="140" id="5I8-nr-aD1"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="41" id="qw2-2D-aud"/>
+                        <constraint firstAttribute="height" constant="41" id="rz0-4M-pTg"/>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="140" id="sl0-LD-IYG"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <state key="normal" title="注册" backgroundImage="btn_bg_blue">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -32,9 +38,15 @@
                         <action selector="registerBtnClick:" destination="-1" eventType="touchUpInside" id="f6o-5I-Hhf"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BJ3-64-dg2">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BJ3-64-dg2">
                     <rect key="frame" x="165" y="437" width="140" height="41"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="41" id="8mE-LF-gqR"/>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="140" id="JvJ-nd-qEe"/>
+                        <constraint firstAttribute="width" constant="140" id="OYX-Z7-Gnq"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="41" id="qGg-GM-tTa"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <state key="normal" title="登录" backgroundImage="btn_bg_green">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -47,7 +59,10 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="BJ3-64-dg2" secondAttribute="bottom" constant="90" id="A0b-WJ-AZ4"/>
+                <constraint firstItem="BJ3-64-dg2" firstAttribute="leading" secondItem="hel-Se-4X1" secondAttribute="trailing" constant="10" id="0Hu-Yq-mvz"/>
+                <constraint firstItem="hel-Se-4X1" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="P5o-2I-b8O"/>
+                <constraint firstAttribute="bottom" secondItem="hel-Se-4X1" secondAttribute="bottom" constant="90" id="WYJ-0N-Lwz"/>
+                <constraint firstAttribute="bottom" secondItem="BJ3-64-dg2" secondAttribute="bottom" constant="90" id="vVf-EM-g3l"/>
             </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>

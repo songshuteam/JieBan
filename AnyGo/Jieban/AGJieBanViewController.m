@@ -123,6 +123,9 @@
         }
     }
     
+    if ([self.annotations count] <=0) {
+        return;
+    }
     CLLocationCoordinate2D coordinate = ((AGPointAnnotation *)[self.annotations objectAtIndex:0]).coordinate;
     [self.mapView setCenterCoordinate:coordinate];
     [self.mapView setRegion:MKCoordinateRegionMake(coordinate, MKCoordinateSpanMake(0.0001, 0.0001))];

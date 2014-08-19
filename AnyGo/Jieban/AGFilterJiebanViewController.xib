@@ -131,14 +131,18 @@
                             <color key="textColor" red="0.57254901960000004" green="0.57254901960000004" blue="0.57254901960000004" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XaP-g4-tCD">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XaP-g4-tCD">
                             <rect key="frame" x="16" y="156" width="87" height="42"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <state key="normal" title="出发地" backgroundImage="jieban_filter_unselect">
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <state key="selected" title="出发地" backgroundImage="jieban_filter_select">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <state key="highlighted" title="出发地" backgroundImage="jieban_filter_select">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
@@ -157,6 +161,7 @@
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <state key="selected" title="目的地" backgroundImage="jieban_filter_select"/>
+                            <state key="highlighted" title="目的地" backgroundImage="jieban_filter_select"/>
                             <connections>
                                 <action selector="addressSelectClick:" destination="-1" eventType="touchUpInside" id="APF-0h-63h"/>
                             </connections>
@@ -182,6 +187,7 @@
                             <state key="selected" title="女生" backgroundImage="jieban_filter_select">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <state key="highlighted" title="女生" backgroundImage="jieban_filter_select"/>
                             <connections>
                                 <action selector="genderSelectClick:" destination="-1" eventType="touchUpInside" id="CQq-Ev-Da8"/>
                             </connections>
@@ -196,18 +202,23 @@
                             <state key="selected" title="男生" backgroundImage="jieban_filter_select">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <state key="highlighted" title="男生" backgroundImage="jieban_filter_select"/>
                             <connections>
                                 <action selector="genderSelectClick:" destination="-1" eventType="touchUpInside" id="QAL-Co-sur"/>
                             </connections>
                         </button>
-                        <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wiL-Kr-TpZ">
+                        <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wiL-Kr-TpZ">
                             <rect key="frame" x="216" y="225" width="86" height="42"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <state key="normal" title="不限" backgroundImage="jieban_filter_unselect">
                                 <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <state key="selected" title="不限" backgroundImage="jieban_filter_select">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <state key="highlighted" image="不限" backgroundImage="jieban_filter_select">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
@@ -414,5 +425,6 @@
     <resources>
         <image name="jieban_filter_select" width="86" height="42"/>
         <image name="jieban_filter_unselect" width="86" height="42"/>
+        <image name="不限" width="86" height="42"/>
     </resources>
 </document>

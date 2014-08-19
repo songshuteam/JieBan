@@ -124,24 +124,10 @@
     BOOL flag = switchTem.isOn;
     if (switchTem == self.driveSwitch) {
         self.jiebanModel.isDriver = flag;
-//        ASIHTTPRequest *request = [AGRequestManager requestGetPlanWithUserId:@"123456" planId:@"dadafsfsfsd"];
-//        request.delegate = self;
-//        request.tag = 2;
-//        [request startAsynchronous];
     }else if (switchTem == self.discussEnableSwitch){
         self.jiebanModel.isCanDiscuss = flag;
-//        AGJiebanPlanModel *model = [[AGJiebanPlanModel alloc] init];
-//        ASIFormDataRequest *request = [AGRequestManager requestEditPlanWithUserId:@"1234567" PlanModel:model];
-//        request.delegate = self;
-//        request.tag = 3;
-//        [request startAsynchronous];
-    
     }else if (switchTem == self.gohomeSwitch){
         self.jiebanModel.isGoHome = flag;
-//        ASIHTTPRequest *request = [AGRequestManager requestDeletePlanWithUserId:@"1223234" planId:@"2131414131"];
-//        request.delegate = self;
-//        request.tag = 4;
-//        [request startAsynchronous];
     }
 }
 

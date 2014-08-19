@@ -48,8 +48,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    self.tabBarController.tabBar.hidden = YES;
-    
+//    self.tabBarController.tabBar.hidden = YES;
     [self backBarButtonWithTitle:@"返回"];
     UIBarButtonItem *backItem = [PBFlatBarButtonItems backBarButtonItemWithTarget:self selector:@selector(beBack:)];
     [self.navigationItem setLeftBarButtonItem:backItem];
@@ -65,7 +64,7 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    
+    [self.phoneCodeBtn setTitle:self.areaCode.phoneCode forState:UIControlStateNormal];
 //    self.navigationController.navigationBarHidden = YES;
 }
 
