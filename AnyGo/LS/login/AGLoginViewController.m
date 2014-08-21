@@ -48,10 +48,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-//    self.tabBarController.tabBar.hidden = YES;
     [self backBarButtonWithTitle:@"返回"];
-    UIBarButtonItem *backItem = [PBFlatBarButtonItems backBarButtonItemWithTarget:self selector:@selector(beBack:)];
-    [self.navigationItem setLeftBarButtonItem:backItem];
     self.areaCode = [[AGLSAreaCodeModel alloc] init];
     
 }
@@ -74,6 +71,8 @@
 }
 
 - (IBAction)loginButtonClicked:(id)sender {
+    [self.view endEditing: YES];
+    
 //    检查手机号是否合法
     NSString *phoneNum = self.usernameTextField.text;
     NSString *passwordInfo = self.passwordTextField.text;
@@ -102,7 +101,7 @@
         }
     }
     
-    NSString *accountInfo = [[NSString stringWithFormat:@"%@-%@",self.areaCode.countryCode,phoneNum] stringByReplacingOccurrencesOfString:@"+" withString:@""];
+    NSString *accountInfo = [[NSString stringWithFormat:@"%@-%@",self.areaCode.phoneCode,phoneNum] stringByReplacingOccurrencesOfString:@"+" withString:@""];
     
     ASIHTTPRequest *request = [AGRequestManager requestlogintWithAccount:accountInfo password:passwordInfo];
     request.delegate = self;
@@ -122,9 +121,11 @@
 }
 
 - (IBAction)findPwdClick:(id)sender {
+    [self.view endEditing:YES];
+    
     UIActionSheet *sheect = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"手机找回密码",@"邮箱找回密码", nil];
     
-    [sheect showFromTabBar:self.tabBarController.tabBar];
+    [sheect showInView:self.view];
 }
 
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
@@ -160,6 +161,10 @@
         [[NSUserDefaults standardUserDefaults] synchronize];
         
         [self.navigationController popToRootViewControllerAnimated:YES];
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:LOGINFINISH object:nil];
+    }else{
+        [self.view makeToast:[valueDic objectForKey:@"message"] duration:1 position:@"center"];
     }
     
 }

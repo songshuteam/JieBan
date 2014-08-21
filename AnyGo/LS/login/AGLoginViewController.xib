@@ -57,7 +57,7 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <rect key="contentStretch" x="1" y="0.0" width="1" height="1"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits" keyboardType="alphabet" returnKeyType="go"/>
+                    <textInputTraits key="textInputTraits" keyboardType="alphabet" returnKeyType="go" secureTextEntry="YES"/>
                     <connections>
                         <outlet property="delegate" destination="-1" id="D6a-OS-o0C"/>
                     </connections>
@@ -91,7 +91,7 @@
                         <action selector="loginButtonClicked:" destination="-1" eventType="touchUpInside" id="MJH-gQ-e2I"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jtj-3r-hkq">
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jtj-3r-hkq">
                     <rect key="frame" x="126" y="236" width="46" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" title="Button">

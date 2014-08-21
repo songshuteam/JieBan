@@ -135,6 +135,7 @@ const NSInteger endAddressSelectTag = 2014080802;
     [actionSheet setActionSheetStyle:UIActionSheetStyleBlackTranslucent];
     // Add the picker
     UIDatePicker *datePicker = [[UIDatePicker alloc] init];
+    startDate = [NSDate date];
     datePicker.datePickerMode = UIDatePickerModeDate;
     [datePicker addTarget:self
                 action:@selector(dateChanged:)
@@ -148,32 +149,32 @@ const NSInteger endAddressSelectTag = 2014080802;
     cancelButton.momentary = YES;
     cancelButton.frame = CGRectMake(10.0f, 7.0f, 65.0f, 32.0f);
     cancelButton.segmentedControlStyle = UISegmentedControlStyleBar;
-    [cancelButton addTarget:self action:@selector(datePickerDoneClick:) forControlEvents:UIControlEventValueChanged];
+    [cancelButton addTarget:self action:@selector(datePickerCancelClick:) forControlEvents:UIControlEventValueChanged];
     [actionSheet addSubview:cancelButton];
     
-    cancelButton.tag = 1;
     confirmButton.momentary = YES;
     confirmButton.frame = CGRectMake(245.0f, 7.0f, 65.0f, 32.0f);
     confirmButton.segmentedControlStyle = UISegmentedControlStyleBar;
-    [confirmButton addTarget:self action:@selector(datePickerCancelClick:) forControlEvents:UIControlEventValueChanged];
+    [confirmButton addTarget:self action:@selector(datePickerDoneClick:) forControlEvents:UIControlEventValueChanged];
     [actionSheet addSubview:confirmButton];
     
-    confirmButton.tag = 2;
+   
     [actionSheet showInView:self.view];
     [actionSheet setBounds:CGRectMake(0,0, 320, 500)];
 }
 
 - (IBAction)datePickerDoneClick:(id)sender{
+    
     [actionSheet dismissWithClickedButtonIndex:0 animated:YES];
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+    
+    self.dateLabel.text = [dateFormatter stringFromDate:startDate];
 }
 
 - (IBAction)datePickerCancelClick:(id)sender{
     [actionSheet dismissWithClickedButtonIndex:0 animated:YES];
-    
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"yyyyMMdd"];
-    
-    self.dateLabel.text = [dateFormatter stringFromDate:startDate];
 }
 
 -(IBAction) dateChanged:(id)sender{
@@ -256,7 +257,10 @@ const NSInteger endAddressSelectTag = 2014080802;
     
     AGJiebanPlanModel *jiebanPlan = [[AGJiebanPlanModel alloc] init];
     jiebanPlan.days = self.daysTextField.text;
-    jiebanPlan.startTime = self.dateLabel.text;
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyyMMdd"];
+    jiebanPlan.startTime = [dateFormatter stringFromDate:startDate];
     
     NSMutableArray *tmpArray = [NSMutableArray new];
     
@@ -309,7 +313,7 @@ const NSInteger endAddressSelectTag = 2014080802;
     NSInteger row = [indexPath row];
     AGPlanModel *plan = self.dataSource[row];
     cell.addressLable.text = plan.location;
-    cell.planTextView.text = plan.description;
+    cell.planTextView.text = plan.desc;
     if (row == [self.dataSource count] - 1) {
         cell.breakLine.hidden = YES;
     }else {

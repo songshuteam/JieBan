@@ -17,4 +17,6 @@
 #define TOKENINFO   @"loginToken"
 #define TEMPTOKEN   @"tempLoginToken"
 
+#define LOGINFINISH @"loginOrRegisetrFinish"
+
 #endif

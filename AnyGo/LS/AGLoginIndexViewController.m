@@ -34,6 +34,19 @@
     // Do any additional setup after loading the view from its nib.
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
+    [self backBarButtonWithTitle:@"返回"];
+    self.navigationController.navigationBar.hidden = YES;
+}
+
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    
+    self.navigationController.navigationBar.hidden = NO;
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

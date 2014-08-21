@@ -77,7 +77,7 @@
         return;
     }
     
-    if ([AGBorderHelper isValidatePassword:self.resetPwdField.text]) {
+    if (![AGBorderHelper isValidatePassword:self.resetPwdField.text]) {
         [self.view makeToast:@"密码输入错误，密码有字母和数字组成"];
         
         return ;
@@ -85,7 +85,8 @@
     
     NSURL *resetUrl = [AGUrlManager urlResetPwd];
     ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:resetUrl];
-    [request setPostValue:@"86-18501685746" forKey:@"account"];
+    NSString *mobileNum = [[NSString stringWithFormat:@"%@-%@",self.areaCodeModel.phoneCode,self.phoneNum] stringByReplacingOccurrencesOfString:@"+" withString:@""];
+    [request setPostValue:mobileNum forKey:@"account"];
     [request setPostValue:code forKey:@"code"];
     request.delegate = self;
     [request setPostValue:self.resetPwdField.text forKey:@"newPassword"];
@@ -109,6 +110,24 @@
 #pragma mark - ASIHTTPRequestDelegate
 - (void)requestResetPwdFinished:(ASIHTTPRequest *)request{
     NSLog(@"%@",request.responseString);
+    NSString *responseStr = [request responseString];
+    NSDictionary *valueDic = [responseStr JSONValue];
+    
+    if ([[valueDic objectForKey:@"status"] integerValue] == 200) {
+        long long userId = [[valueDic objectForKey:@"userId"] longLongValue];
+        NSString *token = [valueDic objectForKey:@"token"];
+        NSString *tempToken = [valueDic objectForKey:@"tempToken"];
+        
+        //        login success deal
+        [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithLongLong:userId] forKey:USERID];
+        [[NSUserDefaults standardUserDefaults] setObject:token forKey:TOKENINFO];
+        [[NSUserDefaults  standardUserDefaults] setObject:tempToken forKey:TEMPTOKEN];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        
+        [self.navigationController popToRootViewControllerAnimated:YES];
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:LOGINFINISH object:nil];
+    }
 }
 
 - (void)requestFinished:(ASIHTTPRequest *)request{

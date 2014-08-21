@@ -20,11 +20,15 @@
 
 @interface AGJieBanViewController ()<MKMapViewDelegate,ASIHTTPRequestDelegate,AGCallOutViewDelegate,FilterJiebanDelegate>{
     AGCallOutView *_calloutView;
+    NSInteger currutPage;
 }
 
 @property (nonatomic, strong) NSMutableArray *annotations;
+@property (nonatomic, strong) NSMutableDictionary *jiebanPageDic;
 
 @property (nonatomic, strong) AGFilterModel *filterModel;
+@property (weak, nonatomic) IBOutlet UIButton *preBtn;
+@property (weak, nonatomic) IBOutlet UIButton *nextBtn;
 @end
 
 @implementation AGJieBanViewController
@@ -34,6 +38,8 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        self.jiebanPageDic = [[NSMutableDictionary alloc] initWithCapacity:0];
+        currutPage = 1;
     }
     return self;
 }
@@ -50,6 +56,8 @@
     self.mapView.delegate = self;
     [self.mapView showsUserLocation];
     [self.view addSubview:self.mapView];
+    [self.view sendSubviewToBack:self.mapView];
+    
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"筛选" style:UIBarButtonItemStylePlain target:self action:@selector(searchByKey:)];
     
 //    [self loadData];
@@ -89,11 +97,47 @@
     [self.navigationController pushViewController:viewController animated:YES];
 }
 
+- (IBAction)preJiebanBtnClick:(id)sender {
+    if (currutPage <= 0 || self.filterModel == nil) {
+        return;
+    }else{
+        currutPage--;
+        self.annotations = [self.jiebanPageDic objectForKey:[NSNumber numberWithInt:currutPage]];
+        [self updateMapViewInfo];
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            NSArray *allkey = [self.jiebanPageDic allKeys];
+            
+            for (NSNumber *key in allkey) {
+                if (key.integerValue > currutPage) {
+                    [self.jiebanPageDic removeObjectForKey:key];
+                }
+            }
+        });
+    }
+}
+
+- (IBAction)nextJiebanBtnClick:(id)sender {
+    if (self.filterModel == nil) {
+        return;
+    }
+    
+    if ([self.annotations count] >= self.filterModel.pageSize) {
+        self.filterModel.startIndex = self.filterModel.pageSize * currutPage + 1;
+        [self filterRequestWithJieban:self.filterModel];
+    }
+}
+
 #pragma mark - 
 
 - (void)filterViewController:(AGFilterJiebanViewController *)viewController filterCondition:(AGFilterModel *)model{
     self.filterModel = model;
+    self.jiebanPageDic = [[NSMutableDictionary alloc] initWithCapacity:0];
     
+    [self filterRequestWithJieban:self.filterModel];
+}
+
+- (void)filterRequestWithJieban:(AGFilterModel *)model{
     NSURL *url = [AGUrlManager urlSearchPlanWithUserId:@"111111" filterInfo:self.filterModel];
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
     request.delegate = self;
@@ -104,6 +148,10 @@
 - (void)requestFinished:(ASIHTTPRequest *)request{
     NSLog(@"%@",request.responseString);
     NSDictionary *valueDic = [request.responseString JSONValue];
+    
+    if (self.annotations) {
+        [self.jiebanPageDic setObject:self.annotations forKey:[NSNumber numberWithInteger:currutPage]];
+    }
     
     self.annotations = [[NSMutableArray alloc] initWithCapacity:0];
     if ([[valueDic objectForKey:@"status"] intValue] == 200) {
@@ -123,14 +171,9 @@
         }
     }
     
-    if ([self.annotations count] <=0) {
-        return;
-    }
-    CLLocationCoordinate2D coordinate = ((AGPointAnnotation *)[self.annotations objectAtIndex:0]).coordinate;
-    [self.mapView setCenterCoordinate:coordinate];
-    [self.mapView setRegion:MKCoordinateRegionMake(coordinate, MKCoordinateSpanMake(0.0001, 0.0001))];
-	[self.mapView addAnnotations:self.annotations];
+    [self updateMapViewInfo];
 }
+
 
 - (void)requestPlanInfoFinished:(ASIHTTPRequest *)request{
     NSLog(@"requestPlanInfoFinished : %@",request.responseString);
@@ -157,6 +200,17 @@
     NSLog(@"%@",request.responseString);
 }
 
+- (void)updateMapViewInfo{
+    if ([self.annotations count] <=0) {
+        return;
+    }
+    
+    CLLocationCoordinate2D coordinate = ((AGPointAnnotation *)[self.annotations objectAtIndex:0]).coordinate;
+    [self.mapView setCenterCoordinate:coordinate];
+    [self.mapView setRegion:MKCoordinateRegionMake(coordinate, MKCoordinateSpanMake(0.0001, 0.0001))];
+	[self.mapView addAnnotations:self.annotations];
+}
+
 #pragma mark- MKMapViewDelegate
 //MapView委托方法，当定位自身时调用
 -(void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation{
@@ -176,7 +230,7 @@
         [mapView setCenterCoordinate:coordinate animated:YES];
         
         AGPointAnnotation *point = (AGPointAnnotation *)view.annotation;
-        ASIHTTPRequest *request = [AGRequestManager requestGetPlanWithUserId:@"11111" planId:@"151583566037070"];//[NSString stringWithFormat:@"%lld",point.planId]];
+        ASIHTTPRequest *request = [AGRequestManager requestGetPlanWithUserId:@"11111" planId:[NSString stringWithFormat:@"%lld",point.planId]]; //@"151583566037070"];//
         request.delegate = self;
         request.didFinishSelector = @selector(requestPlanInfoFinished:);
         [request startAsynchronous];

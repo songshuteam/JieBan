@@ -19,6 +19,8 @@
         _days = 0;
         _countryCity = @"";
         _outboundCity = @"";
+        _pageSize = 15;
+        _startIndex = 1;
     }
     
     return self;

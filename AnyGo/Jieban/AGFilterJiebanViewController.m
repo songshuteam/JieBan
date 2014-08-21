@@ -43,7 +43,6 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        self.filterModel = [[AGFilterModel alloc] init];
     }
     return self;
 }
@@ -53,6 +52,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [self borderinit];
+    
+    self.filterModel = [[AGFilterModel alloc] init];
+    
     [self.contentScrollView setContentSize:CGSizeMake(CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds))];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"确定" style:UIBarButtonItemStylePlain target:self action:@selector(confirmBtnClick:)];
     

@@ -141,6 +141,8 @@
         [self.view makeToast:@"注册成功" duration:1.0f position:@"center"];
 //        跳转到首页
         [self.navigationController popToRootViewControllerAnimated:YES];
+        [[NSNotificationCenter defaultCenter] postNotificationName:LOGINFINISH object:nil];
+        
     }else{
         [self.view makeToast:[valueDic objectForKey:@"message"]];
     }

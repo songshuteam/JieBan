@@ -36,10 +36,26 @@
     self.window.backgroundColor = [UIColor whiteColor];
     
     [self umengTrack];
-    [self buildViews];
+    
+    [PBFlatSettings sharedInstance].mainColor = [UIColor colorWithRed:132.f/255 green:208.f/255 blue:24.f/255 alpha:1.f];
+    [PBFlatSettings sharedInstance].textFieldPlaceHolderColor = [UIColor clearColor];
+    [[PBFlatSettings sharedInstance] navigationBarApperance];
+    
+    long long userId = [[[NSUserDefaults standardUserDefaults] objectForKey:USERID] longLongValue];
+    if ( userId == 0) {
+        AGLoginIndexViewController *viewController = [[AGLoginIndexViewController alloc] init];
+        AGNavigationController *navigationController = [[AGNavigationController alloc] initWithRootViewController:viewController];
+        self.window.rootViewController = navigationController;
+    }else{
+        [self buildViews];
+    }
+    
     [IQKeyboardManager sharedManager].enable = YES;
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(buildViews) name:LOGINFINISH object:nil];
+    
     [self.window makeKeyAndVisible];
+    
     return YES;
 }
 
@@ -114,12 +130,6 @@
     tabBarContrller.viewControllers = @[navigationController0, navigationController1, navigationController2, navigationController3,navigationController4];
     
     self.window.rootViewController = tabBarContrller;
-    
-    [PBFlatSettings sharedInstance].mainColor = [UIColor colorWithRed:132.f/255 green:208.f/255 blue:24.f/255 alpha:1.f];
-    [PBFlatSettings sharedInstance].textFieldPlaceHolderColor = [UIColor clearColor];
-    [[PBFlatSettings sharedInstance] navigationBarApperance];
-    
-    
 }
 
 - (void)onlineConfigCallBack:(NSNotification *)note {

@@ -13,8 +13,11 @@
 #import "AGLoginViewController.h" 
 #import "AGBorderHelper.h"
 #import "AGRequestManager.h"
+#import  <MBProgressHUD.h>
 
-@interface AGDistributeViewController ()<ASIHTTPRequestDelegate,UITextFieldDelegate>
+@interface AGDistributeViewController ()<ASIHTTPRequestDelegate,UITextFieldDelegate>{
+    MBProgressHUD *hud;
+}
 
 @property (nonatomic, strong) UISegmentedControl *segmentedControl;
 @property (nonatomic, assign) TSLocateType locateType;
@@ -107,6 +110,11 @@
 
 #pragma mark - Uitility methods
 - (void)distributePlan:(id)sender {
+    hud = [[MBProgressHUD alloc] initWithView:self.view];
+    hud.removeFromSuperViewOnHide = YES;
+    [self.view addSubview:hud];
+    [hud show:YES];
+    
     ASIFormDataRequest *request = [AGRequestManager requestCreatePlanWithUserId:@"1234566" planModel:self.jiebanModel];
     request.delegate = self;
     request.tag = 1;
@@ -131,6 +139,7 @@
 
 #pragma mark - ASIHTTPRequestDelegate
 - (void)requestFinished:(ASIHTTPRequest *)request{
+    [hud hide:YES];
     NSLog(@"%d is %@",request.tag,request.responseString);
     NSDictionary *valueDic = [request.responseString JSONValue];
     if ([[valueDic objectForKey:@"status"] intValue] == 200) {
@@ -138,9 +147,11 @@
         long long planId = [[valueDic objectForKey:@"message"] longLongValue];
     }
     
+    [self distributeViewInfoInit];
 }
 
 - (void)requestFailed:(ASIHTTPRequest *)request{
+     [hud hide:YES];
     NSLog(@"%d is %@",request.tag,request.responseString);
 }
 
@@ -150,9 +161,18 @@
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
-    
-    
+  
     [textField resignFirstResponder];
+}
+
+- (void)distributeViewInfoInit{
+    self.femaleNumTextField.text = nil;
+    self.maleNumTextField.text = nil;
+    [self.driveSwitch setOn:NO animated:YES];
+    [self.discussEnableSwitch setOn:YES animated:YES];
+    [self.gohomeSwitch setOn:NO animated:YES];
+    self.destinationsLabel.text = @"无";
+    self.jiebanModel = [[AGJiebanPlanModel alloc] init];
 }
 
 #pragma mark - touch event 

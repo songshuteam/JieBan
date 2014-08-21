@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <deployment defaultVersion="1536" identifier="iOS"/>
+        <deployment defaultVersion="1552" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AGJieBanViewController">
             <connections>
+                <outlet property="nextBtn" destination="W2Z-Tg-zb5" id="rLO-EA-bUJ"/>
+                <outlet property="preBtn" destination="61P-m9-cjy" id="rxu-GA-gSQ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -14,10 +16,48 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="61P-m9-cjy">
+                    <rect key="frame" x="22" y="394" width="36" height="18"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="18" id="Svg-BE-4Cl"/>
+                    </constraints>
+                    <state key="normal" image="jeiban_prePage">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="preJiebanBtnClick:" destination="-1" eventType="touchUpInside" id="TU9-87-aLc"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W2Z-Tg-zb5">
+                    <rect key="frame" x="22" y="437" width="35" height="18"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="18" id="BfH-bP-biq"/>
+                    </constraints>
+                    <state key="normal" image="jieban_nextPage">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="nextJiebanBtnClick:" destination="-1" eventType="touchUpInside" id="LXv-KO-rE9"/>
+                    </connections>
+                </button>
+            </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="W2Z-Tg-zb5" firstAttribute="top" secondItem="61P-m9-cjy" secondAttribute="bottom" constant="25" id="7R2-mA-YZ8"/>
+                <constraint firstItem="W2Z-Tg-zb5" firstAttribute="height" secondItem="61P-m9-cjy" secondAttribute="height" id="EPI-pL-xbv"/>
+                <constraint firstItem="61P-m9-cjy" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="22" id="SdK-L0-3U1"/>
+                <constraint firstAttribute="bottom" secondItem="W2Z-Tg-zb5" secondAttribute="bottom" constant="25" id="Tor-8Z-jpt"/>
+                <constraint firstItem="W2Z-Tg-zb5" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="22" id="kv3-xO-Wxf"/>
+            </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
-            <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
         </view>
     </objects>
+    <resources>
+        <image name="jeiban_prePage" width="36" height="18"/>
+        <image name="jieban_nextPage" width="35" height="18"/>
+    </resources>
 </document>
