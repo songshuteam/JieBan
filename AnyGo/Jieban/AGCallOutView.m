@@ -147,7 +147,7 @@ typedef NS_ENUM(NSInteger, JiebanType) {
     NSNumber *number = [self.dataArr objectAtIndex:indexPath.row];
     if (number.integerValue == JiebanTypeMoreInfo) {
         if (self.delegate && [self.delegate respondsToSelector:@selector(callOutView:showUserInfoWithUserId:)]) {
-            [self.delegate callOutView:self showUserInfoWithUserId:122334354];
+            [self.delegate callOutView:self showUserInfoWithUserId:self.jiebanModel.userId];
         }
     }
 }

@@ -26,6 +26,8 @@
 @property (nonatomic, strong) NSMutableArray *annotations;
 @property (nonatomic, strong) NSMutableDictionary *jiebanPageDic;
 
+@property (nonatomic, assign) CLLocationCoordinate2D currentCoordinate2D;
+
 @property (nonatomic, strong) AGFilterModel *filterModel;
 @property (weak, nonatomic) IBOutlet UIButton *preBtn;
 @property (weak, nonatomic) IBOutlet UIButton *nextBtn;
@@ -134,11 +136,18 @@
     self.filterModel = model;
     self.jiebanPageDic = [[NSMutableDictionary alloc] initWithCapacity:0];
     
+    NSString *fileName = @"allCity.plist";
+    NSDictionary *citiesDic = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:fileName ofType:nil]];
+    NSString *key = [self.filterModel.countryCity isEqualToString:@""] ? self.filterModel.outboundCity : self.filterModel.countryCity;
+    NSDictionary *dic = [citiesDic objectForKey:key];
+    CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake([[dic objectForKey:@"lat"] floatValue], [[dic objectForKey:@"lon"] floatValue]);
+    self.currentCoordinate2D = coordinate;
+    
     [self filterRequestWithJieban:self.filterModel];
 }
 
 - (void)filterRequestWithJieban:(AGFilterModel *)model{
-    NSURL *url = [AGUrlManager urlSearchPlanWithUserId:@"111111" filterInfo:self.filterModel];
+    NSURL *url = [AGUrlManager urlSearchPlanWithUserId:[NSString stringWithFormat:@"%lld",[AGBorderHelper userId]] filterInfo:self.filterModel];
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
     request.delegate = self;
     [request startAsynchronous];
@@ -160,7 +169,17 @@
         for (int i = 0, sum = [list count]; i < sum; i++) {
             NSDictionary *dic = [list objectAtIndex:i];
             AGPointAnnotation *point = [[AGPointAnnotation alloc] init];
-            point.coordinate = CLLocationCoordinate2DMake([[dic objectForKey:@"lat"] longLongValue], [[dic objectForKey:@"lon"] longLongValue]);
+            
+            srand(time(0));
+            float rand1 = random()%10;
+            float rand2 = random()%10;
+            int int1 = rand1 < 5 ? -1 : 1;
+            int int2 = rand2 < 5 ? -1 : 1;
+            
+            float lat = self.currentCoordinate2D.latitude + int1 * (rand1/1000);
+            float lon = self.currentCoordinate2D.longitude +  int2 * (rand2/1000);
+            point.coordinate = CLLocationCoordinate2DMake(lat, lon);
+            
             point.planId = [[dic objectForKey:@"pId"] longLongValue];
             point.fId = [[dic objectForKey:@"fId"] longLongValue];
             point.userId = [[dic objectForKey:@"userId"] longLongValue];
@@ -173,7 +192,6 @@
     
     [self updateMapViewInfo];
 }
-
 
 - (void)requestPlanInfoFinished:(ASIHTTPRequest *)request{
     NSLog(@"requestPlanInfoFinished : %@",request.responseString);
@@ -230,7 +248,7 @@
         [mapView setCenterCoordinate:coordinate animated:YES];
         
         AGPointAnnotation *point = (AGPointAnnotation *)view.annotation;
-        ASIHTTPRequest *request = [AGRequestManager requestGetPlanWithUserId:@"11111" planId:[NSString stringWithFormat:@"%lld",point.planId]]; //@"151583566037070"];//
+        ASIHTTPRequest *request = [AGRequestManager requestGetPlanWithUserId:[NSString stringWithFormat:@"%lld",[AGBorderHelper userId]] planId:[NSString stringWithFormat:@"%lld",point.planId]]; //@"151583566037070"];//
         request.delegate = self;
         request.didFinishSelector = @selector(requestPlanInfoFinished:);
         [request startAsynchronous];

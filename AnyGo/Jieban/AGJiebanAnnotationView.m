@@ -67,7 +67,7 @@ const CGFloat messageHeight = 18;
     }
     
     self.bgImageView.image = [UIImage imageNamed:pointAnnotation.gender == GenderFemale ? @"annotation_female" : @"annotaion_male"];
-    NSString *text = [NSString stringWithFormat:@"目的地:%@",pointAnnotation.description];
+    NSString *text = [NSString stringWithFormat:@"目的地:%@",pointAnnotation.desc];
     NSRange range = [text rangeOfString:pointAnnotation.description];
     NSMutableAttributedString *attributeStr = [[NSMutableAttributedString alloc] initWithString:text];
     [attributeStr addAttributes:@{NSFontAttributeName:[UIFont boldSystemFontOfSize:14]} range:range];

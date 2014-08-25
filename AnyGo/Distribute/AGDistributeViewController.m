@@ -110,12 +110,15 @@
 
 #pragma mark - Uitility methods
 - (void)distributePlan:(id)sender {
+    self.jiebanModel.femaleNum = [self.femaleNumTextField.text intValue];
+    self.jiebanModel.maleNum = [self.maleNumTextField.text intValue];
+    
     hud = [[MBProgressHUD alloc] initWithView:self.view];
     hud.removeFromSuperViewOnHide = YES;
     [self.view addSubview:hud];
     [hud show:YES];
     
-    ASIFormDataRequest *request = [AGRequestManager requestCreatePlanWithUserId:@"1234566" planModel:self.jiebanModel];
+    ASIFormDataRequest *request = [AGRequestManager requestCreatePlanWithUserId:[NSString stringWithFormat:@"%lld",[AGBorderHelper  userId]] planModel:self.jiebanModel];
     request.delegate = self;
     request.tag = 1;
     [request startAsynchronous];
@@ -161,7 +164,7 @@
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
-  
+    
     [textField resignFirstResponder];
 }
 

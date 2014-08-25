@@ -7,6 +7,7 @@
 //
 
 #import "AGPlanModel.h"
+#import "AGBorderHelper.h"
 #import "NSObject+NSJSONSerialization.h"
 
 @implementation AGPlanModel
@@ -41,7 +42,7 @@
     return dic;
 }
 
-- (AGPlanModel *)planInfoFromJsonValue:(NSDictionary *)valueDic{
++ (AGPlanModel *)planInfoFromJsonValue:(NSDictionary *)valueDic{
     AGPlanModel *model = [[AGPlanModel alloc] init];
     model.planId = [[valueDic objectForKey:@"pId"] longLongValue];
     model.days = [[valueDic objectForKey:@"days"] intValue];
@@ -119,6 +120,7 @@
     [dic setObject:[NSNumber numberWithInteger:self.isDriver ? 100 : 0] forKey:@"tool"];
     [dic setObject:(self.startTime ? self.startTime : @"") forKey:@"startTime"];
     [dic setObject:(self.endTime ? self.endTime : @"") forKey:@"endTime"];
+    [dic setObject:[NSNumber numberWithInt:[self.days intValue]] forKey:@"days"];
     [dic setObject:self.plansLocationInfo ? self.plansLocationInfo : @"" forKey:@"pointList"];
     [dic setObject:(self.title == nil ? self.plansLocationInfo : self.title) forKey:@"title"];
     [dic setObject:(self.desc ? self.desc : @"") forKey:@"desc"];
@@ -151,8 +153,14 @@
     int category = [[valueDic objectForKey:@"category"] intValue];
     jiebanModel.isGoHome = (category == 100);
     jiebanModel.isCanDiscuss = [[valueDic objectForKey:@"canDis"] boolValue];
-    jiebanModel.startTime = [valueDic objectForKey:@"startTime"];
-    jiebanModel.endTime = [valueDic objectForKey:@"endTime"];
+    
+    NSString *startTime = [NSString stringWithFormat:@"%d",[[valueDic objectForKey:@"startTime"] intValue]];
+    jiebanModel.startTime = [AGBorderHelper convertStr:startTime startFormt:@"yyyyMMdd" endFormate:@"yyyy-MM-dd"];
+    
+    NSString *endTime = [NSString stringWithFormat:@"%d",[[valueDic objectForKey:@"endTime"] intValue]];
+    jiebanModel.endTime = [AGBorderHelper convertStr:endTime startFormt:@"yyyyMMdd" endFormate:@"yyyy-MM-dd"];
+    
+    jiebanModel.days = [valueDic objectForKey:@"days"];
     jiebanModel.desc = [valueDic objectForKey:@"desc"];
     
     NSArray *fragments = [valueDic objectForKey:@"fragments"];

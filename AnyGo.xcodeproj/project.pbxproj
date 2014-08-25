@@ -307,6 +307,7 @@
 		A0CF733A194D4671005A4436 /* TSLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = A0CF732F194D4671005A4436 /* TSLocation.m */; };
 		A0CF733C194D57ED005A4436 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0CF733B194D57ED005A4436 /* CoreLocation.framework */; };
 		A0CF733E194D57F3005A4436 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0CF733D194D57F3005A4436 /* MapKit.framework */; };
+		FE2721A219AA33E5001C728A /* Global.plist in Resources */ = {isa = PBXBuildFile; fileRef = FE2721A119AA33E5001C728A /* Global.plist */; };
 		FE9237221987C3EA001EF4DD /* AGUrlManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FE9237211987C3EA001EF4DD /* AGUrlManager.m */; };
 		FE9237251987C7A4001EF4DD /* AGRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FE9237241987C7A4001EF4DD /* AGRequestManager.m */; };
 		FE92372D1987D9DD001EF4DD /* Toast+UIView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE92372C1987D9DD001EF4DD /* Toast+UIView.m */; };
@@ -316,6 +317,7 @@
 		FE92B6091999940600E8F1D4 /* AGFilterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FE92B6081999940600E8F1D4 /* AGFilterModel.m */; };
 		FE94BA2A197FFB0900A54085 /* AGShareCommentItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FE94BA27197FFB0900A54085 /* AGShareCommentItem.m */; };
 		FE94BA2B197FFB0900A54085 /* AGShareItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FE94BA29197FFB0900A54085 /* AGShareItem.m */; };
+		FE976DBC19AB6CCD00BFE5B9 /* allCity.plist in Resources */ = {isa = PBXBuildFile; fileRef = FE976DBB19AB6CCD00BFE5B9 /* allCity.plist */; };
 		FE9786D71997B4070090C986 /* AGAnnotationLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = FE9786D61997B4070090C986 /* AGAnnotationLabel.m */; };
 		FE98215319838D54008DB1CE /* SDWebImageManager+MJ.m in Sources */ = {isa = PBXBuildFile; fileRef = FE98215219838D54008DB1CE /* SDWebImageManager+MJ.m */; };
 		FE98215619838E16008DB1CE /* MBProgressHUD+Add.m in Sources */ = {isa = PBXBuildFile; fileRef = FE98215519838E16008DB1CE /* MBProgressHUD+Add.m */; };
@@ -877,6 +879,7 @@
 		A0CF732F194D4671005A4436 /* TSLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSLocation.m; sourceTree = "<group>"; };
 		A0CF733B194D57ED005A4436 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		A0CF733D194D57F3005A4436 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		FE2721A119AA33E5001C728A /* Global.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Global.plist; sourceTree = "<group>"; };
 		FE92371F1987C33B001EF4DD /* serverHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = serverHeader.h; sourceTree = "<group>"; };
 		FE9237201987C3EA001EF4DD /* AGUrlManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGUrlManager.h; sourceTree = "<group>"; };
 		FE9237211987C3EA001EF4DD /* AGUrlManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGUrlManager.m; sourceTree = "<group>"; };
@@ -896,6 +899,7 @@
 		FE94BA27197FFB0900A54085 /* AGShareCommentItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGShareCommentItem.m; sourceTree = "<group>"; };
 		FE94BA28197FFB0900A54085 /* AGShareItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGShareItem.h; sourceTree = "<group>"; };
 		FE94BA29197FFB0900A54085 /* AGShareItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGShareItem.m; sourceTree = "<group>"; };
+		FE976DBB19AB6CCD00BFE5B9 /* allCity.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = allCity.plist; sourceTree = "<group>"; };
 		FE9786D51997B4070090C986 /* AGAnnotationLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGAnnotationLabel.h; sourceTree = "<group>"; };
 		FE9786D61997B4070090C986 /* AGAnnotationLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGAnnotationLabel.m; sourceTree = "<group>"; };
 		FE98215119838D54008DB1CE /* SDWebImageManager+MJ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SDWebImageManager+MJ.h"; sourceTree = "<group>"; };
@@ -2300,6 +2304,8 @@
 			isa = PBXGroup;
 			children = (
 				A0CF7322194D4671005A4436 /* img */,
+				FE976DBB19AB6CCD00BFE5B9 /* allCity.plist */,
+				FE2721A119AA33E5001C728A /* Global.plist */,
 				A0CF732A194D4671005A4436 /* ProvincesAndCities.plist */,
 				A0CF732B194D4671005A4436 /* TSLocateView.h */,
 				A0CF732C194D4671005A4436 /* TSLocateView.m */,
@@ -2569,6 +2575,7 @@
 				A0B391BB194833CD0000C1DA /* AGPlaViewController.xib in Resources */,
 				A0CF7337194D4671005A4436 /* ProvincesAndCities.plist in Resources */,
 				987ADBF918AA476B00124964 /* InfoPlist.strings in Resources */,
+				FE2721A219AA33E5001C728A /* Global.plist in Resources */,
 				FE98217219838FC3008DB1CE /* AGShoujiViewController.xib in Resources */,
 				A0583EF0195026750043B5DC /* RecordingSignal004@2x.png in Resources */,
 				FE98217419838FC3008DB1CE /* AGVerifiedCodeViewController.xib in Resources */,
@@ -2683,6 +2690,7 @@
 				A0583EFC195026750043B5DC /* section0_emotion15@2x.png in Resources */,
 				A0583EED195026750043B5DC /* RecordingSignal001@2x.png in Resources */,
 				A0583EFB195026750043B5DC /* section0_emotion14@2x.png in Resources */,
+				FE976DBC19AB6CCD00BFE5B9 /* allCity.plist in Resources */,
 				A0583F00195026750043B5DC /* section0_emotion4@2x.png in Resources */,
 				A0583EFF195026750043B5DC /* section0_emotion3@2x.png in Resources */,
 				A0583EE2195026750043B5DC /* multiMedia_HL@2x.png in Resources */,

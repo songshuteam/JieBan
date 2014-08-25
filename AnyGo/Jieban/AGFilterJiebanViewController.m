@@ -10,8 +10,9 @@
 
 #import "AGBorderHelper.h"
 #import "AGFilterModel.h"
+#import "TSLocateView.h"
 
-@interface AGFilterJiebanViewController ()
+@interface AGFilterJiebanViewController ()<UITextFieldDelegate>
 
 
 @property (weak, nonatomic) IBOutlet UIScrollView *contentScrollView;
@@ -55,10 +56,23 @@
     
     self.filterModel = [[AGFilterModel alloc] init];
     
+    TSLocateView *countryView = [[TSLocateView alloc] initWithTitle:@"选择城市" andLocationType:TSLocateCN delegate:self];
+    countryView.tag = 2014082501;
+    self.countryCityTextField.inputView = countryView;
+    
+    TSLocateView *outView = [[TSLocateView alloc] initWithTitle:@"选择城市" andLocationType:TSLocateGlobal delegate:self];
+    outView.tag = 2014082502;
+    self.worldCitytextField.inputView = outView;
+    
     [self.contentScrollView setContentSize:CGSizeMake(CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds))];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"确定" style:UIBarButtonItemStylePlain target:self action:@selector(confirmBtnClick:)];
     
-    [self viewInitWIthFilterInfo:self.filterModel];
+    [self viewInitWithFilterInfo:self.filterModel];
+    
+    UITapGestureRecognizer *singleTapGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(handleSingleTap:)];
+    singleTapGesture.numberOfTapsRequired = 1;
+    singleTapGesture.numberOfTouchesRequired  = 1;
+    [self.view addGestureRecognizer:singleTapGesture];
 }
 
 - (void)didReceiveMemoryWarning
@@ -67,8 +81,12 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)handleSingleTap:(UIGestureRecognizer *)sender{
+    [self.view endEditing:YES];
+}
+
 #pragma mark - view init
-- (void)viewInitWIthFilterInfo:(AGFilterModel *)model{
+- (void)viewInitWithFilterInfo:(AGFilterModel *)model{
     [self.isDriveSwitch setOn:model.isDriver];
     [self.isRetSchoolSwitch setOn:model.isReturn];
     
@@ -101,6 +119,9 @@
 
 #pragma mark - btn Click
 - (IBAction)confirmBtnClick:(id)sender{
+    self.filterModel.countryCity = self.countryCityTextField.text;
+    self.filterModel.outboundCity = self.worldCitytextField.text;
+    
     if (self.delegate && [self.delegate respondsToSelector:@selector(filterViewController:filterCondition:)]) {
         [self.delegate filterViewController:self filterCondition:self.filterModel];
     }
@@ -140,7 +161,6 @@
         default:
             break;
     }
-
 }
 
 - (IBAction)valueChange:(id)sender {
@@ -172,6 +192,38 @@
             break;
     }
     self.filterModel.addressType = btn.tag;
+}
+
+#pragma mark - UITextFieldDelegate
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
+    BOOL isCountry = (textField == self.countryCityTextField && self.worldCitytextField.text.length > 0);
+    BOOL isWorld = (textField == self.worldCitytextField && self.countryCityTextField.text.length > 0);
+    if (isCountry || isWorld) {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提醒" message:@"境内地址与境外地址不能同时填充" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alertView show];
+        return NO;
+    }
+    
+    return YES;
+}
+
+#pragma mark - UIActionSheetDelegate
+- (void)actionSheet:(UIActionSheet *)actionSheet_ clickedButtonAtIndex:(NSInteger)buttonIndex {
+    TSLocateView *locateView_ = (TSLocateView *)actionSheet_;
+    TSLocation *location = locateView_.locate;
+    LOG(@"city:%@ lat:%f lon:%f", location.city, location.latitude, location.longitude);
+    //You can uses location to your application.
+    if(buttonIndex == 0) {
+        LOG(@"Cancel");
+    }else {
+        LOG(@"Select");
+        [self.view endEditing:YES];
+        if (locateView_.tag == 2014082501) {
+            self.countryCityTextField.text = location.city;
+        }else if (locateView_.tag == 2014082502){
+            self.worldCitytextField.text = location.city;
+        }
+    }
 }
 
 @end
