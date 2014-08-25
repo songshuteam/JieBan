@@ -58,4 +58,24 @@
     
     return [pwdTest evaluateWithObject:pwd];
 }
+
++ (NSString *)convertStr:(NSString *)timeStr startFormt:(NSString *)startFormate endFormate:(NSString *)endFormate{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:startFormate];
+    
+    NSDateFormatter *formatter1 = [[NSDateFormatter alloc] init];
+    [formatter1 setDateFormat:endFormate];
+    
+    NSDate *date = [formatter dateFromString:timeStr];
+    
+    NSString *str = [formatter1 stringFromDate:date];
+    
+    return str;
+}
+
++ (long long)userId{
+    long long userId = [[[NSUserDefaults standardUserDefaults] objectForKey:USERID] longLongValue];
+    
+    return userId;
+}
 @end

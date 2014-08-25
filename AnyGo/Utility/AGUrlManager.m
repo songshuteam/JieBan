@@ -67,7 +67,7 @@
 }
 
 + (NSURL *)urlSearchPlanWithUserId:(NSString *)userId filterInfo:(AGFilterModel *)model{
-    NSString *searchURL = [NSString stringWithFormat:@"%@/trainon/search/plan.do?appId=%@&userId=%@&keyword=北京",serverUrl,appId,userId];
+    NSString *searchURL = [NSString stringWithFormat:@"%@/trainon/search/plan.do?appId=%@&userId=%@&keyword=%@",serverUrl,appId,userId,model.countryCity];
     
     searchURL = [searchURL stringByAppendingString:[NSString stringWithFormat:(model.addressType == AddressTypeStart) ? @"&type=1" : @"&type=0"]];
     

@@ -72,4 +72,8 @@ typedef NS_OPTIONS(NSUInteger, AGDrawnBorderSides) {
  */
 + (BOOL)isValidatePassword:(NSString *)pwd;
 
++ (NSString *)convertStr:(NSString *)timeStr startFormt:(NSString *)startFormate endFormate:(NSString *)endFormate;
+
++ (long long)userId;
+
 @end
