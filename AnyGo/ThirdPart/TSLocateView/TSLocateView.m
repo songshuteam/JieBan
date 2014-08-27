@@ -10,7 +10,9 @@
 
 #define kDuration 0.3
 
-@implementation TSLocateView
+@implementation TSLocateView {
+    BOOL _show;
+}
 
 @synthesize titleLabel;
 @synthesize locatePicker;
@@ -42,6 +44,7 @@
         self.locate.city = [[cities objectAtIndex:0] objectForKey:@"city"];
         self.locate.latitude = [[[cities objectAtIndex:0] objectForKey:@"lat"] doubleValue];
         self.locate.longitude = [[[cities objectAtIndex:0] objectForKey:@"lon"] doubleValue];
+        _show = NO;
     }
     return self;
 }
@@ -60,6 +63,11 @@
     self.frame = CGRectMake(0, view.frame.size.height - self.frame.size.height, self.frame.size.width, self.frame.size.height);
     
     [view addSubview:self];
+    _show = YES;
+}
+
+- (BOOL)isShow {
+    return _show;
 }
 
 #pragma mark - PickerView lifecycle
@@ -153,6 +161,12 @@
         [self.delegate actionSheet:self clickedButtonAtIndex:1];
     }
     
+}
+
+#pragma mark - overwrite
+- (void)removeFromSuperview {
+    [super removeFromSuperview];
+    _show = NO;
 }
 
 @end

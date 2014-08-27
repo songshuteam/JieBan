@@ -30,4 +30,6 @@ typedef NS_ENUM(NSInteger, TSLocateType) {
 
 - (void)showInView:(UIView *)view;
 
+- (BOOL)isShow;
+
 @end

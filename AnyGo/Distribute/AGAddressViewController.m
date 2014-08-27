@@ -44,9 +44,14 @@
 }
 
 - (IBAction)okButtonClicked:(id)sender {
-    BOOL canOK = YES;
     if (self.addressLabel.text == nil || [self.addressLabel.text isEqualToString:@""]) {
-        canOK = NO;
+        UIAlertView *alterView = [[UIAlertView alloc] initWithTitle:@"提示"
+                                                            message:@"请选择目的地或者正确填写路线描述"
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"确定"
+                                                  otherButtonTitles:nil, nil];
+        [alterView show];
+        return;
     }
 
     AGPlanModel *plan = [[AGPlanModel alloc] init];

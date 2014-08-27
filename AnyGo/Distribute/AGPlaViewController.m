@@ -199,14 +199,18 @@ const NSInteger endAddressSelectTag = 2014080802;
     [self.view endEditing:YES];
     
     locateView.tag = startAddressSelectTag;
-    [locateView showInView:self.view];
+    if (![locateView isShow]) {
+        [locateView showInView:self.view];
+    }
 }
 
 - (IBAction)endAddressButtonClicked:(id)sender {
     [self.view endEditing:YES];
   
     locateView.tag = endAddressSelectTag;
-    [locateView showInView:self.view];
+    if (![locateView isShow]) {
+        [locateView showInView:self.view];
+    }
 }
 
 #pragma mark - Utility Methods

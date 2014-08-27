@@ -75,7 +75,7 @@
 - (void)menuForNavigationItemInit{
     self.segmentedControl = [[UISegmentedControl alloc] initWithItems:@[@"国内", @"国际"]];
     self.segmentedControl.tintColor = [UIColor whiteColor];
-    self.segmentedControl.frame = CGRectMake(0, 0, 170.f, 23.f);
+    self.segmentedControl.frame = CGRectMake(0, 0, 170.f, 31.f);
     self.segmentedControl.selectedSegmentIndex = 0;
     self.locateType = 0;
     [self.segmentedControl addTarget:self
