@@ -2,8 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "scale" : "1x",
-      "filename" : "view_bg_loginIndex.png"
+      "scale" : "1x"
     },
     {
       "idiom" : "universal",
