@@ -129,6 +129,26 @@
     tabBarContrller.delegate = self;
     tabBarContrller.viewControllers = @[navigationController0, navigationController1, navigationController2, navigationController3,navigationController4];
     
+    UITabBar *tabbar = tabBarContrller.tabBar;
+    if (SYM_VERSION >= 7) {
+        tabbar.translucent = NO;
+    }
+    
+    UITabBarItem *jiebanItem = tabbar.items[0];
+    UITabBarItem *xiaoxiItem = tabbar.items[1];
+    UITabBarItem *wodeItem = tabbar.items[2];
+    UITabBarItem *zuduiItem = tabbar.items[3];
+    UITabBarItem *fabuItem = tabbar.items[4];
+    
+    jiebanItem.image = [UIImage imageNamed:@"jieban"];
+    xiaoxiItem.image = [UIImage imageNamed:@"xiaoxi"];
+    wodeItem.image = [UIImage imageNamed:@"wode"];
+    zuduiItem.image = [UIImage imageNamed:@"zudui"];
+    fabuItem.image = [UIImage imageNamed:@"fabu"];
+    
+    tabbar.tintColor = [UIColor colorWithRed:132.f/255 green:190.f/255 blue:60.f/255 alpha:1.f];
+    
+    
     self.window.rootViewController = tabBarContrller;
 }
 
