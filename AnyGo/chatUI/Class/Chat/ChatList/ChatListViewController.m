@@ -302,10 +302,10 @@
     }
     
     EMConversation *conversation = [self.dataSource objectAtIndex:indexPath.row];
-    if ([self.userInfoArr count] > 0) {
+    if ([self.userInfoArr count] > 0 && [self.userInfoArr count] <= (indexPath.row + 1)) {
         AGUserInfoModel *model = [self.userInfoArr objectAtIndex:indexPath.row];
         cell.name = model.nickname;
-        cell.imageURL = [NSURL URLWithString:model.thumbnailAvatar];
+        cell.imageURL = [NSURL URLWithString:@"http://b.hiphotos.baidu.com/image/pic/item/caef76094b36acafff0500fb7ed98d1000e99cd4.jpg"];//model.thumbnailAvatar];
     }
     
     if (!conversation.isGroup) {
@@ -501,7 +501,7 @@
                 
                 NSDictionary *dic = [response JSONValue];
                 if ([[dic objectForKey:@"status"] intValue] == 200) {
-                    NSDictionary *dicValue = [dic objectForKey:@"data"];
+                    NSDictionary *dicValue = [dic objectForKey:@"obj"];
                     AGUserInfoModel *model = [AGUserInfoModel parseJsonInfo:dicValue];
                     [dataArr addObject:model];
                 }

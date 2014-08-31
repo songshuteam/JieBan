@@ -302,38 +302,38 @@
     NSMutableArray *demoArr = [[NSMutableArray alloc] initWithCapacity:0];
     
     AGShareItem *item = [[AGShareItem alloc] init];
-    item.shareMsgId = @"11111";
+//    item.shareMsgId = @"11111";
     item.shareContent = @"ASIHTTPRequest对CFNetwork API进行了封装，并且使用起来非常简单，用Objective-C编写，可以很好的应用在Mac OS X系统和iOS平台的应用程序中。ASIHTTPRequest适用于基本的HTTP请求，和基于REST的服务之间的交互";
     item.userName = @"tony_cap";
-    item.userId = @"ajdahsjda76d8ad7a9sdasdas";
+//    item.userId = @"ajdahsjda76d8ad7a9sdasdas";
     item.profileImgUrl = @"http://image.tianjimedia.com/uploadImages/2013/228/B42FNUVDT7CS.jpg";
     
     AGShareItem *item1 = [[AGShareItem alloc] init];
-    item1.shareMsgId = @"11111";
+//    item1.shareMsgId = @"11111";
     item1.shareContent = @"http://www.weqia.com  15267971211[难过][冷汗][大哭]预计4日夜间开始，较强冷空气将从新疆启程，一路东移南下，给中东部地区带来明显降温及大范围的雨雪天气，北京、河北、山西、陕西等地将终结持续两个月左右的干燥无雨天气，北京有望迎来今冬初雪。";
     item1.userName = @"汤姆安德森";
-    item1.userId = @"ajdahsjda76ddaeqdsa23eewd";
+//    item1.userId = @"ajdahsjda76ddaeqdsa23eewd";
     item1.profileImgUrl = @"http://image.tianjimedia.com/uploadImages/2013/228/KT0X2XI3X9Z9.jpg";
     
     AGShareItem *item2 = [[AGShareItem alloc] init];
-    item2.shareMsgId = @"11133";
+//    item2.shareMsgId = @"11133";
     item2.shareContent = @"预计4日夜间到5日，较强冷空气将对西北地区发威，气温普遍下降6～8℃，部分地区降温可达10～12℃；新疆北部、内蒙古西部等地有4～6级风，其中山口地区风力可达8～9级；新疆北部有小到中雪，伊犁河谷的部分地区有大雪。6日至8日，西北地区东部、华北、东北地区东部等地将陆续出现小到中雪或雨夹雪，局地大雪。1月6日，北京地区或迎来今冬初雪；上述地区并伴有6～10℃的降温，局地降温幅度可达12～14℃。";
     item2.userName = @"汤姆安德森";
-    item2.userId = @"ajdahsjda76ddaeqdsassdsds";
+//    item2.userId = @"ajdahsjda76ddaeqdsassdsds";
     item2.profileImgUrl = @"http://image.tianjimedia.com/uploadImages/2013/228/KT0X2XI3X9Z9.jpg";
     
     AGShareItem *item3 = [[AGShareItem alloc] init];
-    item3.shareMsgId = @"sddssds";
+//    item3.shareMsgId = @"sddssds";
     item3.shareContent = @"预计4日夜间到5日，较强冷空气将对西北地区发威，气温普遍下降6～8℃，部分地区降温可达10～12℃；新疆北部、内蒙古西部等地有4～6级风，其中山口地区风。";
     item3.userName = @"汤是滴是滴森";
-    item3.userId = @"ajdahsjda76ddaeqdsassdsds";
+//    item3.userId = @"ajdahsjda76ddaeqdsassdsds";
     item3.profileImgUrl = @"http://www.feizl.com/upload2007/2013_02/130227014423722.jpg";
     
     AGShareItem *item4 = [[AGShareItem alloc] init];
-    item4.shareMsgId = @"sddssds";
+//    item4.shareMsgId = @"sddssds";
     item4.shareContent = @"预计4日夜间到5日，较强冷空气将对西北地区发威，气温普遍下降6～8℃，部分地区降温可达10～12℃；新疆北部、内蒙古西部等地有4～6级风，其中山口地区风。ic.jj20.com/up/allimg/411/042511033A2/110425033A2-9.jpgNSString *imagUrl3 = @http://www.mjjq.com/blog/photos/Image/mjjq-photos-903.jpgNSString *imagUrl4 = http://www.feizl.com/upload";
     item4.userName = @"sfsdfs森";
-    item4.userId = @"fsfsfs";
+//    item4.userId = @"fsfsfs";
     item4.profileImgUrl = @"http://image.tianjimedia.com/uploadImages/2013/228/0JM239P58O4O.jpg";
     
     NSString *imagUrl1 = @"http://www.hua.com/flower_picture/meiguihua/images/r17.jpg";
