@@ -17,6 +17,9 @@
 #import "AGJieBanViewController.h"
 #import "AGLoginIndexViewController.h"
 
+#pragma mark -- chat
+#import "ChatListViewController.h"
+
 #import "AGShareViewController.h"
 
 #import <UMengAnalytics/MobClick.h>
@@ -26,6 +29,7 @@
 
 #import <IQKeyboardManager/IQKeyboardManager.h>
 #import <IQKeyboardManager/IQSegmentedNextPrevious.h>
+#import "EaseMob.h"
 
 @implementation AGAppDelegate
 
@@ -35,6 +39,11 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor blackColor];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(loginStateChange:)
+                                                 name:KNOTIFICATION_LOGINCHANGE
+                                               object:nil];
+    
     [self umengTrack];
     
     [PBFlatSettings sharedInstance].mainColor = [UIColor colorWithRed:132.f/255 green:208.f/255 blue:24.f/255 alpha:1.f];
@@ -42,48 +51,78 @@
     [[PBFlatSettings sharedInstance] navigationBarApperance];
     
     long long userId = [[[NSUserDefaults standardUserDefaults] objectForKey:USERID] longLongValue];
-    if ( userId == 0) {
+    if (userId == 0) {
         AGLoginIndexViewController *viewController = [[AGLoginIndexViewController alloc] init];
         AGNavigationController *navigationController = [[AGNavigationController alloc] initWithRootViewController:viewController];
         self.window.rootViewController = navigationController;
     }else{
         [self buildViews];
+        
+        NSString *userStr = [NSString stringWithFormat:@"%lld",userId];
+        NSString *password = [[NSUserDefaults standardUserDefaults] objectForKey:USERPASSWORD];
+        [[EaseMob sharedInstance].chatManager asyncLoginWithUsername:userStr password:[password md5Encrypt] completion:^(NSDictionary *loginInfo, EMError *error) {
+            if (error) {
+                NSLog(@"聊天登陆失败");
+            }else{
+                NSLog(@"聊天登陆成功");
+            }
+        } onQueue:nil];
     }
     
     [IQKeyboardManager sharedManager].enable = YES;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(buildViews) name:LOGINFINISH object:nil];
     
+    // 真机的情况下,notification提醒设置
+	UIRemoteNotificationType notificationTypes = UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert;
+	[[UIApplication sharedApplication] registerForRemoteNotificationTypes:notificationTypes];
+    
+	//注册 APNS文件的名字, 需要与后台上传证书时的名字一一对应
+	NSString *apnsCertName = @"jieban";
+	[[EaseMob sharedInstance] registerSDKWithAppKey:ChatAPPKey apnsCertName:apnsCertName];
+	[[EaseMob sharedInstance] enableBackgroundReceiveMessage];
+	[[EaseMob sharedInstance] application:application didFinishLaunchingWithOptions:launchOptions];
+    [MagicalRecord setupCoreDataStackWithStoreNamed:[NSString stringWithFormat:@"%@.sqlite", @"anyGo"]];
+    
     [self.window makeKeyAndVisible];
     
     return YES;
+}
+
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken{
+    [[EaseMob sharedInstance] application:application didRegisterForRemoteNotificationsWithDeviceToken:deviceToken];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+    [[EaseMob sharedInstance] applicationWillResignActive:application];
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    [[EaseMob sharedInstance] applicationDidEnterBackground:application];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+    [[EaseMob sharedInstance] applicationWillEnterForeground:application];
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    [[EaseMob sharedInstance] applicationDidBecomeActive:application];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    [[EaseMob sharedInstance] applicationWillTerminate:application];
 }
 
 #pragma mark - Custom Methods
@@ -99,16 +138,22 @@
     [MobClick updateOnlineConfig];  //在线参数配置
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onlineConfigCallBack:) name:UMOnlineConfigDidFinishedNotification object:nil];
-    
 }
+
+-(void)loginStateChange:(NSNotification *)notification
+{
+
+   
+}
+
 
 - (void)buildViews {
     AGJieBanViewController *viewController0 = [[AGJieBanViewController alloc] init];
     AGNavigationController *navigationController0 = [[AGNavigationController alloc] initWithRootViewController:viewController0];
     navigationController0.title = @"结伴";
     
-    AGViewController *viewController1 = [[AGViewController alloc] init];
-    viewController1.view.backgroundColor = [UIColor greenColor];
+    [[[EaseMob sharedInstance] chatManager] isAutoLoginEnabled];
+    ChatListViewController *viewController1 = [[ChatListViewController alloc] init];
     AGNavigationController *navigationController1 = [[AGNavigationController alloc] initWithRootViewController:viewController1];
     navigationController1.title = @"消息";
     

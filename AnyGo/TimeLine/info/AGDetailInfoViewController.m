@@ -14,6 +14,8 @@
 #import "AGPhotoAblumTableViewCell.h"
 #import "AGSinglePhotoViewController.h"
 
+#import "ChatViewController.h"
+
 /**
  *  街友详细信息的页面item
  */
@@ -229,7 +231,8 @@ typedef NS_ENUM(NSInteger, DetailInfoType) {
 }
 
 - (IBAction)sendMessageBtnClick:(id)sender{
-    
+    ChatViewController *viewController = [[ChatViewController alloc] initWithChatter:[NSString stringWithFormat:@"%lld",self.userId]];
+    [self.navigationController pushViewController:viewController animated:YES];
 }
 
 #pragma mark - data init

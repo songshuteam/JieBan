@@ -136,8 +136,8 @@
     if (textField == self.passwordAgainField) {
         [self passwordIsEqual];
     }else if (textField == self.nameTextField){
-        int count = self.nameTextField.text.length;
-        if (count > 12 || count < 6) {
+        NSInteger count = self.nameTextField.text.length;
+        if (count > 12 || count < 3) {
             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提醒" message:@"昵称输入不正确，长度在6~12位的。请从新输入！" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
             [alertView show];
             return NO;

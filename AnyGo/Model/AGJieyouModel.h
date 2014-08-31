@@ -10,11 +10,11 @@
 #import "AGLSModel.h"
 #import "EnumHeader.h"
 
-@interface AGJieyouModel : NSObject
+@interface AGJieyouModel : NSObject<NSCoding>
 
 @property (assign, nonatomic) long long jieyouId;
-@property (strong, nonatomic) NSString *account;
-@property (strong, nonatomic) NSString *nickname;
+@property (strong, nonatomic) NSString *account;        //账户
+@property (strong, nonatomic) NSString *nickname;       //用户名
 @property (strong, nonatomic) AGLSAreaCodeModel *areaCode;
 @property (strong, nonatomic) NSString *headUrl;
 @property (strong, nonatomic) NSString *birthday;
@@ -23,7 +23,7 @@
 @end
 
 
-@interface AGRegisterModel : AGJieyouModel
+@interface AGRegisterModel : AGJieyouModel<NSCoding>
 
 @property (strong, nonatomic) NSString *password;
 @property (strong, nonatomic) NSString *code;
@@ -32,4 +32,23 @@
 
 - (NSString *)getAccountInfo;
 
+@end
+
+@interface AGUserInfoModel : AGJieyouModel<NSCoding>
+
+@property (nonatomic, assign) NSInteger tag;
+@property (nonatomic, strong) NSString *imageInfo;
+@property (nonatomic, assign) NSInteger fansNum;
+@property (nonatomic, assign) NSInteger followerNum;
+@property (nonatomic, assign) NSInteger followingNum;
+@property (nonatomic, assign) NSInteger postNum;
+@property (nonatomic, assign) NSInteger praisedNum;
+@property (nonatomic, assign) NSInteger pullStatus;
+@property (nonatomic, strong) NSString *insertTime;
+@property (nonatomic, strong) NSString *relation;           //备注
+@property (nonatomic, strong) NSString *avatar;             //头像位置，大头像
+@property (nonatomic, strong) NSString *thumbnailAvatar;    //小头像
+
+
++ (AGUserInfoModel *)parseJsonInfo:(NSDictionary *)valueDic;
 @end

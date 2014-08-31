@@ -48,7 +48,7 @@
     if (sum > 0) {
         for (int i= 0; i<sum; i++) {
             UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(100 + i*(PHOTOABLUMWIDTH + PHTOABLUMSPACE), 18, PHOTOABLUMWIDTH, PHOTOABLUMWIDTH)];
-            [imageView sd_setImageWithURL:[NSURL URLWithString:[imgArr objectAtIndex:i]]];
+            [imageView setImageWithURL:[NSURL URLWithString:[imgArr objectAtIndex:i]]];
             [self addSubview:imageView];
         }
     }

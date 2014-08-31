@@ -13,8 +13,19 @@
 #ifdef __OBJC__
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
+    #import<CoreData/CoreData.h>
     #import "serverHeader.h"
     #import "AGBorderHelper.h"
+    #import "EaseMob.h"
+
+//  chat file
+    #import "WCAlertView.h"
+    #import "UIViewController+HUD.h"
+    #import "UIViewController+DismissKeyboard.h"
+    #import "NSString+Valid.h"
+#define MR_SHORTHAND
+#import "CoreData+MagicalRecord.h"
+
 #endif
 
 

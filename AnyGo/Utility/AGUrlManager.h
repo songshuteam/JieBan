@@ -37,6 +37,8 @@
  */
 + (NSURL *)urlResetPwd;
 
++ (NSURL *)urlGetUserInfo:(NSString *)userId  ownId:(NSString *)ownId;
+
 /**
  *  the sms
  *

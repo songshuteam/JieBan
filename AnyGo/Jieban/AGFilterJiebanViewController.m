@@ -59,10 +59,12 @@
     TSLocateView *countryView = [[TSLocateView alloc] initWithTitle:@"选择城市" andLocationType:TSLocateCN delegate:self];
     countryView.tag = 2014082501;
     self.countryCityTextField.inputView = countryView;
+    self.countryCityTextField.inputAccessoryView = [[UIView alloc] initWithFrame:CGRectZero];
     
     TSLocateView *outView = [[TSLocateView alloc] initWithTitle:@"选择城市" andLocationType:TSLocateGlobal delegate:self];
     outView.tag = 2014082502;
     self.worldCitytextField.inputView = outView;
+    self.worldCitytextField.inputAccessoryView = [[UIView alloc] initWithFrame:CGRectZero];
     
     [self.contentScrollView setContentSize:CGSizeMake(CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds))];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"确定" style:UIBarButtonItemStylePlain target:self action:@selector(confirmBtnClick:)];

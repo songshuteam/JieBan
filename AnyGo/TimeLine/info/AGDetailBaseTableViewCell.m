@@ -45,8 +45,8 @@ const int nikeNameMaxWidth = 160;
 - (void)contentViewByUserInfo:(AGJieyouModel *)userInfo{
     [self setBackgroundColor:[UIColor clearColor]];
     
-    [self.faceImgView sd_setImageWithURL:nil placeholderImage:[UIImage imageNamed:@"view_bg_loginIndex"]];
-    NSString *content = @"djahdakhdkajdkak阿卡打卡机打卡机SD卡就是打算开大口";
+    [self.faceImgView setImageWithURL:[NSURL URLWithString:userInfo.headUrl] placeholderImage:[UIImage imageNamed:@"view_bg_loginIndex"]];
+    NSString *content = userInfo.signature;
     
     CGSize size = [content sizeWithFont:self.nikeName.font constrainedToSize:CGSizeMake(400, 21) lineBreakMode:NSLineBreakByTruncatingTail];
     CGRect rect = self.nikeName.frame;

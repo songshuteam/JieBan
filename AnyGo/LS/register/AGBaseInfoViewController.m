@@ -132,8 +132,16 @@
         NSString *tempToken = [valueDic objectForKey:@"tempToken"];
         self.registerModel.jieyouId = userId;
         
+        [[EaseMob sharedInstance].chatManager asyncLoginWithUsername:[NSString stringWithFormat:@"%lld",userId] password:[self.registerModel.password md5Encrypt] completion:^(NSDictionary *loginInfo, EMError *error) {
+            if (error) {
+                NSLog(@"聊天登陆失败");
+            }else{
+                NSLog(@"聊天登陆成功");
+            }
+        } onQueue:nil];
         
         [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithLongLong:userId] forKey:USERID];
+        [[NSUserDefaults standardUserDefaults] setObject:self.registerModel.password forKey:USERPASSWORD];
         [[NSUserDefaults standardUserDefaults] setObject:token forKey:TOKENINFO];
         [[NSUserDefaults  standardUserDefaults] setObject:tempToken forKey:TEMPTOKEN];
         [[NSUserDefaults standardUserDefaults] synchronize];

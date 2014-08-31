@@ -286,13 +286,14 @@
 
 #pragma mark - AGCallOutView delegate
 - (void)callOutView:(AGCallOutView *)callView showUserInfoWithUserId:(long long)userId{
-    
-    AGDetailInfoViewController *viewController = [[AGDetailInfoViewController alloc] init];
-    [self.navigationController pushViewController:viewController animated:YES];
-    
     if (_calloutView) {
         [_calloutView removeFromSuperview];
         _calloutView = nil;
     }
+    
+    AGDetailInfoViewController *viewController = [[AGDetailInfoViewController alloc] init];
+    viewController.userId = userId;
+    viewController.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:viewController animated:YES];
 }
 @end

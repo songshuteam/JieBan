@@ -154,8 +154,17 @@
         NSString *token = [valueDic objectForKey:@"token"];
         NSString *tempToken = [valueDic objectForKey:@"tempToken"];
         
+        [[EaseMob sharedInstance].chatManager asyncLoginWithUsername:[NSString stringWithFormat:@"%lld",userId] password:[self.passwordTextField.text md5Encrypt] completion:^(NSDictionary *loginInfo, EMError *error) {
+            if (error) {
+                NSLog(@"聊天登陆失败");
+            }else{
+                NSLog(@"聊天登陆成功");
+            }
+        } onQueue:nil];
+        
 //        login success deal
         [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithLongLong:userId] forKey:USERID];
+        [[NSUserDefaults standardUserDefaults] setObject:self.passwordTextField.text forKey:USERPASSWORD];
         [[NSUserDefaults standardUserDefaults] setObject:token forKey:TOKENINFO];
         [[NSUserDefaults  standardUserDefaults] setObject:tempToken forKey:TEMPTOKEN];
         [[NSUserDefaults standardUserDefaults] synchronize];
@@ -163,6 +172,7 @@
         [self.navigationController popToRootViewControllerAnimated:YES];
         
         [[NSNotificationCenter defaultCenter] postNotificationName:LOGINFINISH object:nil];
+        
     }else{
         [self.view makeToast:[valueDic objectForKey:@"message"] duration:1 position:@"center"];
     }

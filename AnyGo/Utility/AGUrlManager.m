@@ -35,6 +35,12 @@
     return [NSURL URLWithString:url];
 }
 
++ (NSURL *)urlGetUserInfo:(NSString *)userId  ownId:(NSString *)ownId{
+    NSString *url = [NSString stringWithFormat:@"%@/trainon/user/%@.do?appId=%@&userId=%@",serverUrl,ownId,appId,userId];
+    
+    return [NSURL URLWithString:url];
+}
+
 + (NSURL *)urlSMSWithMobileNum:(NSString *)mobile withType:(NSInteger)type{
     NSString *account = [mobile stringByReplacingOccurrencesOfString:@"+" withString:@""];
     NSString *url = [NSString stringWithFormat:@"%@/trainon/sms.do?appId=%@&mobile=%@&type=%d",serverUrl,appId,account,type];
