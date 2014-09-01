@@ -12,6 +12,7 @@
 #import "AGJiebanAnnotationView.h"
 #import "AGCallOutView.h"
 #import "AGRequestManager.h"
+#import "MMLocationManager.h"
 
 #import "AGDetailInfoViewController.h"
 #import "AGFilterJiebanViewController.h"
@@ -56,12 +57,13 @@
     CGRect bounds = [UIScreen mainScreen].bounds;
     self.mapView = [[MKMapView alloc] initWithFrame:CGRectMake(0, 0, bounds.size.width, bounds.size.height - 44.f)];
     self.mapView.delegate = self;
+    self.mapView.showsUserLocation = YES;
     [self.mapView showsUserLocation];
+    
     [self.view addSubview:self.mapView];
     [self.view sendSubviewToBack:self.mapView];
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"筛选" style:UIBarButtonItemStylePlain target:self action:@selector(searchByKey:)];
-    
 //    [self loadData];
 }
 
@@ -104,7 +106,7 @@
         return;
     }else{
         currutPage--;
-        self.annotations = [self.jiebanPageDic objectForKey:[NSNumber numberWithInt:currutPage]];
+        self.annotations = [self.jiebanPageDic objectForKey:[NSNumber numberWithInteger:currutPage]];
         [self updateMapViewInfo];
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
@@ -130,8 +132,7 @@
     }
 }
 
-#pragma mark - 
-
+#pragma mark -
 - (void)filterViewController:(AGFilterJiebanViewController *)viewController filterCondition:(AGFilterModel *)model{
     self.filterModel = model;
     self.jiebanPageDic = [[NSMutableDictionary alloc] initWithCapacity:0];
@@ -233,9 +234,24 @@
 //MapView委托方法，当定位自身时调用
 -(void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation{
     CLLocationCoordinate2D loc = [userLocation coordinate];
+    
     //放大地图到自身的经纬度位置。
     MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(loc, 250, 250);
     [self.mapView setRegion:region animated:YES];
+    
+    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+    [geocoder reverseGeocodeLocation:userLocation.location completionHandler:^(NSArray *placemarks, NSError *error) {
+        if (error == nil && [placemarks count] > 0) {
+            CLPlacemark *placeMark = [placemarks objectAtIndex:0];
+            NSString *city = placeMark.locality;
+            NSString *stats = placeMark.administrativeArea;
+            NSString *country = (city == nil ? stats : city);
+            
+            AGFilterModel *model = [[AGFilterModel alloc] init];
+            model.countryCity = country;
+            [self filterViewController:nil filterCondition:model];
+        }
+    }];
 }
 
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view{
