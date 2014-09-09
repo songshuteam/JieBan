@@ -37,7 +37,7 @@ const CGFloat DestinationWith = 280;
     NSArray *planArr = model.plansArr;
     for (int i = 1, sum = [planArr count]; i < sum; i++) {
         AGPlanModel *plan = [planArr objectAtIndex:i];
-        NSString *destination =  [NSString stringWithFormat:@"%d. %@: %@", i, plan.location, plan.description];
+        NSString *destination =  [NSString stringWithFormat:@"%d. %@: %@", i, plan.location, plan.desc];
         CGSize size = [destination sizeWithFont:[UIFont systemFontOfSize:14] constrainedToSize:CGSizeMake(DestinationWith, 2000)];
         
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(16, height, DestinationWith, size.height)];

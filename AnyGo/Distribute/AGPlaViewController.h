@@ -9,6 +9,7 @@
 #import "AGViewController.h"
 #import "TSLocateView.h"
 
+@class AGJiebanPlanModel;
 @class UIPlaceHolderTextView;
 @class AGPlanModel;
 @class AGDistributeViewController;
@@ -25,6 +26,7 @@
 @property (weak, nonatomic) IBOutlet UIPlaceHolderTextView *endTextView;
 @property (weak, nonatomic) IBOutlet UITextField *daysTextField;
 @property (nonatomic, assign) TSLocateType locateType;
+@property (nonatomic, strong) AGJiebanPlanModel *planModel;
 
 
 - (IBAction)dateButtonClicked:(id)sender;

@@ -44,6 +44,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        self.filterModel = [[AGFilterModel alloc] init];
     }
     return self;
 }
@@ -54,17 +55,7 @@
     // Do any additional setup after loading the view from its nib.
     [self borderinit];
     
-    self.filterModel = [[AGFilterModel alloc] init];
-    
-    TSLocateView *countryView = [[TSLocateView alloc] initWithTitle:@"选择城市" andLocationType:TSLocateCN delegate:self];
-    countryView.tag = 2014082501;
-    self.countryCityTextField.inputView = countryView;
-    self.countryCityTextField.inputAccessoryView = [[UIView alloc] initWithFrame:CGRectZero];
-    
-    TSLocateView *outView = [[TSLocateView alloc] initWithTitle:@"选择城市" andLocationType:TSLocateGlobal delegate:self];
-    outView.tag = 2014082502;
-    self.worldCitytextField.inputView = outView;
-    self.worldCitytextField.inputAccessoryView = [[UIView alloc] initWithFrame:CGRectZero];
+    [self citySelectInit];
     
     [self.contentScrollView setContentSize:CGSizeMake(CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds))];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"确定" style:UIBarButtonItemStylePlain target:self action:@selector(confirmBtnClick:)];
@@ -87,8 +78,24 @@
     [self.view endEditing:YES];
 }
 
+- (void)citySelectInit{
+    TSLocateView *countryView = [[TSLocateView alloc] initWithTitle:@"选择城市" andLocationType:TSLocateCN delegate:self];
+    countryView.tag = 2014082501;
+    self.countryCityTextField.inputView = countryView;
+    self.countryCityTextField.inputAccessoryView = [[UIView alloc] initWithFrame:CGRectZero];
+    
+    TSLocateView *outView = [[TSLocateView alloc] initWithTitle:@"选择城市" andLocationType:TSLocateGlobal delegate:self];
+    outView.tag = 2014082502;
+    self.worldCitytextField.inputView = outView;
+    self.worldCitytextField.inputAccessoryView = [[UIView alloc] initWithFrame:CGRectZero];
+}
+
 #pragma mark - view init
 - (void)viewInitWithFilterInfo:(AGFilterModel *)model{
+    if (!model) {
+        self.filterModel = [[AGFilterModel alloc] init];
+        model = self.filterModel;
+    }
     [self.isDriveSwitch setOn:model.isDriver];
     [self.isRetSchoolSwitch setOn:model.isReturn];
     
@@ -215,17 +222,20 @@
     TSLocation *location = locateView_.locate;
     LOG(@"city:%@ lat:%f lon:%f", location.city, location.latitude, location.longitude);
     //You can uses location to your application.
+    
+    [self.view endEditing:YES];
+    
     if(buttonIndex == 0) {
         LOG(@"Cancel");
     }else {
         LOG(@"Select");
-        [self.view endEditing:YES];
         if (locateView_.tag == 2014082501) {
             self.countryCityTextField.text = location.city;
         }else if (locateView_.tag == 2014082502){
             self.worldCitytextField.text = location.city;
         }
     }
+    [self citySelectInit];
 }
 
 @end

@@ -13,6 +13,7 @@
 #import "AGDetailBaseTableViewCell.h"
 #import "AGPhotoAblumTableViewCell.h"
 #import "AGSinglePhotoViewController.h"
+#import "AGDetailInfoSettingViewController.h"
 
 #import "ChatViewController.h"
 
@@ -57,6 +58,7 @@ typedef NS_ENUM(NSInteger, DetailInfoType) {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        self.relation = RelationNotFriend;
     }
     return self;
 }
@@ -65,19 +67,27 @@ typedef NS_ENUM(NSInteger, DetailInfoType) {
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.tabBarController.tabBar.hidden = YES;
     self.navigationItem.title = @"详细资料";
     [self detailInfoInit];
     
-//    self.tableView.allowsSelection = NO;
     self.tableView.backgroundColor = [UIColor clearColor];
     [self.tableView setTableFooterView:[[UIView alloc] initWithFrame:CGRectZero]];
+    
+    if (self.relation == RelationFriend) {
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"..." style:UIBarButtonItemStyleDone target:self action:@selector(friendInfoSetting:)];
+    }
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)friendInfoSetting:(id)sender{
+    AGDetailInfoSettingViewController *viewController = [[AGDetailInfoSettingViewController alloc] init];
+    viewController.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:viewController animated:YES];
 }
 
 #pragma  mark - 
@@ -207,9 +217,13 @@ typedef NS_ENUM(NSInteger, DetailInfoType) {
                 UIButton *sendBtn = (UIButton *)[cell viewWithTag:2014072001];
                 sendBtn.frame = CGRectMake(10, 19, 300, 44);
                 [sendBtn setBackgroundImage:[UIImage imageNamed:@"btn_bg_lightBlue"] forState:UIControlStateNormal];
-                [sendBtn setTitle:@"发消息" forState:UIControlStateNormal];
-                [sendBtn addTarget:self action:@selector(sendMessageBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+                if (self.relation == RelationNotFriend) {
+                    [sendBtn setTitle:@"加关注" forState:UIControlStateNormal];
+                }else{
+                    [sendBtn setTitle:@"发消息" forState:UIControlStateNormal];
+                }
                 
+                [sendBtn addTarget:self action:@selector(sendMessageBtnClick:) forControlEvents:UIControlEventTouchUpInside];
                 cell.backgroundColor = [UIColor clearColor];
                 
                 return cell;
@@ -231,12 +245,21 @@ typedef NS_ENUM(NSInteger, DetailInfoType) {
 }
 
 - (IBAction)sendMessageBtnClick:(id)sender{
-    ChatViewController *viewController = [[ChatViewController alloc] initWithChatter:[NSString stringWithFormat:@"%lld",self.userId]];
-    [self.navigationController pushViewController:viewController animated:YES];
+    if (self.relation == RelationFriend) {
+        ChatViewController *viewController = [[ChatViewController alloc] initWithChatter:[NSString stringWithFormat:@"%lld",self.userId]];
+        [self.navigationController pushViewController:viewController animated:YES];
+    }else{
+//        加关注
+    }
+    
 }
 
 #pragma mark - data init
 - (void)detailInfoInit{
-    self.dataArr = [NSMutableArray arrayWithArray:@[[NSNumber numberWithInteger:DetailInfoTypeBase],[NSNumber numberWithInteger:DetailInfoTypeAge],[NSNumber numberWithInteger:DetailInfoTypeDeclaration],[NSNumber numberWithInteger:DetailInfoTypePhotoAlbum],[NSNumber numberWithInteger:DetailInfoTypeSendMessage]]];
+    if (self.relation == RelationNotFriend) {
+        self.dataArr = [NSMutableArray arrayWithArray:@[[NSNumber numberWithInteger:DetailInfoTypeBase],[NSNumber numberWithInteger:DetailInfoTypeAge],[NSNumber numberWithInteger:DetailInfoTypeDeclaration],[NSNumber numberWithInteger:DetailInfoTypeSendMessage]]];
+    }else if(self.relation == RelationFriend){
+         self.dataArr = [NSMutableArray arrayWithArray:@[[NSNumber numberWithInteger:DetailInfoTypeBase],[NSNumber numberWithInteger:DetailInfoTypeAge],[NSNumber numberWithInteger:DetailInfoTypeDeclaration],[NSNumber numberWithInteger:DetailInfoTypePhotoAlbum],[NSNumber numberWithInteger:DetailInfoTypeSendMessage]]];
+    }
 }
 @end

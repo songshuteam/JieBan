@@ -15,6 +15,7 @@
     #import <Foundation/Foundation.h>
     #import<CoreData/CoreData.h>
     #import "serverHeader.h"
+    #import "AGViewController.h"
     #import "AGBorderHelper.h"
     #import "EaseMob.h"
 

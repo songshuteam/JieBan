@@ -42,6 +42,7 @@
     if (self) {
         // Custom initialization
         self.jiebanPageDic = [[NSMutableDictionary alloc] initWithCapacity:0];
+        self.filterModel = [[AGFilterModel alloc] init];
         currutPage = 1;
     }
     return self;
@@ -309,6 +310,7 @@
     
     AGDetailInfoViewController *viewController = [[AGDetailInfoViewController alloc] init];
     viewController.userId = userId;
+    viewController.relation = RelationFriend;
     viewController.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:viewController animated:YES];
 }

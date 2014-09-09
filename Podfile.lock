@@ -19,7 +19,7 @@ PODS:
     - FMDB/common
   - IQKeyboardManager (3.0.5)
   - MBProgressHUD (0.8)
-  - QBImagePickerController (2.1)
+  - QBImagePickerController (2.2.1)
   - Reachability (3.1.1)
   - SDWebImage (3.7.1):
     - SDWebImage/Core
@@ -40,7 +40,7 @@ SPEC CHECKSUMS:
   FMDB: 31ec26773c7f7b7890a6038235a1f2bbd933a7cb
   IQKeyboardManager: 89009bd8df979ad116a9c9326875ecf4c000fef0
   MBProgressHUD: c356980b0cd097f19acec959b49dca5eb8ec31be
-  QBImagePickerController: c2273a11d55e7c308ac2f88625ef58bb56b5b7a4
+  QBImagePickerController: 14104b88267c561cecbc00b33a17a21c42700c6a
   Reachability: 8e9635e3cb4f98e7f825e51147f677ecc694d0e7
   SDWebImage: 116e88633b5b416ea0ca4b334a4ac59cf72dd38d
   UMengAnalytics: db0b67f5334f356f8ac53dcc0abcc4bd9d0ffb45

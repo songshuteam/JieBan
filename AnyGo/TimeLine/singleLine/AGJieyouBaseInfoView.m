@@ -16,7 +16,8 @@
 @property (strong, nonatomic) UIImageView *faceImgView;
 @property (strong, nonatomic) UILabel *nickName;
 @property (strong, nonatomic) UIImageView *sexImg;
-@property (strong, nonatomic) UIButton *addFocusBtn;
+@property (strong, nonatomic) UIButton *postMessage;
+@property (strong, nonatomic) UIButton *addFriend;
 @property (strong, nonatomic) UILabel *signatureLable;
 
 @end
@@ -29,7 +30,7 @@
     if (self) {
         // Initialization code
         
-        self.faceImgView = [[UIImageView alloc] initWithFrame:CGRectMake(11, 11, 62, 62)];
+        self.faceImgView = [[UIImageView alloc] initWithFrame:CGRectMake(11, 11, 63, 63)];
         [AGBorderHelper cornerWithView:self.faceImgView cornerRadius:5];
         
         self.nickName = [[UILabel alloc] initWithFrame:CGRectMake(81, 11, 120, 15)];
@@ -38,10 +39,12 @@
         self.sexImg =  [[UIImageView alloc] initWithFrame:CGRectMake(210, 13, 15, 13)];
         self.sexImg.image = [UIImage imageNamed:@"person_male"];
         
-        self.addFocusBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        [self.addFocusBtn setImage:[UIImage imageNamed:@"person_addFocus"] forState:UIControlStateNormal];
-        [self.addFocusBtn setFrame:CGRectMake(250, 11, 59, 20)];
-        [self.addFocusBtn addTarget:self action:@selector(addFocusBtnCick:) forControlEvents:UIControlEventTouchUpInside];
+        self.postMessage = [UIButton buttonWithType:UIButtonTypeCustom];
+        [self.postMessage setImage:[UIImage imageNamed:@"person_addFocus"] forState:UIControlStateNormal];
+        [self.postMessage setFrame:CGRectMake(250, 11, 59, 20)];
+        [self.postMessage addTarget:self action:@selector(addFocusBtnCick:) forControlEvents:UIControlEventTouchUpInside];
+        
+        self.addFriend = [UIButton buttonWithType:UIButtonTypeCustom];
         
         self.signatureLable = [[UILabel alloc] initWithFrame:CGRectMake(81, 30, 200, 50)];
         self.signatureLable.numberOfLines = 0;
@@ -52,7 +55,7 @@
         [self addSubview:self.faceImgView];
         [self addSubview:self.nickName];
         [self addSubview:self.sexImg];
-        [self addSubview:self.addFocusBtn];
+        [self addSubview:self.postMessage];
         [self addSubview:self.signatureLable];
         
     }

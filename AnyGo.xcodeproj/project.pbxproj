@@ -311,6 +311,12 @@
 		FE9237221987C3EA001EF4DD /* AGUrlManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FE9237211987C3EA001EF4DD /* AGUrlManager.m */; };
 		FE9237251987C7A4001EF4DD /* AGRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FE9237241987C7A4001EF4DD /* AGRequestManager.m */; };
 		FE92372D1987D9DD001EF4DD /* Toast+UIView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE92372C1987D9DD001EF4DD /* Toast+UIView.m */; };
+		FE923BFC19BD53BE001E7C1F /* AGPersonInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE923BF719BD53BE001E7C1F /* AGPersonInfoViewController.m */; };
+		FE923BFD19BD53BE001E7C1F /* AGPersonInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE923BF819BD53BE001E7C1F /* AGPersonInfoViewController.xib */; };
+		FE923BFE19BD53BE001E7C1F /* AGUserInfoModifyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE923BFA19BD53BE001E7C1F /* AGUserInfoModifyViewController.m */; };
+		FE923BFF19BD53BE001E7C1F /* AGUserInfoModifyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE923BFB19BD53BE001E7C1F /* AGUserInfoModifyViewController.xib */; };
+		FE923C0319BD53E2001E7C1F /* AGFriendListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE923C0119BD53E2001E7C1F /* AGFriendListViewController.m */; };
+		FE923C0419BD53E2001E7C1F /* AGFriendListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE923C0219BD53E2001E7C1F /* AGFriendListViewController.xib */; };
 		FE92638A1998F78500E80017 /* AGCallOutView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE9263891998F78500E80017 /* AGCallOutView.m */; };
 		FE92638E1999032D00E80017 /* AGFilterJiebanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE92638C1999032D00E80017 /* AGFilterJiebanViewController.m */; };
 		FE92638F1999032D00E80017 /* AGFilterJiebanViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE92638D1999032D00E80017 /* AGFilterJiebanViewController.xib */; };
@@ -335,6 +341,20 @@
 		FE98218019839885008DB1CE /* AGLoginIndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE98217E19839885008DB1CE /* AGLoginIndexViewController.m */; };
 		FE98218119839885008DB1CE /* AGLoginIndexViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE98217F19839885008DB1CE /* AGLoginIndexViewController.xib */; };
 		FE99EB6C1996259C00954616 /* AGJiebanMapView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE99EB6B1996259C00954616 /* AGJiebanMapView.xib */; };
+		FE9AE8C319BAB304003F17A1 /* AGMineInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE9AE8C219BAB304003F17A1 /* AGMineInfoView.m */; };
+		FE9AE8C719BAB845003F17A1 /* AGMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE9AE8C519BAB845003F17A1 /* AGMineViewController.m */; };
+		FE9AE8C819BAB845003F17A1 /* AGMineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE9AE8C619BAB845003F17A1 /* AGMineViewController.xib */; };
+		FE9AE8D519BB6183003F17A1 /* SAMTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE9AE8D419BB6183003F17A1 /* SAMTextView.m */; };
+		FE9AE8DF19BC158E003F17A1 /* AGSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE9AE8DD19BC158E003F17A1 /* AGSettingViewController.m */; };
+		FE9AE8E019BC158E003F17A1 /* AGSettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE9AE8DE19BC158E003F17A1 /* AGSettingViewController.xib */; };
+		FE9AE8E419BC3C1C003F17A1 /* AGFeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE9AE8E219BC3C1C003F17A1 /* AGFeedbackViewController.m */; };
+		FE9AE8E519BC3C1C003F17A1 /* AGFeedbackViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE9AE8E319BC3C1C003F17A1 /* AGFeedbackViewController.xib */; };
+		FE9AE8EE19BC4781003F17A1 /* AGBlacklistTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FE9AE8EC19BC4781003F17A1 /* AGBlacklistTableViewCell.m */; };
+		FE9AE8EF19BC4781003F17A1 /* AGBlacklistTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE9AE8ED19BC4781003F17A1 /* AGBlacklistTableViewCell.xib */; };
+		FE9AE8F219BC763B003F17A1 /* AGBlacklistTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE9AE8F119BC763B003F17A1 /* AGBlacklistTableViewController.m */; };
+		FE9AE8F619BCA3E0003F17A1 /* AGDetailInfoSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE9AE8F419BCA3E0003F17A1 /* AGDetailInfoSettingViewController.m */; };
+		FE9AE8F719BCA3E0003F17A1 /* AGDetailInfoSettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE9AE8F519BCA3E0003F17A1 /* AGDetailInfoSettingViewController.xib */; };
+		FE9AE8FA19BCAFB2003F17A1 /* AGComplainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE9AE8F919BCAFB2003F17A1 /* AGComplainViewController.m */; };
 		FE9B3F7319848FEB00444733 /* AGResetPwdPhoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE9B3F7119848FEB00444733 /* AGResetPwdPhoneViewController.m */; };
 		FE9B3F7419848FEB00444733 /* AGResetPwdPhoneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE9B3F7219848FEB00444733 /* AGResetPwdPhoneViewController.xib */; };
 		FE9B3F781984984D00444733 /* AGResetpwdEmailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE9B3F761984984D00444733 /* AGResetpwdEmailViewController.m */; };
@@ -1063,6 +1083,15 @@
 		FE9237241987C7A4001EF4DD /* AGRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGRequestManager.m; sourceTree = "<group>"; };
 		FE92372B1987D9DD001EF4DD /* Toast+UIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Toast+UIView.h"; sourceTree = "<group>"; };
 		FE92372C1987D9DD001EF4DD /* Toast+UIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Toast+UIView.m"; sourceTree = "<group>"; };
+		FE923BF619BD53BE001E7C1F /* AGPersonInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGPersonInfoViewController.h; sourceTree = "<group>"; };
+		FE923BF719BD53BE001E7C1F /* AGPersonInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGPersonInfoViewController.m; sourceTree = "<group>"; };
+		FE923BF819BD53BE001E7C1F /* AGPersonInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AGPersonInfoViewController.xib; sourceTree = "<group>"; };
+		FE923BF919BD53BE001E7C1F /* AGUserInfoModifyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGUserInfoModifyViewController.h; sourceTree = "<group>"; };
+		FE923BFA19BD53BE001E7C1F /* AGUserInfoModifyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGUserInfoModifyViewController.m; sourceTree = "<group>"; };
+		FE923BFB19BD53BE001E7C1F /* AGUserInfoModifyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AGUserInfoModifyViewController.xib; sourceTree = "<group>"; };
+		FE923C0019BD53E2001E7C1F /* AGFriendListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGFriendListViewController.h; sourceTree = "<group>"; };
+		FE923C0119BD53E2001E7C1F /* AGFriendListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGFriendListViewController.m; sourceTree = "<group>"; };
+		FE923C0219BD53E2001E7C1F /* AGFriendListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AGFriendListViewController.xib; sourceTree = "<group>"; };
 		FE9263881998F78500E80017 /* AGCallOutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGCallOutView.h; sourceTree = "<group>"; };
 		FE9263891998F78500E80017 /* AGCallOutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGCallOutView.m; sourceTree = "<group>"; };
 		FE92638B1999032D00E80017 /* AGFilterJiebanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGFilterJiebanViewController.h; sourceTree = "<group>"; };
@@ -1103,6 +1132,29 @@
 		FE98217E19839885008DB1CE /* AGLoginIndexViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGLoginIndexViewController.m; sourceTree = "<group>"; };
 		FE98217F19839885008DB1CE /* AGLoginIndexViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AGLoginIndexViewController.xib; sourceTree = "<group>"; };
 		FE99EB6B1996259C00954616 /* AGJiebanMapView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AGJiebanMapView.xib; sourceTree = "<group>"; };
+		FE9AE8C119BAB304003F17A1 /* AGMineInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGMineInfoView.h; sourceTree = "<group>"; };
+		FE9AE8C219BAB304003F17A1 /* AGMineInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGMineInfoView.m; sourceTree = "<group>"; };
+		FE9AE8C419BAB845003F17A1 /* AGMineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGMineViewController.h; sourceTree = "<group>"; };
+		FE9AE8C519BAB845003F17A1 /* AGMineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGMineViewController.m; sourceTree = "<group>"; };
+		FE9AE8C619BAB845003F17A1 /* AGMineViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AGMineViewController.xib; sourceTree = "<group>"; };
+		FE9AE8D319BB6183003F17A1 /* SAMTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAMTextView.h; sourceTree = "<group>"; };
+		FE9AE8D419BB6183003F17A1 /* SAMTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAMTextView.m; sourceTree = "<group>"; };
+		FE9AE8DC19BC158E003F17A1 /* AGSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGSettingViewController.h; sourceTree = "<group>"; };
+		FE9AE8DD19BC158E003F17A1 /* AGSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGSettingViewController.m; sourceTree = "<group>"; };
+		FE9AE8DE19BC158E003F17A1 /* AGSettingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AGSettingViewController.xib; sourceTree = "<group>"; };
+		FE9AE8E119BC3C1C003F17A1 /* AGFeedbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGFeedbackViewController.h; sourceTree = "<group>"; };
+		FE9AE8E219BC3C1C003F17A1 /* AGFeedbackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGFeedbackViewController.m; sourceTree = "<group>"; };
+		FE9AE8E319BC3C1C003F17A1 /* AGFeedbackViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AGFeedbackViewController.xib; sourceTree = "<group>"; };
+		FE9AE8EB19BC4781003F17A1 /* AGBlacklistTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGBlacklistTableViewCell.h; sourceTree = "<group>"; };
+		FE9AE8EC19BC4781003F17A1 /* AGBlacklistTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGBlacklistTableViewCell.m; sourceTree = "<group>"; };
+		FE9AE8ED19BC4781003F17A1 /* AGBlacklistTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AGBlacklistTableViewCell.xib; sourceTree = "<group>"; };
+		FE9AE8F019BC763B003F17A1 /* AGBlacklistTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGBlacklistTableViewController.h; sourceTree = "<group>"; };
+		FE9AE8F119BC763B003F17A1 /* AGBlacklistTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGBlacklistTableViewController.m; sourceTree = "<group>"; };
+		FE9AE8F319BCA3E0003F17A1 /* AGDetailInfoSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGDetailInfoSettingViewController.h; sourceTree = "<group>"; };
+		FE9AE8F419BCA3E0003F17A1 /* AGDetailInfoSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGDetailInfoSettingViewController.m; sourceTree = "<group>"; };
+		FE9AE8F519BCA3E0003F17A1 /* AGDetailInfoSettingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AGDetailInfoSettingViewController.xib; sourceTree = "<group>"; };
+		FE9AE8F819BCAFB2003F17A1 /* AGComplainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGComplainViewController.h; sourceTree = "<group>"; };
+		FE9AE8F919BCAFB2003F17A1 /* AGComplainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGComplainViewController.m; sourceTree = "<group>"; };
 		FE9B3F7019848FEB00444733 /* AGResetPwdPhoneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGResetPwdPhoneViewController.h; sourceTree = "<group>"; };
 		FE9B3F7119848FEB00444733 /* AGResetPwdPhoneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGResetPwdPhoneViewController.m; sourceTree = "<group>"; };
 		FE9B3F7219848FEB00444733 /* AGResetPwdPhoneViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AGResetPwdPhoneViewController.xib; sourceTree = "<group>"; };
@@ -1587,6 +1639,8 @@
 		6495D0CB196243EA00177106 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				FE9AE8D319BB6183003F17A1 /* SAMTextView.h */,
+				FE9AE8D419BB6183003F17A1 /* SAMTextView.m */,
 				FE9786D51997B4070090C986 /* AGAnnotationLabel.h */,
 				FE9786D61997B4070090C986 /* AGAnnotationLabel.m */,
 				6495D0CC1962445300177106 /* AGBorderHelper.h */,
@@ -1698,6 +1752,7 @@
 		987ADBF418AA476B00124964 /* AnyGo */ = {
 			isa = PBXGroup;
 			children = (
+				FE9AE8C019BAB2D4003F17A1 /* mine */,
 				FEA3B8E019B1A13700B2EE5A /* chat */,
 				FEC43AF3197EA8A5007BC3CB /* TimeLine */,
 				649939F3196A26550037872B /* Model */,
@@ -2900,6 +2955,29 @@
 			path = Toast;
 			sourceTree = "<group>";
 		};
+		FE923BF419BD53BE001E7C1F /* friend */ = {
+			isa = PBXGroup;
+			children = (
+				FE923C0019BD53E2001E7C1F /* AGFriendListViewController.h */,
+				FE923C0119BD53E2001E7C1F /* AGFriendListViewController.m */,
+				FE923C0219BD53E2001E7C1F /* AGFriendListViewController.xib */,
+			);
+			path = friend;
+			sourceTree = "<group>";
+		};
+		FE923BF519BD53BE001E7C1F /* personInfo */ = {
+			isa = PBXGroup;
+			children = (
+				FE923BF619BD53BE001E7C1F /* AGPersonInfoViewController.h */,
+				FE923BF719BD53BE001E7C1F /* AGPersonInfoViewController.m */,
+				FE923BF819BD53BE001E7C1F /* AGPersonInfoViewController.xib */,
+				FE923BF919BD53BE001E7C1F /* AGUserInfoModifyViewController.h */,
+				FE923BFA19BD53BE001E7C1F /* AGUserInfoModifyViewController.m */,
+				FE923BFB19BD53BE001E7C1F /* AGUserInfoModifyViewController.xib */,
+			);
+			path = personInfo;
+			sourceTree = "<group>";
+		};
 		FE98215719838F64008DB1CE /* login */ = {
 			isa = PBXGroup;
 			children = (
@@ -2938,6 +3016,39 @@
 				FE9B3F771984984D00444733 /* AGResetpwdEmailViewController.xib */,
 			);
 			path = register;
+			sourceTree = "<group>";
+		};
+		FE9AE8C019BAB2D4003F17A1 /* mine */ = {
+			isa = PBXGroup;
+			children = (
+				FE923BF419BD53BE001E7C1F /* friend */,
+				FE923BF519BD53BE001E7C1F /* personInfo */,
+				FE9AE8DB19BC158E003F17A1 /* setting */,
+				FE9AE8C119BAB304003F17A1 /* AGMineInfoView.h */,
+				FE9AE8C219BAB304003F17A1 /* AGMineInfoView.m */,
+				FE9AE8C419BAB845003F17A1 /* AGMineViewController.h */,
+				FE9AE8C519BAB845003F17A1 /* AGMineViewController.m */,
+				FE9AE8C619BAB845003F17A1 /* AGMineViewController.xib */,
+			);
+			path = mine;
+			sourceTree = "<group>";
+		};
+		FE9AE8DB19BC158E003F17A1 /* setting */ = {
+			isa = PBXGroup;
+			children = (
+				FE9AE8DC19BC158E003F17A1 /* AGSettingViewController.h */,
+				FE9AE8DD19BC158E003F17A1 /* AGSettingViewController.m */,
+				FE9AE8DE19BC158E003F17A1 /* AGSettingViewController.xib */,
+				FE9AE8E119BC3C1C003F17A1 /* AGFeedbackViewController.h */,
+				FE9AE8E219BC3C1C003F17A1 /* AGFeedbackViewController.m */,
+				FE9AE8E319BC3C1C003F17A1 /* AGFeedbackViewController.xib */,
+				FE9AE8EB19BC4781003F17A1 /* AGBlacklistTableViewCell.h */,
+				FE9AE8EC19BC4781003F17A1 /* AGBlacklistTableViewCell.m */,
+				FE9AE8ED19BC4781003F17A1 /* AGBlacklistTableViewCell.xib */,
+				FE9AE8F019BC763B003F17A1 /* AGBlacklistTableViewController.h */,
+				FE9AE8F119BC763B003F17A1 /* AGBlacklistTableViewController.m */,
+			);
+			path = setting;
 			sourceTree = "<group>";
 		};
 		FEA3B87719B19E1000B2EE5A /* EaseMobSDK */ = {
@@ -3866,6 +3977,11 @@
 				FEC43B0F197EA8A6007BC3CB /* AGDetailInfoViewController.xib */,
 				FEC43B10197EA8A6007BC3CB /* AGPhotoAblumTableViewCell.h */,
 				FEC43B11197EA8A6007BC3CB /* AGPhotoAblumTableViewCell.m */,
+				FE9AE8F319BCA3E0003F17A1 /* AGDetailInfoSettingViewController.h */,
+				FE9AE8F419BCA3E0003F17A1 /* AGDetailInfoSettingViewController.m */,
+				FE9AE8F519BCA3E0003F17A1 /* AGDetailInfoSettingViewController.xib */,
+				FE9AE8F819BCAFB2003F17A1 /* AGComplainViewController.h */,
+				FE9AE8F919BCAFB2003F17A1 /* AGComplainViewController.m */,
 			);
 			path = info;
 			sourceTree = "<group>";
@@ -3996,6 +4112,7 @@
 				A0583EF0195026750043B5DC /* RecordingSignal004@2x.png in Resources */,
 				FE98217419838FC3008DB1CE /* AGVerifiedCodeViewController.xib in Resources */,
 				A0583E83195026750043B5DC /* MultiSelectSearchResultTableViewCell.xib in Resources */,
+				FE9AE8C819BAB845003F17A1 /* AGMineViewController.xib in Resources */,
 				FEA3C0B219B1AE7900B2EE5A /* sr_refresh@2X.png in Resources */,
 				A0583EEB195026750043B5DC /* RecordCancel@2x.png in Resources */,
 				FEA3C0F019B1AE7900B2EE5A /* chatBar_more_location@2x.png in Resources */,
@@ -4005,12 +4122,14 @@
 				FEA3C0D419B1AE7900B2EE5A /* chatBar_keyboard@2x.png in Resources */,
 				A0583EF2195026750043B5DC /* RecordingSignal006@2x.png in Resources */,
 				A0583EDA195026750043B5DC /* input-bar-flat@2x.png in Resources */,
+				FE923BFF19BD53BE001E7C1F /* AGUserInfoModifyViewController.xib in Resources */,
 				A0583ECF195026750043B5DC /* contacts_add_photo@2x.png in Resources */,
 				A06D26FB1953D480005FB142 /* AGDLViewController.xib in Resources */,
 				A0583F0B195026750043B5DC /* sharemore_friendcard@2x.png in Resources */,
 				A0583ED8195026750043B5DC /* input-bar-background@2x.png in Resources */,
 				A0583EE0195026750043B5DC /* MoreFunctionFrame@2x.png in Resources */,
 				A0583EF1195026750043B5DC /* RecordingSignal005@2x.png in Resources */,
+				FE923BFD19BD53BE001E7C1F /* AGPersonInfoViewController.xib in Resources */,
 				FEA3C0D919B1AE7900B2EE5A /* chatBar_moreSelected.png in Resources */,
 				FEC43B1E197EA8A6007BC3CB /* AGAddTimeShareViewController.xib in Resources */,
 				A0583F04195026750043B5DC /* section0_emotion8@2x.png in Resources */,
@@ -4025,6 +4144,7 @@
 				A0583EEE195026750043B5DC /* RecordingSignal002@2x.png in Resources */,
 				A0583E80195026750043B5DC /* MultiSelectedPanel.xib in Resources */,
 				A0583F14195026750043B5DC /* sharemore_wxtalk@2x.png in Resources */,
+				FE9AE8F719BCA3E0003F17A1 /* AGDetailInfoSettingViewController.xib in Resources */,
 				FEA3C0CB19B1AE7900B2EE5A /* faceDelete@2x.png in Resources */,
 				FEC43B2D197EA8A6007BC3CB /* AGSinglePhotoViewController.xib in Resources */,
 				A0B391CD194867E10000C1DA /* AGPlanDestinationTableViewCell.xib in Resources */,
@@ -4062,6 +4182,7 @@
 				A0583EE7195026750043B5DC /* ReceiverVoiceNodePlaying001@2x.png in Resources */,
 				A0583EC6195026750043B5DC /* AddGroupMemberBtn@2x.png in Resources */,
 				A0583F03195026750043B5DC /* section0_emotion7@2x.png in Resources */,
+				FE923C0419BD53E2001E7C1F /* AGFriendListViewController.xib in Resources */,
 				A0583EF4195026750043B5DC /* RecordingSignal008@2x.png in Resources */,
 				FEA3C0D119B1AE7900B2EE5A /* chatBar_faceSelected.png in Resources */,
 				A0583EF8195026750043B5DC /* section0_emotion11@2x.png in Resources */,
@@ -4100,6 +4221,7 @@
 				FEA3C11019B1AE7900B2EE5A /* nav_createGroup@2x.png in Resources */,
 				A0583EE5195026750043B5DC /* placeholderImage@2x.png in Resources */,
 				A0583F06195026750043B5DC /* SenderVoiceNodePlaying000@2x.png in Resources */,
+				FE9AE8E519BC3C1C003F17A1 /* AGFeedbackViewController.xib in Resources */,
 				A0583F09195026750043B5DC /* SenderVoiceNodePlaying003@2x.png in Resources */,
 				FEA3C0E119B1AE7900B2EE5A /* chatBar_recordSelectedBg.png in Resources */,
 				A0583EE1195026750043B5DC /* multiMedia@2x.png in Resources */,
@@ -4126,6 +4248,7 @@
 				FEA3C11A19B1AE7900B2EE5A /* newFriends@2x.png in Resources */,
 				FEA3C10E19B1AE7900B2EE5A /* groupPrivateHeader@2x.png in Resources */,
 				A0583EFD195026750043B5DC /* section0_emotion1@2x.png in Resources */,
+				FE9AE8EF19BC4781003F17A1 /* AGBlacklistTableViewCell.xib in Resources */,
 				A0583F18195026750043B5DC /* VoiceBtn_BlackHL@2x.png in Resources */,
 				FEA3C0DE19B1AE7900B2EE5A /* chatBar_recordBg@2x.png in Resources */,
 				A0CF7333194D4671005A4436 /* btn_020@2x.png in Resources */,
@@ -4161,6 +4284,7 @@
 				A0583EFB195026750043B5DC /* section0_emotion14@2x.png in Resources */,
 				FEA3C0E919B1AE7900B2EE5A /* chatBar_colorMore_video@2x.png in Resources */,
 				FEA3C0D019B1AE7900B2EE5A /* chatBar_face@2x.png in Resources */,
+				FE9AE8E019BC158E003F17A1 /* AGSettingViewController.xib in Resources */,
 				FE976DBC19AB6CCD00BFE5B9 /* allCity.plist in Resources */,
 				A0583F00195026750043B5DC /* section0_emotion4@2x.png in Resources */,
 				FEA3C0EC19B1AE7900B2EE5A /* chatBar_more_camera@2x.png in Resources */,
@@ -4246,9 +4370,12 @@
 				A0583E5E195026750043B5DC /* XHMessageTableViewController.m in Sources */,
 				A0583E7E195026750043B5DC /* MLLetterIndexNavigationView.m in Sources */,
 				FEA3C10419B1AE7900B2EE5A /* MessageModelManager.m in Sources */,
+				FE923BFC19BD53BE001E7C1F /* AGPersonInfoViewController.m in Sources */,
 				A0583E64195026750043B5DC /* XHMoreMyBankCardTableViewController.m in Sources */,
 				A0583EBE195026750043B5DC /* XHPopMenu.m in Sources */,
 				A0583EB8195026750043B5DC /* XHEmotionSectionBar.m in Sources */,
+				FE9AE8EE19BC4781003F17A1 /* AGBlacklistTableViewCell.m in Sources */,
+				FE923C0319BD53E2001E7C1F /* AGFriendListViewController.m in Sources */,
 				FEA3C0C819B1AE7900B2EE5A /* DXMessageToolBar.m in Sources */,
 				A0583E56195026750043B5DC /* XHLocationServiceTableViewController.m in Sources */,
 				FEA3C10319B1AE7900B2EE5A /* MessageModel.m in Sources */,
@@ -4266,6 +4393,7 @@
 				A04127E0194ACA6B0084A998 /* AGAddressViewController.m in Sources */,
 				FEC43B28197EA8A6007BC3CB /* AGDetailBaseTableViewCell.m in Sources */,
 				A06D26EF19519A78005FB142 /* PBFlatGroupedStyleCell.m in Sources */,
+				FE9AE8F619BCA3E0003F17A1 /* AGDetailInfoSettingViewController.m in Sources */,
 				A0583E3D195026750043B5DC /* UIImage+Utility.m in Sources */,
 				FEA3C12B19B1AE7900B2EE5A /* NSManagedObjectContext+MagicalSaves.m in Sources */,
 				FE98215619838E16008DB1CE /* MBProgressHUD+Add.m in Sources */,
@@ -4296,6 +4424,7 @@
 				FEFD63BB198FB8AE00CE3141 /* AGJieyouBaseInfoView.m in Sources */,
 				987ADC2218AA4E9E00124964 /* AGTabBarController.m in Sources */,
 				FEA3C0B519B1AE7900B2EE5A /* THProgressView.m in Sources */,
+				FE9AE8F219BC763B003F17A1 /* AGBlacklistTableViewController.m in Sources */,
 				A0583E68195026750043B5DC /* XHProfileTableViewController.m in Sources */,
 				A06D26F519519A78005FB142 /* PBIconDrawning.m in Sources */,
 				FEC43AEC197EA82C007BC3CB /* MJPhoto.m in Sources */,
@@ -4305,6 +4434,7 @@
 				A0583E3E195026750043B5DC /* UIImage+XHAnimatedFaceGif.m in Sources */,
 				FEA3C09E19B1AE7900B2EE5A /* MWTapDetectingImageView.m in Sources */,
 				FE98216E19838FC3008DB1CE /* AGPhoneCodeSelectViewController.m in Sources */,
+				FE9AE8FA19BCAFB2003F17A1 /* AGComplainViewController.m in Sources */,
 				A0583C69194EC4EC0043B5DC /* AGPointAnnotation.m in Sources */,
 				A0583E67195026750043B5DC /* XHMoreSettingTableViewController.m in Sources */,
 				FE98217319838FC3008DB1CE /* AGVerifiedCodeViewController.m in Sources */,
@@ -4335,6 +4465,7 @@
 				FEA3C0A219B1AE7900B2EE5A /* NSIndexPath+PSTCollectionViewAdditions.m in Sources */,
 				A0583E9B195026750043B5DC /* XHPathCover.m in Sources */,
 				A0706F8B19458A3200BBBC32 /* AGDistributeViewController.m in Sources */,
+				FE923BFE19BD53BE001E7C1F /* AGUserInfoModifyViewController.m in Sources */,
 				A06D26ED19519A78005FB142 /* PBFlatButton.m in Sources */,
 				A0583E96195026750043B5DC /* SETextSelectionView.m in Sources */,
 				A0583E36195026750043B5DC /* NSString+MessageInputView.m in Sources */,
@@ -4416,6 +4547,7 @@
 				A0583EAC195026750043B5DC /* XHLocationServiceTableViewCell.m in Sources */,
 				FEC43AEE197EA82C007BC3CB /* MJPhotoBrowser.m in Sources */,
 				A0583E40195026750043B5DC /* UIScrollView+XHkeyboardControl.m in Sources */,
+				FE9AE8D519BB6183003F17A1 /* SAMTextView.m in Sources */,
 				A0583EA1195026750043B5DC /* XHAlbumTableViewCell.m in Sources */,
 				98ABA93218AC7EFF005C81F6 /* SGFocusImageFrame.m in Sources */,
 				FEA3C0C319B1AE7900B2EE5A /* ChatSendHelper.m in Sources */,
@@ -4426,6 +4558,7 @@
 				A0583E6F195026750043B5DC /* XHMessageVideoConverPhotoFactory.m in Sources */,
 				FEA3C0AB19B1AE7900B2EE5A /* PSTGridLayoutInfo.m in Sources */,
 				FEA3C11B19B1AE7900B2EE5A /* RealtimeSearchUtil.m in Sources */,
+				FE9AE8C719BAB845003F17A1 /* AGMineViewController.m in Sources */,
 				A06D26F219519A78005FB142 /* PBFlatSegmentedControl.m in Sources */,
 				FEA3C0B319B1AE7900B2EE5A /* SRRefreshView.m in Sources */,
 				A0583E75195026750043B5DC /* XHEmotion.m in Sources */,
@@ -4450,10 +4583,12 @@
 				FEA3C14419B1AE7900B2EE5A /* EMNavigationController.m in Sources */,
 				FEA3C0BC19B1AE7900B2EE5A /* UIResponder+Router.m in Sources */,
 				A0583E49195026750043B5DC /* XHVoiceCommonHelper.m in Sources */,
+				FE9AE8DF19BC158E003F17A1 /* AGSettingViewController.m in Sources */,
 				FEC43AF0197EA82C007BC3CB /* MJPhotoProgressView.m in Sources */,
 				A06D26EE19519A78005FB142 /* PBFlatButtonWithIcon.m in Sources */,
 				A0583E47195026750043B5DC /* XHMessageBubbleHelper.m in Sources */,
 				FEA3C14219B1AE7900B2EE5A /* BaseViewController.m in Sources */,
+				FE9AE8E419BC3C1C003F17A1 /* AGFeedbackViewController.m in Sources */,
 				FEA3C12A19B1AE7900B2EE5A /* NSManagedObjectContext+MagicalRecord.m in Sources */,
 				A0583E8A195026750043B5DC /* SEConstants.m in Sources */,
 				A06D26EB19519A78005FB142 /* PBBarButtonIconButton.m in Sources */,
@@ -4551,6 +4686,7 @@
 				FEA3C13119B1AE7900B2EE5A /* MagicalRecord+ErrorHandling.m in Sources */,
 				A0583E77195026750043B5DC /* XHMessage.m in Sources */,
 				FEA69EAE198DCD6600B4318C /* AGPhotoLineTableViewCell.m in Sources */,
+				FE9AE8C319BAB304003F17A1 /* AGMineInfoView.m in Sources */,
 				987ADC2818AA4FB300124964 /* AGViewController.m in Sources */,
 				FEA3C0B619B1AE7900B2EE5A /* TTGlobalUICommon.m in Sources */,
 				A0B391CC194867E10000C1DA /* AGPlanDestinationTableViewCell.m in Sources */,
@@ -4645,7 +4781,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -4679,7 +4815,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -4700,7 +4836,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AnyGo/AnyGo-Prefix.pch";
 				INFOPLIST_FILE = "AnyGo/AnyGo-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/wingle/Workspace/AnyGo/AnyGo/ThirdPart/UMeng,
@@ -4730,7 +4866,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AnyGo/AnyGo-Prefix.pch";
 				INFOPLIST_FILE = "AnyGo/AnyGo-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/wingle/Workspace/AnyGo/AnyGo/ThirdPart/UMeng,

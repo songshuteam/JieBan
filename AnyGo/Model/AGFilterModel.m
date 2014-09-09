@@ -14,7 +14,7 @@
     if (self = [super init]) {
         _isDriver = YES;
         _isReturn = NO;
-        _gender = GenderFemale;
+        _gender = GenderOther;
         _addressType = AddressTypeStart;
         _days = 0;
         _countryCity = @"";

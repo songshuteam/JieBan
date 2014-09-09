@@ -13,6 +13,8 @@
 
 #import "QBImagePickerController.h"
 
+#import "SAMTextView.h"
+
 typedef NS_ENUM(NSInteger, ShareItemType) {
     ShareItemTypeMessage = 0,
     ShareItemTypePhoto
@@ -20,6 +22,7 @@ typedef NS_ENUM(NSInteger, ShareItemType) {
 
 @interface AGAddTimeShareViewController ()<UITableViewDataSource,UITableViewDelegate,UITextViewDelegate,UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,AGSelectPhotoTableViewCellDelegate,QBImagePickerControllerDelegate>{
     UIViewController *imageViewController;
+    BOOL firstSelect;
 }
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -39,6 +42,8 @@ typedef NS_ENUM(NSInteger, ShareItemType) {
         // Custom initialization
         self.dataArray = [[NSMutableArray alloc] initWithCapacity:0];
         self.photoImages = [[NSMutableArray alloc] initWithCapacity:0];
+        self.isFromOther = NO;
+        firstSelect = YES;
     }
     return self;
 }
@@ -50,7 +55,16 @@ typedef NS_ENUM(NSInteger, ShareItemType) {
     [self dataSourceInit];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.allowsSelection = FALSE;
-    //    [self.photoImages addObjectsFromArray:@[@"photo1t.jpg",@"photo2t.jpg",@"photo3t.jpg",@"photo4t.jpg",]];
+    self.tableView.backgroundColor = [UIColor clearColor];
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    
+    if (self.isFromOther) {
+        if (self.selectType == 0) {
+            [self takePhotoWithCamera];
+        }else if(self.selectType == 1){
+            [self selectPhotoFromLibrary];
+        }
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -59,6 +73,9 @@ typedef NS_ENUM(NSInteger, ShareItemType) {
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+}
 
 #pragma mark - UITableView Delegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -67,6 +84,10 @@ typedef NS_ENUM(NSInteger, ShareItemType) {
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return [self.dataArray count];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 15;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -93,11 +114,11 @@ typedef NS_ENUM(NSInteger, ShareItemType) {
             rect.size.height = 80;
             cell.frame = rect;
             
-            UITextView *textView = [[UITextView alloc] initWithFrame:CGRectMake(15, 0, CGRectGetWidth(cell.frame) - 2*15, CGRectGetHeight(cell.frame))];
+            SAMTextView *textView = [[SAMTextView alloc] initWithFrame:CGRectMake(15, 0, CGRectGetWidth(cell.frame) - 2*15, CGRectGetHeight(cell.frame))];
             textView.tag = 2014071401;
             textView.font = [UIFont systemFontOfSize:17];
+            textView.placeholder = @"说说你的想法....";
             textView.delegate = self;
-            textView.backgroundColor = [UIColor redColor];
             [cell addSubview:textView];
         }
         
@@ -135,8 +156,6 @@ typedef NS_ENUM(NSInteger, ShareItemType) {
 - (void)addPhotoToShareClick:(AGSelectPhotoTableViewCell *)cell{
     UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"拍照",@"从手机相册选择", nil];
     [sheet showInView:self.view];
-    
-    
 }
 
 - (void)tableViewCell:(AGSelectPhotoTableViewCell *)cell ImageIndex:(NSInteger)index{
@@ -164,6 +183,7 @@ typedef NS_ENUM(NSInteger, ShareItemType) {
     QBImagePickerController *imagePickerController = [[QBImagePickerController alloc] init];
     imagePickerController.delegate = self;
     imagePickerController.allowsMultipleSelection = YES;
+    ALAssetsFilterFromQBImagePickerControllerFilterType(QBImagePickerControllerFilterTypePhotos);
     
     imagePickerController.maximumNumberOfSelection = 9 - [self.photoImages count];
     
@@ -204,21 +224,22 @@ typedef NS_ENUM(NSInteger, ShareItemType) {
 }
 
 #pragma mark - QBImagePickerControllerDelegate
-- (void)imagePickerController:(QBImagePickerController *)imagePickerController didSelectAsset:(ALAsset *)asset
-{
+- (void)qb_imagePickerController:(QBImagePickerController *)imagePickerController didSelectAsset:(ALAsset *)asset{
     NSLog(@"*** imagePickerController:didSelectAsset:");
     [self dismissImagePickerController];
+    firstSelect = NO;
     CGImageRef img = [[asset  defaultRepresentation] fullResolutionImage];
     [self.photoImages addObject:[UIImage imageWithCGImage:img]];
     
     [self.tableView reloadData];
 }
 
-- (void)imagePickerController:(QBImagePickerController *)imagePickerController didSelectAssets:(NSArray *)assets
-{
+- (void)qb_imagePickerController:(QBImagePickerController *)imagePickerController didSelectAssets:(NSArray *)assets{
     NSLog(@"*** imagePickerController:didSelectAssets:");
     NSLog(@"%@", assets);
     [self dismissImagePickerController];
+    firstSelect = NO;
+    
     for (ALAsset *asset in assets) {
         //        NSString *url = [[[asset defaultRepresentation] url]debugDescription];
         CGImageRef img = [[asset  defaultRepresentation] fullResolutionImage];
@@ -227,11 +248,14 @@ typedef NS_ENUM(NSInteger, ShareItemType) {
     [self.tableView reloadData];
 }
 
-- (void)imagePickerControllerDidCancel:(QBImagePickerController *)imagePickerController
-{
+- (void)qb_imagePickerControllerDidCancel:(QBImagePickerController *)imagePickerController{
     NSLog(@"*** imagePickerControllerDidCancel:");
-    
+   
     [self dismissImagePickerController];
+    if (self.isFromOther && firstSelect) {
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+    firstSelect = NO;
 }
 
 #pragma mark - init Data for TableView

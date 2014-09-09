@@ -20,7 +20,7 @@
 #pragma mark -- chat
 #import "ChatListViewController.h"
 
-#import "AGShareViewController.h"
+#import "AGMineViewController.h"
 
 #import <UMengAnalytics/MobClick.h>
 
@@ -157,11 +157,11 @@
     AGNavigationController *navigationController1 = [[AGNavigationController alloc] initWithRootViewController:viewController1];
     navigationController1.title = @"消息";
     
-    AGLoginIndexViewController *viewController2 = [[AGLoginIndexViewController alloc] init];
+    AGMineViewController *viewController2 = [[AGMineViewController alloc] init];
     AGNavigationController *navigationController2 = [[AGNavigationController alloc] initWithRootViewController:viewController2];
     navigationController2.title = @"我的";
     
-    AGShareViewController *viewController3 = [[AGShareViewController alloc] init];
+    AGLoginIndexViewController *viewController3 = [[AGLoginIndexViewController alloc] init];
     AGNavigationController *navigationController3 = [[AGNavigationController alloc] initWithRootViewController:viewController3];
     navigationController3.title = @"组队";
     

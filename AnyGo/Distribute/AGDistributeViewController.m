@@ -105,11 +105,16 @@
     planVc.hidesBottomBarWhenPushed = YES;
     planVc.distributeViewController = self;
     planVc.locateType = self.locateType;
+    planVc.planModel = self.jiebanModel;
     [self.navigationController pushViewController:planVc animated:YES];
 }
 
 #pragma mark - Uitility methods
 - (void)distributePlan:(id)sender {
+    if (self.femaleNumTextField.text == nil || self.maleNumTextField.text == nil || [self.jiebanModel.plansArr count]<= 0) {
+        return;
+    }
+    
     self.jiebanModel.femaleNum = [self.femaleNumTextField.text intValue];
     self.jiebanModel.maleNum = [self.maleNumTextField.text intValue];
     

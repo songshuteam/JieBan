@@ -51,6 +51,9 @@ const NSInteger endAddressSelectTag = 2014080802;
     singleTapGesture.numberOfTouchesRequired  = 1;
     [self.view addGestureRecognizer:singleTapGesture];
     
+    
+    [self contentInfoInit];
+    
     [self navgationItemInit];
     
     [self tableViewInfoInit];
@@ -69,6 +72,41 @@ const NSInteger endAddressSelectTag = 2014080802;
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)contentInfoInit{
+    if (self.planModel) {
+        if (self.planModel.days.length > 0) {
+            self.daysTextField.text = self.planModel.days;
+        }
+        
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"yyyyMMdd"];
+        NSDate *date = [dateFormatter dateFromString:self.planModel.startTime];
+        [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+        self.dateLabel.text = [dateFormatter stringFromDate:date];
+        
+        NSMutableArray *planArr = [NSMutableArray arrayWithArray:self.planModel.plansArr];
+        if ([planArr count] == 1) {
+            AGPlanModel *model1 = [planArr firstObject];
+            self.startAddress.text = model1.location;
+            self.startTextView.text = model1.desc;
+        }
+        if ([planArr count] >= 2) {
+            AGPlanModel *model1 = [planArr firstObject];
+            self.startAddress.text = model1.location;
+            self.startTextView.text = model1.desc;
+            [planArr removeObjectAtIndex:0];
+            
+            AGPlanModel *model2 = [planArr objectAtIndex:0];
+            self.endAddress.text = model2.location;
+            self.endTextView.text = model2.desc;
+            [planArr removeObjectAtIndex:0];
+            self.dataSource = planArr;
+        }
+        [self.tableView reloadData];
+    }
+    
 }
 
 #pragma mark- view init 
@@ -123,6 +161,7 @@ const NSInteger endAddressSelectTag = 2014080802;
 
 #pragma mark - the start Time select
 - (IBAction)dateButtonClicked:(id)sender {
+    [self.view endEditing:YES];
     //点击显示时间
    actionSheet = [[UIActionSheet alloc] initWithTitle:nil
                                                    delegate:self
@@ -164,7 +203,6 @@ const NSInteger endAddressSelectTag = 2014080802;
 }
 
 - (IBAction)datePickerDoneClick:(id)sender{
-    
     [actionSheet dismissWithClickedButtonIndex:0 animated:YES];
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];

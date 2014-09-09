@@ -37,6 +37,10 @@
 @interface AGUserInfoModel : AGJieyouModel<NSCoding>
 
 @property (nonatomic, assign) NSInteger tag;
+@property (nonatomic, strong) NSString *jieyouPwd;      //有疑问？？？
+@property (nonatomic, strong) NSString *email;
+@property (nonatomic, strong) NSString *area;
+
 @property (nonatomic, strong) NSString *imageInfo;
 @property (nonatomic, assign) NSInteger fansNum;
 @property (nonatomic, assign) NSInteger followerNum;

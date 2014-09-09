@@ -48,18 +48,18 @@
         [imageButton setImage:[imageArr objectAtIndex:i] forState:UIControlStateNormal];
         [imageButton addTarget:self action:@selector(imageButtonClick:) forControlEvents:UIControlEventTouchUpInside];
         
-        [self setImageCornerRadius:imageButton];
+//        [self setImageCornerRadius:imageButton];
         
         [self addSubview:imageButton];
     }
     
     if ([imageArr count] < 9) {
         UIButton *addBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        [addBtn setImage:[UIImage imageNamed:@"addressBookIcon"] forState:UIControlStateNormal];
+        [addBtn setImage:[UIImage imageNamed:@"btn_addImg"] forState:UIControlStateNormal];
         int sum = [imageArr count];
         addBtn.frame = CGRectMake(sum%4 * (IMAGENORMALWIDTH + IMAGESPACE) + SPACEFORVIEW, sum/4 * (IMAGENORMALWIDTH + IMAGESPACE) + IMAGESPACE, IMAGENORMALWIDTH, IMAGENORMALWIDTH);
         [addBtn addTarget:self action:@selector(addImageBtnClick:) forControlEvents:UIControlEventTouchUpInside];
-        [self setImageCornerRadius:addBtn];
+//        [self setImageCornerRadius:addBtn];
         
         [self addSubview:addBtn];
     }
@@ -93,7 +93,7 @@
         sum += 1;
     }
     
-    CGFloat height = ((sum-1)/4 + 1)*(IMAGENORMALWIDTH + IMAGESPACE);
+    CGFloat height = ((sum-1)/4 + 1)*(IMAGENORMALWIDTH + IMAGESPACE) + IMAGESPACE;
     
     return height;
 }
