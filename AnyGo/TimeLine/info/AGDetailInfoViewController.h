@@ -16,5 +16,6 @@ typedef NS_ENUM(NSInteger, Relation) {
 @interface AGDetailInfoViewController : UIViewController
 
 @property (assign, nonatomic) long long userId;
+@property (assign, nonatomic) long long friendId;
 @property (assign, nonatomic) Relation relation;
 @end

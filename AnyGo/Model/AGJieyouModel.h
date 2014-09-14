@@ -20,6 +20,12 @@
 @property (strong, nonatomic) NSString *birthday;
 @property (strong, nonatomic) NSString *signature;
 @property (assign, nonatomic) Gender gender;
+@property (assign, nonatomic) RelationType relation;        //备注
+@property (strong, nonatomic) NSString *remark;
+@property (strong, nonatomic) NSDate *insertDate;
+
++ (AGJieyouModel *)parseJsonInfo:(NSDictionary *)valueDic;
+
 @end
 
 
@@ -48,8 +54,7 @@
 @property (nonatomic, assign) NSInteger postNum;
 @property (nonatomic, assign) NSInteger praisedNum;
 @property (nonatomic, assign) NSInteger pullStatus;
-@property (nonatomic, strong) NSString *insertTime;
-@property (nonatomic, strong) NSString *relation;           //备注
+
 @property (nonatomic, strong) NSString *avatar;             //头像位置，大头像
 @property (nonatomic, strong) NSString *thumbnailAvatar;    //小头像
 

@@ -89,4 +89,22 @@
 + (NSURL *)urlDeletePlanWIthId:(NSString *)planId withUserId:(NSString *)userId;
 
 + (NSURL *)urlSearchPlanWithUserId:(NSString *)userId filterInfo:(AGFilterModel *)model;
+
+/**
+ *  用户好友关系改变
+ *
+ *  @param userId   请求者的id
+ *  @param friendId 被请求者的id
+ *  @param type     关系变更类型          NONE(1, "没有任何关系", "none", 1),
+                                        FOLLOWING(2, "关注", "follow", 2),
+                                        BE_FOLLOW(3, "被关注", "be_follow", 3),
+                                        BOTH_WAY_FOLLOW(4, "互相关注", "bothway_follow", 4),
+                                        BLOCK(5, "拉黑", "block", 5),
+                                        BE_BLOCK(6, "被来黑", "be_block", 6);
+ *
+ *  @return 关系变更url
+ */
++ (NSURL *)urlChangeRelation:(NSString *)userId friendId:(NSString *)friendId relationType:(int)type;
+
++ (NSURL *)urlGetFriendList:(NSString *)userId pageIndex:(int)pageIndex pageSize:(int)pageSize;
 @end

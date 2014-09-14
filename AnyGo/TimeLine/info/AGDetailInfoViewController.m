@@ -16,6 +16,7 @@
 #import "AGDetailInfoSettingViewController.h"
 
 #import "ChatViewController.h"
+#import <MBProgressHUD.h>
 
 /**
  *  街友详细信息的页面item
@@ -43,12 +44,16 @@ typedef NS_ENUM(NSInteger, DetailInfoType) {
     DetailInfoTypeSendMessage
 };
 
-@interface AGDetailInfoViewController ()<UITableViewDataSource,UITableViewDelegate>
+@interface AGDetailInfoViewController ()<UITableViewDataSource,UITableViewDelegate,ASIHTTPRequestDelegate>{
+     MBProgressHUD *hud;
+}
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSMutableArray *dataArr;
 
-@property (strong, nonatomic) AGJieyouModel *userInfo;
+@property (strong, nonatomic) AGUserInfoModel *userInfo;
+
+@property (strong, nonatomic) ASIHTTPRequest *request;
 @end
 
 @implementation AGDetailInfoViewController
@@ -72,6 +77,10 @@ typedef NS_ENUM(NSInteger, DetailInfoType) {
     
     self.tableView.backgroundColor = [UIColor clearColor];
     [self.tableView setTableFooterView:[[UIView alloc] initWithFrame:CGRectZero]];
+    NSURL *url = [AGUrlManager urlGetUserInfo:[NSString stringWithFormat:@"%lld",self.friendId] ownId:[NSString stringWithFormat:@"%lld",self.userId]];
+    self.request = [ASIHTTPRequest requestWithURL:url];
+    self.request.delegate = self;
+    [self.request startAsynchronous];
     
     if (self.relation == RelationFriend) {
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"..." style:UIBarButtonItemStyleDone target:self action:@selector(friendInfoSetting:)];
@@ -82,6 +91,10 @@ typedef NS_ENUM(NSInteger, DetailInfoType) {
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)dealloc{
+    [self.request clearDelegatesAndCancel];
 }
 
 - (IBAction)friendInfoSetting:(id)sender{
@@ -155,7 +168,7 @@ typedef NS_ENUM(NSInteger, DetailInfoType) {
                 }
                 cell.textLabel.text = @"年龄";
                 cell.textLabel.textColor = [UIColor colorWithRed:174.0/255.0 green:174.0/255.0 blue:174.0/255.0 alpha:1];
-                cell.detailTextLabel.text = @"99岁";
+//                cell.detailTextLabel.text = self.userInfo.;
                 cell.detailTextLabel.textAlignment = NSTextAlignmentLeft;
                 cell.detailTextLabel.textColor = [UIColor colorWithRed:63.0/255.0 green:66.0/255.0 blue:72.0/255.0 alpha:1];
                 
@@ -172,7 +185,7 @@ typedef NS_ENUM(NSInteger, DetailInfoType) {
                 }
                 cell.textLabel.text = @"个性签名";
                 cell.textLabel.textColor = [UIColor colorWithRed:174.0/255.0 green:174.0/255.0 blue:174.0/255.0 alpha:1];
-                cell.detailTextLabel.text = @"个性签名个性签名";
+                cell.detailTextLabel.text = self.userInfo.signature;
                 cell.detailTextLabel.textColor = [UIColor colorWithRed:63.0/255.0 green:66.0/255.0 blue:72.0/255.0 alpha:1];
                 cell.detailTextLabel.numberOfLines = 2;
                 
@@ -188,7 +201,7 @@ typedef NS_ENUM(NSInteger, DetailInfoType) {
                 }
                 cell.separatorInset = UIEdgeInsetsZero;
                 
-                [cell contentViewInit:@""];
+                [cell contentViewInit:self.userInfo];
                 
                 return cell;
             }
@@ -246,12 +259,42 @@ typedef NS_ENUM(NSInteger, DetailInfoType) {
 
 - (IBAction)sendMessageBtnClick:(id)sender{
     if (self.relation == RelationFriend) {
-        ChatViewController *viewController = [[ChatViewController alloc] initWithChatter:[NSString stringWithFormat:@"%lld",self.userId]];
+        ChatViewController *viewController = [[ChatViewController alloc] initWithChatter:[NSString stringWithFormat:@"%lld",self.friendId]];
         [self.navigationController pushViewController:viewController animated:YES];
     }else{
 //        加关注
+        hud = [[MBProgressHUD alloc] initWithView:self.view];
+        hud.removeFromSuperViewOnHide = YES;
+        [self.view addSubview:hud];
+        [hud show:YES];
+        
+        self.request = [ASIHTTPRequest requestWithURL:[AGUrlManager urlChangeRelation:[NSString stringWithFormat:@"%lld", self.userId] friendId:[NSString stringWithFormat:@"%lld",self.friendId] relationType:2]];
+        self.request.didFinishSelector = @selector(requestRelationFinished:);
+        self.request.timeOutSeconds = 10;
+        [self.request startAsynchronous];
     }
-    
+}
+
+#pragma mark -- 
+- (void)requestRelationFinished:(ASIHTTPRequest *)request{
+    [hud hide:YES];
+    NSDictionary *dic = [request.responseString JSONValue];
+    if ([[dic objectForKey:@"status"] intValue] == 200) {
+        int relation = [[dic objectForKey:@"relation"] intValue];
+        self.relation = RelationFriend;
+        [self detailInfoInit];
+        [self.tableView reloadData];
+    }
+}
+
+- (void)requestFinished:(ASIHTTPRequest *)request{
+    NSDictionary *dic = [request.responseString JSONValue];
+    if ([[dic objectForKey:@"status"] intValue] == 200) {
+        NSDictionary *dicValue = [dic objectForKey:@"obj"];
+        AGUserInfoModel *model = [AGUserInfoModel parseJsonInfo:dicValue];
+        self.userInfo = model;
+        [self.tableView reloadData];
+    }
 }
 
 #pragma mark - data init

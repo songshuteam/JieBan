@@ -135,6 +135,10 @@
 
 #pragma mark -
 - (void)filterViewController:(AGFilterJiebanViewController *)viewController filterCondition:(AGFilterModel *)model{
+    if (viewController) {
+        self.mapView.showsUserLocation = NO;
+    }
+    
     self.filterModel = model;
     self.jiebanPageDic = [[NSMutableDictionary alloc] initWithCapacity:0];
     
@@ -309,8 +313,10 @@
     }
     
     AGDetailInfoViewController *viewController = [[AGDetailInfoViewController alloc] init];
-    viewController.userId = userId;
-    viewController.relation = RelationFriend;
+    viewController.userId = viewController.userId = [[[NSUserDefaults standardUserDefaults] objectForKey:USERID] longLongValue];
+    viewController.friendId = userId;
+    viewController.userId = [[[NSUserDefaults standardUserDefaults] objectForKey:USERID] longLongValue];
+    viewController.relation = RelationNotFriend;
     viewController.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:viewController animated:YES];
 }

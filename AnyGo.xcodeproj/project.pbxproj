@@ -308,6 +308,8 @@
 		A0CF733C194D57ED005A4436 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0CF733B194D57ED005A4436 /* CoreLocation.framework */; };
 		A0CF733E194D57F3005A4436 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0CF733D194D57F3005A4436 /* MapKit.framework */; };
 		FE2721A219AA33E5001C728A /* Global.plist in Resources */ = {isa = PBXBuildFile; fileRef = FE2721A119AA33E5001C728A /* Global.plist */; };
+		FE3AEEAD19C459F6001BD527 /* AGAddFriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE3AEEAB19C459F6001BD527 /* AGAddFriendViewController.m */; };
+		FE3AEEAE19C459F6001BD527 /* AGAddFriendViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE3AEEAC19C459F6001BD527 /* AGAddFriendViewController.xib */; };
 		FE9237221987C3EA001EF4DD /* AGUrlManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FE9237211987C3EA001EF4DD /* AGUrlManager.m */; };
 		FE9237251987C7A4001EF4DD /* AGRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FE9237241987C7A4001EF4DD /* AGRequestManager.m */; };
 		FE92372D1987D9DD001EF4DD /* Toast+UIView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE92372C1987D9DD001EF4DD /* Toast+UIView.m */; };
@@ -1076,6 +1078,9 @@
 		A0CF733B194D57ED005A4436 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		A0CF733D194D57F3005A4436 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		FE2721A119AA33E5001C728A /* Global.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Global.plist; sourceTree = "<group>"; };
+		FE3AEEAA19C459F6001BD527 /* AGAddFriendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGAddFriendViewController.h; sourceTree = "<group>"; };
+		FE3AEEAB19C459F6001BD527 /* AGAddFriendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGAddFriendViewController.m; sourceTree = "<group>"; };
+		FE3AEEAC19C459F6001BD527 /* AGAddFriendViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AGAddFriendViewController.xib; sourceTree = "<group>"; };
 		FE92371F1987C33B001EF4DD /* serverHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = serverHeader.h; sourceTree = "<group>"; };
 		FE9237201987C3EA001EF4DD /* AGUrlManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGUrlManager.h; sourceTree = "<group>"; };
 		FE9237211987C3EA001EF4DD /* AGUrlManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGUrlManager.m; sourceTree = "<group>"; };
@@ -2961,6 +2966,9 @@
 				FE923C0019BD53E2001E7C1F /* AGFriendListViewController.h */,
 				FE923C0119BD53E2001E7C1F /* AGFriendListViewController.m */,
 				FE923C0219BD53E2001E7C1F /* AGFriendListViewController.xib */,
+				FE3AEEAA19C459F6001BD527 /* AGAddFriendViewController.h */,
+				FE3AEEAB19C459F6001BD527 /* AGAddFriendViewController.m */,
+				FE3AEEAC19C459F6001BD527 /* AGAddFriendViewController.xib */,
 			);
 			path = friend;
 			sourceTree = "<group>";
@@ -4163,6 +4171,7 @@
 				A0583EC9195026750043B5DC /* CellBlueSelected@2x.png in Resources */,
 				A0583ED3195026750043B5DC /* MessageDisplayKitString.strings in Resources */,
 				A0583EDB195026750043B5DC /* input-field-cover.png in Resources */,
+				FE3AEEAE19C459F6001BD527 /* AGAddFriendViewController.xib in Resources */,
 				A0583F0F195026750043B5DC /* sharemore_pic@2x.png in Resources */,
 				FEA3C10F19B1AE7900B2EE5A /* groupPublicHeader@2x.png in Resources */,
 				A0583ECB195026750043B5DC /* CellNotSelected@2x.png in Resources */,
@@ -4524,6 +4533,7 @@
 				A0583EC4195026750043B5DC /* XHRefreshView.m in Sources */,
 				A0583E6E195026750043B5DC /* XHMessageBubbleFactory.m in Sources */,
 				A0583E71195026750043B5DC /* XHVideoOutputSampleBufferFactory.m in Sources */,
+				FE3AEEAD19C459F6001BD527 /* AGAddFriendViewController.m in Sources */,
 				6495D0CE1962445300177106 /* AGBorderHelper.m in Sources */,
 				A0583EB5195026750043B5DC /* XHEmotionCollectionViewCell.m in Sources */,
 				FEA3C0BB19B1AE7900B2EE5A /* NSString+Valid.m in Sources */,

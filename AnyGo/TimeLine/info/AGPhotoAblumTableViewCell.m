@@ -38,7 +38,7 @@
 
 
 
-- (void)contentViewInit:(NSString *)userInfo{
+- (void)contentViewInit:(AGUserInfoModel *)userInfo{
     self.textLabel.text = @"个人相册";
     self.textLabel.textColor = [UIColor colorWithRed:174.0/255.0 green:174.0/255.0 blue:174.0/255.0 alpha:1];
     

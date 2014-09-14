@@ -80,4 +80,16 @@
     
     return [NSURL URLWithString:[searchURL stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
 }
+
++ (NSURL *)urlChangeRelation:(NSString *)userId friendId:(NSString *)friendId relationType:(int)type{
+    NSString *changeUrl = [NSString stringWithFormat:@"%@/trainon/friend.do?userId=%@&appId=%@&friendId=%@&type=%d",serverUrl,userId,appId,friendId,type];
+    
+    return [NSURL URLWithString:[changeUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+}
+
++ (NSURL *)urlGetFriendList:(NSString *)userId pageIndex:(int)pageIndex pageSize:(int)pageSize{
+    NSString *url = [NSString stringWithFormat:@"%@/trainon/friend.do?userId=%@&appId=%@&pageIndex=%d&pageSize=%d",serverUrl,userId,appId,pageIndex,pageSize];
+    
+    return [NSURL URLWithString:url];
+}
 @end

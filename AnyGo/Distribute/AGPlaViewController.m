@@ -51,12 +51,11 @@ const NSInteger endAddressSelectTag = 2014080802;
     singleTapGesture.numberOfTouchesRequired  = 1;
     [self.view addGestureRecognizer:singleTapGesture];
     
-    
+    [self tableViewInfoInit];
     [self contentInfoInit];
     
     [self navgationItemInit];
     
-    [self tableViewInfoInit];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

@@ -248,7 +248,7 @@
                                     </constraints>
                                     <color key="textColor" red="0.47058823529999999" green="0.81568627449999997" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                    <textInputTraits key="textInputTraits"/>
+                                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                     <connections>
                                         <outlet property="delegate" destination="-1" id="CAA-1b-k0x"/>
                                     </connections>

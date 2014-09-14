@@ -15,6 +15,8 @@
 #define     BirthDay    @"birthDay"
 #define     Signature   @"signature"
 #define     Gender      @"gender"
+#define     Relation    @"relation"
+#define     Remark      @"Remark"
 
 #define     JieyouPWD   @"jieyouPassword"
 #define     JieyouCode  @"jieyouCode"
@@ -35,6 +37,19 @@
 
 @implementation AGJieyouModel
 
++ (AGJieyouModel *)parseJsonInfo:(NSDictionary *)valueDic{
+    AGJieyouModel *model = [[AGJieyouModel alloc] init];
+    model.jieyouId = [[valueDic objectForKey:@"followId"] longLongValue];
+    model.relation = [[valueDic objectForKey:@"relationEnum"] integerValue];
+    model.remark = [valueDic objectForKey:@"remark"];
+    model.headUrl = [valueDic objectForKey:@"avator"];
+    double time = [[valueDic objectForKey:@"insertTimeStamp"] doubleValue];
+    NSDate *date = [NSDate dateWithTimeIntervalSince1970:time];
+    model.insertDate = date;
+    
+    return model;
+}
+
 - (void)encodeWithCoder:(NSCoder *)aCoder{
     [aCoder encodeObject:[NSNumber numberWithLongLong:self.jieyouId] forKey:JieyouId];
     [aCoder encodeObject:self.account forKey:Account];
@@ -43,6 +58,10 @@
     [aCoder encodeObject:self.birthday forKey:BirthDay];
     [aCoder encodeObject:self.signature forKey:Signature];
     [aCoder encodeObject:[NSNumber numberWithInteger:self.gender] forKey:Gender];
+    
+    [aCoder encodeObject:self.insertDate forKey:userInfoInsertTime];
+    [aCoder encodeObject:[NSNumber numberWithInteger:self.relation] forKey:userInfoRelation];
+    [aCoder encodeObject:self.remark forKey:Remark];
 }
 
 - (id)initWithCoder:(NSCoder *)aDecoder{
@@ -54,6 +73,11 @@
     model.birthday = [aDecoder decodeObjectForKey:BirthDay];
     model.signature = [aDecoder decodeObjectForKey:Signature];
     model.gender = [[aDecoder decodeObjectForKey:Gender] integerValue];
+    
+    
+    model.insertDate = [aDecoder decodeObjectForKey:userInfoInsertTime];
+    model.relation = [[aDecoder decodeObjectForKey:userInfoRelation] intValue];
+    self.remark = [aDecoder decodeObjectForKey:self.remark];
     
     return model;
 }
@@ -102,8 +126,7 @@
     model.postNum = [[aDecoder decodeObjectForKey:userInfoPostNum] integerValue];
     model.praisedNum = [[aDecoder decodeObjectForKey:userInfoPraiseNum] integerValue];
     model.pullStatus = [[aDecoder decodeObjectForKey:userInfoPullStatus] integerValue];
-    model.insertTime = [aDecoder decodeObjectForKey:userInfoInsertTime];
-    model.relation = [aDecoder decodeObjectForKey:userInfoRelation];
+
     model.avatar = [aDecoder decodeObjectForKey:userInfoAvatar];
     model.thumbnailAvatar = [aDecoder decodeObjectForKey:userInfoThumAvatar];
     
@@ -120,8 +143,6 @@
     [aCoder encodeObject:[NSNumber numberWithInteger:self.postNum] forKey:userInfoPostNum];
     [aCoder encodeObject:[NSNumber numberWithInteger:self.praisedNum] forKey:userInfoPraiseNum];
     [aCoder encodeObject:[NSNumber numberWithInteger:self.pullStatus] forKey:userInfoPullStatus];
-    [aCoder encodeObject:self.insertTime forKey:userInfoInsertTime];
-    [aCoder encodeObject:self.relation forKey:userInfoRelation];
     [aCoder encodeObject:self.avatar forKey:userInfoAvatar];
     [aCoder encodeObject:self.thumbnailAvatar forKey:userInfoThumAvatar];
     
@@ -141,8 +162,8 @@
     model.postNum = [[valueDic objectForKey:@"postNumber"] integerValue];
     model.praisedNum = [[valueDic objectForKey:@"praisedNum"] integerValue];
     model.pullStatus = [[valueDic objectForKey:@"pullStatus"] integerValue];
-    model.insertTime = [valueDic objectForKey:@"insertTime"];
-    model.relation = [valueDic objectForKey:@"relation"];
+    model.insertDate = [valueDic objectForKey:@"insertTime"];
+    model.relation = [[valueDic objectForKey:@"relation"] intValue];
     model.avatar = [valueDic objectForKey:@"avatar"];
     model.thumbnailAvatar = [valueDic objectForKey:@"thumbnailAvatar"];
     

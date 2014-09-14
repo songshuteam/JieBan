@@ -128,6 +128,8 @@
 
 #pragma mark - btn Click
 - (IBAction)confirmBtnClick:(id)sender{
+    self.filterModel.days = self.daysTextField.text;
+    
     self.filterModel.countryCity = self.countryCityTextField.text;
     self.filterModel.outboundCity = self.worldCitytextField.text;
     

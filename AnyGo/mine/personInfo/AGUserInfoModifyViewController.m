@@ -25,6 +25,11 @@
 @property (weak, nonatomic) IBOutlet UIView *signatureView;
 @property (weak, nonatomic) IBOutlet SAMTextView *signatureTextView;
 @property (weak, nonatomic) IBOutlet UILabel *signatureNum;
+
+@property (weak, nonatomic) IBOutlet UIView *pwdView;
+@property (weak, nonatomic) IBOutlet UITextField *oldPwd;
+@property (weak, nonatomic) IBOutlet UITextField *modifyPwd;
+@property (weak, nonatomic) IBOutlet UITextField *modifyConfirePwd;
 @end
 
 @implementation AGUserInfoModifyViewController
@@ -46,14 +51,22 @@
         self.singleLineView.hidden = YES;
         self.sexSelectView.hidden = NO;
         self.signatureView.hidden = YES;
+        self.pwdView.hidden = YES;
     }else if (self.type == PersonInfoTypeSignature){
         self.singleLineView.hidden = YES;
         self.sexSelectView.hidden = YES;
         self.signatureView.hidden = NO;
+        self.pwdView.hidden = YES;
+    }else if(self.type == PersonInfoTypeJiebanPWD){
+        self.singleLineView.hidden = YES;
+        self.sexSelectView.hidden = YES;
+        self.signatureView.hidden = YES;
+        self.pwdView.hidden = NO;
     }else{
         self.singleLineView.hidden = NO;
         self.sexSelectView.hidden = YES;
         self.signatureView.hidden = YES;
+        self.pwdView.hidden = YES;
     }
     
     self.signatureTextView.placeholder = @"输入你的个性签名";
@@ -88,11 +101,43 @@
                 }
             }
             break;
-            
+        case PersonInfoTypeJiebanPWD:
+            {
+                if (self.modifyPwd.text.length < 6 || self.modifyPwd.text.length > 12 || ![self.modifyPwd.text isEqualToString:self.modifyConfirePwd.text] ) {
+                    [self.view makeToast:@"密码输入错误，密码长度在6~12位"];
+                    return;
+                }
+                
+                model.jieyouPwd = self.modifyPwd.text;
+            }
+            break;
+        case PersonInfoTypeNickName:
+            {
+                model.nickname = self.singleInfo.text;
+            }
+            break;
+        case PersonInfoTypeSex:
+            {
+                if (self.femaleSelectedImg.hidden) {
+                    model.gender = GenderMale;
+                }else if (self.maleSelectedImg.hidden){
+                    model.gender = GenderFemale;
+                }
+            }
+            break;
+        case PersonInfoTypeSignature:
+            {
+                model.signature = self.signatureTextView.text;
+            }
+            break;
         default:
             break;
     }
+    
+    self.personInfoViewController.userInfo = model;
+    [self.navigationController popViewControllerAnimated:YES];
 }
+
 - (IBAction)sexSelectClick:(id)sender {
     UIButton *btn = (UIButton *)sender;
     if (btn.tag == 1) {
@@ -142,7 +187,17 @@
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
-    [self.view endEditing:YES];
+    if (self.type == PersonInfoTypeJiebanPWD) {
+        if (textField == self.oldPwd) {
+            [self.modifyPwd becomeFirstResponder];
+        }else if(textField == self.modifyPwd){
+            [self.modifyConfirePwd becomeFirstResponder];
+        }else{
+            [self saveInfoChange:nil];
+        }
+    }else{
+        [self.view endEditing:YES];
+    }
     
     return YES;
 }

@@ -10,6 +10,7 @@
 
 #import <SDWebImage/UIImageView+WebCache.h>
 
+const int imageTag = 2014091401;
 const int contentInfoOrigX = 84;
 const int singleImgWidth = 75;
 const int doubleImgWidth = 36;
@@ -19,6 +20,7 @@ const int doubleImgSpace = 3;
 
 @property (strong, nonatomic) UILabel *timeLabel;
 @property (strong, nonatomic) UILabel *contentLabel;
+@property (strong, nonatomic) UIView *imagesView;
 
 @end
 
@@ -31,9 +33,12 @@ const int doubleImgSpace = 3;
         // Initialization code
         self.timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(11, 11, contentInfoOrigX, 22)];
         self.contentLabel = [[UILabel alloc] initWithFrame:CGRectMake(contentInfoOrigX, 11, 210, 100)];
+        self.imagesView = [[UIView alloc] initWithFrame:CGRectMake(contentInfoOrigX, 111, 210, singleImgWidth)];
+        self.imagesView.backgroundColor = [UIColor clearColor];
         
         [self addSubview:self.timeLabel];
         [self addSubview:self.contentLabel];
+        [self addSubview:self.imagesView];
     }
     return self;
 }
@@ -65,6 +70,10 @@ const int doubleImgSpace = 3;
     self.contentLabel.frame = rect;
     self.contentLabel.text = item.shareContent;
     height += size.height;
+   
+    for (UIView *view in [self.imagesView subviews]) {
+        [view removeFromSuperview];
+    }
     
     [self addImageViewWithArr:item.sharePhotos originY:height];
 }
@@ -94,36 +103,44 @@ const int doubleImgSpace = 3;
 - (void)addImageViewWithArr:(NSArray *)imgArr originY:(CGFloat)height{
     int sum = [imgArr count];
     if (sum == 1) {
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(contentInfoOrigX, height, singleImgWidth, singleImgWidth)];
+        self.imagesView.frame = CGRectMake(0, height, 320, singleImgWidth);
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(contentInfoOrigX, 0, singleImgWidth, singleImgWidth)];
         [imageView sd_setImageWithURL:[NSURL URLWithString:[imgArr lastObject]] placeholderImage:[UIImage imageNamed:@"view_bg_loginIndex"]];
-        [self addSubview:imageView];
-    }else if (sum == 2){
-        UIImageView *imageView1 = [[UIImageView alloc] initWithFrame:CGRectMake(contentInfoOrigX, height, doubleImgWidth, singleImgWidth)];
-        [imageView1 sd_setImageWithURL:[NSURL URLWithString:[imgArr firstObject]] placeholderImage:[UIImage imageNamed:@"view_bg_loginIndex"]];
-        [self addSubview:imageView1];
         
-        UIImageView *imageView2 = [[UIImageView alloc] initWithFrame:CGRectMake(contentInfoOrigX + doubleImgSpace + doubleImgWidth, height, doubleImgWidth, singleImgWidth)];
+        [self.imagesView addSubview:imageView];
+    }else if (sum == 2){
+        self.imagesView.frame = CGRectMake(0, height, 320, singleImgWidth);
+        
+        UIImageView *imageView1 = [[UIImageView alloc] initWithFrame:CGRectMake(contentInfoOrigX, 0, doubleImgWidth, singleImgWidth)];
+        [imageView1 sd_setImageWithURL:[NSURL URLWithString:[imgArr firstObject]] placeholderImage:[UIImage imageNamed:@"view_bg_loginIndex"]];
+        
+        [self.imagesView addSubview:imageView1];
+        
+        UIImageView *imageView2 = [[UIImageView alloc] initWithFrame:CGRectMake(contentInfoOrigX + doubleImgSpace + doubleImgWidth, 0, doubleImgWidth, singleImgWidth)];
         [imageView2 sd_setImageWithURL:[NSURL URLWithString:[imgArr lastObject]] placeholderImage:[UIImage imageNamed:@"view_bg_loginIndex"]];
-        [self addSubview:imageView2];
+        [self.imagesView addSubview:imageView2];
         
     }else if (sum == 3){
-        UIImageView *imageView1 = [[UIImageView alloc] initWithFrame:CGRectMake(contentInfoOrigX, height, doubleImgWidth, singleImgWidth)];
+        self.imagesView.frame = CGRectMake(0, height, 320, singleImgWidth);
+        UIImageView *imageView1 = [[UIImageView alloc] initWithFrame:CGRectMake(contentInfoOrigX, 0, doubleImgWidth, singleImgWidth)];
         [imageView1 sd_setImageWithURL:[NSURL URLWithString:[imgArr firstObject]] placeholderImage:[UIImage imageNamed:@"view_bg_loginIndex"]];
-        [self addSubview:imageView1];
         
-        UIImageView *imageView2 = [[UIImageView alloc] initWithFrame:CGRectMake(contentInfoOrigX + doubleImgWidth + doubleImgSpace, height, doubleImgWidth, doubleImgWidth)];
+        [self.imagesView addSubview:imageView1];
+        
+        UIImageView *imageView2 = [[UIImageView alloc] initWithFrame:CGRectMake(contentInfoOrigX + doubleImgWidth + doubleImgSpace, 0, doubleImgWidth, doubleImgWidth)];
         [imageView2 sd_setImageWithURL:[NSURL URLWithString:[imgArr objectAtIndex:1]] placeholderImage:[UIImage imageNamed:@"view_bg_loginIndex"]];
-        [self addSubview:imageView2];
+        [self.imagesView addSubview:imageView2];
         
-        UIImageView *imageView3 = [[UIImageView alloc] initWithFrame:CGRectMake(contentInfoOrigX + doubleImgWidth + doubleImgSpace, height + doubleImgWidth + doubleImgSpace, doubleImgWidth, doubleImgWidth)];
+        UIImageView *imageView3 = [[UIImageView alloc] initWithFrame:CGRectMake(contentInfoOrigX + doubleImgWidth + doubleImgSpace, doubleImgWidth + doubleImgSpace, doubleImgWidth, doubleImgWidth)];
         [imageView3 sd_setImageWithURL:[NSURL URLWithString:[imgArr lastObject]] placeholderImage:[UIImage imageNamed:@"view_bg_loginIndex"]];
-        [self addSubview:imageView3];
+        [self.imagesView addSubview:imageView3];
         
     }else if (sum >= 4){
+        self.imagesView.frame = CGRectMake(0, height, 320, singleImgWidth);
         for (int i=0; i<4; i++) {
-            UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(contentInfoOrigX + (doubleImgWidth + doubleImgSpace)*(i%2), height + (doubleImgWidth + doubleImgSpace)*(i/2), doubleImgWidth, doubleImgWidth)];
+            UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(contentInfoOrigX + (doubleImgWidth + doubleImgSpace)*(i%2),(doubleImgWidth + doubleImgSpace)*(i/2), doubleImgWidth, doubleImgWidth)];
             [imageView sd_setImageWithURL:[NSURL URLWithString:[imgArr objectAtIndex:i]] placeholderImage:[UIImage imageNamed:@"view_bg_loginIndex"]];
-            [self addSubview:imageView];
+            [self.imagesView addSubview:imageView];
         }
     }
 }

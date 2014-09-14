@@ -102,7 +102,7 @@
         case MineInfoTypePostMsg:
             {
                 UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"拍照",@"从手机相册选择", nil];
-                [sheet showInView:self.view];
+                [sheet showFromTabBar:self.tabBarController.tabBar];
             }
             break;
         default:
@@ -162,7 +162,7 @@
     
     NSObject *object = [self.dataArr objectAtIndex:indexPath.section];
     if ([object isKindOfClass:[AGJiebanPlanModel class]]) {
-        static NSString *identify = @"neddIdentify";
+        static NSString *identify = @"needIdentify";
         
         AGCompanyDemandCell *cell = [tableView dequeueReusableCellWithIdentifier:identify];
         if (cell == nil) {
@@ -239,7 +239,7 @@
     shareItem3.sharePhotos = @[@"http://www.feizl.com/upload2007/2013_02/130227014423722.jpg",@"http://www.feizl.com/upload2007/2013_02/130227014423722.jpg",@"http://www.hua.com/flower_picture/meiguihua/images/r17.jpg"];
     
     AGShareItem *shareItem4 = [[AGShareItem alloc] init];
-    shareItem4.shareContent = @"目的地阿哥的骄傲和大家阿三目的地阿哥的骄傲和大家阿目的地阿哥的骄傲和大家阿目的地阿哥的骄傲和大家阿目的地阿哥的骄傲和大家阿三目的地阿哥的骄傲目的地阿哥的骄傲和大家阿三目的地阿哥的骄傲目的地阿哥的骄傲和大家阿三目的地阿哥的骄傲目的地阿哥的骄傲和大家阿三目的地阿哥的骄傲目的地阿哥的骄傲和大家阿三目的地阿哥的骄傲目的地阿哥的骄傲和大家阿三目的地阿哥的骄傲";
+    shareItem4.shareContent = @"目的地阿哥的骄傲和大家阿三目的地阿哥的骄傲和大家阿目的地阿哥的骄傲和大家阿目的地阿哥的骄傲和大家阿目的地阿哥的骄傲和大家阿三目的地阿哥的骄傲目的地阿哥的骄傲和大家阿三目的地阿哥的骄傲目的地阿哥的骄傲和大家阿三目的地阿哥的骄傲目的地阿";
     shareItem4.timeStamp = [NSDate date];
     shareItem4.sharePhotos = @[@"http://www.feizl.com/upload2007/2013_02/130227014423722.jpg",@"http://www.feizl.com/upload2007/2013_02/130227014423722.jpg",@"http://www.hua.com/flower_picture/meiguihua/images/r17.jpg",@"http://www.hua.com/flower_picture/meiguihua/images/r17.jpg"];
     

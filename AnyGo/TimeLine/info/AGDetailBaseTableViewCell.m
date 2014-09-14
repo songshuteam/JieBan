@@ -46,7 +46,7 @@ const int nikeNameMaxWidth = 160;
     [self setBackgroundColor:[UIColor clearColor]];
     
     [self.faceImgView sd_setImageWithURL:[NSURL URLWithString:userInfo.headUrl] placeholderImage:[UIImage imageNamed:@"view_bg_loginIndex"]];
-    NSString *content = userInfo.signature;
+    NSString *content = userInfo.nickname;
     
     CGSize size = [content sizeWithFont:self.nikeName.font constrainedToSize:CGSizeMake(400, 21) lineBreakMode:NSLineBreakByTruncatingTail];
     CGRect rect = self.nikeName.frame;

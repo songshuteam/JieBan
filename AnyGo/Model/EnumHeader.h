@@ -29,4 +29,34 @@ typedef NS_ENUM(NSInteger, AddressType) {
     AddressTypeEnd
 };
 
+/**
+ *  关系
+ */
+typedef NS_ENUM(NSInteger, RelationType) {
+    /**
+     *  没有任何关系
+     */
+    RelationTypeNone = 1,
+    /**
+     *  关注
+     */
+    RelationTypeFollowing,
+    /**
+     *  被关注
+     */
+    RelationTypeFollowed,
+    /**
+     *  互相关注
+     */
+    RelationTypeBothWayFollowed,
+    /**
+     *  拉黑
+     */
+    RelationTypeBlock,
+    /**
+     *  被拉黑
+     */
+    RelationTypeBlocked
+};
+
 #endif

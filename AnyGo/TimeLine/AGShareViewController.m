@@ -118,7 +118,9 @@
 
 - (void)shareTableViewCell:(AGShareTableViewCell *)tableViewCell timelineByUserId:(long long)userId{
     AGDetailInfoViewController *viewController = [[AGDetailInfoViewController alloc] init];
-    viewController.userId = userId;
+    viewController.userId = [[[NSUserDefaults standardUserDefaults] objectForKey:USERID] longLongValue];
+    viewController.friendId = userId;
+    
     [self.navigationController pushViewController:viewController animated:YES];
 }
 

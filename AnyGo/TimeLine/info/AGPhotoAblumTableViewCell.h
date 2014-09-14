@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AGJieyouModel.h"
 
 @interface AGPhotoAblumTableViewCell : UITableViewCell
 
 + (CGFloat)heightForCell;
-- (void)contentViewInit:(NSString *)userInfo;
+- (void)contentViewInit:(AGUserInfoModel *)userInfo;
 
 @end
