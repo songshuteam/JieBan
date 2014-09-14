@@ -10,7 +10,7 @@
 #import "AGPlaViewController.h"
 #import "AGPlanModel.h"
 
-@interface AGAddressViewController () <UIActionSheetDelegate>
+@interface AGAddressViewController () <UIActionSheetDelegate, UITextViewDelegate>
 
 @end
 
@@ -29,6 +29,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    self.planTextView.delegate = self;
     
 }
 
@@ -80,4 +81,16 @@
         self.addressLabel.text = location.city;
     }
 }
+
+#pragma mark - TextViewDelegate methods
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+    if ([text isEqualToString:@""]) {
+        return YES;
+    }
+    if (textView.text.length > 32) {
+        return NO;
+    }
+    return YES;
+}
+
 @end

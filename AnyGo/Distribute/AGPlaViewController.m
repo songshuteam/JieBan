@@ -17,7 +17,7 @@
 const NSInteger startAddressSelectTag = 2014080801;
 const NSInteger endAddressSelectTag = 2014080802;
 
-@interface AGPlaViewController () <UITableViewDataSource, UITableViewDelegate, UIActionSheetDelegate, UIAlertViewDelegate>{
+@interface AGPlaViewController () <UITableViewDataSource, UITableViewDelegate, UIActionSheetDelegate, UIAlertViewDelegate, UITextViewDelegate>{
     TSLocateView *locateView;
     UIActionSheet *actionSheet;
     NSDate *startDate;
@@ -25,6 +25,8 @@ const NSInteger endAddressSelectTag = 2014080802;
 
 @property (strong, nonatomic) UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray *dataSource;
+@property (weak, nonatomic) IBOutlet UIImageView *editImgBg1;
+@property (weak, nonatomic) IBOutlet UIImageView *editImgBg2;
 
 @end
 
@@ -63,6 +65,8 @@ const NSInteger endAddressSelectTag = 2014080802;
     
     [self moreDestination];
     
+    self.startTextView.delegate = self;
+    self.endTextView.delegate = self;
     self.startTextView.placeholder = @"点击添加更多描述";
     self.endTextView.placeholder = @"点击添加跟多描述";
 }
@@ -407,6 +411,16 @@ const NSInteger endAddressSelectTag = 2014080802;
             break;
     }
 }
+#pragma mark - TextViewDelegate methods
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+    if ([text isEqualToString:@""]) {
+        return YES;
+    }
+    if (textView.text.length > 32) {
+        return NO;
+    }
+    return YES;
+}
 
 @end
 
@@ -508,6 +522,5 @@ CGFloat const UI_PLACEHOLDER_TEXT_CHANGED_ANIMATION_DURATION = 0.25;
     
     [super drawRect:rect];
 }
-
 
 @end

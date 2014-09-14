@@ -31,18 +31,18 @@
                         <color key="backgroundColor" red="0.47058823529999999" green="0.81568627449999997" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="目的地点" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fTm-rb-qn7">
-                        <rect key="frame" x="53" y="3" width="57" height="21"/>
+                        <rect key="frame" x="49" y="3" width="57" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.47058823529999999" green="0.81568627449999997" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="miaoshu" translatesAutoresizingMaskIntoConstraints="NO" id="jlB-mL-gsw">
-                        <rect key="frame" x="53" y="27" width="151" height="45"/>
+                        <rect key="frame" x="47" y="27" width="260" height="54"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </imageView>
                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yhT-Ne-va0" customClass="UIPlaceHolderTextView">
-                        <rect key="frame" x="53" y="27" width="151" height="45"/>
+                        <rect key="frame" x="52" y="32" width="256" height="49"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
