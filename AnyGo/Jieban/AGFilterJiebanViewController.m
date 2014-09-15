@@ -89,6 +89,15 @@
     self.worldCitytextField.inputView = outView;
     self.worldCitytextField.inputAccessoryView = [[UIView alloc] initWithFrame:CGRectZero];
 }
+- (IBAction)clearCity:(id)sender {
+    UIButton *btn = (UIButton *)sender;
+    if (btn.tag == 2014091501) {
+        self.countryCityTextField.text = nil;
+    }else if (btn.tag == 2014091502){
+        self.worldCitytextField.text = nil;
+    }
+    
+}
 
 #pragma mark - view init
 - (void)viewInitWithFilterInfo:(AGFilterModel *)model{

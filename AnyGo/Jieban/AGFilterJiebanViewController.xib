@@ -283,36 +283,58 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请选择你要的地址" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Cz-5V-Jgf">
-                                    <rect key="frame" x="133" y="12" width="116" height="17"/>
+                                    <rect key="frame" x="130" y="4" width="166" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="166" id="0Nk-04-Ikn"/>
+                                    </constraints>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits"/>
                                     <connections>
                                         <outlet property="delegate" destination="-1" id="Mpl-qc-f6X"/>
                                     </connections>
                                 </textField>
+                                <button opaque="NO" tag="2014091501" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GzW-64-UgO">
+                                    <rect key="frame" x="293" y="8" width="14" height="22"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="14" id="1YR-Ld-lGf"/>
+                                        <constraint firstAttribute="height" constant="22" id="Esi-yN-O1q"/>
+                                    </constraints>
+                                    <state key="normal" image="clearImg">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="clearCity:" destination="-1" eventType="touchUpInside" id="bxR-rA-jyf"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstItem="7Cz-5V-Jgf" firstAttribute="leading" secondItem="1Ll-5l-taA" secondAttribute="trailing" constant="54" id="7pN-gP-dy6"/>
+                                <constraint firstItem="7Cz-5V-Jgf" firstAttribute="centerY" secondItem="1Ll-5l-taA" secondAttribute="centerY" id="C6S-i0-VVn"/>
+                                <constraint firstItem="7Cz-5V-Jgf" firstAttribute="leading" secondItem="1Ll-5l-taA" secondAttribute="trailing" constant="51" id="Ffe-tk-W55"/>
                                 <constraint firstAttribute="width" constant="320" id="K7P-xK-fs7"/>
+                                <constraint firstItem="7Cz-5V-Jgf" firstAttribute="top" secondItem="Ci4-85-vU7" secondAttribute="top" constant="4" id="Xg0-EG-ays"/>
                                 <constraint firstItem="1Ll-5l-taA" firstAttribute="leading" secondItem="Ci4-85-vU7" secondAttribute="leading" constant="19" id="e1u-GW-tla"/>
-                                <constraint firstItem="7Cz-5V-Jgf" firstAttribute="centerY" secondItem="Ci4-85-vU7" secondAttribute="centerY" id="evd-yY-wx2"/>
-                                <constraint firstAttribute="height" constant="41" id="f7v-q3-tCu"/>
+                                <constraint firstItem="GzW-64-UgO" firstAttribute="leading" secondItem="1Ll-5l-taA" secondAttribute="trailing" constant="214" id="gc2-da-leE"/>
                                 <constraint firstItem="1Ll-5l-taA" firstAttribute="top" secondItem="Ci4-85-vU7" secondAttribute="top" constant="10" id="hcz-kB-yKZ"/>
+                                <constraint firstItem="GzW-64-UgO" firstAttribute="top" secondItem="Ci4-85-vU7" secondAttribute="top" constant="8" id="qUD-Em-Lx4"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jMf-Un-lnH">
                             <rect key="frame" x="0.0" y="387" width="320" height="41"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="境外地址" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JMA-nK-O3t">
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="境外地址" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JMA-nK-O3t">
                                     <rect key="frame" x="20" y="10" width="63" height="21"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="63" id="a8w-Rw-OcR"/>
+                                    </constraints>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请选择你要的地址" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vhB-Mc-m6p">
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请选择你要的地址" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vhB-Mc-m6p">
                                     <rect key="frame" x="134" y="6" width="166" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -321,11 +343,35 @@
                                         <outlet property="delegate" destination="-1" id="Jws-hg-Id8"/>
                                     </connections>
                                 </textField>
+                                <button opaque="NO" tag="2014091502" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EWd-EF-Wy9">
+                                    <rect key="frame" x="294" y="9" width="14" height="22"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="14" id="ZzL-tU-RuT"/>
+                                        <constraint firstAttribute="height" constant="22" id="mIP-Ro-IiM"/>
+                                    </constraints>
+                                    <state key="normal" image="clearImg">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="clearCity:" destination="-1" eventType="touchUpInside" id="o2p-aB-DUL"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             <constraints>
+                                <constraint firstAttribute="trailing" secondItem="vhB-Mc-m6p" secondAttribute="trailing" constant="20" symbolic="YES" id="2r2-p5-oAq"/>
+                                <constraint firstItem="JMA-nK-O3t" firstAttribute="bottom" secondItem="EWd-EF-Wy9" secondAttribute="bottom" id="3Lm-f6-p1v"/>
+                                <constraint firstItem="vhB-Mc-m6p" firstAttribute="top" secondItem="jMf-Un-lnH" secondAttribute="top" constant="6" id="6T0-3b-gbE"/>
+                                <constraint firstItem="JMA-nK-O3t" firstAttribute="baseline" secondItem="EWd-EF-Wy9" secondAttribute="baseline" id="7R1-2N-weK"/>
+                                <constraint firstItem="EWd-EF-Wy9" firstAttribute="leading" secondItem="JMA-nK-O3t" secondAttribute="trailing" constant="211" id="GMb-fG-PJn"/>
+                                <constraint firstAttribute="bottom" secondItem="vhB-Mc-m6p" secondAttribute="bottom" constant="5" id="GmW-5j-xCc"/>
+                                <constraint firstItem="JMA-nK-O3t" firstAttribute="centerY" secondItem="EWd-EF-Wy9" secondAttribute="centerY" id="PBm-Vk-vE9"/>
+                                <constraint firstItem="vhB-Mc-m6p" firstAttribute="leading" secondItem="JMA-nK-O3t" secondAttribute="trailing" constant="51" id="Q6l-B7-CqE"/>
+                                <constraint firstItem="EWd-EF-Wy9" firstAttribute="top" secondItem="jMf-Un-lnH" secondAttribute="top" constant="9" id="QiA-bi-HDQ"/>
                                 <constraint firstAttribute="width" constant="320" id="RZf-lD-3gP"/>
                                 <constraint firstAttribute="height" constant="41" id="WuX-Po-q2s"/>
+                                <constraint firstItem="JMA-nK-O3t" firstAttribute="leading" secondItem="jMf-Un-lnH" secondAttribute="leading" constant="20" symbolic="YES" id="g5O-qC-h0i"/>
                             </constraints>
                         </view>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="搜索地址" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0bo-J6-kha">
@@ -423,6 +469,7 @@
         </view>
     </objects>
     <resources>
+        <image name="clearImg" width="14" height="14"/>
         <image name="jieban_filter_select" width="86" height="42"/>
         <image name="jieban_filter_unselect" width="86" height="42"/>
         <image name="不限" width="86" height="42"/>

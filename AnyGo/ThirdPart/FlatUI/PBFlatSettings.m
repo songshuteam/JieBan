@@ -39,7 +39,7 @@
     
     NSDictionary *_titleTextAttributes = @{UITextAttributeTextColor: [UIColor whiteColor],
                                     UITextAttributeTextShadowColor : [UIColor clearColor],
-                                            UITextAttributeFont : [_font fontWithSize:18.0f]};
+                                            UITextAttributeFont : [_font fontWithSize:20.0f]};
     
     [[UINavigationBar appearance] setTitleTextAttributes:_titleTextAttributes];
     // remove shadow
