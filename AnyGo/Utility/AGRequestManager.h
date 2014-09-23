@@ -12,6 +12,7 @@
 
 #import "AGJieyouModel.h"
 #import "AGPlanModel.h"
+#import "AGShareItem.h"
 
 @interface AGRequestManager : NSObject
 /**
@@ -54,4 +55,15 @@
 + (ASIFormDataRequest *)requestEditPlanWithUserId:(NSString *)userId PlanModel:(AGJiebanPlanModel *)planModel;
 
 + (ASIHTTPRequest *)requestDeletePlanWithUserId:(NSString *)userId planId:(NSString *)planId;
+@end
+
+@interface AGRequestManager(feedInfo)
+
++ (ASIFormDataRequest *)requestDistributeFeed:(AGShareItem *)item;
+
++ (ASIFormDataRequest *)requesDeleteFeed:(NSString *)feedId userId:(NSString *)userId;
+
++ (ASIHTTPRequest *)requestFeedWithUserId:(NSString *)userId pageSize:(NSInteger)pageSIze lastId:(NSString *)lastId;
+
++ (ASIHTTPRequest *)requestFeedWatchId:(NSString *)watchId userId:(NSString *)userId pageSize:(NSInteger)pageSize lastId:(NSString *)lastId;
 @end

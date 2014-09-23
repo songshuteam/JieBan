@@ -39,7 +39,8 @@
 
 + (AGJieyouModel *)parseJsonInfo:(NSDictionary *)valueDic{
     AGJieyouModel *model = [[AGJieyouModel alloc] init];
-    model.jieyouId = [[valueDic objectForKey:@"followId"] longLongValue];
+    model.jieyouId = [[valueDic objectForKey:@"userId"] longLongValue];
+    model.nickname = [valueDic objectForKey:@"nickName"];
     model.relation = [[valueDic objectForKey:@"relationEnum"] integerValue];
     model.remark = [valueDic objectForKey:@"remark"];
     model.headUrl = [valueDic objectForKey:@"avator"];

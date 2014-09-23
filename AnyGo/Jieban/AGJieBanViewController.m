@@ -53,7 +53,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.navigationItem.title = @"结伴";
-    [self backBarButtonWithTitle:@"返回"];
     
     CGRect bounds = [UIScreen mainScreen].bounds;
     self.mapView = [[MKMapView alloc] initWithFrame:CGRectMake(0, 0, bounds.size.width, bounds.size.height - 44.f)];
@@ -316,7 +315,7 @@
     viewController.userId = viewController.userId = [[[NSUserDefaults standardUserDefaults] objectForKey:USERID] longLongValue];
     viewController.friendId = userId;
     viewController.userId = [[[NSUserDefaults standardUserDefaults] objectForKey:USERID] longLongValue];
-    viewController.relation = RelationNotFriend;
+    viewController.relation = RelationTypeBothWayFollowed;
     viewController.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:viewController animated:YES];
 }

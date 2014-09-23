@@ -8,14 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-typedef NS_ENUM(NSInteger, Relation) {
-    RelationNotFriend,
-    RelationFriend
-};
-
 @interface AGDetailInfoViewController : UIViewController
 
 @property (assign, nonatomic) long long userId;
 @property (assign, nonatomic) long long friendId;
-@property (assign, nonatomic) Relation relation;
+@property (assign, nonatomic) RelationType relation;
 @end

@@ -82,14 +82,51 @@
 }
 
 + (NSURL *)urlChangeRelation:(NSString *)userId friendId:(NSString *)friendId relationType:(int)type{
-    NSString *changeUrl = [NSString stringWithFormat:@"%@/trainon/friend.do?userId=%@&appId=%@&friendId=%@&type=%d",serverUrl,userId,appId,friendId,type];
+    NSString *changeUrl = [NSString stringWithFormat:@"%@/trainon/friend.do?userId=%@&appId=%@&friendId=%@&type=%d&_method=POST",serverUrl,userId,appId,friendId,type];
     
     return [NSURL URLWithString:[changeUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
 }
 
 + (NSURL *)urlGetFriendList:(NSString *)userId pageIndex:(int)pageIndex pageSize:(int)pageSize{
-    NSString *url = [NSString stringWithFormat:@"%@/trainon/friend.do?userId=%@&appId=%@&pageIndex=%d&pageSize=%d",serverUrl,userId,appId,pageIndex,pageSize];
+    NSString *url = [NSString stringWithFormat:@"%@/trainon/friend.do?userId=%@&appId=%@&pageIndex=%d&pageSize=%d&type=2",serverUrl,userId,appId,pageIndex,pageSize];
     
     return [NSURL URLWithString:url];
 }
+@end
+
+@implementation AGUrlManager (feedInfo)
+
++ (NSURL *)urlDistributeFeed:(NSString *)userId{
+    NSString *url = [NSString stringWithFormat:@"%@/trainon/feed.do?userId=%@&appId=%@",serverUrl, userId, appId];
+    return [NSURL URLWithString:url];
+}
+
++ (NSURL *)urlDeleteFeed:(NSString *)userId feedId:(NSString *)feedId{
+    NSString *urlDelete = [NSString stringWithFormat:@"%@/trainon/feed/%@.do?userId=%@&appId=%@&_method=DELETE",serverUrl,feedId,userId,appId];
+    
+    return [NSURL URLWithString:urlDelete];
+}
+
++ (NSURL *)urlGetFeed:(NSString *)userId pageSize:(NSInteger)pageSize lastId:(NSString *)lastId{
+    NSString *url = [NSString stringWithFormat:@"%@/trainon/feed.do?appId=%@&userId=%@&pageSize=%d&lastId=%@",serverUrl,appId,userId,pageSize,lastId];
+    
+    return [NSURL URLWithString:url];
+}
+
++ (NSURL *)urlGetFeed:(NSString *)userId watchUserId:(NSString *)watchId pageSize:(NSInteger)pageSize lastId:(NSString *)lastId{
+    NSString *url = [NSString stringWithFormat:@"%@/trainon/feed/%@.do?appId=%@&userId=%@&pageSize=%d&lastId=%@",serverUrl,watchId,appId,userId,pageSize,lastId];
+    
+    return [NSURL URLWithString:url];
+}
+
+@end
+
+@implementation AGUrlManager(UserInfoManager)
+
++ (NSURL *)urlSearchUserInfo:(NSString *)userId keyWord:(NSString *)key pageSize:(NSInteger)pageSize pageIndex:(NSInteger)pageIndex{
+    NSString *url = [NSString stringWithFormat:@"%@/trainon/search/friend.do?userId=%@&appId=%@&key=%@&pageIndex=%d&pageSize=%d",serverUrl,userId,appId,key,pageIndex,pageSize];
+    
+    return [NSURL URLWithString:[url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+}
+
 @end

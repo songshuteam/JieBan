@@ -11,12 +11,15 @@
 @interface AGShareCommentItem : NSObject
 
 @property (assign, nonatomic) long long commentId;
-@property (strong, nonatomic) NSString *commentUserId;
+@property (assign, nonatomic) long long commentUserId;
+@property (assign, nonatomic) long long commentToUserId;
+@property (strong, nonatomic) NSString *profileImg;
 @property (strong, nonatomic) NSString *commentName;
-@property (strong, nonatomic) NSString *commentToUserId;
 @property (strong, nonatomic) NSString *commentToUserName;
 @property (strong, nonatomic) NSString *commentContent;
 @property (strong, nonatomic) NSString *commentCreatTime;
 
 - (NSString *)getShowMessage;
+
++ (AGShareCommentItem *)parseJsonInfo:(NSDictionary *)valueDic;
 @end

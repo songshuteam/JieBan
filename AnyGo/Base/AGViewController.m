@@ -30,6 +30,7 @@
     UIColor *bgColor = [UIColor colorWithRed:237.0f/255.0f green:237.0f/255.0f blue:237.0f/255.0f alpha:1];
     self.bgViewColor = bgColor;
     self.view.backgroundColor = bgColor;
+    [self backBarButtonWithTitle:@"返回"];
     
     if (SYM_VERSION >= 7.0) {
         self.edgesForExtendedLayout = UIRectEdgeNone;
@@ -44,7 +45,7 @@
 }
 
 - (void)backBarButtonWithTitle:(NSString *)title{
-    UIBarButtonItem *backBtn = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:nil];
+    UIBarButtonItem *backBtn = [[UIBarButtonItem alloc] initWithTitle:title style:UIBarButtonItemStylePlain target:self action:nil];
     
     self.navigationItem.backBarButtonItem = backBtn;
 }

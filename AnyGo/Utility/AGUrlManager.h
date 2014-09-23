@@ -108,3 +108,18 @@
 
 + (NSURL *)urlGetFriendList:(NSString *)userId pageIndex:(int)pageIndex pageSize:(int)pageSize;
 @end
+
+@interface AGUrlManager (feedInfo)
+
++ (NSURL *)urlDistributeFeed:(NSString *)userId;
+
++ (NSURL *)urlDeleteFeed:(NSString *)userId feedId:(NSString *)feedId;
+
++ (NSURL *)urlGetFeed:(NSString *)userId pageSize:(NSInteger)pageSize lastId:(NSString *)lastId;
+
++ (NSURL *)urlGetFeed:(NSString *)userId watchUserId:(NSString *)watchId pageSize:(NSInteger)pageSize lastId:(NSString *)lastId;
+@end
+
+@interface AGUrlManager(UserInfoManager)
++ (NSURL *)urlSearchUserInfo:(NSString *)userId keyWord:(NSString *)key pageSize:(NSInteger)pageSize pageIndex:(NSInteger)pageIndex;
+@end

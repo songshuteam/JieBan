@@ -342,7 +342,11 @@
 		FE98217419838FC3008DB1CE /* AGVerifiedCodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE98216B19838FC3008DB1CE /* AGVerifiedCodeViewController.xib */; };
 		FE98218019839885008DB1CE /* AGLoginIndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE98217E19839885008DB1CE /* AGLoginIndexViewController.m */; };
 		FE98218119839885008DB1CE /* AGLoginIndexViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE98217F19839885008DB1CE /* AGLoginIndexViewController.xib */; };
+		FE995B1E19D1AF2D0008575E /* AGFriendTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FE995B1C19D1AF2D0008575E /* AGFriendTableViewCell.m */; };
+		FE995B1F19D1AF2D0008575E /* AGFriendTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE995B1D19D1AF2D0008575E /* AGFriendTableViewCell.xib */; };
 		FE99EB6C1996259C00954616 /* AGJiebanMapView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE99EB6B1996259C00954616 /* AGJiebanMapView.xib */; };
+		FE9ADF3719CE6B7400DF3AFA /* AGSearchFriendListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE9ADF3519CE6B7400DF3AFA /* AGSearchFriendListViewController.m */; };
+		FE9ADF3819CE6B7400DF3AFA /* AGSearchFriendListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE9ADF3619CE6B7400DF3AFA /* AGSearchFriendListViewController.xib */; };
 		FE9AE8C319BAB304003F17A1 /* AGMineInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE9AE8C219BAB304003F17A1 /* AGMineInfoView.m */; };
 		FE9AE8C719BAB845003F17A1 /* AGMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE9AE8C519BAB845003F17A1 /* AGMineViewController.m */; };
 		FE9AE8C819BAB845003F17A1 /* AGMineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE9AE8C619BAB845003F17A1 /* AGMineViewController.xib */; };
@@ -361,6 +365,7 @@
 		FE9B3F7419848FEB00444733 /* AGResetPwdPhoneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE9B3F7219848FEB00444733 /* AGResetPwdPhoneViewController.xib */; };
 		FE9B3F781984984D00444733 /* AGResetpwdEmailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE9B3F761984984D00444733 /* AGResetpwdEmailViewController.m */; };
 		FE9B3F791984984D00444733 /* AGResetpwdEmailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE9B3F771984984D00444733 /* AGResetpwdEmailViewController.xib */; };
+		FE9BA8CB19CB18B00003F407 /* AGSharePraiseItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FE9BA8CA19CB18B00003F407 /* AGSharePraiseItem.m */; };
 		FEA3B8D419B19E1000B2EE5A /* libEaseMobClientSDKLite.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FEA3B8D119B19E1000B2EE5A /* libEaseMobClientSDKLite.a */; };
 		FEA3B8D519B19E1000B2EE5A /* EaseMob.bundle in Resources */ = {isa = PBXBuildFile; fileRef = FEA3B8D319B19E1000B2EE5A /* EaseMob.bundle */; };
 		FEA3B8D719B19E3600B2EE5A /* libresolv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FEA3B8D619B19E3600B2EE5A /* libresolv.dylib */; };
@@ -1136,7 +1141,13 @@
 		FE98217D19839885008DB1CE /* AGLoginIndexViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGLoginIndexViewController.h; sourceTree = "<group>"; };
 		FE98217E19839885008DB1CE /* AGLoginIndexViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGLoginIndexViewController.m; sourceTree = "<group>"; };
 		FE98217F19839885008DB1CE /* AGLoginIndexViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AGLoginIndexViewController.xib; sourceTree = "<group>"; };
+		FE995B1B19D1AF2D0008575E /* AGFriendTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGFriendTableViewCell.h; sourceTree = "<group>"; };
+		FE995B1C19D1AF2D0008575E /* AGFriendTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGFriendTableViewCell.m; sourceTree = "<group>"; };
+		FE995B1D19D1AF2D0008575E /* AGFriendTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AGFriendTableViewCell.xib; sourceTree = "<group>"; };
 		FE99EB6B1996259C00954616 /* AGJiebanMapView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AGJiebanMapView.xib; sourceTree = "<group>"; };
+		FE9ADF3419CE6B7400DF3AFA /* AGSearchFriendListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGSearchFriendListViewController.h; sourceTree = "<group>"; };
+		FE9ADF3519CE6B7400DF3AFA /* AGSearchFriendListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGSearchFriendListViewController.m; sourceTree = "<group>"; };
+		FE9ADF3619CE6B7400DF3AFA /* AGSearchFriendListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AGSearchFriendListViewController.xib; sourceTree = "<group>"; };
 		FE9AE8C119BAB304003F17A1 /* AGMineInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGMineInfoView.h; sourceTree = "<group>"; };
 		FE9AE8C219BAB304003F17A1 /* AGMineInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGMineInfoView.m; sourceTree = "<group>"; };
 		FE9AE8C419BAB845003F17A1 /* AGMineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGMineViewController.h; sourceTree = "<group>"; };
@@ -1166,6 +1177,8 @@
 		FE9B3F751984984D00444733 /* AGResetpwdEmailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGResetpwdEmailViewController.h; sourceTree = "<group>"; };
 		FE9B3F761984984D00444733 /* AGResetpwdEmailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGResetpwdEmailViewController.m; sourceTree = "<group>"; };
 		FE9B3F771984984D00444733 /* AGResetpwdEmailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AGResetpwdEmailViewController.xib; sourceTree = "<group>"; };
+		FE9BA8C919CB18B00003F407 /* AGSharePraiseItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGSharePraiseItem.h; sourceTree = "<group>"; };
+		FE9BA8CA19CB18B00003F407 /* AGSharePraiseItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGSharePraiseItem.m; sourceTree = "<group>"; };
 		FEA3B81619B19C3A00B2EE5A /* libPods-AnyGo-UMengAnalytics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-AnyGo-UMengAnalytics.a"; path = "Pods/build/Debug-iphoneos/libPods-AnyGo-UMengAnalytics.a"; sourceTree = "<group>"; };
 		FEA3B87C19B19E1000B2EE5A /* IChatManagerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IChatManagerDelegate.h; sourceTree = "<group>"; };
 		FEA3B87E19B19E1000B2EE5A /* EMChatManagerBuddyDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMChatManagerBuddyDelegate.h; sourceTree = "<group>"; };
@@ -1694,6 +1707,8 @@
 				FEC43B33197EAE08007BC3CB /* AGJieyouModel.m */,
 				FE92B6071999940600E8F1D4 /* AGFilterModel.h */,
 				FE92B6081999940600E8F1D4 /* AGFilterModel.m */,
+				FE9BA8C919CB18B00003F407 /* AGSharePraiseItem.h */,
+				FE9BA8CA19CB18B00003F407 /* AGSharePraiseItem.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2969,6 +2984,12 @@
 				FE3AEEAA19C459F6001BD527 /* AGAddFriendViewController.h */,
 				FE3AEEAB19C459F6001BD527 /* AGAddFriendViewController.m */,
 				FE3AEEAC19C459F6001BD527 /* AGAddFriendViewController.xib */,
+				FE9ADF3419CE6B7400DF3AFA /* AGSearchFriendListViewController.h */,
+				FE9ADF3519CE6B7400DF3AFA /* AGSearchFriendListViewController.m */,
+				FE9ADF3619CE6B7400DF3AFA /* AGSearchFriendListViewController.xib */,
+				FE995B1B19D1AF2D0008575E /* AGFriendTableViewCell.h */,
+				FE995B1C19D1AF2D0008575E /* AGFriendTableViewCell.m */,
+				FE995B1D19D1AF2D0008575E /* AGFriendTableViewCell.xib */,
 			);
 			path = friend;
 			sourceTree = "<group>";
@@ -4251,6 +4272,7 @@
 				FEA3C0DF19B1AE7900B2EE5A /* chatBar_recordSelected.png in Resources */,
 				FEA3C0EA19B1AE7900B2EE5A /* chatBar_colorMore_videoSelected@2x.png in Resources */,
 				A0583F01195026750043B5DC /* section0_emotion5@2x.png in Resources */,
+				FE9ADF3819CE6B7400DF3AFA /* AGSearchFriendListViewController.xib in Resources */,
 				FEA3C0DA19B1AE7900B2EE5A /* chatBar_moreSelected@2x.png in Resources */,
 				A0583ED7195026750043B5DC /* input-bar-background.png in Resources */,
 				A0583EE3195026750043B5DC /* MultiSelectedPanelBkg@2x.png in Resources */,
@@ -4289,6 +4311,7 @@
 				FEA3C0DB19B1AE7900B2EE5A /* chatBar_record.png in Resources */,
 				FEA3C0F419B1AE7900B2EE5A /* chatBar_more_photo@2x.png in Resources */,
 				A0583EED195026750043B5DC /* RecordingSignal001@2x.png in Resources */,
+				FE995B1F19D1AF2D0008575E /* AGFriendTableViewCell.xib in Resources */,
 				FEA3C0D219B1AE7900B2EE5A /* chatBar_faceSelected@2x.png in Resources */,
 				A0583EFB195026750043B5DC /* section0_emotion14@2x.png in Resources */,
 				FEA3C0E919B1AE7900B2EE5A /* chatBar_colorMore_video@2x.png in Resources */,
@@ -4475,6 +4498,7 @@
 				A0583E9B195026750043B5DC /* XHPathCover.m in Sources */,
 				A0706F8B19458A3200BBBC32 /* AGDistributeViewController.m in Sources */,
 				FE923BFE19BD53BE001E7C1F /* AGUserInfoModifyViewController.m in Sources */,
+				FE995B1E19D1AF2D0008575E /* AGFriendTableViewCell.m in Sources */,
 				A06D26ED19519A78005FB142 /* PBFlatButton.m in Sources */,
 				A0583E96195026750043B5DC /* SETextSelectionView.m in Sources */,
 				A0583E36195026750043B5DC /* NSString+MessageInputView.m in Sources */,
@@ -4506,6 +4530,7 @@
 				A0583E54195026750043B5DC /* XHBottleViewController.m in Sources */,
 				A0583EBB195026750043B5DC /* XHNewsContainerView.m in Sources */,
 				A0583E3A195026750043B5DC /* UIImage+Alpha.m in Sources */,
+				FE9BA8CB19CB18B00003F407 /* AGSharePraiseItem.m in Sources */,
 				FEA3C12919B1AE7900B2EE5A /* NSManagedObjectContext+MagicalObserving.m in Sources */,
 				A0583E74195026750043B5DC /* XHContact.m in Sources */,
 				649923451961334B00915E84 /* VPImageCropperViewController.m in Sources */,
@@ -4703,6 +4728,7 @@
 				FEA3C12C19B1AE7900B2EE5A /* NSManagedObjectContext+MagicalThreading.m in Sources */,
 				FEA3C11619B1AE7900B2EE5A /* AddFriendCell.m in Sources */,
 				A0583E5B195026750043B5DC /* XHDisplayLocationViewController.m in Sources */,
+				FE9ADF3719CE6B7400DF3AFA /* AGSearchFriendListViewController.m in Sources */,
 				FE92B6091999940600E8F1D4 /* AGFilterModel.m in Sources */,
 				A0583EA4195026750043B5DC /* XHContactCommunicationView.m in Sources */,
 				A0583E43195026750043B5DC /* XHAudioPlayerHelper.m in Sources */,

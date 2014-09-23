@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+@class AGUserInfoModel;
+
 @interface AGSinglePhotoViewController : UIViewController
+
+@property (assign, nonatomic) long long watchId;
+@property (assign, nonatomic) long long userId;
+@property (strong, nonatomic) AGUserInfoModel *userInfo;
 
 @end

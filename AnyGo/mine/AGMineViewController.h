@@ -6,8 +6,8 @@
 //  Copyright (c) 2014 WingleWong. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "AGViewController.h"
 
-@interface AGMineViewController : UIViewController
+@interface AGMineViewController : AGViewController
 
 @end

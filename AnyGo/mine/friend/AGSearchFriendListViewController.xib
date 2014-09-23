@@ -5,9 +5,9 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AGMineViewController">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AGSearchFriendListViewController">
             <connections>
-                <outlet property="tableview" destination="nVj-GP-uYw" id="eYc-by-dfa"/>
+                <outlet property="tableView" destination="eMl-gu-bBa" id="5ts-EO-P7I"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -16,24 +16,24 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="nVj-GP-uYw">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="eMl-gu-bBa">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="320" id="Loa-bR-lfj"/>
+                        <constraint firstAttribute="width" constant="320" id="XfS-Ia-fj3"/>
                     </constraints>
                     <connections>
-                        <outlet property="dataSource" destination="-1" id="UCU-VC-6Lu"/>
-                        <outlet property="delegate" destination="-1" id="HqW-Xh-7Jq"/>
+                        <outlet property="dataSource" destination="-1" id="t05-mn-E1b"/>
+                        <outlet property="delegate" destination="-1" id="dSv-py-W8B"/>
                     </connections>
                 </tableView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="nVj-GP-uYw" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="d2c-0m-Yu4"/>
-                <constraint firstItem="nVj-GP-uYw" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="nzp-Cf-IRl"/>
-                <constraint firstAttribute="bottom" secondItem="nVj-GP-uYw" secondAttribute="bottom" id="pz9-y5-AsR"/>
+                <constraint firstAttribute="bottom" secondItem="eMl-gu-bBa" secondAttribute="bottom" id="0MH-5d-zAi"/>
+                <constraint firstItem="eMl-gu-bBa" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="VmE-A5-Jk6"/>
+                <constraint firstItem="eMl-gu-bBa" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="id7-z9-y55"/>
             </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>

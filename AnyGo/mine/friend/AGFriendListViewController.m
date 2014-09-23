@@ -13,6 +13,7 @@
 #import "ChineseToPinyin.h"
 #import <UIImageView+WebCache.h>
 #import "AGAddFriendViewController.h"
+#import "AGFriendTableViewCell.h"
 
 @interface AGFriendListViewController ()<UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UISearchDisplayDelegate,ASIHTTPRequestDelegate>
 
@@ -50,10 +51,12 @@
     self.title = @"结友";
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"添加结友" style:UIBarButtonItemStyleDone target:self action:@selector(addFriend:)];
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    self.tableView.sectionIndexBackgroundColor = [UIColor clearColor];
     
-    [self dataDealWithIndex];
+//    [self dataDealWithIndex];
+    
     long long userId = [[[NSUserDefaults standardUserDefaults] objectForKey:USERID] longLongValue];
-    self.request = [ASIHTTPRequest requestWithURL:[AGUrlManager urlGetFriendList:[NSString stringWithFormat:@"%lld",userId] pageIndex:0 pageSize:200]];
+    self.request = [ASIHTTPRequest requestWithURL:[AGUrlManager urlGetFriendList:[NSString stringWithFormat:@"%lld",userId] pageIndex:1 pageSize:20]];
     self.request.delegate = self;
     [self.request startAsynchronous];
 }
@@ -80,6 +83,8 @@
         self.jieyouArr = valueArr;
         [self dataDealWithIndex];
     }
+    
+    [self.tableView reloadData];
 }
 
 - (void)requestFailed:(ASIHTTPRequest *)request{
@@ -180,12 +185,21 @@
     }
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 49.f;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     static NSString *identifier = @"identifier";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    AGFriendTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"AGFriendTableViewCell" owner:self options:nil];
+        for (NSObject *obj in nib) {
+            if ([obj isKindOfClass:[UITableViewCell class]]) {
+                cell = (AGFriendTableViewCell *) obj;
+            }
+        }
     }
     
     AGJieyouModel *model;
@@ -195,8 +209,7 @@
         model = [self.filterArr objectAtIndex:indexPath.row];
     }
     
-    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:model.headUrl] placeholderImage:[UIImage imageNamed:@"view_bg_loginIndex"]];
-    cell.textLabel.text = model.nickname;
+    [cell contentWithJieyou:model];
     
     return cell;
 }
@@ -210,7 +223,7 @@
     }
     
     AGDetailInfoViewController *viewController = [[AGDetailInfoViewController alloc] init];
-    viewController.relation = RelationFriend;
+    viewController.relation = model.relation;
     viewController.userId = [[[NSUserDefaults standardUserDefaults] objectForKey:USERID] longLongValue];
     viewController.friendId = model.jieyouId;
     viewController.hidesBottomBarWhenPushed = YES;

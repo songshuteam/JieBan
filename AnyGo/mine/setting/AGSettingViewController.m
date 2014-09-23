@@ -41,7 +41,6 @@ typedef NS_ENUM(NSInteger, settingItem) {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [self dataArrInit];
-    [self backBarButtonWithTitle:@"返回"];
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     self.tableView.backgroundColor = [UIColor clearColor];
 }

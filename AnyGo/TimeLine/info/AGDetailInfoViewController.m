@@ -63,7 +63,7 @@ typedef NS_ENUM(NSInteger, DetailInfoType) {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        self.relation = RelationNotFriend;
+        self.relation = RelationTypeNone;
     }
     return self;
 }
@@ -82,7 +82,7 @@ typedef NS_ENUM(NSInteger, DetailInfoType) {
     self.request.delegate = self;
     [self.request startAsynchronous];
     
-    if (self.relation == RelationFriend) {
+    if (self.relation == RelationTypeBothWayFollowed || self.relation == RelationTypeFollowed) {
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"..." style:UIBarButtonItemStyleDone target:self action:@selector(friendInfoSetting:)];
     }
 }
@@ -230,7 +230,7 @@ typedef NS_ENUM(NSInteger, DetailInfoType) {
                 UIButton *sendBtn = (UIButton *)[cell viewWithTag:2014072001];
                 sendBtn.frame = CGRectMake(10, 19, 300, 44);
                 [sendBtn setBackgroundImage:[UIImage imageNamed:@"btn_bg_lightBlue"] forState:UIControlStateNormal];
-                if (self.relation == RelationNotFriend) {
+                if (self.relation == RelationTypeNone) {
                     [sendBtn setTitle:@"加关注" forState:UIControlStateNormal];
                 }else{
                     [sendBtn setTitle:@"发消息" forState:UIControlStateNormal];
@@ -252,13 +252,16 @@ typedef NS_ENUM(NSInteger, DetailInfoType) {
     NSNumber *type = [self.dataArr objectAtIndex:indexPath.row];
     if (type.intValue == DetailInfoTypePhotoAlbum) {
         AGSinglePhotoViewController *viewController = [[AGSinglePhotoViewController alloc] init];
+        viewController.watchId = self.userInfo.jieyouId;
+        viewController.userId = self.userId;
+        viewController.userInfo = self.userInfo;
         [self.navigationController pushViewController:viewController animated:YES];
     }
 
 }
 
 - (IBAction)sendMessageBtnClick:(id)sender{
-    if (self.relation == RelationFriend) {
+    if (self.relation == RelationTypeBothWayFollowed || self.relation == RelationTypeFollowing) {
         ChatViewController *viewController = [[ChatViewController alloc] initWithChatter:[NSString stringWithFormat:@"%lld",self.friendId]];
         [self.navigationController pushViewController:viewController animated:YES];
     }else{
@@ -268,10 +271,11 @@ typedef NS_ENUM(NSInteger, DetailInfoType) {
         [self.view addSubview:hud];
         [hud show:YES];
         
-        self.request = [ASIHTTPRequest requestWithURL:[AGUrlManager urlChangeRelation:[NSString stringWithFormat:@"%lld", self.userId] friendId:[NSString stringWithFormat:@"%lld",self.friendId] relationType:2]];
-        self.request.didFinishSelector = @selector(requestRelationFinished:);
-        self.request.timeOutSeconds = 10;
-        [self.request startAsynchronous];
+        ASIFormDataRequest *postRequest = [ASIFormDataRequest requestWithURL:[AGUrlManager urlChangeRelation:[NSString stringWithFormat:@"%lld", self.userId] friendId:[NSString stringWithFormat:@"%lld",self.friendId] relationType:2]];
+        postRequest.didFinishSelector = @selector(requestRelationFinished:);
+        postRequest.delegate = self;
+        postRequest.timeOutSeconds = 5;
+        [postRequest startAsynchronous];
     }
 }
 
@@ -281,7 +285,7 @@ typedef NS_ENUM(NSInteger, DetailInfoType) {
     NSDictionary *dic = [request.responseString JSONValue];
     if ([[dic objectForKey:@"status"] intValue] == 200) {
         int relation = [[dic objectForKey:@"relation"] intValue];
-        self.relation = RelationFriend;
+        self.relation = (RelationType)relation;
         [self detailInfoInit];
         [self.tableView reloadData];
     }
@@ -293,15 +297,22 @@ typedef NS_ENUM(NSInteger, DetailInfoType) {
         NSDictionary *dicValue = [dic objectForKey:@"obj"];
         AGUserInfoModel *model = [AGUserInfoModel parseJsonInfo:dicValue];
         self.userInfo = model;
+        self.relation = model.relation;
+        [self detailInfoInit];
+        
         [self.tableView reloadData];
     }
 }
 
+- (void)requestFailed:(ASIHTTPRequest *)request{
+    [hud hide:YES];
+}
+
 #pragma mark - data init
 - (void)detailInfoInit{
-    if (self.relation == RelationNotFriend) {
+    if (self.relation == RelationTypeNone) {
         self.dataArr = [NSMutableArray arrayWithArray:@[[NSNumber numberWithInteger:DetailInfoTypeBase],[NSNumber numberWithInteger:DetailInfoTypeAge],[NSNumber numberWithInteger:DetailInfoTypeDeclaration],[NSNumber numberWithInteger:DetailInfoTypeSendMessage]]];
-    }else if(self.relation == RelationFriend){
+    }else if(self.relation == RelationTypeBothWayFollowed || self.relation == RelationTypeFollowing){
          self.dataArr = [NSMutableArray arrayWithArray:@[[NSNumber numberWithInteger:DetailInfoTypeBase],[NSNumber numberWithInteger:DetailInfoTypeAge],[NSNumber numberWithInteger:DetailInfoTypeDeclaration],[NSNumber numberWithInteger:DetailInfoTypePhotoAlbum],[NSNumber numberWithInteger:DetailInfoTypeSendMessage]]];
     }
 }

@@ -11,6 +11,7 @@
 
 #import "macros.h"
 
+//#define  serverUrl  @"http://192.168.16.35:1000"
 #define  serverUrl  @"http://121.41.129.149:8080"
 
 #define  appId      @"00200201"
@@ -25,6 +26,6 @@
 
 #define ChatAPPKey      @"huanyoutech#jieban"
 
-#define ChatClientID    @"YXA6fxOWMDAEEeSb97eRsHvmnA"
+#define ChatClientID        @"YXA6fxOWMDAEEeSb97eRsHvmnA"
 #define ChatClientSecret    @"YXA64odXOatki8wXQx7X3dD4hv-KJn8"
 #endif

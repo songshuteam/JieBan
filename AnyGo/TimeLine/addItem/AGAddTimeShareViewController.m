@@ -14,13 +14,14 @@
 #import "QBImagePickerController.h"
 
 #import "SAMTextView.h"
+#import "AGRequestManager.h"
 
 typedef NS_ENUM(NSInteger, ShareItemType) {
     ShareItemTypeMessage = 0,
     ShareItemTypePhoto
 };
 
-@interface AGAddTimeShareViewController ()<UITableViewDataSource,UITableViewDelegate,UITextViewDelegate,UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,AGSelectPhotoTableViewCellDelegate,QBImagePickerControllerDelegate>{
+@interface AGAddTimeShareViewController ()<UITableViewDataSource,UITableViewDelegate,UITextViewDelegate,UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,AGSelectPhotoTableViewCellDelegate,QBImagePickerControllerDelegate,ASIHTTPRequestDelegate,UIAlertViewDelegate>{
     UIViewController *imageViewController;
     BOOL firstSelect;
 }
@@ -57,6 +58,8 @@ typedef NS_ENUM(NSInteger, ShareItemType) {
     self.tableView.allowsSelection = FALSE;
     self.tableView.backgroundColor = [UIColor clearColor];
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"发送" style:UIBarButtonItemStyleDone target:self action:@selector(distributeTimeLine:)];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStyleDone target:self action:@selector(dismissView:)];
     
     if (self.isFromOther) {
         if (self.selectType == 0) {
@@ -75,6 +78,45 @@ typedef NS_ENUM(NSInteger, ShareItemType) {
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+}
+
+#pragma mark -- 
+- (IBAction)dismissView:(id)sender{
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:nil message:@"放弃此次编辑" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+    [alertView show];
+}
+
+- (IBAction)distributeTimeLine:(id)sender{
+    AGShareItem *item = [[AGShareItem alloc] init];
+    item.userId = [[[NSUserDefaults standardUserDefaults] objectForKey:USERID] longLongValue];
+    item.shareContent = self.shareContent;
+    item.sharePhotos = self.photoImages;
+    ASIFormDataRequest *request = [AGRequestManager requestDistributeFeed:item];
+    request.delegate = self;
+    [request startAsynchronous];
+}
+
+#pragma mark -- asiHttpRequest delegate
+- (void)requestFinished:(ASIHTTPRequest *)request{
+    NSDictionary *valueDic = [request.responseString JSONValue];
+    if ([[valueDic objectForKey:@"status"] intValue] == 200) {          //成功
+        NSDictionary *objDic = [valueDic objectForKey:@"obj"];
+        long long feedId = [[objDic objectForKey:@"feedId"] longLongValue];
+        NSString *msg = [objDic objectForKey:@"message"];
+        
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+}
+
+- (void)requestFailed:(ASIHTTPRequest *)request{
+    [self.view makeToast:@"发布信息失败，请稍后重试"];
+}
+
+#pragma  mark --
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex == 1) {
+        [self.navigationController popViewControllerAnimated:YES];
+    }
 }
 
 #pragma mark - UITableView Delegate
@@ -159,7 +201,6 @@ typedef NS_ENUM(NSInteger, ShareItemType) {
 }
 
 - (void)tableViewCell:(AGSelectPhotoTableViewCell *)cell ImageIndex:(NSInteger)index{
-    
 }
 
 #pragma mark - UIActionSheet Delegate

@@ -37,7 +37,6 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     
-    [self backBarButtonWithTitle:@"返回"];
     self.navigationController.navigationBar.hidden = YES;
 }
 

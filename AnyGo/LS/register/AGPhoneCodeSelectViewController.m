@@ -93,6 +93,7 @@
     [self.searchBar sizeToFit];
     
     self.tableView.tableHeaderView = self.searchBar;
+    self.tableView.sectionIndexBackgroundColor = [UIColor clearColor];
     
     // The search bar is hidden when the view becomes visible the first time
     self.tableView.contentOffset = CGPointMake(0, CGRectGetHeight(self.searchBar.bounds));

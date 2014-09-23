@@ -45,7 +45,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.title = @"注册";
-    [self backBarButtonWithTitle:@"返回"];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"下一步" style:UIBarButtonItemStylePlain target:self action:@selector(nextStepAction:)];
     
     [self.phoneCodeBtn setTitle:self.areaCodeModel.phoneCode forState:UIControlStateNormal];

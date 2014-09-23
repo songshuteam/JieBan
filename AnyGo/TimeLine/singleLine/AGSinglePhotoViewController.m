@@ -14,8 +14,9 @@
 #import "AGJieyouBaseInfoView.h"
 #import "AGCompanyDemandCell.h"
 #import "AGPhotoLineTableViewCell.h"
+#import "AGRequestManager.h"
 
-@interface AGSinglePhotoViewController ()<UITableViewDataSource,UITableViewDelegate>
+@interface AGSinglePhotoViewController ()<UITableViewDataSource,UITableViewDelegate,ASIHTTPRequestDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
@@ -53,12 +54,12 @@
     [super viewWillAppear:animated];
     
     
-    AGJieyouModel *jieyou = [[AGJieyouModel alloc] init];
-    jieyou.nickname = @"拧成4附近妇科";
-    jieyou.gender = GenderMale;
-    jieyou.signature = @"fakf阿迪就卡机打卡机戴尔偶偶企鹅dhjahdauoqrqr";
+//    AGJieyouModel *jieyou = [[AGJieyouModel alloc] init];
+//    jieyou.nickname = @"拧成4附近妇科";
+//    jieyou.gender = GenderMale;
+//    jieyou.signature = @"fakf阿迪就卡机打卡机戴尔偶偶企鹅dhjahdauoqrqr";
     
-    [self.jieyouBaseInfoView contentInitWithJieyou:jieyou];
+    [self.jieyouBaseInfoView contentInitWithJieyou:self.userInfo];
     
 }
 
@@ -141,6 +142,31 @@
     }
     
     return nil;
+}
+
+#pragma  mark -- data info
+- (void)requestDataInit{
+    ASIHTTPRequest *request = [AGRequestManager requestFeedWatchId:[NSString stringWithFormat:@"%lld",self.watchId] userId:[NSString stringWithFormat:@"%lld",self.userId] pageSize:20 lastId:@"0"];
+    request.delegate = self;
+    [request startAsynchronous];
+}
+
+#pragma mark -- request delegate
+- (void)requestFinished:(ASIHTTPRequest *)request{
+    NSDictionary *valueDic = [request.responseString JSONValue];
+    if ([[valueDic objectForKey:@"status"] integerValue] == 200) {
+        NSArray *list = [valueDic objectForKey:@"list"];
+        NSMutableArray *shareArr = [[NSMutableArray alloc] initWithCapacity:0];
+        for (NSDictionary *dic in list) {
+            AGShareItem *item = [AGShareItem parseJsonInfo:dic];
+            [shareArr addObject:item];
+        }
+        [self.dataArr addObject:shareArr];
+    }
+}
+
+- (void)requestFailed:(ASIHTTPRequest *)request{
+    [self.view makeToast:@"网络有问题，请检查网络"];
 }
 
 - (void)contenDataInit{

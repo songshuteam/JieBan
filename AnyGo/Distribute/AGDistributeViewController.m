@@ -46,7 +46,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.navigationItem.title = @"发布";
-//    [self backBarButtonWithTitle:@"返回"];
     
     self.jiebanModel = [[AGJiebanPlanModel alloc] init];
     

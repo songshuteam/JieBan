@@ -19,8 +19,9 @@
 #import "AGPersonInfoViewController.h"
 #import "AGSettingViewController.h"
 #import "AGFriendListViewController.h"
+#import "AGRequestManager.h"
 
-@interface AGMineViewController ()<AGMineInfoDelegate,UIActionSheetDelegate>
+@interface AGMineViewController ()<AGMineInfoDelegate,UIActionSheetDelegate,ASIHTTPRequestDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableview;
 @property (nonatomic, strong) NSMutableArray *dataArr;
@@ -46,12 +47,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.dataArr = [[NSMutableArray alloc] initWithCapacity:0];
-    
-    [self contenDataInit];
-    
+
     self.mineInfoView = [[AGMineInfoView alloc] initWithFrame:CGRectMake(0, 0, 320, 84)];
     self.mineInfoView.delegate = self;
     self.tableview.tableHeaderView = self.mineInfoView;
+    self.tableview.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     self.tableview.allowsSelection = NO;
     self.title = @"我的";
     
@@ -68,6 +68,8 @@
     
     self.jieyouModel = jieyou;
     [self.mineInfoView contentInitWithJieyou:self.jieyouModel];
+    
+    [self requestDataInit];
 }
 
 - (void)didReceiveMemoryWarning
@@ -76,6 +78,8 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+#pragma mark -- Btn Click
 - (IBAction)mineSetting:(id)sender{
     AGSettingViewController *viewController = [[AGSettingViewController alloc] init];
     viewController.hidesBottomBarWhenPushed = YES;
@@ -194,6 +198,33 @@
     }
     
     return nil;
+}
+
+#pragma mark -- 
+- (void)requestDataInit{
+    long long userId = [[[NSUserDefaults standardUserDefaults] objectForKey:USERID] longLongValue];
+    ASIHTTPRequest *request = [AGRequestManager requestFeedWithUserId:[NSString stringWithFormat:@"%lld",userId] pageSize:20 lastId:@"0"];
+    request.delegate = self;
+    [request startAsynchronous];
+}
+
+- (void)requestFinished:(ASIHTTPRequest *)request{
+    NSDictionary *valueDic = [request.responseString JSONValue];
+    if ([[valueDic objectForKey:@"status"] integerValue] == 200) {
+        NSArray *list = [valueDic objectForKey:@"list"];
+        NSMutableArray *shareArr = [[NSMutableArray alloc] initWithCapacity:0];
+        for (NSDictionary *dic in list) {
+            AGShareItem *item = [AGShareItem parseJsonInfo:dic];
+            [shareArr addObject:item];
+        }
+        [self.dataArr addObject:shareArr];
+    }
+    
+    [self.tableview reloadData];
+}
+
+- (void)requestFailed:(ASIHTTPRequest *)request{
+    [self.view makeToast:@"网络有问题，请检查网络"];
 }
 
 - (void)contenDataInit{

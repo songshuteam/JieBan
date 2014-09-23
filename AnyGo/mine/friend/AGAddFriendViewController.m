@@ -7,6 +7,7 @@
 //
 
 #import "AGAddFriendViewController.h"
+#import "AGSearchFriendListViewController.h"
 
 @interface AGAddFriendViewController ()<UITextFieldDelegate>
 
@@ -30,6 +31,13 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [AGBorderHelper borderWithView:self.contentView borderWidth:.5f borderColor:[UIColor colorWithRed:170.f/255.f green:170.f/255.f blue:170.f/255.f alpha:1]];
+    self.title = @"添加结友";
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
+    [self.searchKey becomeFirstResponder];
 }
 
 - (void)didReceiveMemoryWarning
@@ -38,11 +46,12 @@
     // Dispose of any resources that can be recreated.
 }
 
-
 #pragma mark -- delegate
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
     NSString *text = textField.text;
-    
+    AGSearchFriendListViewController *viewController = [[AGSearchFriendListViewController alloc] init];
+    viewController.keyWord = text;
+    [self.navigationController pushViewController:viewController animated:YES];
     
     return YES;
 }

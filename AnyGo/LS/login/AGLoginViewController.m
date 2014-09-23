@@ -48,7 +48,6 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    [self backBarButtonWithTitle:@"返回"];
     self.areaCode = [[AGLSAreaCodeModel alloc] init];
     
 }

@@ -40,7 +40,6 @@
     self.areaCode = [[AGLSAreaCodeModel alloc] init];
     
     self.title = @"重置密码";
-    [self backBarButtonWithTitle:@"返回"];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"下一步" style:UIBarButtonItemStylePlain target:self action:@selector(nextStep:)];
 }
 

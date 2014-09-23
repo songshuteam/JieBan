@@ -12,7 +12,11 @@
 
 #import <UIKit/UIKit.h>
 
+#import "AGJieyouModel.h"
+
 @interface ChatViewController : UIViewController
+
+@property (nonatomic, strong) AGUserInfoModel *userInfo;
 
 - (instancetype)initWithChatter:(NSString *)chatter;
 

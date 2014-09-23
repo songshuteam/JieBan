@@ -305,8 +305,10 @@
     if ([self.userInfoArr count] > 0 && [self.userInfoArr count] <= (indexPath.row + 1)) {
         AGUserInfoModel *model = [self.userInfoArr objectAtIndex:indexPath.row];
         cell.name = model.nickname;
-        cell.imageURL = [NSURL URLWithString:@"http://b.hiphotos.baidu.com/image/pic/item/caef76094b36acafff0500fb7ed98d1000e99cd4.jpg"];//model.thumbnailAvatar];
+        cell.imageURL = [NSURL URLWithString:model.thumbnailAvatar];
     }
+    
+//    cell.imageURL = [NSURL URLWithString:@"http://b.hiphotos.baidu.com/image/pic/item/caef76094b36acafff0500fb7ed98d1000e99cd4.jpg"];//model.thumbnailAvatar];
     
     if (!conversation.isGroup) {
         cell.placeholderImage = [UIImage imageNamed:@"chatListCellHead.png"];
@@ -348,6 +350,11 @@
     
     EMConversation *conversation = [self.dataSource objectAtIndex:indexPath.row];
     
+    AGUserInfoModel *model = nil;
+    if ([self.userInfoArr count] > 0 && [self.userInfoArr count] <= (indexPath.row + 1)) {
+        model = [self.userInfoArr objectAtIndex:indexPath.row];
+    }
+    
     ChatViewController *chatController;
     NSString *title = conversation.chatter;
     if (conversation.isGroup) {
@@ -368,7 +375,8 @@
         chatController = [[ChatViewController alloc] initWithChatter:conversation.chatter];
     }
     
-    chatController.title = title;
+    chatController.title = model.nickname;
+    chatController.userInfo = model;
     [conversation markMessagesAsRead:YES];
     chatController.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:chatController animated:YES];
@@ -384,6 +392,7 @@
         EMConversation *converation = [self.dataSource objectAtIndex:indexPath.row];
         [[EaseMob sharedInstance].chatManager removeConversationByChatter:converation.chatter deleteMessages:NO];
         [self.dataSource removeObjectAtIndex:indexPath.row];
+        [self.userInfoArr removeObjectAtIndex:indexPath.row];
         [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }
 }
