@@ -1117,6 +1117,7 @@
 		FE976DBB19AB6CCD00BFE5B9 /* allCity.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = allCity.plist; sourceTree = "<group>"; };
 		FE9786D51997B4070090C986 /* AGAnnotationLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGAnnotationLabel.h; sourceTree = "<group>"; };
 		FE9786D61997B4070090C986 /* AGAnnotationLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGAnnotationLabel.m; sourceTree = "<group>"; };
+		FE97C77F19D6513C0051B314 /* macros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = macros.h; sourceTree = "<group>"; };
 		FE98215119838D54008DB1CE /* SDWebImageManager+MJ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SDWebImageManager+MJ.h"; sourceTree = "<group>"; };
 		FE98215219838D54008DB1CE /* SDWebImageManager+MJ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SDWebImageManager+MJ.m"; sourceTree = "<group>"; };
 		FE98215419838E16008DB1CE /* MBProgressHUD+Add.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+Add.h"; sourceTree = "<group>"; };
@@ -3305,6 +3306,7 @@
 		FEA3BF3919B1AE7900B2EE5A /* 3rdparty */ = {
 			isa = PBXGroup;
 			children = (
+				FE97C77F19D6513C0051B314 /* macros.h */,
 				FEA3BF3A19B1AE7900B2EE5A /* Emoji */,
 				FEA3BF4519B1AE7900B2EE5A /* MWPhotoBrowser */,
 				FEA3BF7D19B1AE7900B2EE5A /* SlimeRefresh */,
