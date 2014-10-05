@@ -22,7 +22,7 @@
 
 #import "AGMineViewController.h"
 
-#import <UMengAnalytics/MobClick.h>
+#import "MobClick.h"
 
 //#import <PBFlatUI/PBFlatSettings.h>
 #import "PBFlatSettings.h"
@@ -161,18 +161,17 @@
     AGNavigationController *navigationController2 = [[AGNavigationController alloc] initWithRootViewController:viewController2];
     navigationController2.title = @"我的";
     
-    AGLoginIndexViewController *viewController3 = [[AGLoginIndexViewController alloc] init];
-    AGNavigationController *navigationController3 = [[AGNavigationController alloc] initWithRootViewController:viewController3];
-    navigationController3.title = @"组队";
+//    AGLoginIndexViewController *viewController3 = [[AGLoginIndexViewController alloc] init];
+//    AGNavigationController *navigationController3 = [[AGNavigationController alloc] initWithRootViewController:viewController3];
+//    navigationController3.title = @"组队";
     
-    AGDistributeViewController *viewController4 = [[AGDistributeViewController alloc] init];
-    viewController3.view.backgroundColor = [UIColor lightGrayColor];
-    AGNavigationController *navigationController4 = [[AGNavigationController alloc] initWithRootViewController:viewController4];
-    navigationController4.title = @"发布";
+    AGDistributeViewController *viewController3 = [[AGDistributeViewController alloc] init];
+    AGNavigationController *navigationController3 = [[AGNavigationController alloc] initWithRootViewController:viewController3];
+    navigationController3.title = @"发布";
     
     AGTabBarController *tabBarContrller = [[AGTabBarController alloc] init];
     tabBarContrller.delegate = self;
-    tabBarContrller.viewControllers = @[navigationController0, navigationController1, navigationController2, navigationController3,navigationController4];
+    tabBarContrller.viewControllers = @[navigationController0, navigationController1, navigationController2, navigationController3];
     
     UITabBar *tabbar = tabBarContrller.tabBar;
     if (SYM_VERSION >= 7) {
@@ -182,13 +181,13 @@
     UITabBarItem *jiebanItem = tabbar.items[0];
     UITabBarItem *xiaoxiItem = tabbar.items[1];
     UITabBarItem *wodeItem = tabbar.items[2];
-    UITabBarItem *zuduiItem = tabbar.items[3];
-    UITabBarItem *fabuItem = tabbar.items[4];
+//    UITabBarItem *zuduiItem = tabbar.items[3];
+    UITabBarItem *fabuItem = tabbar.items[3];
     
     jiebanItem.image = [UIImage imageNamed:@"jieban"];
     xiaoxiItem.image = [UIImage imageNamed:@"xiaoxi"];
     wodeItem.image = [UIImage imageNamed:@"wode"];
-    zuduiItem.image = [UIImage imageNamed:@"zudui"];
+//    zuduiItem.image = [UIImage imageNamed:@"zudui"];
     fabuItem.image = [UIImage imageNamed:@"fabu"];
     
     tabbar.tintColor = [UIColor colorWithRed:132.f/255 green:190.f/255 blue:60.f/255 alpha:1.f];

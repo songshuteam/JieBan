@@ -14,6 +14,7 @@
 		649939F6196A28910037872B /* AGLSModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 649939F5196A28910037872B /* AGLSModel.m */; };
 		64D821F31962911200524721 /* FTCoreTextStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 64D821F01962911200524721 /* FTCoreTextStyle.m */; };
 		64D821F41962911200524721 /* FTCoreTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 64D821F21962911200524721 /* FTCoreTextView.m */; };
+		98074C0E19E0F0C400DB4EFD /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 98074C0B19E0F0C400DB4EFD /* libMobClickLibrary.a */; };
 		9858A89B18AE195C0003982E /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9858A89A18AE195C0003982E /* libz.dylib */; };
 		987ADBEF18AA476B00124964 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 987ADBEE18AA476B00124964 /* Foundation.framework */; };
 		987ADBF118AA476B00124964 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 987ADBF018AA476B00124964 /* CoreGraphics.framework */; };
@@ -607,6 +608,9 @@
 		64D821F01962911200524721 /* FTCoreTextStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTCoreTextStyle.m; sourceTree = "<group>"; };
 		64D821F11962911200524721 /* FTCoreTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTCoreTextView.h; sourceTree = "<group>"; };
 		64D821F21962911200524721 /* FTCoreTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTCoreTextView.m; sourceTree = "<group>"; };
+		98074C0B19E0F0C400DB4EFD /* libMobClickLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMobClickLibrary.a; sourceTree = "<group>"; };
+		98074C0C19E0F0C400DB4EFD /* MobClick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClick.h; sourceTree = "<group>"; };
+		98074C0D19E0F0C400DB4EFD /* MobClickSocialAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClickSocialAnalytics.h; sourceTree = "<group>"; };
 		9858A89A18AE195C0003982E /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		987ADBEB18AA476B00124964 /* AnyGo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnyGo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		987ADBEE18AA476B00124964 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -1631,6 +1635,7 @@
 				FEA69EB8198E464900B4318C /* CFNetwork.framework in Frameworks */,
 				FEA3B8DB19B19E4B00B2EE5A /* libiconv.dylib in Frameworks */,
 				FEA3B8D919B19E4200B2EE5A /* libstdc++.dylib in Frameworks */,
+				98074C0E19E0F0C400DB4EFD /* libMobClickLibrary.a in Frameworks */,
 				FEA3B8D719B19E3600B2EE5A /* libresolv.dylib in Frameworks */,
 				FEA69EBC198E466300B4318C /* MobileCoreServices.framework in Frameworks */,
 				A0CF733E194D57F3005A4436 /* MapKit.framework in Frameworks */,
@@ -1723,6 +1728,16 @@
 				64D821F21962911200524721 /* FTCoreTextView.m */,
 			);
 			path = FTCoreText;
+			sourceTree = "<group>";
+		};
+		98074C0A19E0F0C400DB4EFD /* UMAnalytics_Sdk_3.1.8 */ = {
+			isa = PBXGroup;
+			children = (
+				98074C0B19E0F0C400DB4EFD /* libMobClickLibrary.a */,
+				98074C0C19E0F0C400DB4EFD /* MobClick.h */,
+				98074C0D19E0F0C400DB4EFD /* MobClickSocialAnalytics.h */,
+			);
+			path = UMAnalytics_Sdk_3.1.8;
 			sourceTree = "<group>";
 		};
 		987ADBE218AA476B00124964 = {
@@ -1839,6 +1854,7 @@
 		987ADC1E18AA4D7200124964 /* ThirdPart */ = {
 			isa = PBXGroup;
 			children = (
+				98074C0A19E0F0C400DB4EFD /* UMAnalytics_Sdk_3.1.8 */,
 				FEA3B87719B19E1000B2EE5A /* EaseMobSDK */,
 				FE92372A1987D9DD001EF4DD /* Toast */,
 				FEC43B35197EB4AC007BC3CB /* GrowingTextView */,
@@ -4881,9 +4897,10 @@
 					"$(PROJECT_DIR)/AnyGo/ThirdPart/EaseMobSDK/lib",
 					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos",
 					"$(PROJECT_DIR)/AnyGo/chatUI/3rdparty/UMeng",
+					"$(PROJECT_DIR)/AnyGo/ThirdPart/UMAnalytics_Sdk_3.1.8",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "5ca44ec1-43cb-4021-99da-e733616d02ee";
+				PROVISIONING_PROFILE = "077b5447-609f-4b9d-b669-35fe62a5c7c3";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -4911,9 +4928,10 @@
 					"$(PROJECT_DIR)/AnyGo/ThirdPart/EaseMobSDK/lib",
 					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos",
 					"$(PROJECT_DIR)/AnyGo/chatUI/3rdparty/UMeng",
+					"$(PROJECT_DIR)/AnyGo/ThirdPart/UMAnalytics_Sdk_3.1.8",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "5ca44ec1-43cb-4021-99da-e733616d02ee";
+				PROVISIONING_PROFILE = "077b5447-609f-4b9d-b669-35fe62a5c7c3";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -4921,6 +4939,7 @@
 		};
 		987ADC1B18AA476B00124964 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 56A5242B863345658BB5135A /* Pods-AnyGo.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/AnyGo.app/AnyGo";
@@ -4944,6 +4963,7 @@
 		};
 		987ADC1C18AA476B00124964 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 56A5242B863345658BB5135A /* Pods-AnyGo.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/AnyGo.app/AnyGo";

@@ -11,8 +11,8 @@
 
 #import "macros.h"
 
-//#define  serverUrl  @"http://192.168.16.35:1000"
-#define  serverUrl  @"http://121.41.129.149:8080"
+#define  serverUrl  @"http://192.168.16.35:8080"
+//#define  serverUrl  @"http://121.41.129.149:8080"
 
 #define  appId      @"00200201"
 

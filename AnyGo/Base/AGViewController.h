@@ -11,7 +11,7 @@
 #import "MobClick.h"
 #import "NSObject+NSJSONSerialization.h"
 
-#import <ASIFormDataRequest.h>
+#import <ASIHTTPRequest/ASIFormDataRequest.h>
 
 #import "Toast+UIView.h"
 #import "AGUrlManager.h"

@@ -12,19 +12,18 @@ PODS:
     - Reachability
   - ASIHTTPRequest/S3 (1.8.2):
     - ASIHTTPRequest/Core
-  - FMDB (2.3):
+  - FMDB (2.4):
     - FMDB/standard
-  - FMDB/common (2.3)
-  - FMDB/standard (2.3):
+  - FMDB/common (2.4)
+  - FMDB/standard (2.4):
     - FMDB/common
-  - IQKeyboardManager (3.1.0)
+  - IQKeyboardManager (3.2.0)
   - MBProgressHUD (0.9)
   - QBImagePickerController (2.2.1)
   - Reachability (3.1.1)
   - SDWebImage (3.7.1):
     - SDWebImage/Core
   - SDWebImage/Core (3.7.1)
-  - UMengAnalytics (3.1.2)
 
 DEPENDENCIES:
   - ASIHTTPRequest (~> 1.8.1)
@@ -33,16 +32,14 @@ DEPENDENCIES:
   - MBProgressHUD (~> 0.8)
   - QBImagePickerController
   - SDWebImage (~> 3.6)
-  - UMengAnalytics (~> 3.1.2)
 
 SPEC CHECKSUMS:
   ASIHTTPRequest: 2c8335b49410c0e2ad42829c438e74d454b77590
-  FMDB: 31ec26773c7f7b7890a6038235a1f2bbd933a7cb
-  IQKeyboardManager: f2b81e951c7cff883c6bac397eb4942f60d47014
+  FMDB: 0b2fa25e5264ef177973c0cb8c02c711107979aa
+  IQKeyboardManager: 79e80782b444784b224bb6bc7ddaf57918cd29e7
   MBProgressHUD: 2038dbcf3dce73215abed6001657043d53aa79a8
   QBImagePickerController: 14104b88267c561cecbc00b33a17a21c42700c6a
   Reachability: 8e9635e3cb4f98e7f825e51147f677ecc694d0e7
   SDWebImage: 116e88633b5b416ea0ca4b334a4ac59cf72dd38d
-  UMengAnalytics: db0b67f5334f356f8ac53dcc0abcc4bd9d0ffb45
 
 COCOAPODS: 0.33.1
