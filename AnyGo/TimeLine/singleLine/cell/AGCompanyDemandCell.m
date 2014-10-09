@@ -43,7 +43,7 @@ const CGFloat DestinationWith = 280;
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(16, height, DestinationWith, size.height)];
         label.numberOfLines = 0;
         label.font = [UIFont systemFontOfSize:14];
-        label.attributedText = [self addAttributeColorStr:plan.location  withAllStr:destination];
+        label.attributedText = [self addAttributeColorStr:plan.location withAllStr:destination];
         [self addSubview:label];
         
         height += size.height;
@@ -82,7 +82,7 @@ const CGFloat DestinationWith = 280;
 }
 
 + (CGFloat)heightForCell:(AGJiebanPlanModel *)model{
-    CGFloat height = 234.0f;
+    CGFloat height = 237.0f;
     NSArray *planArr = model.plansArr;
     for (int i = 1, sum = [planArr count]; i < sum; i++) {
         AGPlanModel *plan = [planArr objectAtIndex:i];

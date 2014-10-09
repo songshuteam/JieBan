@@ -17,6 +17,7 @@
 #import "AGJieBanViewController.h"
 #import "AGLoginIndexViewController.h"
 
+#import "AGShareViewController.h"
 #pragma mark -- chat
 #import "ChatListViewController.h"
 
@@ -162,12 +163,13 @@
     navigationController2.title = @"我的";
     
 //    AGLoginIndexViewController *viewController3 = [[AGLoginIndexViewController alloc] init];
-//    AGNavigationController *navigationController3 = [[AGNavigationController alloc] initWithRootViewController:viewController3];
-//    navigationController3.title = @"组队";
-    
-    AGDistributeViewController *viewController3 = [[AGDistributeViewController alloc] init];
+    AGShareViewController *viewController3 = [[AGShareViewController alloc] init];
     AGNavigationController *navigationController3 = [[AGNavigationController alloc] initWithRootViewController:viewController3];
-    navigationController3.title = @"发布";
+    navigationController3.title = @"组队";
+    
+    AGDistributeViewController *viewController4 = [[AGDistributeViewController alloc] init];
+    AGNavigationController *navigationController4 = [[AGNavigationController alloc] initWithRootViewController:viewController4];
+    navigationController4.title = @"发布";
     
     AGTabBarController *tabBarContrller = [[AGTabBarController alloc] init];
     tabBarContrller.delegate = self;

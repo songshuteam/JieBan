@@ -21,7 +21,7 @@
 #import "AGFriendListViewController.h"
 #import "AGRequestManager.h"
 
-@interface AGMineViewController ()<AGMineInfoDelegate,UIActionSheetDelegate,ASIHTTPRequestDelegate>
+@interface AGMineViewController ()<AGMineInfoDelegate, UITableViewDataSource,UITableViewDelegate,UIActionSheetDelegate,ASIHTTPRequestDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableview;
 @property (nonatomic, strong) NSMutableArray *dataArr;
@@ -69,7 +69,8 @@
     self.jieyouModel = jieyou;
     [self.mineInfoView contentInitWithJieyou:self.jieyouModel];
     
-    [self requestDataInit];
+//    [self requestDataInit];
+    [self contenDataInit];
 }
 
 - (void)didReceiveMemoryWarning
@@ -127,35 +128,21 @@
 
 #pragma mark - UITableViewDelegate  UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return [self.dataArr count];
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    NSInteger count = 0;
-    NSObject *object = [self.dataArr objectAtIndex:section];
-    if ([object isKindOfClass:[AGJiebanPlanModel class]]) {
-        count = 1;
-    }else{
-        NSArray *arr = (NSArray *)object;
-        count = [arr count];
-    }
-    
-    return count;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
-    return 6;
+    return [self.dataArr count];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     CGFloat height = 0;
     
-    NSObject *object = [self.dataArr objectAtIndex:indexPath.section];
+    NSObject *object = [self.dataArr objectAtIndex:indexPath.row];
     if ([object isKindOfClass:[AGJiebanPlanModel class]]) {
         height = [AGCompanyDemandCell heightForCell:(AGJiebanPlanModel *)object];
     }else{
-        NSArray *itemArr = (NSArray *)object;
-        AGShareItem *shareItm = [itemArr objectAtIndex:indexPath.row];
+        AGShareItem *shareItm = (AGShareItem *)object;
         height = [AGPhotoLineTableViewCell heightForCell:shareItm];
     }
     
@@ -164,7 +151,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    NSObject *object = [self.dataArr objectAtIndex:indexPath.section];
+    NSObject *object = [self.dataArr objectAtIndex:indexPath.row];
     if ([object isKindOfClass:[AGJiebanPlanModel class]]) {
         static NSString *identify = @"needIdentify";
         
@@ -183,8 +170,7 @@
         return cell;
         
     }else{
-        NSArray *itemArr = (NSArray *)object;
-        AGShareItem *shareItem = [itemArr objectAtIndex:indexPath.row];
+        AGShareItem *shareItem = (AGShareItem *)object;
         
         static NSString *shareIdentify = @"shareIdentify";
         AGPhotoLineTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:shareIdentify];
@@ -217,7 +203,7 @@
             AGShareItem *item = [AGShareItem parseJsonInfo:dic];
             [shareArr addObject:item];
         }
-        [self.dataArr addObject:shareArr];
+        self.dataArr = shareArr;
     }
     
     [self.tableview reloadData];
@@ -275,7 +261,7 @@
     shareItem4.sharePhotos = @[@"http://www.feizl.com/upload2007/2013_02/130227014423722.jpg",@"http://www.feizl.com/upload2007/2013_02/130227014423722.jpg",@"http://www.hua.com/flower_picture/meiguihua/images/r17.jpg",@"http://www.hua.com/flower_picture/meiguihua/images/r17.jpg"];
     
     [self.dataArr addObject:model];
-    [self.dataArr addObject:@[shareItem1,shareItem2,shareItem3,shareItem4]];
+    [self.dataArr addObjectsFromArray:@[shareItem1,shareItem2,shareItem3,shareItem4]];
     [self.tableview reloadData];
     
 }

@@ -108,7 +108,8 @@
     self.time.text = @"2014-7-21";
     self.time.font = [UIFont systemFontOfSize:14];
     self.commentBtn.frame = CGRectMake(270, height, 30, 25);
-    [self.commentBtn setImage:[UIImage imageNamed:@"111.png"] forState:UIControlStateNormal];
+    [self.commentBtn setImage:[UIImage imageNamed:@"btn_bg_blue"] forState:UIControlStateNormal];
+    [self.commentBtn setTitle:@"评论" forState:UIControlStateNormal];
     [self.commentBtn addTarget:self action:@selector(commentBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     
     height += 25;       //the send time height

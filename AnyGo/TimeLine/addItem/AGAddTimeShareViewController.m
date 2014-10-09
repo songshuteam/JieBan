@@ -28,6 +28,7 @@ typedef NS_ENUM(NSInteger, ShareItemType) {
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSMutableArray *dataArray;
+@property (strong, nonatomic) SAMTextView *contentTextView;
 
 @property (strong, nonatomic) NSMutableArray *photoImages;
 @property (strong, nonatomic) NSString *shareContent;
@@ -87,6 +88,7 @@ typedef NS_ENUM(NSInteger, ShareItemType) {
 }
 
 - (IBAction)distributeTimeLine:(id)sender{
+    [self.view endEditing:YES];
     AGShareItem *item = [[AGShareItem alloc] init];
     item.userId = [[[NSUserDefaults standardUserDefaults] objectForKey:USERID] longLongValue];
     item.shareContent = self.shareContent;
